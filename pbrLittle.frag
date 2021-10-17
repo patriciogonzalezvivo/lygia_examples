@@ -34,12 +34,12 @@ varying vec4        v_tangent;
 // #define SPECULAR_FNC specularBlinnPhongRoughnes 
 // #define SPECULAR_FNC specularCookTorrance
 #define LIGHT_COORD  v_lightCoord
-#include "../lygia/lighting/pbrLittle.glsl"
+#include "lygia/lighting/pbrLittle.glsl"
 
-#include "../lygia/lighting/material/baseColor.glsl"
-#include "../lygia/lighting/material/normal.glsl"
-// #include "../lygia/lighting/material/roughness.glsl"
-// #include "../lygia/lighting/material/metallic.glsl"
+#include "lygia/lighting/material/baseColor.glsl"
+#include "lygia/lighting/material/normal.glsl"
+// #include "lygia/lighting/material/roughness.glsl"
+// #include "lygia/lighting/material/metallic.glsl"
 
 float checkBoard(vec2 uv, vec2 _scale) {
     uv = floor(fract(uv * _scale) * 2.0);

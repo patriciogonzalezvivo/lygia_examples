@@ -49,7 +49,7 @@ varying vec4        v_tangent;
 
 #define LIGHT_COORD  v_lightCoord
 #define GOOCH_SPECULAR u_lightColor
-#include "../lygia/lighting/gooch.glsl" 
+#include "lygia/lighting/gooch.glsl" 
 
 float checkBoard(vec2 uv, vec2 _scale) {
     uv = floor(fract(uv * _scale) * 2.0);

@@ -2,43 +2,32 @@
 precision mediump float;
 #endif
 
-uniform sampler2D   u_tex0;
-uniform vec2        u_tex0Resolution;
-uniform sampler2D   u_tex0Depth;
-uniform vec2        u_tex0DepthResolution;
-
 uniform vec3        u_camera;
-
 uniform vec3        u_light;
 uniform vec3        u_lightColor;
-uniform float       u_lightFalloff;
-uniform float       u_lightIntensity;
 
 uniform vec2        u_resolution;
-uniform float       u_time;
 
 varying vec2        v_texcoord;
 
 // SPACE
-#include "../lygia/space/ratio.glsl"
-
-#include "../lygia/sdf/planeSDF.glsl"
-#include "../lygia/sdf/sphereSDF.glsl"
-#include "../lygia/sdf/boxSDF.glsl"
-#include "../lygia/sdf/torusSDF.glsl"
-#include "../lygia/sdf/capsuleSDF.glsl"
-#include "../lygia/sdf/triPrismSDF.glsl"
-#include "../lygia/sdf/cylinderSDF.glsl"
-#include "../lygia/sdf/coneSDF.glsl"
-#include "../lygia/sdf/hexPrismSDF.glsl"
-#include "../lygia/sdf/opUnion.glsl"
-
+#include "lygia/space/ratio.glsl"
+#include "lygia/sdf/planeSDF.glsl"
+#include "lygia/sdf/sphereSDF.glsl"
+#include "lygia/sdf/boxSDF.glsl"
+#include "lygia/sdf/torusSDF.glsl"
+#include "lygia/sdf/capsuleSDF.glsl"
+#include "lygia/sdf/triPrismSDF.glsl"
+#include "lygia/sdf/cylinderSDF.glsl"
+#include "lygia/sdf/coneSDF.glsl"
+#include "lygia/sdf/hexPrismSDF.glsl"
+#include "lygia/sdf/opUnion.glsl"
 
 #define RAYMARCH_AMBIENT ( vec3(0.7, 0.9, 1.0) )
 #define RAYMARCH_BACKGROUND ( vec3(0.7, 0.9, 1.0) +rd.y*0.8 )
 
-#include "../lygia/lighting/raymarch.glsl"
-#include "../lygia/color/space/linear2gamma.glsl"
+#include "lygia/lighting/raymarch.glsl"
+#include "lygia/color/space/linear2gamma.glsl"
 
 float checkBoard(vec2 uv, vec2 _scale) {
     uv = floor(fract(uv * _scale) * 2.0);

@@ -17,6 +17,8 @@ git clone --recursive https://github.com/patriciogonzalezvivo/lygia_examples.git
 
 ## Try some 3D examples
 
+#### Raymarching 
+
 ```bash
 glslViewer raymarching.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
 ```
@@ -24,17 +26,25 @@ glslViewer raymarching.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
 ![](images/raymarching.jpg)
 
 
+#### Gooch
+
 ```bash
 glslViewer assets/dragon.obj gooch.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
 ```
 
 ![](images/gooch.jpg)
 
+
+#### PBR LITTLE 
+
 ```bash
 glslViewer assets/dragon.obj pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
 ```
 
 ![](images/pbrLittle.jpg)
+
+
+#### PBR LITTLE with CUBEMAP
 
 ```bash
 glslViewer assets/dragon.obj pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
