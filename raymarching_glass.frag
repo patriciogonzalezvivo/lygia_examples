@@ -24,7 +24,6 @@ uniform float       u_time;
 
 varying vec2        v_texcoord;
 
-// #define LIGHT_COLOR vec3(0.9, 0.9, 0.8)
 #define LIGHT_POSITION vec3(-1.0, 1., -1.0)
 #define RAYMARCH_BACKGROUND vec3(1.0)
 #define RAYMARCH_MATERIAL_FNC raymarchGlassRender

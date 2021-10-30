@@ -86,14 +86,15 @@ vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     vec3  lig = normalize( LIGHT_POSITION );
     vec3  hal = normalize( lig - ray );
     vec3  vie = normalize( ray - pos);
+    float dom = smoothstep( -0.1, 0.1, ref.y );
     float occ = raymarchAO( pos, nor );
     float n2v = dot(nor, -vie);
 
     float diffuse = diffuse(lig, nor, vie, roughness);
     float specular = specular(lig, nor, vie, roughness);
 
-    diffuse *= raymarchSoftShadow( pos, lig, 0.02, 2.5 ) * occ;
-    specular *= raymarchSoftShadow( pos, ref, 0.02, 2.5 ) * occ;
+    diffuse *= raymarchSoftShadow( pos, lig, 0.02, 2.5 );
+    dom = raymarchSoftShadow( pos, ref, 0.02, 2.5 );// * occ;
     
     color.rgb *= diffuse;
 #ifdef SCENE_SH_ARRAY
@@ -105,12 +106,13 @@ vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
                             saturate(1.1 + n2v + metallic) * // Fresnel
                             (metallic + smooth * 4.0); // make smaller highlights brighter
 
-    vec3 ambientSpecular = tonemapReinhard( envMap(ref, roughness, metallic) ) * specIntensity;
+    vec3 ambientSpecular = tonemapReinhard( envMap(ref, roughness, metallic) ) * specIntensity * occ;
     ambientSpecular += fresnel(ref, vec3(0.04), n2v) * metallic;
+    ambientSpecular *= LIGHT_COLOR * 0.1 + dom;
 
-    color.rgb   = color.rgb * notMetal + ( ambientSpecular 
-                    + LIGHT_COLOR * 2.0 * specular
-                    ) * (notMetal * smooth + color.rgb * metallic);
+    color.rgb   =   color.rgb * notMetal + 
+                    (ambientSpecular + LIGHT_COLOR * 2.0 * specular) * 
+                    (notMetal * smooth + color.rgb * metallic);
 
     color = linear2gamma(color);
     
