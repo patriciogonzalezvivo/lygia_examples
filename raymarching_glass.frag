@@ -74,10 +74,9 @@ vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
 
     vec3  lig = normalize( LIGHT_POSITION );
     vec3  ref = reflect( ray, nor );
-    vec3  hal = normalize( lig - ray );
     vec3  vie = normalize( ray - pos);
     float occ = raymarchAO( pos, nor );
-    float n2v = dot(nor, -vie);
+    float dom = raymarchSoftShadow( pos, ref, 0.02, 2.5 ) * occ;
 
     const float etaR = 0.64;
     const float etaG = 0.65;
@@ -89,13 +88,13 @@ vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     vec3 Id = Kd * max(dot(nor, lig), 0.0);
     color = color + Id * 0.25;
 
-    vec3 Is = vec3(pow(max(dot(ref, vie),0.0), 128.0));
-    color = color + Is;
+    vec3 Is = vec3(pow(max(dot(ref, -vie),0.0), 128.0));
+    color = color + Is * dom;
 
-    float fr = f;//fresnel(vie, nor, 0.2);
+    float fr = fresnel(-vie, nor, 0.2);
     
     vec3 Ir = fr * envMap(ref, roughness).rgb;
-    color = color + Ir;
+    color = color + Ir * dom;
 
     vec3 refractR = refract(vie, nor, etaR);
     vec3 refractG = refract(vie, nor, etaG);
