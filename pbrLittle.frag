@@ -35,14 +35,16 @@ varying vec4        v_tangent;
 // #define SPECULAR_FNC specularPhongRoughness
 // #define SPECULAR_FNC specularBlinnPhongRoughnes 
 // #define SPECULAR_FNC specularCookTorrance
-#define SPECULAR_FNC specularGGX
-#define LIGHT_COORD  v_lightCoord
+// #define SPECULAR_FNC specularGGX
+#define SURFACE_POSITION    v_position
+#define CAMERA_POSITION     u_camera
+#define LIGHT_POSITION      u_light
+#define LIGHT_COLOR         u_lightColor
+#define LIGHT_COORD         v_lightCoord
 #include "lygia/lighting/pbrLittle.glsl"
 
 #include "lygia/lighting/material/baseColor.glsl"
 #include "lygia/lighting/material/normal.glsl"
-// #include "lygia/lighting/material/roughness.glsl"
-// #include "lygia/lighting/material/metallic.glsl"
 
 float checkBoard(vec2 uv, vec2 _scale) {
     uv = floor(fract(uv * _scale) * 2.0);
