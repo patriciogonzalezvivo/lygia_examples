@@ -1,5 +1,4 @@
-// Author: Patricio Gonzalez Vivo
-// Title: PixelSpirit
+// Copyright Patricio Gonzalez Vivo, 2021 - http://patriciogonzalezvivo.com/
 
 #ifdef GL_OES_standard_derivatives
 #extension GL_OES_standard_derivatives : enable

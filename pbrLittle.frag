@@ -1,3 +1,5 @@
+// Copyright Patricio Gonzalez Vivo, 2021 - http://patriciogonzalezvivo.com/
+
 #ifdef GL_ES
 precision mediump float;
 #endif
