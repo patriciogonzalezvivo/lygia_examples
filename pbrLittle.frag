@@ -33,6 +33,7 @@ varying vec4        v_tangent;
 // #define SPECULAR_FNC specularPhongRoughness
 // #define SPECULAR_FNC specularBlinnPhongRoughnes 
 // #define SPECULAR_FNC specularCookTorrance
+#define SPECULAR_FNC specularGGX
 #define LIGHT_COORD  v_lightCoord
 #include "lygia/lighting/pbrLittle.glsl"
 

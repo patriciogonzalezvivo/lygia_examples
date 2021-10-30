@@ -17,15 +17,6 @@ git clone --recursive https://github.com/patriciogonzalezvivo/lygia_examples.git
 
 ## Try some 3D examples
 
-#### Raymarching 
-
-```bash
-glslViewer raymarching.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
-```
-
-![](images/raymarching.jpg)
-
-
 #### Gooch
 
 ```bash
@@ -51,3 +42,30 @@ glslViewer assets/dragon.obj pbrLittle.frag -e camera_position,1.43923,-0.891203
 ```
 
 ![](images/pbrLittle_cubemap.jpg)
+
+
+#### Raymarching 
+
+```bash
+glslViewer raymarching.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+```
+
+![](images/raymarching.jpg)
+
+
+#### Raymarching custom PBR
+
+```bash
+glslViewer raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+```
+
+![](images/raymarching_pbr.jpg)
+
+
+#### Raymarching custom PBR with CUBEMAP
+
+```bash
+glslViewer raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+```
+
+![](images/raymarching_pbr_cubemap.jpg)
