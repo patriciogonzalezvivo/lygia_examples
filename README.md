@@ -69,3 +69,21 @@ glslViewer raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C
 ```
 
 ![](images/raymarching_pbr_cubemap.jpg)
+
+
+#### Raymarching custom GLASS material
+
+```bash
+glslViewer raymarching_glass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+```
+
+![](images/raymarching_glass.jpg)
+
+
+#### Raymarching custom GLASS material with CUBEMAP
+
+```bash
+glslViewer raymarching_glass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+```
+
+![](images/raymarching_glass_cubemap.jpg)

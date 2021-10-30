@@ -13,37 +13,23 @@ uniform samplerCube u_cubeMap;
 uniform vec3        u_SH[9];
 
 uniform vec3        u_camera;
-
 uniform vec3        u_light;
 uniform vec3        u_lightColor;
 uniform float       u_lightIntensity;
 uniform float       u_lightFalloff;
 
-uniform vec2        u_mouse;
 uniform vec2        u_resolution;
+uniform vec2        u_mouse;
 uniform float       u_time;
 
 varying vec2        v_texcoord;
 
-#define SCENE_CUBEMAP u_cubeMap
-
-#define AA 2
 #define LIGHT_COLOR vec3(0.5)
 #define LIGHT_POSITION vec3(-1.0, 1., -1.0)
 #define RAYMARCH_BACKGROUND vec3(1.0)
 #define RAYMARCH_MATERIAL_FNC raymarchPbrRender
 
-// #define DIFFUSE_FNC diffuseOrenNayar
-// #define DIFFUSE_FNC diffuseBurley
-// #define DIFFUSE_FNC diffuseLambert
-// #define SPECULAR_FNC specularGaussian
-// #define SPECULAR_FNC specularBeckmann
-// #define SPECULAR_FNC specularCookTorrance
-// #define SPECULAR_FNC specularPhongRoughness
-// #define SPECULAR_FNC specularBlinnPhongRoughnes 
-
 #include "lygia/math/const.glsl"
-#include "lygia/color/space/gamma2linear.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/color/tonemap.glsl"
 #include "lygia/space/ratio.glsl"
@@ -52,7 +38,7 @@ varying vec2        v_texcoord;
 #include "lygia/sdf/opUnion.glsl"
 #include "lygia/sdf/opRepite.glsl"
 
-vec3 raymarchPbrRender(vec3 rd, vec3 pos, vec3 nor, vec3 map);
+vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/lighting/diffuse.glsl"
 #include "lygia/lighting/specular.glsl"
@@ -84,22 +70,22 @@ vec4 raymarchMap(in vec3 pos ) {
     return res;  
 }
 
-vec3 raymarchPbrRender(vec3 rd, vec3 pos, vec3 nor, vec3 map) {
+vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     if ( map.r + map.g + map.b <= 0.0 ) 
-        return ( envMap(rd, 0.).rgb );
+        return tonemapReinhard( envMap(ray, 0.).rgb );
 
     vec3 color = vec3(map.z);
 
     float roughness = map.x;
     float metallic = map.y;
 
-    vec3 ref = reflect( rd, nor );
     float notMetal = 1. - metallic;
     float smooth = .95 - saturate(roughness);
 
+    vec3  ref = reflect( ray, nor );
     vec3  lig = normalize( LIGHT_POSITION );
-    vec3  hal = normalize( lig - rd );
-    vec3  vie = normalize( rd - pos);
+    vec3  hal = normalize( lig - ray );
+    vec3  vie = normalize( ray - pos);
     float occ = raymarchAO( pos, nor );
     float n2v = dot(nor, -vie);
 
@@ -137,24 +123,10 @@ vec3 raymarchPbrRender(vec3 rd, vec3 pos, vec3 nor, vec3 map) {
 void main(void) {
     vec3 color = vec3(0.0);
     vec2 pixel = 1.0/u_resolution;
-  
-#if AA > 1
-    for( int m = 0; m<AA; m++ )
-    for( int n = 0; n<AA; n++ ) 
-    {
-        // pixel coordinates
-    vec2 o = vec2(float(m),float(n)) / float(AA) - 0.5;
-    vec2 st = (v_texcoord * u_resolution + o) * pixel;
-#else    
+    
     vec2 st = v_texcoord;
-#endif
     vec2 uv = ratio(st, u_resolution);
     color.rgb += raymarch(u_camera, uv).rgb;
-
-#if AA > 1
-    }
-    color /= float(AA*AA);
-#endif
 
     gl_FragColor = vec4(color, 1.0);
 }
