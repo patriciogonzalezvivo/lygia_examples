@@ -26,7 +26,7 @@ varying vec2        v_texcoord;
 #define LIGHT_POSITION  vec3(0.0, 10.0, -50.0)
 #define LIGHT_COLOR     vec3(0.95, 0.65, 0.5)
 #define RAYMARCH_AMBIENT vec3(0.7, 0.9, 1.0)
-#define RAYMARCH_BACKGROUND ( vec3(0.7, 0.9, 1.0) +rd.y*0.8 )
+#define RAYMARCH_BACKGROUND ( vec3(0.7, 0.9, 1.0) + ray.y * 0.8 )
 
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
