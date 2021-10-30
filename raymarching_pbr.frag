@@ -13,6 +13,12 @@ uniform samplerCube u_cubeMap;
 uniform vec3        u_SH[9];
 
 uniform vec3        u_camera;
+
+uniform vec3        u_light;
+uniform vec3        u_lightColor;
+uniform float       u_lightIntensity;
+uniform float       u_lightFalloff;
+
 uniform vec2        u_mouse;
 uniform vec2        u_resolution;
 uniform float       u_time;
@@ -22,11 +28,10 @@ varying vec2        v_texcoord;
 #define SCENE_CUBEMAP u_cubeMap
 
 #define AA 2
-// #define LIGHT_COLOR vec3(0.9, 0.9, 0.8)
+#define LIGHT_COLOR vec3(0.5)
 #define LIGHT_POSITION vec3(-1.0, 1., -1.0)
 #define RAYMARCH_BACKGROUND vec3(1.0)
 #define RAYMARCH_MATERIAL_FNC raymarchPbrRender
-// #define IBL_LUMINANCE u_iblLuminance
 
 // #define DIFFUSE_FNC diffuseOrenNayar
 // #define DIFFUSE_FNC diffuseBurley
@@ -62,14 +67,13 @@ float checkBoard(vec2 uv, vec2 _scale) {
 vec4 raymarchMap(in vec3 pos ) {
     vec4 res = vec4(1.);
 
-
     float check = checkBoard(pos.xz, vec2(1.0));
     res = opUnion( res, vec4( vec3(1., 0.0, 0.5 + check * 0.5), planeSDF(pos) ) );
 
     pos.y -= 0.3;
 
-    float roughness = 0.001 + (floor(pos.x + 0.5) * 0.25) + 0.5;
-    float metallic = 0.001 + (floor(pos.z + 0.5) * 0.25) + 0.45;
+    float roughness = 0.0001 + (floor(pos.x + 0.5) * 0.25) + 0.5;
+    float metallic = 0.0 + (floor(pos.z + 0.5) * 0.25) + 0.4;
 
     pos += 0.5;
     pos = opRepite(pos, vec3(-2.0, 0.0, -2.0), vec3(2.0, 0.0, 2.0), 1.0);
@@ -103,7 +107,7 @@ vec3 raymarchPbrRender(vec3 rd, vec3 pos, vec3 nor, vec3 map) {
     float specular = specular(lig, nor, vie, roughness);
 
     diffuse *= raymarchSoftShadow( pos, lig, 0.02, 2.5 ) * occ;
-    specular *= raymarchSoftShadow( pos, ref, 0.02, 2.5 )* occ;
+    specular *= raymarchSoftShadow( pos, ref, 0.02, 2.5 ) * occ;
     
     color.rgb *= diffuse;
 #ifdef SCENE_SH_ARRAY

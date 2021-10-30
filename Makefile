@@ -17,6 +17,12 @@ raymarching_pbr:
 raymarching_pbr_cubemap:
 	glslViewer raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -c assets/uffizi_cross.hdr -l
 
+raymarching_glass:
+	glslViewer raymarching_glass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+
+raymarching_glass_cubemap:
+	glslViewer raymarching_glass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -c assets/uffizi_cross.hdr -l
+
 screenshots:
 	glslViewer assets/dragon.obj gooch.frag -e camera_position,1.43923,-0.891203,-1.98093 -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/gooch.jpg
 	glslViewer assets/dragon.obj pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/pbrLittle.jpg
