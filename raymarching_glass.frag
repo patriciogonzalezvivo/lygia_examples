@@ -1,9 +1,5 @@
 // Copyright Patricio Gonzalez Vivo, 2021 - http://patriciogonzalezvivo.com/
 
-#ifdef GL_OES_standard_derivatives
-#extension GL_OES_standard_derivatives : enable
-#endif
-
 #ifdef GL_ES
 precision highp float;
 #endif
@@ -14,38 +10,21 @@ uniform vec3        u_SH[9];
 uniform vec3        u_camera;
 uniform vec3        u_light;
 uniform vec3        u_lightColor;
-uniform float       u_lightIntensity;
-uniform float       u_lightFalloff;
 
 uniform vec2        u_resolution;
-uniform vec2        u_mouse;
-uniform float       u_time;
 
 varying vec2        v_texcoord;
 
-#define LIGHT_POSITION vec3(-1.0, 1., -1.0)
-#define RAYMARCH_BACKGROUND vec3(1.0)
-#define RAYMARCH_MATERIAL_FNC raymarchGlassRender
-
-#include "lygia/math/const.glsl"
-#include "lygia/color/space/linear2gamma.glsl"
-#include "lygia/color/tonemap.glsl"
 #include "lygia/space/ratio.glsl"
+
 #include "lygia/sdf/sphereSDF.glsl"
 #include "lygia/sdf/opRepite.glsl"
 
+#define RAYMARCH_BACKGROUND vec3(1.0)
+#define RAYMARCH_MATERIAL_FNC raymarchGlassRender
 vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/lighting/envMap.glsl"
-
-float fresnel(vec3 V, vec3 N, float R0) {
-    float cosAngle = 1.0-max(dot(V, N), 0.0);
-    float result = cosAngle * cosAngle;
-    result = result * result;
-    result = result * cosAngle;
-    result = clamp(result * (1.0 - R0) + R0, 0.0, 1.0);
-    return result;
-}
 
 vec4 raymarchMap(in vec3 pos ) {
     vec4 res = vec4(1.);
@@ -80,9 +59,8 @@ vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     const float etaR = 0.64;
     const float etaG = 0.65;
     const float etaB = 0.66;
-    const float fresnelPower = 6.0;
     const float f = ((1.0-etaG)*(1.0-etaG)) / ((1.0+etaG)*(1.0+etaG));
-    float ratio = f + (1.0 - f) * pow((1.0 - dot(-vie, nor)), fresnelPower);
+    float fr = saturate(f + (1.0 - f) * pow((1.0 - dot(-vie, nor)), 6.0));
 
     vec3 Id = Kd * max(dot(nor, lig), 0.0);
     color = color + Id * 0.25;
@@ -90,7 +68,6 @@ vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     vec3 Is = vec3(pow(max(dot(ref, -vie),0.0), 128.0));
     color = color + Is * dom;
 
-    float fr = fresnel(-vie, nor, 0.2);
     
     vec3 Ir = fr * envMap(ref, roughness).rgb;
     color = color + Ir * dom;

@@ -1,9 +1,5 @@
 // Copyright Patricio Gonzalez Vivo, 2021 - http://patriciogonzalezvivo.com/
 
-#ifdef GL_OES_standard_derivatives
-#extension GL_OES_standard_derivatives : enable
-#endif
-
 #ifdef GL_ES
 precision highp float;
 #endif
@@ -12,31 +8,24 @@ uniform samplerCube u_cubeMap;
 uniform vec3        u_SH[9];
 
 uniform vec3        u_camera;
-uniform vec3        u_light;
-uniform vec3        u_lightColor;
-uniform float       u_lightIntensity;
-uniform float       u_lightFalloff;
 
 uniform vec2        u_resolution;
-uniform vec2        u_mouse;
 uniform float       u_time;
 
 varying vec2        v_texcoord;
 
-#define LIGHT_COLOR vec3(0.5)
-#define LIGHT_POSITION vec3(-1.0, 1., -1.0)
-#define RAYMARCH_BACKGROUND vec3(1.0)
-#define RAYMARCH_MATERIAL_FNC raymarchPbrRender
-
-#include "lygia/math/const.glsl"
-#include "lygia/color/space/linear2gamma.glsl"
-#include "lygia/color/tonemap.glsl"
 #include "lygia/space/ratio.glsl"
+#include "lygia/color/space/linear2gamma.glsl"
+
 #include "lygia/sdf/planeSDF.glsl"
 #include "lygia/sdf/sphereSDF.glsl"
 #include "lygia/sdf/opUnion.glsl"
 #include "lygia/sdf/opRepite.glsl"
 
+#define LIGHT_COLOR vec3(0.5)
+#define LIGHT_POSITION vec3(-1.0, 1., -1.0)
+#define RAYMARCH_BACKGROUND vec3(1.0)
+#define RAYMARCH_MATERIAL_FNC raymarchPbrRender
 vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/lighting/diffuse.glsl"
@@ -93,7 +82,7 @@ vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     float specular = specular(lig, nor, vie, roughness);
 
     diffuse *= raymarchSoftShadow( pos, lig, 0.02, 2.5 );
-    dom = raymarchSoftShadow( pos, ref, 0.02, 2.5 );// * occ;
+    dom = raymarchSoftShadow( pos, ref, 0.02, 2.5 );
     
     color.rgb *= diffuse;
 #ifdef SCENE_SH_ARRAY
@@ -114,8 +103,6 @@ vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
                     (notMetal * smooth + color.rgb * metallic);
 
     color = linear2gamma(color);
-    
-    // color = map;
 
     return color;
 }

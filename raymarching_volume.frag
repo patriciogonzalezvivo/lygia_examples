@@ -10,19 +10,12 @@ uniform vec3        u_SH[9];
 uniform vec3        u_camera;
 uniform vec3        u_light;
 uniform vec3        u_lightColor;
-uniform float       u_lightIntensity;
-uniform float       u_lightFalloff;
 
 uniform vec2        u_resolution;
-// uniform vec2        u_mouse;
-// uniform float       u_time;
 
 varying vec2        v_texcoord;
 
-#include "lygia/math/const.glsl"
-#include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/space/ratio.glsl"
-#include "lygia/space/rotateZ.glsl"
 #include "lygia/generative/fbm.glsl"
 
 #include "lygia/sdf/boxFrameSDF.glsl"
