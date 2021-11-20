@@ -1,8 +1,7 @@
-You can try this examples with
+This are GLSL examples of how to use [LYGIA Shader Library](https://github.com/patriciogonzalezvivo/lygia). You can try them using:
 
 * [glslViewer](https://github.com/patriciogonzalezvivo/glslViewer/wiki/Compiling)
 * [glsl-canvas VS Code pluging](https://marketplace.visualstudio.com/items?itemName=circledev.glsl-canvas)
-* ...
 
 
 ## How to start?
@@ -22,6 +21,118 @@ glslViewer draw_digits.frag -l
 ```
 
 ![](images/draw_digits.jpg)
+
+
+#### Filter
+
+#### boxBlur 1D
+
+```bash
+	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on -l
+```
+
+![](images/filter_boxBlur1D.jpg)
+
+
+#### boxBlur 2D
+
+```bash
+filter_boxBlur2D:
+	glslViewer filter_boxBlur2D.frag assets/danny.png -l
+```
+
+![](images/filter_boxBlur2D.jpg)
+
+
+#### GaussianBlur 1D
+
+```bash
+	glslViewer filter_gaussianBlur1D.frag assets/danny.png -e buffers,on -l
+```
+
+![](images/filter_gaussianBlur1D.jpg)
+
+
+#### GaussianBlur 2D
+
+```bash
+	glslViewer filter_gaussianBlur2D.frag assets/danny.png -l
+```
+
+![](images/filter_gaussianBlur2D.jpg)
+
+
+#### BilateralBlur 2D 
+
+```bash
+	glslViewer filter_bilateralBlur2D.frag assets/danny.png -l
+```
+
+![](images/filter_bilateralBlur2D.jpg)
+
+
+#### RadialBlur 2D 
+
+```bash
+	glslViewer filter_radialBlur2D.frag assets/danny.png -l
+```
+
+![](images/filter_radialBlur2D.jpg)
+
+
+#### NoiseBlur 2D 
+
+```bash
+	glslViewer filter_noiseBlur2D.frag assets/danny.png -l
+```
+
+![](images/filter_noiseBlur2D.jpg)
+
+
+#### Median 2D 
+
+```bash
+	glslViewer filter_median2D.frag assets/danny.png -l
+```
+
+![](images/filter_median2D.jpg)
+
+
+#### Kuwahara 2D 
+
+```bash
+	glslViewer filter_kuwahara2D.frag assets/danny.png -l
+```
+
+![](images/filter_kuwahara2D.jpg)
+
+
+#### Sharpen 2D 
+
+```bash
+	glslViewer filter_sharpen2D.frag assets/danny.png -l
+```
+
+![](images/filter_sharpen2D.jpg)
+
+
+#### Laplacian 2D 
+
+```bash
+	glslViewer filter_laplacian2D.frag assets/danny.png -l
+```
+
+![](images/filter_laplacian2D.jpg)
+
+
+#### Edge 2D 
+
+```bash
+	glslViewer filter_edge2D.frag assets/danny.png -l
+```
+
+![](images/filter_edge2D.jpg)
+
 
 # LIGHTING
 

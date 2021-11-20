@@ -28,7 +28,7 @@ void main(void) {
     color += stroke(sdf, size1, width);
 
     // Inside circle
-    float size2 = (size1 - width) * (sin(u_time * 0.1) * 0.5 + 0.5);
+    float size2 = (size1 - width) * (cos(u_time * 0.25) * 0.5 + 0.5);
     color += fill(sdf, size2);
 
     // Debug
