@@ -1,5 +1,3 @@
-# Lygia examples
-
 You can try this examples with
 
 * [glslViewer](https://github.com/patriciogonzalezvivo/glslViewer/wiki/Compiling)
@@ -15,84 +13,95 @@ Clone this repository recursivelly
 git clone --recursive https://github.com/patriciogonzalezvivo/lygia_examples.git
 ```
 
-## Try some 3D examples
+# DRAW
+
+#### Digits
+
+```bash
+glslViewer draw_digits.frag -l
+```
+
+![](images/draw_digits.jpg)
+
+# LIGHTING
 
 #### Gooch
 
 ```bash
-glslViewer assets/dragon.obj gooch.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
 ```
 
-![](images/gooch.jpg)
+![](images/lighting_gooch.jpg)
 
 
-#### PBR LITTLE 
+#### PBR little 
 
 ```bash
-glslViewer assets/dragon.obj pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
 ```
 
-![](images/pbrLittle.jpg)
+![](images/lighting_pbrLittle.jpg)
 
 
-#### PBR LITTLE with CUBEMAP
+#### PBR little with cubemap
 
 ```bash
-glslViewer assets/dragon.obj pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
+glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
 ```
 
-![](images/pbrLittle_cubemap.jpg)
+![](images/lighting_pbrLittle_cubemap.jpg)
 
 
 #### Raymarching 
 
 ```bash
-glslViewer raymarching.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+glslViewer lighting_raymarching.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
 ```
 
-![](images/raymarching.jpg)
+![](images/lighting_raymarching.jpg)
 
 
 #### Raymarching custom PBR
 
 ```bash
-glslViewer raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+glslViewer lighting_raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
 ```
 
-![](images/raymarching_pbr.jpg)
+![](images/lighting_raymarching_pbr.jpg)
 
 
 #### Raymarching custom PBR with CUBEMAP
 
 ```bash
-glslViewer raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+glslViewer lighting_raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
 ```
 
-![](images/raymarching_pbr_cubemap.jpg)
+![](images/lighting_raymarching_pbr_cubemap.jpg)
 
 
 #### Raymarching custom GLASS material
 
 ```bash
-glslViewer raymarching_glass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+glslViewer lighting_raymarching_glass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
 ```
 
-![](images/raymarching_glass.jpg)
+![](images/lighting_raymarching_glass.jpg)
 
 
 #### Raymarching custom GLASS material with CUBEMAP
 
 ```bash
-glslViewer raymarching_glass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+glslViewer lighting_raymarching_glass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
 ```
 
-![](images/raymarching_glass_cubemap.jpg)
+![](images/lighting_raymarching_glass_cubemap.jpg)
 
 
 #### Raymarching efault VOLUME
 
 ```bash
-glslViewer raymarching_volume.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+glslViewer lighting_raymarching_volume.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
 ```
 
-![](images/raymarching_volume.jpg)
+![](images/lighting_raymarching_volume.jpg)
+
