@@ -1,6 +1,10 @@
+# DRAW
+
 draw_digits:
 	glslViewer draw_digits.frag -l
 
+
+# FILTER
 
 filter_boxBlur1D:
 	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on -l
@@ -44,6 +48,8 @@ filter_edge2D:
 	glslViewer filter_edge2D.frag assets/danny.png -l
 
 
+# LIGHTING
+
 lighting_gooch:
 	glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
 
@@ -74,8 +80,10 @@ lighting_raymarching_volume:
 	glslViewer lighting_raymarching_volume.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
 
 
+# MANTAINANCE
+
 screenshots:
-	glslViewer draw_digits.frag -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/draw_digits.jpg
+	glslViewer draw_digits.frag --headless --msaa --fxaa -E screenshot,images/draw_digits.jpg
 
 	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on --headless -E screenshot,images/filter_boxBlur1D.jpg
 	glslViewer filter_boxBlur2D.frag assets/danny.png --headless -E screenshot,images/filter_boxBlur2D.jpg
