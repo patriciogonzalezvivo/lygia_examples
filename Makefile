@@ -4,7 +4,8 @@ draw_digits:
 	glslViewer draw_digits.frag -l
 
 
-# FILTER
+color_mix:
+	glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
 
 filter_boxBlur1D:
 	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on -l
@@ -84,6 +85,8 @@ lighting_raymarching_volume:
 
 screenshots:
 	glslViewer draw_digits.frag --headless --msaa --fxaa -E screenshot,images/draw_digits.jpg
+
+	glslViewer color_mix.frag lygia/assets/mixbox_lut.png -w 1080 -h 1080 --headless --msaa -E screenshot,images/color_mix.jpg
 
 	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on --headless -E screenshot,images/filter_boxBlur1D.jpg
 	glslViewer filter_boxBlur2D.frag assets/danny.png --headless -E screenshot,images/filter_boxBlur2D.jpg
