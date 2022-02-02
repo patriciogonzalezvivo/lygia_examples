@@ -76,6 +76,15 @@ lighting_raymarching_glass_cubemap:
 lighting_raymarching_volume:
 	glslViewer lighting_raymarching_volume.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
 
+simulate_ripples:
+	glslViewer simulate_ripples.frag -l  
+
+simulate_grayscott:
+	glslViewer simulate_grayscott.frag -l  
+
+simulate_fluid:
+	glslViewer simulate_fluid.frag -l  
+
 
 screenshots:
 	glslViewer draw_digits.frag -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/draw_digits.jpg
