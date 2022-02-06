@@ -87,6 +87,15 @@ lighting_atmosphere_fisheye:
 	glslViewer lighting_atmosphere.frag -l -e define,PROJECTION_MODE,1
 
 # MANTAINANCE
+simulate_ripples:
+	glslViewer simulate_ripples.frag -l  
+
+simulate_grayscott:
+	glslViewer simulate_grayscott.frag -l  
+
+simulate_fluid:
+	glslViewer simulate_fluid.frag -l  
+
 
 screenshots:
 	glslViewer draw_digits.frag --headless --msaa --fxaa -E screenshot,images/draw_digits.jpg

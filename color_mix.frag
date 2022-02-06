@@ -17,8 +17,8 @@ void main(void) {
     vec3 color = vec3(0.0);
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
     
-    vec3 A = vec3(1.0, 1.0, 0.0);
-    vec3 B = vec3(0.0353, 0.1608, 0.502);
+    vec3 A = vec3(0.9333, 0.9451, 0.0588);
+    vec3 B = vec3(0.0824, 0.1686, 0.5529);
     float pct = st.x;
 
     if (st.y < 0.33) 
