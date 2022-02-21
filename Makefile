@@ -1,5 +1,8 @@
 # DRAW
 
+space_displace:
+	glslViewer space_displace.frag assets/iphone_depth.jpeg -l
+
 draw_digits:
 	glslViewer draw_digits.frag -l
 
@@ -98,6 +101,8 @@ simulate_fluid:
 
 
 screenshots:
+	glslViewer space_displace.frag assets/iphone_depth.jpeg --headless --msaa --fxaa -E screenshot,images/space_displace.jpg
+
 	glslViewer draw_digits.frag --headless --msaa --fxaa -E screenshot,images/draw_digits.jpg
 
 	glslViewer color_mix.frag lygia/assets/mixbox_lut.png -w 1080 -h 1080 --headless --msaa -E screenshot,images/color_mix.jpg
