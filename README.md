@@ -12,6 +12,16 @@ Clone this repository recursivelly
 git clone --recursive https://github.com/patriciogonzalezvivo/lygia_examples.git
 ```
 
+# COLOR 
+
+#### OKLab and MixBox color mixing
+
+```bash
+glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
+```
+
+![](images/color_mix.jpg)
+
 # DRAW
 
 #### Digits
@@ -22,6 +32,15 @@ glslViewer draw_digits.frag -l
 
 ![](images/draw_digits.jpg)
 
+# GENERATIVE
+
+#### Tiling Simplex Flow Noise
+
+```bash
+glslViewer generative_psrdnoise.frag assets/sphere.ply -l
+```
+
+![](images/generative_psrdnoise.jpg)
 
 #### Filter
 

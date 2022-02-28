@@ -3,12 +3,14 @@
 space_displace:
 	glslViewer space_displace.frag assets/iphone_depth.jpeg -l
 
+color_mix:
+	glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
+
 draw_digits:
 	glslViewer draw_digits.frag -l
 
-
-color_mix:
-	glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
+generative_psrdnoise:
+	glslViewer generative_psrdnoise.frag assets/sphere.ply -l
 
 filter_boxBlur1D:
 	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on -l
@@ -103,9 +105,11 @@ simulate_fluid:
 screenshots:
 	glslViewer space_displace.frag assets/iphone_depth.jpeg --headless --msaa --fxaa -E screenshot,images/space_displace.jpg
 
+	glslViewer color_mix.frag lygia/assets/mixbox_lut.png -w 1080 -h 1080 --headless --msaa -E screenshot,images/color_mix.jpg
+
 	glslViewer draw_digits.frag --headless --msaa --fxaa -E screenshot,images/draw_digits.jpg
 
-	glslViewer color_mix.frag lygia/assets/mixbox_lut.png -w 1080 -h 1080 --headless --msaa -E screenshot,images/color_mix.jpg
+	glslViewer generative_psrdnoise.frag assets/sphere.ply --headless --msaa --fxaa -E screenshot,images/generative_psrdnoise.jpg
 
 	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on --headless -E screenshot,images/filter_boxBlur1D.jpg
 	glslViewer filter_boxBlur2D.frag assets/danny.png --headless -E screenshot,images/filter_boxBlur2D.jpg
