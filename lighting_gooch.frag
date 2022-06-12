@@ -35,7 +35,9 @@ uniform float       u_time;
 varying vec4        v_position;
 varying vec4        v_color;
 varying vec3        v_normal;
+#ifdef MODEL_VERTEX_TEXCOORD
 varying vec2        v_texcoord;
+#endif
 varying vec4        v_tangent;
 
 // #define DIFFUSE_FNC diffuseOrenNayar
@@ -58,13 +60,11 @@ float checkBoard(vec2 uv, vec2 _scale) {
 
 void main(void) {
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
-    vec2 uv = v_texcoord;
-
     vec4 baseColor = materialBaseColor();
     float roughness = 0.2 + 0.8 * step(0.5, st.x);
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
-    baseColor.rgb = vec3(0.5) + checkBoard(uv, vec2(8.0)) * 0.5;
+    baseColor.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #endif
     
     gl_FragColor = gooch(baseColor, materialNormal(), u_light, (u_camera - v_position.xyz), roughness);

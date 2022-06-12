@@ -69,6 +69,11 @@ lighting_pbrLittle:
 lighting_pbrLittle_cubemap:
 	glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
 
+lighting_pbr:
+	glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+
+lighting_pbr_cubemap:
+	glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
 
 lighting_raymarching:
 	glslViewer lighting_raymarching.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
