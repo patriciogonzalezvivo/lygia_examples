@@ -81,7 +81,7 @@ void main(void) {
     material.baseColor.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #endif
 
-    color = pbrLittle(material);
+    color = pbr(material);
 
     gl_FragColor = linear2gamma(color);
 }
