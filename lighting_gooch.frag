@@ -4,24 +4,11 @@ precision mediump float;
 
 uniform vec3        u_camera;
 
-uniform float       u_cameraEv100;
-uniform float       u_cameraExposure;
-uniform float       u_cameraAperture;
-uniform float       u_cameraSensitivity;
-uniform float       u_cameraShutterSpeed;
-
-uniform float       u_cameraFarClip;
-uniform float       u_cameraNearClip;
-uniform float       u_cameraDistance;
-
 uniform vec3        u_light;
 uniform vec3        u_lightColor;
-uniform float       u_lightFalloff;
-uniform float       u_lightIntensity;
 
 uniform samplerCube u_cubeMap;
 uniform vec3        u_SH[9];
-uniform float       u_iblLuminance;
 
 #ifdef LIGHT_SHADOWMAP
 uniform sampler2D   u_lightShadowMap;
@@ -30,11 +17,17 @@ varying vec4        v_lightCoord;
 #endif
 
 uniform vec2        u_resolution;
-uniform float       u_time;
 
 varying vec4        v_position;
+
+#ifdef MODEL_VERTEX_COLOR
 varying vec4        v_color;
+#endif
+
+#ifdef MODEL_VERTEX_NORMAL
 varying vec3        v_normal;
+#endif
+
 #ifdef MODEL_VERTEX_TEXCOORD
 varying vec2        v_texcoord;
 #endif

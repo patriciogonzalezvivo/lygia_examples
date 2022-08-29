@@ -34,8 +34,8 @@ varying vec2        v_texcoord;
 #endif
 
 #ifdef MODEL_VERTEX_TANGENT
-varying vec4    v_tangent;
-varying mat3    v_tangentToWorld;
+varying vec4        v_tangent;
+varying mat3        v_tangentToWorld;
 #endif
 
 // #define DIFFUSE_FNC diffuseOrenNayar
@@ -54,7 +54,6 @@ varying mat3    v_tangentToWorld;
 #define LIGHT_COORD         v_lightCoord
 
 #include "lygia/color/space/linear2gamma.glsl"
-#include "lygia/lighting/pbrLittle.glsl"
 #include "lygia/lighting/pbr.glsl"
 
 #include "lygia/lighting/material/new.glsl"

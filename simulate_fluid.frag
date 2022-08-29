@@ -5,7 +5,6 @@ precision mediump float;
 
 uniform sampler2D   u_buffer0;
 uniform sampler2D   u_buffer1;
-uniform sampler2D   u_buffer2;
 uniform sampler2D   u_doubleBuffer0;
 uniform sampler2D   u_doubleBuffer1; // 2x2
 
@@ -48,27 +47,18 @@ void main(void) {
     }
 
 #if defined(BUFFER_0)
-    color = fluidSolver(u_buffer2, st, pixel, extForce);
-
-    color = (u_frame <= 4)? vec4(0.5) : color;
+    color = fluidSolver(u_buffer1, st, pixel, extForce);
 
 #elif defined(BUFFER_1)
     color = fluidSolver(u_buffer0, st, pixel, extForce);
-    
-#elif defined(BUFFER_2)
-    color = fluidSolver(u_buffer1, st, pixel, extForce);
 
 #elif defined(DOUBLE_BUFFER_0)
-    
-    // vec2 vel = texture2D(u_buffer2, st).xy * 2.0 - 1.0;
-    vec2 vel = fluidSolver(u_buffer2, st, pixel, extForce).xy * 2.0 - 1.0;
-    color = texture2D(u_doubleBuffer0, st - vel * pixel); //advection
+    vec2 vel = texture2D(u_buffer1, st).xy * 2.0 - 1.0;
+    color = texture2D(u_doubleBuffer0, st - vel * pixel);
     
     if (mouse_delta_length > 0.005) {
         float hue = fract( (atan(vel.y, vel.x) / TAU + 0.5) + u_time * 0.1 );
         vec4 rgb = vec4( hsv2rgb(vec3(hue, 1., 1.)), 1.);
-        // float bloom = smoothstep(-0.5, 0.5, mouse_delta_length);
-        // color += bloom * 0.001/pow(mouse_area, 1.5) * rgb;
         color += 0.001/pow(mouse_area, 1.5) * rgb;
     }
     
