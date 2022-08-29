@@ -35,6 +35,11 @@ varying vec4        v_lightCoord;
 #include "lygia/lighting/ssao.glsl"
 #include "lygia/sample/textureShadowPCF.glsl"
 
+uniform vec3        u_SH[9];
+
+#include "lygia/lighting/sphericalHarmonics.glsl"
+#include "lygia/color/tonemap.glsl"
+
 float checkBoard(vec2 uv, vec2 _scale) {
     uv = floor(fract(uv * _scale) * 2.0);
     return min(1.0, uv.x + uv.y) - (uv.x * uv.y);
@@ -63,13 +68,16 @@ void main(void) {
     color.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #endif
 
-    // Diffuse Shading
     #ifdef MODEL_VERTEX_NORMAL
     vec3 n = normalize(v_normal);
     vec3 l = normalize(u_light);
     vec3 v = normalize(u_camera - v_position.xyz);
 
+    // Diffuse Shading
     color.rgb *= (dot(n, l) + 1.0 ) * 0.5;
+
+    // Spherical Harmonics
+    color.rgb *= tonemapUnreal( sphericalHarmonics(v_normal) );
     #endif
 
     // Shadow

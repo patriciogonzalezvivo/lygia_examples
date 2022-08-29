@@ -7,9 +7,6 @@ uniform vec3        u_camera;
 uniform vec3        u_light;
 uniform vec3        u_lightColor;
 
-uniform samplerCube u_cubeMap;
-uniform vec3        u_SH[9];
-
 #ifdef LIGHT_SHADOWMAP
 uniform sampler2D   u_lightShadowMap;
 uniform mat4        u_lightMatrix;

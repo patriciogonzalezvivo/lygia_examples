@@ -206,23 +206,6 @@ glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,1.43923,
 
 ![](images/lighting_pbrLittle_cubemap.jpg)
 
-#### PBR  
-
-```bash
-glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
-```
-
-![](images/lighting_pbr.jpg)
-
-
-#### PBR  with cubemap
-
-```bash
-glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
-```
-
-![](images/lighting_pbr_cubemap.jpg)
-
 
 #### Raymarching 
 
