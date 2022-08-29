@@ -167,10 +167,10 @@ glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,1.43923,-0.
 #### Spherical Harmonics
 
 ```bash
-glslViewer assets/dragon.obj lighting_sphericalHarminics.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -l
+glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -l
 ```
 
-![](images/lighting_sphericalHarminics.jpg)
+![](images/lighting_sphericalHarmonics.jpg)
 
 #### ScreenSpace Ambient Occlusion
 
