@@ -155,6 +155,22 @@ filter_boxBlur2D:
 
 # LIGHTING
 
+#### View Position
+
+```bash
+glslViewer assets/dragon.obj lighting_position.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+```
+
+![](images/lighting_position.jpg)
+
+#### View Normal
+
+```bash
+glslViewer assets/dragon.obj lighting_normal.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+```
+
+![](images/lighting_normal.jpg)
+
 #### Shadow
 
 ```bash
