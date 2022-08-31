@@ -40,10 +40,6 @@ varying mat3        v_tangentToWorld;
 #include "lygia/space/viewPosition.glsl"
 #include "lygia/space/perspectiveDepth2viewZ.glsl"
 
-float checkBoard(vec2 uv, vec2 _scale) {
-    uv = floor(fract(uv * _scale) * 2.0);
-    return min(1.0, uv.x + uv.y) - (uv.x * uv.y);
-}
 
 void main(void) {
     vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
@@ -65,9 +61,7 @@ void main(void) {
     color = v_color;
     #endif
 
-    // Floor pattern
-    #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
-    color.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
+    #if defined(FLOOR)
     #endif
 
 #endif

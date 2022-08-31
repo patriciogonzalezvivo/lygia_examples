@@ -89,6 +89,9 @@ lighting_sphericalHarmonics:
 lighting_ssao:
 	glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,-1.43923,0.891203,1.98093 -e sky,on -e sky,off -l
 
+lighting_ssr:
+	glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l
+
 lighting_raymarching:
 	glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -l
 
@@ -155,9 +158,10 @@ screenshots:
 	glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_pbr_cubemap.jpg 
 	glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_shadow.jpg
 	glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -e sky,on -e sky,off -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_sphericalHarmonics.jpg
-	glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,-1.43923,0.891203,1.98093 -e sky,on -e sky,off -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_ssao.jpg
-	glslViewer assets/dragon.obj lighting_normal.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_normal.jpg
 	glslViewer assets/dragon.obj lighting_position.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_position.jpg
+	glslViewer assets/dragon.obj lighting_normal.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_normal.jpg
+	glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,-1.43923,0.891203,1.98093 -e sky,on -e sky,off -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_ssao.jpg
+	glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/uffizi_cross.hdr -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_ssr.jpg
 
 	glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_raymarching.jpg
 	glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_raymarching_pbr.jpg
