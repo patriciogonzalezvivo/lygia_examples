@@ -41,7 +41,7 @@ glslViewer draw_digits.frag -l
 glslViewer generative_random.frag 
 ```
 
-![](screenshot,images/generative_random.jpg)
+![](images/generative_random.jpg)
 
 #### Clasic Noise
 
@@ -49,7 +49,7 @@ glslViewer generative_random.frag
 glslViewer generative_cnoise.frag 
 ```
 
-![](screenshot,images/generative_cnoise.jpg)
+![](images/generative_cnoise.jpg)
 
 
 #### Perlin Noise
@@ -58,7 +58,7 @@ glslViewer generative_cnoise.frag
 glslViewer generative_pnoise.frag 
 ```
 
-![](screenshot,images/generative_pnoise.jpg)
+![](images/generative_pnoise.jpg)
 
 
 #### Simplex Noise
@@ -67,7 +67,7 @@ glslViewer generative_pnoise.frag
 glslViewer generative_snoise.frag 
 ```
 
-![](screenshot,images/generative_snoise.jpg)
+![](images/generative_snoise.jpg)
 
 #### Tiling Simplex Flow Noise
 
@@ -83,7 +83,7 @@ glslViewer generative_psrdnoise.frag assets/sphere.ply -l
 glslViewer generative_noised.frag 
 ```
 
-![](screenshot,images/generative_noised.jpg)
+![](images/generative_noised.jpg)
 
 
 #### Curl Noise
@@ -91,7 +91,7 @@ glslViewer generative_noised.frag
 ```bash
 glslViewer generative_curl.frag 
 ```
-![](screenshot,images/generative_curl.jpg)
+![](images/generative_curl.jpg)
 
 
 
@@ -101,7 +101,7 @@ glslViewer generative_curl.frag
 glslViewer generative_fbm.frag 
 ```
 
-![](screenshot,images/generative_fbm.jpg)
+![](images/generative_fbm.jpg)
 
 
 #### Voronoi
@@ -110,7 +110,7 @@ glslViewer generative_fbm.frag
 glslViewer generative_voronoi.frag 
 ```
 
-![](screenshot,images/generative_voronoi.jpg)
+![](images/generative_voronoi.jpg)
 
 
 #### Worley Noise
@@ -119,7 +119,7 @@ glslViewer generative_voronoi.frag
 glslViewer generative_worley.frag 
 ```
 
-![](screenshot,images/generative_worley.jpg)
+![](images/generative_worley.jpg)
 
 
 #### Filter
