@@ -9,8 +9,35 @@ color_mix:
 draw_digits:
 	glslViewer draw_digits.frag -l
 
+generative_random:
+	glslViewer generative_random.frag -l
+
+generative_cnoise:
+	glslViewer generative_cnoise.frag -l
+
+generative_pnoise:
+	glslViewer generative_pnoise.frag -l
+
+generative_snoise:
+	glslViewer generative_snoise.frag -l
+
 generative_psrdnoise:
 	glslViewer generative_psrdnoise.frag assets/sphere.ply -l
+
+generative_noised:
+	glslViewer generative_noised.frag -l
+
+generative_curl:
+	glslViewer generative_curl.frag -l
+
+generative_fbm:
+	glslViewer generative_fbm.frag -l
+
+generative_voronoi:
+	glslViewer generative_voronoi.frag -l
+
+generative_worley:
+	glslViewer generative_worley.frag -l
 
 filter_boxBlur1D:
 	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on -l
@@ -133,7 +160,16 @@ screenshots:
 
 	glslViewer draw_digits.frag --headless --msaa --fxaa -E screenshot,images/draw_digits.jpg
 
-	glslViewer generative_psrdnoise.frag assets/sphere.ply --headless --msaa --fxaa -E screenshot,images/generative_psrdnoise.jpg
+	glslViewer generative_psrdnoise.frag assets/sphere.ply -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/generative_psrdnoise.jpg
+	glslViewer generative_random.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_random.jpg
+	glslViewer generative_cnoise.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_cnoise.jpg
+	glslViewer generative_pnoise.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_pnoise.jpg
+	glslViewer generative_snoise.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_snoise.jpg
+	glslViewer generative_noised.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_noised.jpg
+	glslViewer generative_curl.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_curl.jpg
+	glslViewer generative_fbm.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_fbm.jpg
+	glslViewer generative_voronoi.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_voronoi.jpg
+	glslViewer generative_worley.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_worley.jpg
 
 	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on --headless -E screenshot,images/filter_boxBlur1D.jpg
 	glslViewer filter_boxBlur2D.frag assets/danny.png --headless -E screenshot,images/filter_boxBlur2D.jpg
