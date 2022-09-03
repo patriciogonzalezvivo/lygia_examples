@@ -84,9 +84,8 @@ varying mat3        v_tangentToWorld;
 
 #define INVERSE_VIEW_MATRIX u_inverseViewMatrix
 #define INVERSE_PROJECTION_MATRIX u_inverseProjectionMatrix
-
-#define VOLUMETRICLIGHTSCATTERING_STEPS 50
-#define VOLUMETRICLIGHTSCATTERING_NOISE .1
+#define VOLUMETRICLIGHTSCATTERING_STEPS 60
+#define VOLUMETRICLIGHTSCATTERING_NOISE_FNC random(vec3(st, u_time*0.0001)) * 0.1
 #include "lygia/lighting/volumetricLightScattering.glsl"
 
 float checkBoard(vec2 uv, vec2 _scale) {
