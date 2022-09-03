@@ -235,7 +235,7 @@ filter_boxBlur2D:
 
 # LIGHTING
 
-#### View Position
+#### View Position (pass)
 
 ```bash
 glslViewer assets/dragon.obj lighting_position.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
@@ -243,7 +243,7 @@ glslViewer assets/dragon.obj lighting_position.frag -e camera_position,1.43923,-
 
 ![](images/lighting_position.jpg)
 
-#### View Normal
+#### View Normal (pass)
 
 ```bash
 glslViewer assets/dragon.obj lighting_normal.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
@@ -251,7 +251,7 @@ glslViewer assets/dragon.obj lighting_normal.frag -e camera_position,1.43923,-0.
 
 ![](images/lighting_normal.jpg)
 
-#### Shadow
+#### Shadow (material)
 
 ```bash
 glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
@@ -260,7 +260,7 @@ glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,1.43923,-0.
 ![](images/lighting_shadow.jpg)
 
 
-#### Spherical Harmonics
+#### Spherical Harmonics (material)
 
 ```bash
 glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,1.43923,-0.891203,-1.98093 -c assets/uffizi_cross.hdr -l
@@ -268,7 +268,7 @@ glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position
 
 ![](images/lighting_sphericalHarmonics.jpg)
 
-#### ScreenSpace Ambient Occlusion
+#### ScreenSpace Ambient Occlusion (postprocessing)
 
 ```bash
 glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
@@ -276,7 +276,7 @@ glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,1.43923,-0.89
 
 ![](images/lighting_ssao.jpg)
 
-#### Gooch
+#### Gooch (material)
 
 ```bash
 glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
@@ -285,7 +285,7 @@ glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,1.43923,-0.8
 ![](images/lighting_gooch.jpg)
 
 
-#### PBR little 
+#### PBR little (material)
 
 ```bash
 glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
@@ -294,7 +294,7 @@ glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,1.43923,
 ![](images/lighting_pbrLittle.jpg)
 
 
-#### PBR little with cubemap
+#### PBR little with cubemap (material)
 
 ```bash
 glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
@@ -302,13 +302,23 @@ glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,1.43923,
 
 ![](images/lighting_pbrLittle_cubemap.jpg)
 
-#### ScreenSpace Reflections
+
+#### ScreenSpace Reflections (postprocessing/raymarching)
 
 ```bash
 glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -l 
 ```
 
 ![](images/lighting_ssr.jpg)
+
+
+#### Volumetric Light Scattering (postprocessing/raymarching)
+
+```bash
+glslViewer assets/dragon.obj lighting_volumetric.frag  -e camera_position,-2.11302,-0.541756,-1.42525 -l 
+```
+
+![](images/lighting_volumetric.jpg)
 
 
 #### Raymarching 

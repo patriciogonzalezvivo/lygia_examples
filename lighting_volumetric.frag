@@ -5,11 +5,16 @@ precision mediump float;
 #endif
 
 uniform sampler2D   u_scene;
+uniform sampler2D   u_sceneDepth;
 uniform sampler2D   u_sceneNormal;
 uniform sampler2D   u_scenePosition;
 
+
 uniform mat4        u_viewMatrix;
+uniform mat4        u_modelMatrix;
+uniform mat3        u_normalMatrix;
 uniform mat4        u_projectionMatrix;
+uniform mat4        u_inverseViewMatrix;
 uniform mat4        u_inverseProjectionMatrix;
 
 uniform vec3        u_camera;
@@ -25,6 +30,17 @@ uniform float       u_iblLuminance;
 
 uniform samplerCube u_cubeMap;
 uniform vec3        u_SH[9];
+
+#ifndef SSAO_SAMPLES_NUM
+#define SSAO_SAMPLES_NUM 16
+#endif
+
+#ifndef SSAO_NOISE_NUM
+#define SSAO_NOISE_NUM 4
+#endif
+
+uniform vec3 u_ssaoSamples[SSAO_SAMPLES_NUM];
+uniform vec3 u_ssaoNoise[SSAO_NOISE_NUM];
 
 #ifdef LIGHT_SHADOWMAP
 uniform sampler2D   u_lightShadowMap;
@@ -60,12 +76,18 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_COLOR         u_lightColor
 #define LIGHT_COORD         v_lightCoord
 
+#include "lygia/math/const.glsl"
+#include "lygia/generative/random.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/lighting/pbrLittle.glsl"
 #include "lygia/lighting/material/new.glsl"
 
-#define SSR_FRESNEL
-#include "lygia/lighting/ssr.glsl"
+#define INVERSE_VIEW_MATRIX u_inverseViewMatrix
+#define INVERSE_PROJECTION_MATRIX u_inverseProjectionMatrix
+
+#define VOLUMETRICLIGHTSCATTERING_STEPS 50
+#define VOLUMETRICLIGHTSCATTERING_NOISE .1
+#include "lygia/lighting/volumetricLightScattering.glsl"
 
 float checkBoard(vec2 uv, vec2 _scale) {
     uv = floor(fract(uv * _scale) * 2.0);
@@ -78,28 +100,16 @@ void main(void) {
     vec2 st = gl_FragCoord.xy * pixel;
 
 #if defined(POSTPROCESSING)
-    color = texture2D(u_scene, st);
-    vec3 n = texture2D(u_sceneNormal, st).xyz;
-    float opacity = 1.0;
-    float dist = 1.0;
-    vec2 uv = ssr(u_scenePosition, u_sceneNormal, st, pixel, opacity, dist);
-    color.rgb = mix(color.rgb, texture2D(u_scene, uv).rgb, opacity * (1.0-dist * 5.0));
+    color.rgb = texture2D(u_scene, st).rgb;
+
+    color.rgb += volumetricLightScattering(u_sceneDepth, st) * 5. * u_lightColor;
 
 #else
-    
-    vec2 uv = st;
-    #if defined(MODEL_VERTEX_TEXCOORD)
-    uv = v_texcoord;
-    #endif
-
     Material material = materialNew();
-
-    material.metallic = 0.85;
-    material.roughness = 0.35;
+    material.roughness = 0.1;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.baseColor.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
-    material.roughness = 0.5 + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #endif
 
     color = pbrLittle(material);

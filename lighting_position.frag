@@ -11,12 +11,14 @@ uniform sampler2D   u_scenePosition;
 
 uniform mat4        u_viewMatrix;
 uniform mat4        u_projectionMatrix;
+uniform mat4        u_inverseProjectionMatrix;
 
 uniform vec3        u_camera;
 uniform float       u_cameraFarClip;
 uniform float       u_cameraNearClip;
 
 uniform vec2        u_resolution;
+uniform vec2        u_mouse;
 
 varying vec4        v_position;
 
@@ -37,9 +39,10 @@ varying vec4        v_tangent;
 varying mat3        v_tangentToWorld;
 #endif
 
-#include "lygia/space/viewPosition.glsl"
-#include "lygia/space/perspectiveDepth2viewZ.glsl"
-
+#include "lygia/math/inverse.glsl"
+#define INVERSE_PROJECTION_MATRIX inverse(u_projectionMatrix)
+#include "lygia/space/screen2viewPosition.glsl"
+#include "lygia/space/depth2viewZ.glsl"
 
 void main(void) {
     vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
@@ -49,8 +52,8 @@ void main(void) {
 #if defined(POSTPROCESSING)
     vec3 pos = texture2D(u_scenePosition, st).xyz;
     float depth = texture2D(u_sceneDepth, st).r;
-    float viewZ = perspectiveDepth2viewZ( depth, u_cameraNearClip, u_cameraFarClip);
-    vec3 viewPos = viewPosition(st, depth, viewZ);
+    float viewZ = depth2viewZ( depth, u_cameraNearClip, u_cameraFarClip);
+    vec3 viewPos = screen2viewPosition(st, depth, viewZ);
 
     color.rgb = mix(pos,
                     viewPos, 
