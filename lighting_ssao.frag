@@ -3,12 +3,16 @@ precision mediump float;
 #endif
 
 uniform sampler2D   u_scene;
+uniform sampler2D   u_sceneDepth;
 uniform sampler2D   u_sceneNormal;
 uniform sampler2D   u_scenePosition;
 
 uniform mat4        u_projectionMatrix;
 
 uniform vec3        u_camera;
+uniform float       u_cameraNearClip;
+uniform float       u_cameraFarClip;
+
 uniform vec3        u_light;
 uniform vec2        u_resolution;
 
@@ -32,6 +36,15 @@ uniform mat4        u_lightMatrix;
 varying vec4        v_lightCoord;
 #endif
 
+#define CAMERA_NEAR_CLIP    u_cameraNearClip
+#define CAMERA_FAR_CLIP     u_cameraFarClip
+
+#include "lygia/generative/random.glsl"
+
+// #define SSAO_SAMPLES_NUM 16
+// #define SSAO_NOISE2_FNC(ST) random2(ST * 53.4)
+// #define SSAO_NOISE3_FNC(POS) random3(POS)
+
 #include "lygia/lighting/ssao.glsl"
 #include "lygia/sample/textureShadowPCF.glsl"
 
@@ -54,7 +67,10 @@ void main(void) {
     color = texture2D(u_scene, st);
 
     // SSAO
-    color.rgb *= ssao(u_scenePosition, u_sceneNormal, st, 0.5);
+    float ssao1 = ssao(u_scenePosition, u_sceneNormal, st, 0.5);
+    float ssao2 = ssao(u_sceneDepth, st, pixel, 0.5);
+    
+    color.rgb *= mix(ssao1, ssao2, step(0.5, st.x));
 
 #else
 

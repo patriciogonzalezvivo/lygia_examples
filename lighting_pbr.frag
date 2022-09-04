@@ -4,7 +4,15 @@
 precision mediump float;
 #endif
 
+
+uniform sampler2D   u_scene;
+uniform sampler2D   u_sceneDepth;
+
+uniform mat4        u_projectionMatrix;
+
 uniform vec3        u_camera;
+uniform float       u_cameraNearClip;
+uniform float       u_cameraFarClip;
 
 uniform vec3        u_light;
 uniform vec3        u_lightColor;
@@ -54,6 +62,17 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_COORD         v_lightCoord
 
 #include "lygia/color/space/linear2gamma.glsl"
+
+// #include "lygia/generative/random.glsl"
+
+// #define SSAO_SAMPLES_NUM 16
+// #define SSAO_NOISE2_FNC(ST) random2(ST * 53.4)
+
+// #define CAMERA_NEAR_CLIP    u_cameraNearClip
+// #define CAMERA_FAR_CLIP     u_cameraFarClip
+// #define SCENE_DEPTH         u_sceneDepth
+// #define RESOLUTION          u_resolution
+// #include "lygia/lighting/ssao.glsl"
 #include "lygia/lighting/pbr.glsl"
 
 #include "lygia/lighting/material/new.glsl"
