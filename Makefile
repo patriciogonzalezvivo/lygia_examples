@@ -122,12 +122,6 @@ lighting_ssr:
 lighting_volumetric:
 	glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-2.11302,-0.541756,-1.42525 -e dynamic_shadows,on -l
 
-lighting_volumetric2:
-	glslViewer assets/dragon.obj lighting_volumetric2.frag -e camera_position,-2.11302,-0.541756,-1.42525 -e dynamic_shadows,on -l
-
-lighting_volumetric3:
-	glslViewer assets/dragon.obj lighting_volumetric3.frag -e camera_position,-2.11302,-0.541756,-1.42525 -e dynamic_shadows,on -l
-
 lighting_raymarching:
 	glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -l
 
