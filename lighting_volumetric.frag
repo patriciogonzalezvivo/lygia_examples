@@ -75,6 +75,7 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_POSITION      u_light
 #define LIGHT_COLOR         u_lightColor
 #define LIGHT_COORD         v_lightCoord
+#define LIGHT_MATRIX        u_lightMatrix
 
 #include "lygia/math/const.glsl"
 #include "lygia/generative/random.glsl"

@@ -60,10 +60,14 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_COLOR         u_lightColor
 #define LIGHT_COORD         v_lightCoord
 
+#include "lygia/math/saturate.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/lighting/pbrLittle.glsl"
 #include "lygia/lighting/material/new.glsl"
 
+
+#define INVERSE_VIEW_MATRIX u_viewMatrix
+// #define INVERSE_PROJECTION_MATRIX u_inverseProjectionMatrix
 #define SSR_FRESNEL
 #include "lygia/lighting/ssr.glsl"
 
@@ -83,7 +87,7 @@ void main(void) {
     float opacity = 1.0;
     float dist = 1.0;
     vec2 uv = ssr(u_scenePosition, u_sceneNormal, st, pixel, opacity, dist);
-    color.rgb = mix(color.rgb, texture2D(u_scene, uv).rgb, opacity * (1.0-dist * 5.0));
+    color.rgb = mix(color.rgb, texture2D(u_scene, uv).rgb, opacity * saturate(1.0-dist));
 
 #else
     
