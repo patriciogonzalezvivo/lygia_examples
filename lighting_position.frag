@@ -40,9 +40,8 @@ varying mat3        v_tangentToWorld;
 #endif
 
 #include "lygia/math/inverse.glsl"
-#define INVERSE_PROJECTION_MATRIX inverse(u_projectionMatrix)
-#include "lygia/space/screen2viewPosition.glsl"
-#include "lygia/space/depth2viewZ.glsl"
+#define INVERSE_CAMERA_PROJECTION_MATRIX inverse(u_projectionMatrix)
+#include "lygia/sample/viewPosition.glsl"
 
 void main(void) {
     vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
@@ -50,13 +49,11 @@ void main(void) {
     vec2 st = gl_FragCoord.xy * pixel;
 
 #if defined(POSTPROCESSING)
-    vec3 pos = texture2D(u_scenePosition, st).xyz;
-    float depth = texture2D(u_sceneDepth, st).r;
-    float viewZ = depth2viewZ( depth, u_cameraNearClip, u_cameraFarClip);
-    vec3 viewPos = screen2viewPosition(st, depth, viewZ);
+    vec4 viewPosFromBuffer = texture2D(u_scenePosition, st);
+    vec4 viewPosFromDepth = sampleViewPosition(u_sceneDepth, st, u_cameraNearClip, u_cameraFarClip);
 
-    color.rgb = mix(pos,
-                    viewPos, 
+    color.rgb = mix(viewPosFromBuffer.xyz,
+                    viewPosFromDepth.xyz, 
                     step(0.5, st.x) );
 
 #else

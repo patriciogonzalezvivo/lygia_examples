@@ -7,6 +7,7 @@ precision mediump float;
 uniform sampler2D   u_scene;
 uniform sampler2D   u_sceneNormal;
 uniform sampler2D   u_scenePosition;
+uniform sampler2D   u_sceneBuffer0; // specular
 
 uniform mat4        u_viewMatrix;
 uniform mat4        u_projectionMatrix;
@@ -61,13 +62,12 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_COORD         v_lightCoord
 
 #include "lygia/math/saturate.glsl"
+#include "lygia/math/powFast.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/lighting/pbrLittle.glsl"
 #include "lygia/lighting/material/new.glsl"
+#include "lygia/lighting/toShininess.glsl"
 
-
-#define INVERSE_VIEW_MATRIX u_viewMatrix
-// #define INVERSE_PROJECTION_MATRIX u_inverseProjectionMatrix
 #define SSR_FRESNEL
 #include "lygia/lighting/ssr.glsl"
 
@@ -84,10 +84,11 @@ void main(void) {
 #if defined(POSTPROCESSING)
     color = texture2D(u_scene, st);
     vec3 n = texture2D(u_sceneNormal, st).xyz;
+    float mask = texture2D(u_sceneBuffer0, st).r; 
     float opacity = 1.0;
     float dist = 1.0;
     vec2 uv = ssr(u_scenePosition, u_sceneNormal, st, pixel, opacity, dist);
-    color.rgb = mix(color.rgb, texture2D(u_scene, uv).rgb, opacity * saturate(1.0-dist));
+    color.rgb = mix(color.rgb, texture2D(u_scene, uv).rgb, mask * opacity * saturate(1.0-dist));
 
 #else
     
@@ -98,16 +99,29 @@ void main(void) {
 
     Material material = materialNew();
 
-    material.metallic = 0.85;
-    material.roughness = 0.35;
+    material.metallic = 0.01;
+    material.roughness = 0.1;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.baseColor.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
+    material.metallic = 0.8;
     material.roughness = 0.5 + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #endif
 
+    #if defined(SCENE_BUFFER_0)
+    // SPECULAR BUFFER
+    vec3 L = normalize(LIGHT_POSITION - (SURFACE_POSITION).xyz);
+    vec3 N = normalize(material.normal);
+    vec3 V = normalize(CAMERA_POSITION - (SURFACE_POSITION).xyz);
+    color += saturate(specular(L, N, V, material.roughness));
+    float spec =  saturate(.95 - material.roughness * 0.5);
+    color.rgb *= 1.0-saturate( (powFast(spec, 4.) * 0.8 + 1.6 * (1.0-material.metallic)) );
+
+    #else
+    // REGULAR PASS
     color = pbrLittle(material);
     color = linear2gamma(color);
+    #endif
 
 #endif
 

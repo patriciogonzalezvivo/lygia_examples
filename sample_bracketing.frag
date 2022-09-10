@@ -21,7 +21,7 @@ varying vec2        v_texcoord;
 #include "lygia/draw/arrows.glsl"
 
 #define TEXTUREBRACKETING_REPLACE_DIVERGENCE
-#include "lygia/sample/textureBracketing.glsl"
+#include "lygia/sample/bracketing.glsl"
 
 void main (void) {
     vec4 color = vec4(vec3(0.0), 1.0);
@@ -34,7 +34,7 @@ void main (void) {
     float scale = 1.;
 
     if (st.x > mouse.x)
-        color = textureBracketing(u_tex0, st, dir, scale);
+        color = sampleBracketing(u_tex0, st, dir, scale);
     else
         color = texture2D(u_tex0, scale * rotate(st, dir));
     

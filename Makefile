@@ -80,7 +80,6 @@ filter_laplacian2D:
 filter_edge2D:
 	glslViewer filter_edge2D.frag assets/danny.png -l
 
-
 sample_bracketing:
 	glslViewer sample_bracketing.frag assets/rock_moss.jpg -l
 
