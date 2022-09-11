@@ -276,6 +276,16 @@ glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,1.43923,-0.89
 
 ![](images/lighting_ssao.jpg)
 
+
+#### Deferred PBR (postprocessing)
+
+```bash
+glslViewer assets/dragon.obj lighting_pbrLittle_deferred.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+```
+
+![](images/lighting_pbrLittle_deferred.jpg)
+
+
 #### Gooch (material)
 
 ```bash

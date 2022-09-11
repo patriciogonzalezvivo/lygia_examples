@@ -4,7 +4,6 @@
 precision mediump float;
 #endif
 
-
 uniform sampler2D   u_scene;
 uniform sampler2D   u_sceneDepth;
 
@@ -84,7 +83,8 @@ float checkBoard(vec2 uv, vec2 _scale) {
 
 void main(void) {
     vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
-    vec2 st = gl_FragCoord.xy/u_resolution.xy;
+    vec2 pixel = 1.0/u_resolution;
+    vec2 st = gl_FragCoord.xy * pixel;
     vec2 uv = st;
     #if defined(MODEL_VERTEX_TEXCOORD)
     uv = v_texcoord;
