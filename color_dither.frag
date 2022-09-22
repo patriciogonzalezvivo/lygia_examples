@@ -25,7 +25,6 @@ void main(void) {
     vec2 pixel = 1.0/u_resolution.xy;
     vec2 st = gl_FragCoord.xy * pixel;
     
-
     // compress
     const float c0 = 32.0;    
     vec2 its = mix( vec2(0.0), vec2(1.0) / c0, st );
@@ -34,7 +33,7 @@ void main(void) {
     color.rgb = dither(color.rgb);
 
     // compress
-	color.rgb = floor( color.rgb * 255.0 ) / 255.0;
+    color.rgb = floor( color.rgb * 255.0 ) / 255.0;
     color.rgb *= c0;
     
     gl_FragColor = color;
