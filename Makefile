@@ -45,6 +45,8 @@ filter_boxBlur1D:
 filter_boxBlur2D:
 	glslViewer filter_boxBlur2D.frag assets/danny.png -l
 
+filter_fibonacciBokeh:
+	glslViewer filter_fibonacciBokeh.frag assets/danny.png -l
 
 filter_gaussianBlur1D:
 	glslViewer filter_gaussianBlur1D.frag assets/danny.png -e buffers,on -l

@@ -82,5 +82,9 @@ void main(void) {
 
     color = pbrLittle(material);
 
+    #ifdef DEBUG
+    color.gb *= 0.0;
+    #endif
+
     gl_FragColor = linear2gamma(color);
 }
