@@ -6,6 +6,9 @@ space_displace:
 color_mix:
 	glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
 
+color_lut:
+	glslViewer color_lut.frag assets/danny.png assets/square_01.png -l
+
 draw_digits:
 	glslViewer draw_digits.frag -l
 

@@ -73,8 +73,8 @@ void main(void) {
 
     Material material = materialNew();
 
-    material.metallic = 0.01 + step(0.5, st.y) * 0.99;
-    material.roughness = 0.01 + step(0.5, st.x);
+    material.metallic = 0.0;//1 + step(0.5, st.y) * 0.99;
+    material.roughness = 0.05;// + step(0.5, st.x);
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
