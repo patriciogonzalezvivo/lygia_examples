@@ -101,7 +101,7 @@ void main(void) {
     float shadows = shadow(LIGHT_SHADOWMAP, vec2(LIGHT_SHADOWMAP_SIZE), light_coord.xy, light_coord.z);
 
     Material material = materialNew();
-    material.baseColor = albedo;
+    material.albedo = albedo;
     material.position = worldPos.xyz;
     material.normal = worldNormal;
     material.ambientOcclusion = ao;
@@ -113,7 +113,7 @@ void main(void) {
     color = linear2gamma(color);
     // color.rgb = material.position;
     // color.rgb = material.normal;
-    // color.rgb = material.baseColor.rgb;
+    // color.rgb = material.albedo.rgb;
     // color.rgb = vec3(material.shadow);
     // color.rgb *= vec3(material.ambientOcclusion);
     // color.rgb = mix(albedo.rgb, color.rgb, viewNormal.a);
@@ -135,7 +135,7 @@ void main(void) {
     color.b = 1.0;
 
     #else
-    color = material.baseColor;
+    color = material.albedo;
 
     #endif
 

@@ -109,7 +109,7 @@ void main(void) {
     material.roughness = 0.1;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
-    material.baseColor.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
+    material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #endif
 
     color = pbrLittle(material);

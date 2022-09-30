@@ -50,12 +50,12 @@ float checkBoard(vec2 uv, vec2 _scale) {
 
 void main(void) {
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
-    vec4 baseColor = materialBaseColor();
+    vec4 albedo = materialBaseColor();
     float roughness = 0.2 + 0.8 * step(0.5, st.x);
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
-    baseColor.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
+    albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #endif
     
-    gl_FragColor = gooch(baseColor, materialNormal(), u_light, (u_camera - v_position.xyz), roughness);
+    gl_FragColor = gooch(albedo, materialNormal(), u_light, (u_camera - v_position.xyz), roughness);
 }
