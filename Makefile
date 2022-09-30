@@ -1,5 +1,8 @@
 # DRAW
 
+animation_easing:
+	glslViewer animation_easing.frag -l	
+
 space_displace:
 	glslViewer space_displace.frag assets/iphone_depth.jpeg -l
 
