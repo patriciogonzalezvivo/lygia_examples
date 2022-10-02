@@ -42,6 +42,9 @@ generative_fbm:
 generative_voronoi:
 	glslViewer generative_voronoi.frag -l
 
+generative_voronoise:
+	glslViewer generative_voronoise.frag -l
+
 generative_worley:
 	glslViewer generative_worley.frag -l
 
@@ -90,6 +93,9 @@ filter_edge2D:
 
 sample_bracketing:
 	glslViewer sample_bracketing.frag assets/rock_moss.jpg -l
+
+sample_seamless:
+	glslViewer sample_seamless.frag assets/rocks.png -l
 
 # LIGHTING
 
