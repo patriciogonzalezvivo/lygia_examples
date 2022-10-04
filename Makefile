@@ -12,6 +12,9 @@ color_mix:
 color_lut:
 	glslViewer color_lut.frag assets/danny.png assets/square_01.png -l
 
+color_dither:
+	glslViewer color_dither.frag -l
+
 draw_digits:
 	glslViewer draw_digits.frag -l
 
