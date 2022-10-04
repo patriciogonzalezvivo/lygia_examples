@@ -12,6 +12,18 @@ Clone this repository recursivelly
 git clone --recursive https://github.com/patriciogonzalezvivo/lygia_examples.git
 ```
 
+
+# ANIMATION 
+
+#### Easing
+
+```bash
+glslViewer animation_easing.frag -l
+```
+
+![](images/animation_easing.jpg)
+
+
 # COLOR 
 
 #### OKLab and MixBox color mixing
@@ -21,6 +33,24 @@ glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
 ```
 
 ![](images/color_mix.jpg)
+
+
+#### LookUp table
+
+```bash
+glslViewer color_lut.frag assets/danny.png assets/square_01.png -l
+```
+
+![](images/color_lut.jpg)
+
+
+#### Dither
+
+```bash
+glslViewer color_dither.frag -l
+```
+
+![](images/color_dither.jpg)
 
 # DRAW
 
@@ -111,6 +141,15 @@ glslViewer generative_voronoi.frag
 ```
 
 ![](images/generative_voronoi.jpg)
+
+
+#### Voronoise
+
+```bash
+glslViewer generative_voronoise.frag 
+```
+
+![](images/generative_voronoise.jpg)
 
 
 #### Worley Noise
