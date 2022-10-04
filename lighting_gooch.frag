@@ -50,7 +50,7 @@ float checkBoard(vec2 uv, vec2 _scale) {
 
 void main(void) {
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
-    vec4 albedo = materialBaseColor();
+    vec4 albedo = materialAlbedo();
     float roughness = 0.2 + 0.8 * step(0.5, st.x);
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)

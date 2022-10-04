@@ -13,6 +13,7 @@ uniform float       u_time;
 
 varying vec2        v_texcoord;
 
+#define SAMPLESSEAMLESS_FAST
 #include "lygia/sample/seamless.glsl"
 
 void main (void) {
@@ -20,12 +21,10 @@ void main (void) {
     vec2 pixel = 1.0/u_resolution.xy;
     vec2 st = gl_FragCoord.xy * pixel;
 
-    vec2 mouse = u_mouse * pixel;
-
 	float f = smoothstep( 0.4, 0.6, sin(u_time    ) );
     float s = smoothstep( 0.4, 0.6, sin(u_time*0.5) );
 
-    color.rgb = sampleSeamless(u_tex0, (2.0 + 1.0*s)*st + u_time*0.1, f ).xxx;
-    
+    color = sampleSeamless(u_tex0, (2.0 + 1.0*s)*st + u_time*0.1, f );
+
     gl_FragColor = color;
 }
