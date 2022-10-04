@@ -97,8 +97,8 @@ filter_edge2D:
 sample_bracketing:
 	glslViewer sample_bracketing.frag assets/rock_moss.jpg -l
 
-sample_seamless:
-	glslViewer sample_seamless.frag assets/rocks.png -l
+sample_untile:
+	glslViewer sample_untile.frag assets/rocks.png -l
 
 # LIGHTING
 
@@ -179,9 +179,13 @@ simulate_fluid:
 	glslViewer simulate_fluid.frag -l  
 
 screenshots:
+	glslViewer animation_easing.frag -w 512 -h 512 --headless --msaa -E record,images/animation_easing.git,0.0,8.0
+
 	glslViewer space_displace.frag assets/iphone_depth.jpeg --headless --msaa --fxaa -E screenshot,images/space_displace.jpg
 
 	glslViewer color_mix.frag lygia/assets/mixbox_lut.png -w 1080 -h 1080 --headless --msaa -E screenshot,images/color_mix.jpg
+	glslViewer color_lut.frag assets/danny.png assets/square_01.png -w 1080 -h 1080 --headless --msaa -E screenshot,images/color_lut.jpg
+	glslViewer color_dither.frag -w 1080 -h 1080 --headless --msaa -E screenshot,images/color_dither.jpg
 
 	glslViewer draw_digits.frag --headless --msaa --fxaa -E screenshot,images/draw_digits.jpg
 
@@ -194,6 +198,7 @@ screenshots:
 	glslViewer generative_curl.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_curl.jpg
 	glslViewer generative_fbm.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_fbm.jpg
 	glslViewer generative_voronoi.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_voronoi.jpg
+	glslViewer generative_voronoise.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_voronoise.jpg
 	glslViewer generative_worley.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_worley.jpg
 
 	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on --headless -E screenshot,images/filter_boxBlur1D.jpg
@@ -210,6 +215,7 @@ screenshots:
 	glslViewer filter_edge2D.frag assets/danny.png --headless -E screenshot,images/filter_edge2D.jpg
 
 	glslViewer sample_bracketing.frag assets/rock_moss.jpg --headless -E screenshot,images/sample_bracketing.jpg
+	glslViewer sample_untile.frag assets/rocks.png --headless -E screenshot,images/sample_untile.jpg
 
 	glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_gooch.jpg
 	glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_pbrLittle.jpg
