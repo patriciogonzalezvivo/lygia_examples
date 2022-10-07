@@ -21,7 +21,7 @@ git clone --recursive https://github.com/patriciogonzalezvivo/lygia_examples.git
 glslViewer animation_easing.frag -l
 ```
 
-![](images/animation_easing.jpg)
+![](images/animation_easing.gif)
 
 
 # COLOR 
