@@ -53,10 +53,11 @@ void main(void) {
     st.x -= pct;
 
     st.y = fract(st.y * rows);
+    st = ratio(st, u_resolution);
     st = ratio(st, vec2(rows, 1.0));
 
     color += circle(st, 0.2) * step(0.0, row) * step(row, 9.);
-    color += step(st.y, 0.025);
+    color *= step(0.1, st.y) * step(st.y, 0.9);
     
     
     gl_FragColor = vec4(color, 1.0);
