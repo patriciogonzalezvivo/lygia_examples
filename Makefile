@@ -3,6 +3,9 @@
 animation_easing:
 	glslViewer animation_easing.frag -l	
 
+animation_sprite:
+	glslViewer animation_sprite.frag assets/sprite_megaman.png -l
+
 space_displace:
 	glslViewer space_displace.frag assets/iphone_depth.jpeg -l
 
@@ -19,37 +22,37 @@ draw_digits:
 	glslViewer draw_digits.frag -l
 
 generative_random:
-	glslViewer generative_random.frag -l
+	glslViewer generative_random.frag --fps 24 -l
 
 generative_cnoise:
-	glslViewer generative_cnoise.frag -l
+	glslViewer generative_cnoise.frag --fps 24 -l
 
 generative_pnoise:
-	glslViewer generative_pnoise.frag -l
+	glslViewer generative_pnoise.frag --fps 24 -l
 
 generative_snoise:
-	glslViewer generative_snoise.frag -l
+	glslViewer generative_snoise.frag --fps 24 -l
 
 generative_psrdnoise:
 	glslViewer generative_psrdnoise.frag assets/sphere.ply -l
 
 generative_noised:
-	glslViewer generative_noised.frag -l
+	glslViewer generative_noised.frag --fps 24 -l
 
 generative_curl:
-	glslViewer generative_curl.frag -l
+	glslViewer generative_curl.frag --fps 24 -l
 
 generative_fbm:
-	glslViewer generative_fbm.frag -l
+	glslViewer generative_fbm.frag --fps 24 -l
 
 generative_voronoi:
-	glslViewer generative_voronoi.frag -l
+	glslViewer generative_voronoi.frag --fps 24 -l
 
 generative_voronoise:
-	glslViewer generative_voronoise.frag -l
+	glslViewer generative_voronoise.frag --fps 24 -l
 
 generative_worley:
-	glslViewer generative_worley.frag -l
+	glslViewer generative_worley.frag --fps 24 -l
 
 filter_boxBlur1D:
 	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on -l
