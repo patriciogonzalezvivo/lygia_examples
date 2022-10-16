@@ -57,5 +57,5 @@ void main(void) {
     albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #endif
     
-    gl_FragColor = gooch(albedo, materialNormal(), u_light, (u_camera - v_position.xyz), roughness);
+    gl_FragColor = gooch(albedo, materialNormal(), (u_light - v_position.xyz), (u_camera - v_position.xyz), roughness);
 }
