@@ -24,8 +24,13 @@ varying vec2        v_texcoord;
 
 #define LIGHT_COLOR vec3(0.5)
 #define LIGHT_POSITION vec3(-1.0, 1., -1.0)
+#define LIGHT_DIRECTION LIGHT_POSITION
 #define RAYMARCH_BACKGROUND vec3(1.0)
 #define RAYMARCH_MATERIAL_FNC raymarchPbrRender
+
+// #include "lygia/lighting/atmosphere.glsl"
+// #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(LIGHT_POSITION))
+
 vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/lighting/diffuse.glsl"
@@ -71,7 +76,11 @@ vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     float smooth = .95 - saturate(roughness);
 
     vec3  ref = reflect( ray, nor );
-    vec3  lig = normalize( LIGHT_POSITION );
+    #if defined(LIGHT_DIRECTION)
+    vec3  lig = normalize( LIGHT_DIRECTION );
+    #else
+    vec3  lig = normalize( LIGHT_POSITION - pos);
+    #endif
     vec3  hal = normalize( lig - ray );
     vec3  vie = normalize( ray - pos);
     float dom = smoothstep( -0.1, 0.1, ref.y );

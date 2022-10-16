@@ -41,7 +41,8 @@ varying vec4        v_tangent;
 
 #define LIGHT_COORD  v_lightCoord
 #define GOOCH_SPECULAR u_lightColor
-#include "lygia/lighting/gooch.glsl" 
+#include "lygia/lighting/gooch.glsl"
+#include "lygia/lighting/material/new.glsl"
 
 float checkBoard(vec2 uv, vec2 _scale) {
     uv = floor(fract(uv * _scale) * 2.0);
@@ -49,13 +50,21 @@ float checkBoard(vec2 uv, vec2 _scale) {
 }
 
 void main(void) {
-    vec2 st = gl_FragCoord.xy/u_resolution.xy;
-    vec4 albedo = materialAlbedo();
-    float roughness = 0.2 + 0.8 * step(0.5, st.x);
+    vec2 pixel = 1.0/u_resolution;
+    vec2 st = gl_FragCoord.xy * pixel;
+    vec2 uv = st;
+    #if defined(MODEL_VERTEX_TEXCOORD)
+    uv = v_texcoord;
+    #endif
+
+    Material material = materialNew();
+    // material.metallic = 0.01 + step(0.5, st.y) * 0.99;
+    // material.roughness = 0.01 + step(0.5, st.x);
+    material.roughness = 0.4;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
-    albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
+    material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #endif
     
-    gl_FragColor = gooch(albedo, materialNormal(), (u_light - v_position.xyz), (u_camera - v_position.xyz), roughness);
+    gl_FragColor = gooch(material);
 }

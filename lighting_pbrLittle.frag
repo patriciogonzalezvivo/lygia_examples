@@ -50,20 +50,17 @@ varying mat3        v_tangentToWorld;
 #define SURFACE_POSITION    v_position
 #define CAMERA_POSITION     u_camera
 #define LIGHT_POSITION      u_light
+#define LIGHT_DIRECTION     u_light
 #define LIGHT_COLOR         u_lightColor
 #define LIGHT_COORD         v_lightCoord
 
-#include "lygia/lighting/atmosphere.glsl"
-vec3 envAtmosphere(vec3 normal, float roughness) {
-    return atmosphere(normal, normalize(u_light));
-} 
-// #define ENVMAP_FNC(NORM, ROUGHNESS) envAtmosphere(NORM, ROUGHNESS)
+// #include "lygia/lighting/atmosphere.glsl"
+// #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
 
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/lighting/pbrLittle.glsl"
 
 #include "lygia/lighting/material/new.glsl"
-
 
 float checkBoard(vec2 uv, vec2 _scale) {
     uv = floor(fract(uv * _scale) * 2.0);
@@ -80,8 +77,10 @@ void main(void) {
 
     Material material = materialNew();
 
-    material.metallic = 0.9;//1 + step(0.5, st.y) * 0.99;
-    material.roughness = 0.01;// + step(0.5, st.x);
+    // material.metallic = 0.01 + step(0.5, st.y) * 0.99;
+    // material.roughness = 0.01 + step(0.5, st.x);
+    material.metallic = 0.9;
+    material.roughness = 0.01;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;

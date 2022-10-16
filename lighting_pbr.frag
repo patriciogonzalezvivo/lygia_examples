@@ -57,12 +57,15 @@ varying mat3        v_tangentToWorld;
 #define SURFACE_POSITION    v_position
 #define CAMERA_POSITION     u_camera
 #define LIGHT_POSITION      u_light
+#define LIGHT_DIRECTION     u_light
 #define LIGHT_COLOR         u_lightColor
 #define LIGHT_COORD         v_lightCoord
 
 #include "lygia/color/space/linear2gamma.glsl"
 
-// #include "lygia/generative/random.glsl"
+// #include "lygia/lighting/atmosphere.glsl"
+// #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
+
 
 // #define SSAO_SAMPLES_NUM 16
 // #define SSAO_NOISE2_FNC(ST) random2(ST * 53.4)
@@ -73,7 +76,6 @@ varying mat3        v_tangentToWorld;
 // #define RESOLUTION          u_resolution
 // #include "lygia/lighting/ssao.glsl"
 #include "lygia/lighting/pbr.glsl"
-
 #include "lygia/lighting/material/new.glsl"
 
 float checkBoard(vec2 uv, vec2 _scale) {
@@ -91,9 +93,10 @@ void main(void) {
     #endif
 
     Material material = materialNew();
-
-    material.metallic = 0.01 + step(0.5, st.y) * 0.99;
-    material.roughness = 0.01 + step(0.5, st.x);
+    // material.metallic = 0.01 + step(0.5, st.y) * 0.99;
+    // material.roughness = 0.01 + step(0.5, st.x);
+    material.metallic = 0.2;
+    material.roughness = 0.1;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
