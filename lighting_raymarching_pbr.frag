@@ -8,6 +8,7 @@ uniform samplerCube u_cubeMap;
 uniform vec3        u_SH[9];
 
 uniform vec3        u_camera;
+uniform vec3        u_light;
 
 uniform vec2        u_resolution;
 uniform float       u_time;
@@ -23,12 +24,12 @@ varying vec2        v_texcoord;
 #include "lygia/sdf/opRepite.glsl"
 
 #define LIGHT_COLOR vec3(0.5)
-#define LIGHT_POSITION vec3(-1.0, 1., -1.0)
+#define LIGHT_POSITION u_light
 #define LIGHT_DIRECTION LIGHT_POSITION
 #define RAYMARCH_BACKGROUND vec3(1.0)
 #define RAYMARCH_MATERIAL_FNC raymarchPbrRender
 
-// #include "lygia/lighting/atmosphere.glsl"
+#include "lygia/lighting/atmosphere.glsl"
 // #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(LIGHT_POSITION))
 
 vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);

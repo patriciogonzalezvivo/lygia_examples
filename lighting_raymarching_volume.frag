@@ -15,6 +15,7 @@ uniform vec2        u_resolution;
 
 varying vec2        v_texcoord;
 
+#include "lygia/math/saturate.glsl"
 #include "lygia/space/ratio.glsl"
 #include "lygia/generative/fbm.glsl"
 
@@ -34,7 +35,7 @@ vec4 raymarchMap(in vec3 pos) {
     res.a *= (fbm(pos * 2.0) * 0.5 + 0.5);
     res.a *= 2.0;
 
-    return res;  
+    return saturate(res);  
 }
 
 void main(void) {

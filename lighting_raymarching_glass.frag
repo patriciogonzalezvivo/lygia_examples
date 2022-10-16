@@ -20,9 +20,16 @@ varying vec2        v_texcoord;
 #include "lygia/sdf/sphereSDF.glsl"
 #include "lygia/sdf/opRepite.glsl"
 
+#define LIGHT_POSITION u_light
+#define LIGHT_DIRECTION LIGHT_POSITION
+
 #define RAYMARCH_BACKGROUND vec3(1.0)
 #define RAYMARCH_MATERIAL_FNC raymarchGlassRender
 vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
+
+// #include "lygia/lighting/atmosphere.glsl"
+// #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(LIGHT_POSITION))
+
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/lighting/envMap.glsl"
 
@@ -50,7 +57,6 @@ vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
 
     float roughness = map.x;
 
-    vec3  lig = normalize( LIGHT_POSITION );
     vec3  ref = reflect( ray, nor );
     vec3  vie = normalize( ray - pos);
     float occ = raymarchAO( pos, nor );
@@ -62,6 +68,12 @@ vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     const float f = ((1.0-etaG)*(1.0-etaG)) / ((1.0+etaG)*(1.0+etaG));
     float fr = saturate(f + (1.0 - f) * pow((1.0 - dot(-vie, nor)), 6.0));
 
+    #if defined(LIGHT_DIRECTION)
+    vec3  lig = normalize( LIGHT_DIRECTION );
+    #else
+    vec3  lig = normalize( LIGHT_POSITION - pos);
+    #endif
+    
     vec3 Id = Kd * max(dot(nor, lig), 0.0);
     color = color + Id * 0.25;
 
