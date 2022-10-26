@@ -33,6 +33,7 @@ varying vec2        v_texcoord;
 // #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(LIGHT_POSITION))
 
 vec3 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map);
+
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/lighting/diffuse.glsl"
 #include "lygia/lighting/specular.glsl"
