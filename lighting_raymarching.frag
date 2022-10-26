@@ -14,23 +14,22 @@ varying vec2        v_texcoord;
 
 // SPACE
 #include "lygia/space/ratio.glsl"
-#include "lygia/sdf/planeSDF.glsl"
-#include "lygia/sdf/sphereSDF.glsl"
-#include "lygia/sdf/boxSDF.glsl"
-#include "lygia/sdf/torusSDF.glsl"
-#include "lygia/sdf/capsuleSDF.glsl"
-#include "lygia/sdf/triPrismSDF.glsl"
-#include "lygia/sdf/cylinderSDF.glsl"
-#include "lygia/sdf/coneSDF.glsl"
-#include "lygia/sdf/hexPrismSDF.glsl"
-#include "lygia/sdf/pyramidSDF.glsl"
+#include "lygia/sdf.glsl"
 
-#include "lygia/sdf/opUnion.glsl"
+#define LIGHT_POSITION     u_light
+// #define LIGHT_DIRECTION     u_light
+#define LIGHT_COLOR         vec3(0.95, 0.65, 0.5)
 
-#define LIGHT_POSITION  vec3(0.0, 10.0, -50.0)
-#define LIGHT_COLOR     vec3(0.95, 0.65, 0.5)
-#define RAYMARCH_AMBIENT vec3(0.7, 0.9, 1.0)
+#include "lygia/lighting/atmosphere.glsl"
+
+#define RAYMARCH_SAMPLES 100
+#define RAYMARCH_MULTISAMPLE 4
+
 #define RAYMARCH_BACKGROUND ( vec3(0.7, 0.9, 1.0) + ray.y * 0.8 )
+// #define RAYMARCH_BACKGROUND atmosphere(normal, normalize(u_light))
+
+#define RAYMARCH_AMBIENT    vec3(0.7, 0.9, 1.0)
+// #define RAYMARCH_AMBIENT atmosphere(normal, normalize(u_light))
 
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/color/space/linear2gamma.glsl"

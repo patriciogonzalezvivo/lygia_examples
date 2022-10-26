@@ -27,12 +27,12 @@ varying vec2        v_texcoord;
 #define LIGHT_POSITION u_light
 #define LIGHT_DIRECTION LIGHT_POSITION
 #define RAYMARCH_BACKGROUND vec3(1.0)
-#define RAYMARCH_MATERIAL_FNC raymarchPbrRender
+#define RAYMARCH_MATERIAL_FNC raymarchPbrMaterial
 
-#include "lygia/lighting/atmosphere.glsl"
+// #include "lygia/lighting/atmosphere.glsl"
 // #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(LIGHT_POSITION))
 
-vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
+vec3 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/lighting/diffuse.glsl"
 #include "lygia/lighting/specular.glsl"
@@ -64,7 +64,7 @@ vec4 raymarchMap(in vec3 pos ) {
     return res;  
 }
 
-vec3 raymarchPbrRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
+vec3 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     if ( map.r + map.g + map.b <= 0.0 ) 
         return tonemapReinhard( envMap(ray, 0.).rgb );
 
