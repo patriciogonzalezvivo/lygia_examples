@@ -28,9 +28,11 @@ void main(void) {
     // compress
     const float c0 = 32.0;    
     vec2 its = mix( vec2(0.0), vec2(1.0) / c0, st );
-    color.rgb += mix(vec3(its.x), vec3(its.xy, 0.0), step(1.0+cos(u_time * 0.1), st.y + st.x) );
 
-    // color.rgb = dither(color.rgb);
+    color.rgb = vec3(its.x);
+    // color.rgb = vec3(its.xy, 0.0);
+    
+    color.rgb = mix(color.rgb, dither(color.rgb), step(1.0+cos(u_time * 0.1), st.y + st.x) );
 
     // compress
     color.rgb = floor( color.rgb * 255.0 ) / 255.0;

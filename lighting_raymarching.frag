@@ -20,15 +20,15 @@ varying vec2        v_texcoord;
 // #define LIGHT_DIRECTION     u_light
 #define LIGHT_COLOR         vec3(0.95, 0.65, 0.5)
 
-#include "lygia/lighting/atmosphere.glsl"
 
 #define RAYMARCH_SAMPLES 100
 #define RAYMARCH_MULTISAMPLE 4
 
 #define RAYMARCH_BACKGROUND ( vec3(0.7, 0.9, 1.0) + ray.y * 0.8 )
-// #define RAYMARCH_BACKGROUND atmosphere(normal, normalize(u_light))
-
 #define RAYMARCH_AMBIENT    vec3(0.7, 0.9, 1.0)
+
+// #include "lygia/lighting/atmosphere.glsl"
+// #define RAYMARCH_BACKGROUND atmosphere(normal, normalize(u_light))
 // #define RAYMARCH_AMBIENT atmosphere(normal, normalize(u_light))
 
 #include "lygia/lighting/raymarch.glsl"

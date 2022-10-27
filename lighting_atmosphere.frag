@@ -17,8 +17,8 @@ varying vec2    v_texcoord;
 #ifndef PROJECTION_MODE
 #define PROJECTION_MODE 0
 #endif
-#include "lygia/space/cart2fisheye.glsl"
-#include "lygia/space/cart2equirect.glsl"
+#include "lygia/space/fisheye2xyz.glsl"
+#include "lygia/space/equirect2xyz.glsl"
 
 // #define ATMOSPHERE_FAST
 #include "lygia/lighting/atmosphere.glsl"
@@ -65,11 +65,11 @@ void main(void) {
         mouse = vec2(fract(0.5+u_time*0.5), 0.6);
         
 #if PROJECTION_MODE == 0
-    vec3 eye_dir = cart2equirect(uv);
-    vec3 sun_dir = cart2equirect(mouse);
+    vec3 eye_dir = equirect2xyz(uv);
+    vec3 sun_dir = equirect2xyz(mouse);
 #elif PROJECTION_MODE == 1
-    vec3 eye_dir = cart2fisheye(uv);
-    vec3 sun_dir = cart2fisheye(mouse);
+    vec3 eye_dir = fisheye2xyz(uv);
+    vec3 sun_dir = fisheye2xyz(mouse);
 #else
     vec3 eye_dir = cart2viewSpace(uv);
     vec3 sun_dir = cart2viewSpace(mouse);
