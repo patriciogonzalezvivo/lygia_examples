@@ -54,8 +54,8 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_COLOR         u_lightColor
 #define LIGHT_COORD         v_lightCoord
 
-// #include "lygia/lighting/atmosphere.glsl"
-// #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
+#include "lygia/lighting/atmosphere.glsl"
+#define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
 
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/lighting/pbrLittle.glsl"
@@ -79,8 +79,8 @@ void main(void) {
 
     // // material.metallic = 0.01 + step(0.5, st.y) * 0.99;
     // // material.roughness = 0.01 + step(0.5, st.x);
-    // material.metallic = 0.9;
-    // material.roughness = 0.2;
+    material.metallic = 0.9;
+    material.roughness = 0.1;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;

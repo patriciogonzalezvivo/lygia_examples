@@ -38,6 +38,7 @@ vec3 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 #include "lygia/lighting/specular.glsl"
 #include "lygia/lighting/envMap.glsl"
 #include "lygia/lighting/sphericalHarmonics.glsl"
+#include "lygia/lighting/fresnelReflection.glsl"
 
 float checkBoard(vec2 uv, vec2 _scale) {
     uv = floor(fract(uv * _scale) * 2.0);
@@ -105,7 +106,7 @@ vec3 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
                             (metallic + smooth * 4.0); // make smaller highlights brighter
 
     vec3 ambientSpecular = tonemapReinhard( envMap(ref, roughness, metallic) ) * specIntensity * occ;
-    ambientSpecular += fresnel(ref, vec3(0.04), n2v) * metallic;
+    ambientSpecular += fresnelReflection(ref, vec3(0.04), n2v) * metallic;
     ambientSpecular *= LIGHT_COLOR * 0.1 + dom;
 
     color.rgb   =   color.rgb * notMetal + 
