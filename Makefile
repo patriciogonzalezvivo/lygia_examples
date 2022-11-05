@@ -103,6 +103,9 @@ sample_bracketing:
 sample_untile:
 	glslViewer sample_untile.frag assets/rocks.png -l
 
+sample_filter:
+	glslViewer sample_filter.frag assets/noise_blue.png -l
+
 # LIGHTING
 
 lighting_position:

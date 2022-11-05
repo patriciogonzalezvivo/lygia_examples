@@ -21,10 +21,8 @@ void main (void) {
     vec2 pixel = 1.0/u_resolution.xy;
     vec2 st = gl_FragCoord.xy * pixel;
 
-	float f = smoothstep( 0.4, 0.6, sin(u_time    ) );
     float s = smoothstep( 0.4, 0.6, sin(u_time*0.5) );
-
-    color = sampleUntile(u_tex0, (2.0 + 1.0*s)*st + u_time*0.1, f );
+    color = sampleUntile(u_tex0, (2.0 + 1.0*s)*st + u_time*0.1 );
 
     gl_FragColor = color;
 }
