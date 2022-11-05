@@ -138,6 +138,9 @@ lighting_shadow:
 lighting_sphericalHarmonics:
 	glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -e sky,on -e sky,off -l
 
+lighting_sphereMap:
+	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -e sky,on -e sky,off -l
+
 lighting_ssao:
 	glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,-1.43923,0.891203,1.98093 -e sky,on -e sky,off -l
 
@@ -231,6 +234,8 @@ screenshots:
 	glslViewer assets/dragon.obj lighting_position.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_position.jpg
 	glslViewer assets/dragon.obj lighting_normal.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_normal.jpg
 	glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,-1.43923,0.891203,1.98093 -e sky,on -e sky,off -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_ssao.jpg
+	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg -e camera_position,-1.43923,0.891203,1.98093 -e sky,on -e sky,off -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_sphereMap.jpg
+
 	glslViewer assets/dragon.obj lighting_pbrLittle_deferred.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_pbrLittle_deferred.jpg
 	glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/uffizi_cross.hdr -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_ssr.jpg
 	glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-2.11302,-0.541756,-1.42525 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_volumetric.jpg

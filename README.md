@@ -302,6 +302,15 @@ glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,1.43923,-0.
 #### Spherical Harmonics (material)
 
 ```bash
+glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg -e camera_position,-1.43923,0.891203,1.98093
+```
+
+![](images/lighting_sphereMap.jpg)
+
+
+#### SphereMap (material)
+
+```bash
 glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,1.43923,-0.891203,-1.98093 -c assets/uffizi_cross.hdr -l
 ```
 
