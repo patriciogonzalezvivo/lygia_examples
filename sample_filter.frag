@@ -11,7 +11,9 @@ uniform vec2        u_resolution;
 uniform float       u_time;
 
 #include "lygia/math/mirror.glsl"
-#include "lygia/sample/near.glsl"
+#include "lygia/sample/nearest.glsl"
+
+#define SAMPLESMOOTH_POLYNOMIAL cubic
 #include "lygia/sample/smooth.glsl"
 
 void main (void) {
@@ -22,7 +24,7 @@ void main (void) {
 
     color.rgb = texture2D(u_tex0, uv).rgb;
 
-    vec3 near = sampleNear(u_tex0, uv, u_tex0Resolution).rgb;
+    vec3 near = sampleNearest(u_tex0, uv, u_tex0Resolution).rgb;
     vec3 smooth = sampleSmooth(u_tex0, uv, u_tex0Resolution).rgb;
 
     float pct = mirror(u_time * 0.2);

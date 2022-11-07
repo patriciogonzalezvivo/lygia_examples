@@ -129,6 +129,7 @@ lighting_pbrLittle_deferred:
 lighting_pbr:
 	glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,-1.43923,0.891203,1.98093 -l
 
+
 lighting_pbr_cubemap:
 	glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
 
@@ -155,6 +156,9 @@ lighting_volumetric:
 
 lighting_raymarching:
 	glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -l
+
+lighting_raymarching_lut:
+	glslViewer lighting_raymarching_lut.frag assets/suzanna.png -e camera_position,29.5393,26.2406,42.1865 -l
 
 lighting_raymarching_pbr:
 	glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -l
