@@ -157,9 +157,6 @@ lighting_volumetric:
 lighting_raymarching:
 	glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -l
 
-lighting_raymarching_lut:
-	glslViewer lighting_raymarching_lut.frag assets/suzanna.png -e camera_position,29.5393,26.2406,42.1865 -l
-
 lighting_raymarching_pbr:
 	glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -l
 

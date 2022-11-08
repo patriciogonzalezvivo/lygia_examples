@@ -62,9 +62,11 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_COORD         v_lightCoord
 
 #include "lygia/color/space/linear2gamma.glsl"
-
 #include "lygia/lighting/atmosphere.glsl"
+
+#ifndef SCENE_CUBEMAP
 #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
+#endif
 
 #include "lygia/lighting/pbr.glsl"
 #include "lygia/lighting/material/new.glsl"
@@ -86,7 +88,7 @@ void main(void) {
     Material material = materialNew();
     // material.metallic = 0.01 + step(0.5, st.y) * 0.99;
     // material.roughness = 0.01 + step(0.5, st.x);
-    material.metallic = 0.9;
+    material.metallic = 0.3;
     material.roughness = 0.1;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
