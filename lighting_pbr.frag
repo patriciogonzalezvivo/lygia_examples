@@ -45,29 +45,22 @@ varying vec4        v_tangent;
 varying mat3        v_tangentToWorld;
 #endif
 
-// #define DIFFUSE_FNC diffuseOrenNayar
-// #define DIFFUSE_FNC diffuseBurley
-// #define DIFFUSE_FNC diffuseLambert
-// #define SPECULAR_FNC specularGaussian
-// #define SPECULAR_FNC specularBeckmann
-// #define SPECULAR_FNC specularPhongRoughness
-// #define SPECULAR_FNC specularBlinnPhongRoughnes 
-// #define SPECULAR_FNC specularCookTorrance
-// #define SPECULAR_FNC specularGGX
 #define SURFACE_POSITION    v_position
 #define CAMERA_POSITION     u_camera
-#define LIGHT_POSITION      u_light
+#define IBL_LUMINANCE       u_iblLuminance
+
+// #define LIGHT_POSITION      u_light
 #define LIGHT_DIRECTION     u_light
 #define LIGHT_COLOR         u_lightColor
+#define LIGHT_FALLOFF       u_lightFalloff
+#define LIGHT_INTENSITY     u_lightIntensity
 #define LIGHT_COORD         v_lightCoord
 
+// #include "lygia/lighting/atmosphere.glsl"
+// #ifndef SCENE_CUBEMAP
+// #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
+// #endif
 #include "lygia/color/space/linear2gamma.glsl"
-#include "lygia/lighting/atmosphere.glsl"
-
-#ifndef SCENE_CUBEMAP
-#define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
-#endif
-
 #include "lygia/lighting/pbr.glsl"
 #include "lygia/lighting/material/new.glsl"
 
@@ -86,10 +79,8 @@ void main(void) {
     #endif
 
     Material material = materialNew();
-    // material.metallic = 0.01 + step(0.5, st.y) * 0.99;
-    // material.roughness = 0.01 + step(0.5, st.x);
-    material.metallic = 0.3;
-    material.roughness = 0.1;
+    // material.metallic = 0.0;
+    // material.roughness = 0.1;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;

@@ -57,14 +57,19 @@ varying mat3        v_tangentToWorld;
 
 #define SURFACE_POSITION    v_position
 #define CAMERA_POSITION     u_camera
+#define IBL_LUMINANCE       u_iblLuminance
+
+
 #define LIGHT_POSITION      u_light
 #define LIGHT_COLOR         u_lightColor
+#define LIGHT_FALLOFF       u_lightFalloff
+#define LIGHT_INTENSITY     u_lightIntensity
 #define LIGHT_COORD         v_lightCoord
 
 #include "lygia/math/saturate.glsl"
 #include "lygia/math/powFast.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
-#include "lygia/lighting/pbrLittle.glsl"
+#include "lygia/lighting/pbr.glsl"
 #include "lygia/lighting/material/new.glsl"
 #include "lygia/lighting/toShininess.glsl"
 
@@ -88,7 +93,7 @@ void main(void) {
     float opacity = 1.0;
     float dist = 1.0;
     vec2 uv = ssr(u_scenePosition, u_sceneNormal, st, pixel, opacity, dist);
-    color.rgb = mix(color.rgb, texture2D(u_scene, uv).rgb, mask * opacity * saturate(1.0-dist));
+    color.rgb = mix(color.rgb, texture2D(u_scene, uv).rgb, mask * saturate(1.0-dist));
 
 #else
     
@@ -99,8 +104,8 @@ void main(void) {
 
     Material material = materialNew();
 
-    material.metallic = 0.01;
-    material.roughness = 0.1;
+    material.metallic = 0.0;
+    material.roughness = 0.05;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
@@ -119,7 +124,7 @@ void main(void) {
 
     #else
     // REGULAR PASS
-    color = pbrLittle(material);
+    color = pbr(material);
     color = linear2gamma(color);
     #endif
 

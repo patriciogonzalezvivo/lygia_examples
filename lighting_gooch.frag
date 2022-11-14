@@ -1,3 +1,5 @@
+// Copyright Patricio Gonzalez Vivo, 2022 - http://patriciogonzalezvivo.com/
+
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -30,17 +32,13 @@ varying vec2        v_texcoord;
 #endif
 varying vec4        v_tangent;
 
-// #define DIFFUSE_FNC diffuseOrenNayar
-// #define DIFFUSE_FNC diffuseBurley
-// #define DIFFUSE_FNC diffuseLambert
-// #define SPECULAR_FNC specularGaussian
-// #define SPECULAR_FNC specularBeckmann
-// #define SPECULAR_FNC specularPhongRoughness
-// #define SPECULAR_FNC specularBlinnPhongRoughnes 
-// #define SPECULAR_FNC specularCookTorrance
+#define SURFACE_POSITION    v_position
+#define CAMERA_POSITION     u_camera
+#define LIGHT_DIRECTION     u_light
+#define GOOCH_SPECULAR      u_lightColor
+#define LIGHT_COORD         v_lightCoord
 
-#define LIGHT_COORD  v_lightCoord
-#define GOOCH_SPECULAR u_lightColor
+#include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/lighting/gooch.glsl"
 #include "lygia/lighting/material/new.glsl"
 
@@ -50,6 +48,7 @@ float checkBoard(vec2 uv, vec2 _scale) {
 }
 
 void main(void) {
+    vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
     vec2 pixel = 1.0/u_resolution;
     vec2 st = gl_FragCoord.xy * pixel;
     vec2 uv = st;
@@ -58,13 +57,14 @@ void main(void) {
     #endif
 
     Material material = materialNew();
-    // material.metallic = 0.01 + step(0.5, st.y) * 0.99;
-    // material.roughness = 0.01 + step(0.5, st.x);
-    material.roughness = 0.4;
+    material.roughness = 0.3;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #endif
+
+    color = gooch(material);
+    color = linear2gamma(color);
     
-    gl_FragColor = gooch(material);
+    gl_FragColor = color;
 }

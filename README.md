@@ -325,15 +325,6 @@ glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,1.43923,-0.89
 ![](images/lighting_ssao.jpg)
 
 
-#### Deferred PBR (postprocessing)
-
-```bash
-glslViewer assets/dragon.obj lighting_pbrLittle_deferred.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
-```
-
-![](images/lighting_pbrLittle_deferred.jpg)
-
-
 #### Gooch (material)
 
 ```bash
@@ -343,22 +334,40 @@ glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,1.43923,-0.8
 ![](images/lighting_gooch.jpg)
 
 
-#### PBR little (material)
+#### PBR (material)
 
 ```bash
-glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+glslViewer assets/dragon.obj lighting_pvr.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
 ```
 
-![](images/lighting_pbrLittle.jpg)
+![](images/lighting_pbr.jpg)
 
 
-#### PBR little with cubemap (material)
+#### PBR with cubemap (material)
 
 ```bash
-glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
+glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
 ```
 
-![](images/lighting_pbrLittle_cubemap.jpg)
+![](images/lighting_pbr_cubemap.jpg)
+
+
+#### Glass (material)
+
+```bash
+glslViewer assets/dragon.obj lighting_glass.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+```
+
+![](images/lighting_glass.jpg)
+
+
+#### Glass with cubemap (material)
+
+```bash
+glslViewer assets/dragon.obj lighting_glass.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
+```
+
+![](images/lighting_glass_cubemap.jpg)
 
 
 #### ScreenSpace Reflections (postprocessing/raymarching)
