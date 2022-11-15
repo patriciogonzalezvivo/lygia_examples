@@ -107,7 +107,7 @@ sample_filter:
 	glslViewer sample_filter.frag assets/noise_blue.png -l
 
 sample_equirect:
-	glslViewer sample_equirect.frag assets/dragon.obj assets/studio.png -e defined,SCENE_CUBEMAP,u_tex0 -l
+	glslViewer sample_equirect.frag assets/dragon.obj assets/studio.png -e defined,SCENE_CUBEMAP,u_tex0 -e camera_position,-1.43923,0.891203,1.98093 -l
 
 # LIGHTING
 
