@@ -4,12 +4,8 @@
 precision mediump float;
 #endif
 
-uniform sampler2D   u_sceneBuffer0;
-
 uniform samplerCube u_cubeMap;
 uniform vec3        u_SH[9];
-
-uniform mat4        u_viewMatrix;
 
 uniform vec3        u_camera;
 
