@@ -64,7 +64,7 @@ void main(void) {
     color.rgb *= (dot(n, l) + 1.0 ) * 0.5;
 
     // Spherical Harmonics
-    color.rgb *= tonemapUnreal( sphericalHarmonics(v_normal) );
+    color.rgb *= tonemap( sphericalHarmonics(v_normal) );
     #endif
 
     // Shadow

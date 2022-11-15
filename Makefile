@@ -106,6 +106,9 @@ sample_untile:
 sample_filter:
 	glslViewer sample_filter.frag assets/noise_blue.png -l
 
+sample_equirect:
+	glslViewer sample_equirect.frag assets/dragon.obj assets/studio.png -e defined,SCENE_CUBEMAP,u_tex0 -l
+
 # LIGHTING
 
 lighting_position:
