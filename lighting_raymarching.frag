@@ -16,10 +16,9 @@ varying vec2        v_texcoord;
 #include "lygia/space/ratio.glsl"
 #include "lygia/sdf.glsl"
 
-#define LIGHT_POSITION     u_light
-// #define LIGHT_DIRECTION     u_light
+// #define LIGHT_POSITION     u_light
+#define LIGHT_DIRECTION     u_light
 #define LIGHT_COLOR         vec3(0.95, 0.65, 0.5)
-
 
 #define RAYMARCH_SAMPLES 100
 #define RAYMARCH_MULTISAMPLE 4

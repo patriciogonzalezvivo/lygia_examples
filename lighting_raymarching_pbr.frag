@@ -23,11 +23,13 @@ varying vec2        v_texcoord;
 #include "lygia/sdf/opUnion.glsl"
 #include "lygia/sdf/opRepite.glsl"
 
-#define LIGHT_COLOR vec3(0.5)
-#define LIGHT_POSITION u_light
-#define LIGHT_DIRECTION LIGHT_POSITION
-#define RAYMARCH_BACKGROUND vec3(1.0)
-#define RAYMARCH_MATERIAL_FNC raymarchPbrMaterial
+#define LIGHT_COLOR             vec3(1.0)
+#define LIGHT_POSITION          u_light
+#define LIGHT_DIRECTION         u_light
+#define RAYMARCH_BACKGROUND     vec3(1.0)
+#define RAYMARCH_MATERIAL_FNC   raymarchPbrMaterial
+#define RAYMARCH_SAMPLES        120
+#define RAYMARCH_MULTISAMPLE    4
 
 // #include "lygia/lighting/atmosphere.glsl"
 // #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(LIGHT_POSITION))
@@ -66,8 +68,8 @@ vec4 raymarchMap(in vec3 pos ) {
 }
 
 vec3 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
-    if ( map.r + map.g + map.b <= 0.0 ) 
-        return tonemapReinhard( envMap(ray, 0.).rgb );
+    if ( sum(map) <= 0.0 ) 
+        return tonemap( envMap(ray, 0.).rgb );
 
     vec3 color = vec3(map.z);
 
@@ -83,49 +85,49 @@ vec3 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     #else
     vec3  lig = normalize( LIGHT_POSITION - pos);
     #endif
-    vec3  hal = normalize( lig - ray );
-    vec3  vie = normalize( ray - pos);
+    vec3  vie = normalize( ray );
     float dom = smoothstep( -0.1, 0.1, ref.y );
     float occ = raymarchAO( pos, nor );
-    float n2v = dot(nor, -vie);
+    float n2v = dot(nor, vie);
 
-    float diffuse = diffuse(lig, nor, vie, roughness);
-    float specular = specular(lig, nor, vie, roughness);
+    float diffuse = diffuse(lig, nor, -vie, roughness);
+    float specular = specular(lig, nor, -vie, roughness);
 
     diffuse *= raymarchSoftShadow( pos, lig, 0.02, 2.5 );
     dom = raymarchSoftShadow( pos, ref, 0.02, 2.5 );
     
     color.rgb *= diffuse;
 #ifdef SCENE_SH_ARRAY
-    color.rgb *= tonemapReinhard( sphericalHarmonics(nor) );
+    color.rgb *= tonemap( sphericalHarmonics(nor) );
 #endif
 
     // SPECULAR
-    float specIntensity =   (0.04 * notMetal + 2.0 * metallic) * 
+    float specIntensity =   max(0.0, 0.04 * notMetal + 2.0 * metallic) * 
                             saturate(1.1 + n2v + metallic) * // Fresnel
                             (metallic + smooth * 4.0); // make smaller highlights brighter
 
-    vec3 ambientSpecular = tonemapReinhard( envMap(ref, roughness, metallic) ) * specIntensity * occ;
-    ambientSpecular += fresnelReflection(ref, vec3(0.04), n2v) * metallic;
+    vec3 ambientSpecular = vec3(0.0, 0.0, 0.0);
+    ambientSpecular = tonemap( envMap(ref, roughness, metallic) ) * (specIntensity) * occ;
+    ambientSpecular += tonemap( fresnelReflection(ref, vec3(0.04), n2v) ) * metallic;
     ambientSpecular *= LIGHT_COLOR * 0.1 + dom;
 
     color.rgb   =   color.rgb * notMetal + 
                     (ambientSpecular + LIGHT_COLOR * 2.0 * specular) * 
                     (notMetal * smooth + color.rgb * metallic);
 
-    color = linear2gamma(color);
-
     return color;
 }
 
 
 void main(void) {
-    vec3 color = vec3(0.0);
+    vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
     vec2 pixel = 1.0/u_resolution;
     
     vec2 st = v_texcoord;
     vec2 uv = ratio(st, u_resolution);
     color.rgb += raymarch(u_camera, uv).rgb;
+    color = linear2gamma(color);
 
-    gl_FragColor = vec4(color, 1.0);
+
+    gl_FragColor = color;
 }
