@@ -1,4 +1,3 @@
-
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -9,7 +8,7 @@ uniform float       u_time;
 uniform sampler2D   u_tex0;
 uniform vec2        u_tex0Resolution;
 
-#define NOISEBLUR_SAMPLER_FNC(POS_UV) texture2D(tex, clamp(POS_UV, vec2(0.02), vec2(0.98)))
+#define NOISEBLUR_SAMPLER_FNC(POS_UV) SAMPLER_FNC(tex, clamp(POS_UV, vec2(0.02), vec2(0.98)))
 #include "lygia/filter/noiseBlur.glsl"
 
 #include "lygia/draw/digits.glsl"

@@ -16,6 +16,9 @@ varying vec2        v_texcoord;
 
 // #define SAMPLEUNTILE_FAST
 #include "lygia/sample/untile.glsl"
+#include "lygia/sample/repeat.glsl"
+#include "lygia/sample/mirror.glsl"
+#include "lygia/sample/clamp2edge.glsl"
 
 void main (void) {
     vec4 color = vec4(vec3(0.0), 1.0);
@@ -23,7 +26,12 @@ void main (void) {
     vec2 st = gl_FragCoord.xy * pixel;
 
     float s = smoothstep( 0.4, 0.6, sin(u_time*0.5) );
-    color = sampleUntile(u_tex0, (2.0 + 1.0*s)*st + u_time*0.1 );
+    vec2 st1 = (2.0 + 1.0*s) * (st-0.5) + vec2(sin(u_time * 0.1), cos(u_time * 0.2));
 
+    color = sampleUntile(u_tex0, st1);
+    // color = sampleRepeat(u_tex0, st1);
+    // color = sampleMirror(u_tex0, st1);
+    // color = sampleClamp2edge(u_tex0, st1);
+    
     gl_FragColor = color;
 }
