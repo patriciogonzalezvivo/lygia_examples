@@ -16,6 +16,10 @@ varying vec4        v_position;
 varying vec3        v_normal;
 varying vec2        v_texcoord;
 
+#define CAMERA_POSITION u_camera
+#define LIGHT_DIRECTION u_light
+#define LIGHT_COLOR     u_lightColor
+
 // Example from https://stegu.github.io/psrdnoise/3d-tutorial/3d-psrdnoise-tutorial-06.html
 #include "lygia/generative/psrdnoise.glsl"
 #include "lygia/lighting/pbrLittle.glsl"
