@@ -401,10 +401,19 @@ glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,1.43923,-0.891
 #### Volumetric Light Scattering (postprocessing/raymarching)
 
 ```bash
-glslViewer assets/dragon.obj lighting_volumetric.frag  -e camera_position,-2.11302,-0.541756,-1.42525 -l 
+glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -l 
 ```
 
 ![](images/lighting_volumetric.jpg)
+
+
+#### Volumetric Light Scattering with Cubemap(postprocessing/raymarching)
+
+```bash
+glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -C assets/Arches_E_PineTree_3k.hdr -l 
+```
+
+![](images/lighting_volumetric_cubemap.jpg)
 
 
 #### Raymarching 
@@ -452,7 +461,7 @@ glslViewer lighting_raymarching_glass.frag -e camera_position,-29.5393,-26.2406,
 ![](images/lighting_raymarching_glass_cubemap.jpg)
 
 
-#### Raymarching efault VOLUME
+#### Raymarching default VOLUME
 
 ```bash
 glslViewer lighting_raymarching_volume.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l

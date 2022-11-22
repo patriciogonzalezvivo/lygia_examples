@@ -166,7 +166,7 @@ lighting_ssr:
 	glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l
 
 lighting_volumetric:
-	glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-2.11302,-0.541756,-1.42525 -e dynamic_shadows,on -l
+	glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l
 
 lighting_raymarching:
 	glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -l
@@ -263,8 +263,9 @@ screenshots:
 
 	# glslViewer assets/dragon.obj lighting_pbrLittle_deferred.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_pbrLittle_deferred.jpg
 	glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/Arches_E_PineTree_3k.hdr -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_ssr.jpg
-	glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-2.11302,-0
-#define TONEMAP_FNC             tonemapACES.541756,-1.42525 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_volumetric.jpg
+	glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_volumetric.jpg
+	glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -C assets/Arches_E_PineTree_3k.hdr -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_volumetric_cubemap.jpg
+	
 
 	glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_raymarching.jpg
 	glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_raymarching_pbr.jpg
