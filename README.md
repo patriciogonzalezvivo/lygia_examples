@@ -351,23 +351,40 @@ glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,1.43923,-0.891
 
 ![](images/lighting_pbr_cubemap.jpg)
 
-
-#### Glass (material)
-
-```bash
-glslViewer assets/dragon.obj lighting_glass.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
-```
-
-![](images/lighting_glass.jpg)
-
-
-#### Glass with cubemap (material)
+#### PBR ClearCoat (material)
 
 ```bash
-glslViewer assets/dragon.obj lighting_glass.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
+glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
 ```
 
-![](images/lighting_glass_cubemap.jpg)
+![](images/lighting_pbrClearCoat.jpg)
+
+
+#### PBR ClearCoat with cubemap (material)
+
+```bash
+glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
+```
+
+![](images/lighting_pbrClearCoat_cubemap.jpg)
+
+
+#### PBR Glass (material)
+
+```bash
+glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+```
+
+![](images/lighting_pbrGlass.jpg)
+
+
+#### PBR Glass with cubemap (material)
+
+```bash
+glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
+```
+
+![](images/lighting_pbrGlass_cubemap.jpg)
 
 
 #### ScreenSpace Reflections (postprocessing/raymarching)
