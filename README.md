@@ -299,23 +299,6 @@ glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,1.43923,-0.
 ![](images/lighting_shadow.jpg)
 
 
-#### Spherical Harmonics (material)
-
-```bash
-glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg -e camera_position,-1.43923,0.891203,1.98093
-```
-
-![](images/lighting_sphereMap.jpg)
-
-
-#### SphereMap (material)
-
-```bash
-glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,1.43923,-0.891203,-1.98093 -c assets/uffizi_cross.hdr -l
-```
-
-![](images/lighting_sphericalHarmonics.jpg)
-
 #### ScreenSpace Ambient Occlusion (postprocessing)
 
 ```bash
@@ -334,6 +317,24 @@ glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,1.43923,-0.8
 ![](images/lighting_gooch.jpg)
 
 
+#### SphereMap (material)
+
+```bash
+glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,1.43923,-0.891203,-1.98093 -c assets/uffizi_cross.hdr -l
+```
+
+![](images/lighting_sphericalHarmonics.jpg)
+
+
+#### Spherical Harmonics (material)
+
+```bash
+glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg -e camera_position,-1.43923,0.891203,1.98093
+```
+
+![](images/lighting_sphereMap.jpg)
+
+
 #### PBR (material)
 
 ```bash
@@ -350,6 +351,7 @@ glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,1.43923,-0.891
 ```
 
 ![](images/lighting_pbr_cubemap.jpg)
+
 
 #### PBR ClearCoat (material)
 
