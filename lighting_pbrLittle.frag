@@ -79,7 +79,7 @@ void main(void) {
     material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #else
     material.roughness = 0.05;
-    material.metallic = 0.99;
+    material.metallic = 0.0;
     #endif
 
     color = pbrLittle(material);
