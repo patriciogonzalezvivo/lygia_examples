@@ -33,7 +33,7 @@ varying vec2        v_texcoord;
 #include "lygia/lighting/raymarch/camera.glsl"
 
 #include "lygia/lighting/envMap.glsl"
-#include "lygia/lighting/common/reflection.glsl"
+#include "lygia/lighting/reflection.glsl"
 #include "lygia/lighting/fresnelReflection.glsl"
 #include "lygia/lighting/ior/2f0.glsl"
 #include "lygia/color/tonemap.glsl"

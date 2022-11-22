@@ -38,7 +38,7 @@ vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 #include "lygia/lighting/envMap.glsl"
 #include "lygia/lighting/specular.glsl"
 #include "lygia/lighting/fresnelReflection.glsl"
-#include "lygia/lighting/common/reflection.glsl"
+#include "lygia/lighting/reflection.glsl"
 
 vec4 raymarchMap(in vec3 pos ) {
     vec4 res = vec4(1.);

@@ -31,7 +31,7 @@ varying vec2        v_texcoord;
 // #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
 // #endif
 #include "lygia/color/space/linear2gamma.glsl"
-#include "lygia/lighting/glass.glsl"
+#include "lygia/lighting/pbrGlass.glsl"
 #include "lygia/lighting/material/new.glsl"
 
 void main(void) {
@@ -42,7 +42,7 @@ void main(void) {
     Material mat = materialNew();
     mat.roughness = 0.1;
 
-    color = glass(mat);
+    color = pbrGlass(mat);
     color = linear2gamma(color);
 
     gl_FragColor = color;
