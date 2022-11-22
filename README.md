@@ -320,19 +320,19 @@ glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,1.43923,-0.8
 #### SphereMap (material)
 
 ```bash
-glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,1.43923,-0.891203,-1.98093 -c assets/uffizi_cross.hdr -l
+glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg -e camera_position,-1.43923,0.891203,1.98093
 ```
 
-![](images/lighting_sphericalHarmonics.jpg)
+![](images/lighting_sphereMap.jpg)
 
 
 #### Spherical Harmonics (material)
 
 ```bash
-glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg -e camera_position,-1.43923,0.891203,1.98093
+glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,1.43923,-0.891203,-1.98093 -c assets/uffizi_cross.hdr -l
 ```
 
-![](images/lighting_sphereMap.jpg)
+![](images/lighting_sphericalHarmonics.jpg)
 
 
 #### PBR (material)
