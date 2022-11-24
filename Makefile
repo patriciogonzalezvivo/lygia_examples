@@ -268,7 +268,6 @@ screenshots:
 	glslViewer sample_filter_bicubic.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,images/sample_filter_bicubic.jpg
 	glslViewer sample_filter_nearest.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,images/sample_filter_nearest.jpg
 	glslViewer sample_filter_smooth.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,images/sample_filter_smooth.jpg
-	glslViewer sample_filter_untile.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_filter_untile.jpg
 
 	glslViewer morphological_erosion.frag assets/flower.png -w 1080 -h 1080 --headless -E screenshot,images/morphological_erosion.jpg
 	glslViewer morphological_dilation.frag assets/flower.png -w 1080 -h 1080 --headless -E screenshot,images/morphological_dilation.jpg
