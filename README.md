@@ -356,7 +356,7 @@ filter_boxBlur2D:
 	glslViewer morphological_erosion.frag assets/flower.png -l
 ```
 
-![](morphological_erosion.jpg)
+![](images/morphological_erosion.jpg)
 
 
 #### DILATION
@@ -365,7 +365,7 @@ filter_boxBlur2D:
 	glslViewer morphological_dilation.frag assets/flower.png -l
 ```
 
-![](morphological_dilation.jpg)
+![](images/morphological_dilation.jpg)
 
 
 #### ALPHA FILL
@@ -374,7 +374,7 @@ filter_boxBlur2D:
 	glslViewer morphological_alphaFill.frag assets/flower.png -l
 ```
 
-![](morphological_alphaFill.jpg)
+![](images/morphological_alphaFill.jpg)
 
 
 
