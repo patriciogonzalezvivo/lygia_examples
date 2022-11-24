@@ -229,15 +229,6 @@ glslViewer generative_worley.frag
 
 
 
-#### Untile
-
-```bash
-	glslViewer sample_untile.frag assets/rocks.png -l
-```
-
-![](images/sample_untile.jpg)
-
-
 # FILTER
 
 #### boxBlur 1D
