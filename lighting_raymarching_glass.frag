@@ -16,8 +16,8 @@ uniform vec2        u_resolution;
 varying vec2        v_texcoord;
 
 
-// #define LIGHT_POSITION          u_light
 #define LIGHT_DIRECTION         u_light
+#define RESOLUTION              u_resolution
 #define RAYMARCH_SAMPLES        100
 #define RAYMARCH_MULTISAMPLE    4
 #define RAYMARCH_BACKGROUND     vec3(1.0)

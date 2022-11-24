@@ -109,6 +109,15 @@ sample_filter:
 sample_equirect:
 	glslViewer sample_equirect.frag assets/dragon.obj assets/studio.png -e defined,SCENE_CUBEMAP,u_tex0 -e camera_position,-1.43923,0.891203,1.98093 -l
 
+morphological_erosion:
+	glslViewer morphological_erosion.frag assets/flower.png -l
+
+morphological_dilation:
+	glslViewer morphological_dilation.frag assets/flower.png -l
+
+morphological_alphaFill:
+	glslViewer morphological_alphaFill.frag assets/flower.png -l
+
 # LIGHTING
 
 lighting_position:

@@ -17,8 +17,9 @@ uniform float       u_time;
 // #define DITHER_FNC ditherTriangleNoise
 // #define DITHER_ANIMATED
 // #define DITHER_CHROMA
-#define BLUENOISE_TEXTURE u_noise
-#define TIME_SECS   u_time
+#define RESOLUTION 			u_resolution
+#define BLUENOISE_TEXTURE   u_noise
+#define TIME_SECS           u_time
 #include "lygia/color/dither.glsl"
 #include "lygia/math/mirror.glsl"
 

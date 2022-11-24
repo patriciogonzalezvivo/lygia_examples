@@ -23,6 +23,7 @@ varying vec2        v_texcoord;
 #include "lygia/sdf/opUnion.glsl"
 #include "lygia/sdf/opRepite.glsl"
 
+#define RESOLUTION              u_resolution
 #define LIGHT_COLOR             vec3(1.0)
 #define LIGHT_POSITION          u_light
 #define LIGHT_DIRECTION         u_light
