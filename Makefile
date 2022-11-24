@@ -265,12 +265,10 @@ screenshots:
 	glslViewer sample_wrap_mirror.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_wrap_mirror.jpg
 	glslViewer sample_wrap_untile.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_wrap_untile.jpg
 	glslViewer sample_bracketing.frag assets/rock_moss.jpg -w 1080 -h 1080 --headless -E screenshot,images/sample_bracketing.jpg
-
 	glslViewer sample_filter_bicubic.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,images/sample_filter_bicubic.jpg
 	glslViewer sample_filter_nearest.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,images/sample_filter_nearest.jpg
 	glslViewer sample_filter_smooth.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,images/sample_filter_smooth.jpg
-
-	glslViewer sample_untile.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_untile.jpg
+	glslViewer sample_filter_untile.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_filter_untile.jpg
 
 	glslViewer morphological_erosion.frag assets/flower.png -w 1080 -h 1080 --headless -E screenshot,images/morphological_erosion.jpg
 	glslViewer morphological_dilation.frag assets/flower.png -w 1080 -h 1080 --headless -E screenshot,images/morphological_dilation.jpg
