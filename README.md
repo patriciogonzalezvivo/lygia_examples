@@ -234,7 +234,7 @@ glslViewer generative_worley.frag
 	glslViewer sample_untile.frag assets/rocks.png -l
 ```
 
-![](sample_untile.jpg)
+![](images/sample_untile.jpg)
 
 
 # FILTER

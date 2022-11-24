@@ -9,22 +9,30 @@ uniform vec2        u_resolution;
 uniform vec2        u_mouse;
 uniform float       u_time;
 
-#include "lygia/math/saturate.glsl"
-#include "lygia/color/mixOklab.glsl"
+#define MIXBOX_LUT u_tex0
+#include "lygia/color/pigments.glsl"
 #include "lygia/color/mixBox.glsl"
+#include "lygia/color/mixOklab.glsl"
 
 void main(void) {
     vec3 color = vec3(0.0);
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
     
-    vec3 A = vec3(0.9333, 0.9451, 0.0588);
-    vec3 B = vec3(0.0824, 0.1686, 0.5529);
-    float pct = st.x;
+    vec3 A = PHTHALO_BLUE;
+    // A = COBALTE_BLUE;
+    // A = ULTRAMARINE_BLUE;
+    // A = PHTHALO_GREEN;
+    // A = QUINACRIDONE_MAGENTA;
 
-    if (st.y < 0.33) 
-        color = mix(A, B, pct);
-    else if (st.y < 0.66)
-        color = mixOklab(A, B, pct);
+    vec3 B = CADMIUM_YELLOW;
+    // B = CADMIUM_ORANGE;
+    // B = CADMIUM_RED;
+    // B = COBALT_VIOLET;
+
+    if (st.y > 0.66) 
+        color = mix(A, B, st.x);
+    else if (st.y > 0.33)
+        color = mixOklab(A, B, st.x);
     else
         color = mixBox(A, B, st.x);
 
