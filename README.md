@@ -26,15 +26,6 @@ glslViewer animation_easing.frag -l
 
 # COLOR 
 
-#### OKLab and MixBox color mixing
-
-```bash
-glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
-```
-
-![](images/color_mix.jpg)
-
-
 #### LookUp table
 
 ```bash
@@ -51,6 +42,16 @@ glslViewer color_dither.frag -l
 ```
 
 ![](images/color_dither.jpg)
+
+
+#### Mix vs mixOklab vs MixBox color mixing
+
+```bash
+glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
+```
+
+![](images/color_mix.jpg)
+
 
 # DRAW
 
