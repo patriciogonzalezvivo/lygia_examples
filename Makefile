@@ -6,9 +6,6 @@ animation_easing:
 animation_sprite:
 	glslViewer animation_sprite.frag assets/sprite_megaman.png -l
 
-space_displace:
-	glslViewer space_displace.frag assets/iphone_depth.jpeg -l
-
 color_mix:
 	glslViewer color_mix.frag assets/mixbox_lut.png -l
 

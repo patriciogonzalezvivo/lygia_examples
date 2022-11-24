@@ -9,6 +9,8 @@ uniform float       u_time;
 uniform sampler2D   u_tex0;
 uniform vec2        u_tex0Resolution;
 
+#include "lygia/sample/clamp2edge.glsl"
+#define FIBONACCIBOKEH_SAMPLER_FNC(TEX, UV) sampleClamp2edge(TEX, UV)
 #include "lygia/filter/fibonacciBokeh.glsl"
 
 #include "lygia/draw/digits.glsl"
