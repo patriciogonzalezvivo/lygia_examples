@@ -7,6 +7,10 @@ uniform sampler2D   u_tex0;
 
 uniform vec2        u_resolution;
 
+#include "lygia/sample/clamp2edge.glsl"
+
+#define ALPHAFILL_RADIUS 4.0
+#define ALPHAFILL_SAMPLE_FNC(TEX, UV) sampleClamp2edge(TEX, UV)
 #include "lygia/morphological/alphaFill.glsl"
 
 void main (void) {

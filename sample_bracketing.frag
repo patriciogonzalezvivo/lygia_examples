@@ -9,7 +9,6 @@ uniform sampler2D   u_tex0;
 uniform vec2        u_tex0Resolution;
 
 uniform vec2        u_resolution;
-uniform vec2        u_mouse;
 uniform float       u_time;
 
 varying vec2        v_texcoord;
@@ -18,10 +17,10 @@ varying vec2        v_texcoord;
 #include "lygia/math/decimation.glsl"
 #include "lygia/generative/noised.glsl"
 
-#define ARROWS_LINE_STYLE
+#define ARROWS_STYLE_LINE
 #include "lygia/draw/arrows.glsl"
 
-#define TEXTUREBRACKETING_REPLACE_DIVERGENCE
+#define SAMPLEBRACKETING_REPLACE_DIVERGENCE
 #include "lygia/sample/bracketing.glsl"
 
 void main (void) {
@@ -29,19 +28,16 @@ void main (void) {
     vec2 pixel = 1.0/u_resolution.xy;
     vec2 st = gl_FragCoord.xy * pixel;
 
-    vec2 mouse = u_mouse * pixel;
-    vec2 dir = ( noised( vec3(st, u_time * 0.1) ).yz );
+    vec2 dir = noised( vec3(st, u_time * 0.1) ).yz ;
 
     float scale = 1.;
+    color = mix(texture2D(u_tex0, rotate(st, atan(dir.y, dir.x))),
+                sampleBracketing(u_tex0, st, dir),
+                step(0.5, st.x) );
 
-    if (st.x > mouse.x)
-        color = sampleBracketing(u_tex0, st, dir, scale);
-    else
-        color = texture2D(u_tex0, scale * rotate(st, dir));
-    
     // // Output vector field directly
-    // color = max(0.8*color, 
-    //             0.9*arrows(st, dir*70., u_resolution));
+    color = max(color, 
+                arrows(st, dir, u_resolution * 0.5));
     
     gl_FragColor = color;
 }

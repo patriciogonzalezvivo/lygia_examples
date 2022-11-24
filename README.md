@@ -62,6 +62,7 @@ glslViewer draw_digits.frag -l
 
 ![](images/draw_digits.jpg)
 
+
 # GENERATIVE
 
 
@@ -161,7 +162,82 @@ glslViewer generative_worley.frag
 ![](images/generative_worley.jpg)
 
 
-#### Filter
+# SAMPLE
+
+#### Wrap clamp2edge vs repeat
+
+```bash	
+	glslViewer sample_wrap.frag assets/rocks.png -l
+```
+
+![](images/sample_wrap.jpg)
+
+
+#### Wrap repeat vs mirror
+
+```bash	
+	glslViewer sample_wrap_mirror.frag assets/rocks.png -l
+```
+
+![](images/sample_wrap_mirror.jpg)
+
+
+#### Wrap repeat vs untile
+
+```bash	
+	glslViewer sample_wrap_untile.frag assets/rocks.png -l
+```
+
+![](images/sample_wrap_untile.jpg)
+
+
+#### Bracketing
+
+```bash
+	glslViewer sample_bracketing.frag assets/rock_moss.jpg -l
+```
+
+![](sample_bracketing.jpg)
+
+
+#### Bicubic filter
+
+```bash
+	glslViewer sample_filter_bicubic.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,
+```
+
+![](images/sample_filter_bicubic.jpg)
+
+
+#### Nearest filter
+
+```bash
+	glslViewer sample_filter_nearest.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,
+```
+
+![](images/sample_filter_nearest.jpg)
+
+
+#### Smooth filter
+
+```bash
+	glslViewer sample_filter_smooth.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,
+```
+
+![](images/sample_filter_smooth.jpg)
+
+
+
+#### Untile
+
+```bash
+	glslViewer sample_untile.frag assets/rocks.png -l
+```
+
+![](sample_untile.jpg)
+
+
+# FILTER
 
 #### boxBlur 1D
 
@@ -270,6 +346,36 @@ filter_boxBlur2D:
 ```
 
 ![](images/filter_edge2D.jpg)
+
+
+# MORPHOLOGICAL
+
+#### EROSION
+
+```bash
+	glslViewer morphological_erosion.frag assets/flower.png -l
+```
+
+![](morphological_erosion.jpg)
+
+
+#### DILATION
+
+```bash
+	glslViewer morphological_dilation.frag assets/flower.png -l
+```
+
+![](morphological_dilation.jpg)
+
+
+#### ALPHA FILL
+
+```bash
+	glslViewer morphological_alphaFill.frag assets/flower.png -l
+```
+
+![](morphological_alphaFill.jpg)
+
 
 
 # LIGHTING

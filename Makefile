@@ -97,14 +97,28 @@ filter_laplacian2D:
 filter_edge2D:
 	glslViewer filter_edge2D.frag assets/danny.png -l
 
+#  SAMPLE
+
 sample_bracketing:
 	glslViewer sample_bracketing.frag assets/rock_moss.jpg -l
 
-sample_untile:
-	glslViewer sample_untile.frag assets/rocks.png -l
+sample_wrap:
+	glslViewer sample_wrap.frag assets/rocks.png -l
 
-sample_filter:
-	glslViewer sample_filter.frag assets/noise_blue.png -l
+sample_wrap_mirror:
+	glslViewer sample_wrap_mirror.frag assets/rocks.png -l
+
+sample_wrap_untile:
+	glslViewer sample_wrap_untile.frag assets/rocks.png -l
+
+sample_filter_bicubic:
+	glslViewer sample_filter_bicubic.frag assets/noise_blue.png -l
+
+sample_filter_nearest:
+	glslViewer sample_filter_nearest.frag assets/noise_blue.png -l
+
+sample_filter_smooth:
+	glslViewer sample_filter_smooth.frag assets/noise_blue.png -l
 
 sample_equirect:
 	glslViewer sample_equirect.frag assets/dragon.obj assets/studio.png -e defined,SCENE_CUBEMAP,u_tex0 -e camera_position,-1.43923,0.891203,1.98093 -l
@@ -234,21 +248,33 @@ screenshots:
 	glslViewer generative_voronoise.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_voronoise.jpg
 	glslViewer generative_worley.frag -w 1080 -h 1080 --headless -E screenshot,images/generative_worley.jpg
 
-	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on --headless -E screenshot,images/filter_boxBlur1D.jpg
-	glslViewer filter_boxBlur2D.frag assets/danny.png --headless -E screenshot,images/filter_boxBlur2D.jpg
-	glslViewer filter_gaussianBlur1D.frag assets/danny.png -e buffers,on --headless -E screenshot,images/filter_gaussianBlur1D.jpg
-	glslViewer filter_gaussianBlur2D.frag assets/danny.png --headless -E screenshot,images/filter_gaussianBlur2D.jpg
-	glslViewer filter_bilateralBlur2D.frag assets/danny.png --headless -E screenshot,images/filter_bilateralBlur2D.jpg
-	glslViewer filter_radialBlur2D.frag assets/danny.png --headless -E screenshot,images/filter_radialBlur2D.jpg
-	glslViewer filter_noiseBlur2D.frag assets/danny.png --headless -E screenshot,images/filter_noiseBlur2D.jpg
-	glslViewer filter_median2D.frag assets/danny.png --headless -E screenshot,images/filter_median2D.jpg
-	glslViewer filter_kuwahara2D.frag assets/danny.png --headless -E screenshot,images/filter_kuwahara2D.jpg
-	glslViewer filter_sharpen2D.frag assets/danny.png --headless -E screenshot,images/filter_sharpen2D.jpg
-	glslViewer filter_laplacian2D.frag assets/danny.png --headless -E screenshot,images/filter_laplacian2D.jpg
-	glslViewer filter_edge2D.frag assets/danny.png --headless -E screenshot,images/filter_edge2D.jpg
+	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on -w 1080 -h 1080 --headless -E screenshot,images/filter_boxBlur1D.jpg
+	glslViewer filter_boxBlur2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_boxBlur2D.jpg
+	glslViewer filter_gaussianBlur1D.frag assets/danny.png -e buffers,on -w 1080 -h 1080 --headless -E screenshot,images/filter_gaussianBlur1D.jpg
+	glslViewer filter_gaussianBlur2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_gaussianBlur2D.jpg
+	glslViewer filter_bilateralBlur2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_bilateralBlur2D.jpg
+	glslViewer filter_radialBlur2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_radialBlur2D.jpg
+	glslViewer filter_noiseBlur2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_noiseBlur2D.jpg
+	glslViewer filter_median2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_median2D.jpg
+	glslViewer filter_kuwahara2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_kuwahara2D.jpg
+	glslViewer filter_sharpen2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_sharpen2D.jpg
+	glslViewer filter_laplacian2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_laplacian2D.jpg
+	glslViewer filter_edge2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_edge2D.jpg
 
-	glslViewer sample_bracketing.frag assets/rock_moss.jpg --headless -E screenshot,images/sample_bracketing.jpg
-	glslViewer sample_untile.frag assets/rocks.png --headless -E screenshot,images/sample_untile.jpg
+	glslViewer sample_wrap.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_wrap.jpg
+	glslViewer sample_wrap_mirror.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_wrap_mirror.jpg
+	glslViewer sample_wrap_untile.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_wrap_untile.jpg
+	glslViewer sample_bracketing.frag assets/rock_moss.jpg -w 1080 -h 1080 --headless -E screenshot,images/sample_bracketing.jpg
+
+	glslViewer sample_filter_bicubic.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,images/sample_filter_bicubic.jpg
+	glslViewer sample_filter_nearest.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,images/sample_filter_nearest.jpg
+	glslViewer sample_filter_smooth.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,images/sample_filter_smooth.jpg
+
+	glslViewer sample_untile.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_untile.jpg
+
+	glslViewer morphological_erosion.frag assets/flower.png -w 1080 -h 1080 --headless -E screenshot,images/morphological_erosion.jpg
+	glslViewer morphological_dilation.frag assets/flower.png -w 1080 -h 1080 --headless -E screenshot,images/morphological_dilation.jpg
+	glslViewer morphological_alphaFill.frag assets/flower.png -w 1080 -h 1080 --headless -E screenshot,images/morphological_alphaFill.jpg
 
 	glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_gooch.jpg
 	glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_pbrLittle.jpg
@@ -275,7 +301,6 @@ screenshots:
 	glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_volumetric.jpg
 	glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -C assets/Arches_E_PineTree_3k.hdr -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_volumetric_cubemap.jpg
 	
-
 	glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_raymarching.jpg
 	glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_raymarching_pbr.jpg
 	glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -C assets/Arches_E_PineTree_3k.hdr -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_raymarching_pbr_cubemap.jpg
