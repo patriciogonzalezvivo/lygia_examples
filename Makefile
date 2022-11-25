@@ -96,6 +96,9 @@ filter_edge2D:
 
 #  SAMPLE
 
+sample_dof:
+	glslViewer assets/dragon.obj sample_dof.frag -C assets/Arches_E_PineTree_3k.hdr -e camera_position,-1.43923,0.891203,1.98093 -l
+
 sample_bracketing:
 	glslViewer sample_bracketing.frag assets/rock_moss.jpg -l
 
@@ -258,6 +261,7 @@ screenshots:
 	glslViewer filter_laplacian2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_laplacian2D.jpg
 	glslViewer filter_edge2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_edge2D.jpg
 
+	glslViewer sample_dof.frag assets/dragon.obj -C assets/Arches_E_PineTree_3k.hdr -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless -E screenshot,images/sample_dof.jpg
 	glslViewer sample_wrap.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_wrap.jpg
 	glslViewer sample_wrap_mirror.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_wrap_mirror.jpg
 	glslViewer sample_wrap_untile.frag assets/rocks.png -w 1080 -h 1080 --headless -E screenshot,images/sample_wrap_untile.jpg

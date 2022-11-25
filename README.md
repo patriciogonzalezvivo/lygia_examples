@@ -228,6 +228,15 @@ glslViewer generative_worley.frag
 ![](images/sample_filter_smooth.jpg)
 
 
+#### Sample DoF 
+
+```bash
+	glslViewer sample_dof.frag assets/dragon.obj -C assets/Arches_E_PineTree_3k.hdr -e camera_position,-1.43923,0.891203,1.98093 -l 
+```	
+
+![](images/sample_dof.jpg)
+	
+
 
 # FILTER
 
