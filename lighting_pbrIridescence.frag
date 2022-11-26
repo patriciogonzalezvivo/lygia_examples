@@ -108,7 +108,7 @@ void main(void) {
     vec3 V = normalize(CAMERA_POSITION - (SURFACE_POSITION).xyz);
     vec3 N = normalize(mat.normal);
     color.rgb += iridescence( abs(dot(N, V)), 1.0);
-    color.rgb += iridescence(V, N, L, 270.0);
+    color.rgb += iridescence(V, N, L, 320.0);
 
     color = linear2gamma(color);
     
