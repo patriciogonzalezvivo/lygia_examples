@@ -1,5 +1,8 @@
 # DRAW
 
+math_functions:
+	glslViewer math_functions.frag -l
+
 animation_easing:
 	glslViewer animation_easing.frag -l	
 
@@ -163,6 +166,13 @@ lighting_pbrClearCoat:
 
 lighting_pbrClearCoat_cubemap:
 	glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
+
+lighting_pbrIridescence:
+	glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
+
+lighting_pbrIridescence_cubemap:
+	glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
+
 
 lighting_pbrGlass:
 	glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l

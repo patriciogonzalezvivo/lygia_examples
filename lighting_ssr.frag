@@ -59,7 +59,6 @@ varying mat3        v_tangentToWorld;
 #define CAMERA_POSITION     u_camera
 #define IBL_LUMINANCE       u_iblLuminance
 
-
 #define LIGHT_POSITION      u_light
 #define LIGHT_COLOR         u_lightColor
 #define LIGHT_FALLOFF       u_lightFalloff
@@ -103,9 +102,8 @@ void main(void) {
     #endif
 
     Material material = materialNew();
-
-    material.metallic = 0.0;
-    material.roughness = 0.05;
+    // material.metallic = 0.0;
+    // material.roughness = 0.05;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;

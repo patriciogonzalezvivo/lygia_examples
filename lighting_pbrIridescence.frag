@@ -60,8 +60,19 @@ varying mat3        v_tangentToWorld;
 // #ifndef SCENE_CUBEMAP
 // #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
 // #endif
+#include "lygia/math/bump.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
+#include "lygia/color/space/gamma2linear.glsl"
+
+#include "lygia/color/palette/hue.glsl"
+#include "lygia/color/palette/chroma.glsl"
+#include "lygia/color/palette/spectrum.glsl"
+
+#include "lygia/lighting/pbrClearCoat.glsl"
 #include "lygia/lighting/pbr.glsl"
+#include "lygia/lighting/pbrGlass.glsl"
+#include "lygia/lighting/wavelength.glsl"
+#include "lygia/lighting/iridescence.glsl"
 #include "lygia/lighting/material/new.glsl"
 
 float checkBoard(vec2 uv, vec2 _scale) {
@@ -78,16 +89,28 @@ void main(void) {
     uv = v_texcoord;
     #endif
 
-    Material material = materialNew();
+    Material mat = materialNew();
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
-    material.albedo.rgb = vec3(0.5) + checkBoard(uv, vec2(8.0)) * 0.5;
-    #else
-    // material.roughness = 0.00;
-    // material.metallic = 0.99;
+    mat.albedo.rgb = vec3(0.5) + checkBoard(uv, vec2(8.0)) * 0.5;
     #endif
 
-    color = pbr(material);
-    color = linear2gamma(color);
+#if defined(MODEL_NAME_SUZANNE1)
+    mat.clearCoat = 2.0;
+    color = pbrClearCoat(mat);
+#elif defined(MODEL_NAME_SUZANNE3)
+    // mat.roughness = 0.1;
+    color = pbrGlass(mat);
+#else
+    color = pbr(mat);
+#endif
 
+    vec3 L = normalize(LIGHT_DIRECTION);
+    vec3 V = normalize(CAMERA_POSITION - (SURFACE_POSITION).xyz);
+    vec3 N = normalize(mat.normal);
+    color.rgb += iridescence( abs(dot(N, V)), 1.0);
+    color.rgb += iridescence(V, N, L, 270.0);
+
+    color = linear2gamma(color);
+    
     gl_FragColor = color;
 }
