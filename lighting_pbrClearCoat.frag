@@ -83,9 +83,9 @@ void main(void) {
     material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     #else
     // material.albedo.rgb = vec3(0.0);
-    material.roughness = 0.02;
-    material.metallic = 0.00;
-    material.clearCoat = 2.0;
+    // material.roughness = 0.02;
+    // material.metallic = 0.00;
+    material.clearCoat = 1.0;
     material.clearCoatRoughness = 0.01;
     #endif
 

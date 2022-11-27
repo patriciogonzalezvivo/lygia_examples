@@ -40,7 +40,7 @@ void main(void) {
     vec2 st = gl_FragCoord.xy * pixel;
 
     Material mat = materialNew();
-    mat.roughness = 0.1;
+    // mat.roughness = 0.05;
 
     color = pbrGlass(mat);
     color = linear2gamma(color);
