@@ -19,7 +19,7 @@ void main(void) {
     vec2 st = gl_FragCoord.xy * pixel;
     vec2 uv = v_texcoord;
 
-    color.rgb = iridescence( cos(uv.x*HALF_PI) ,1.0-uv.y);
+    color.rgb = iridescence( cos(uv.x*HALF_PI), 1.0-uv.y);
 	color = linear2gamma(color);
     
     gl_FragColor = color;

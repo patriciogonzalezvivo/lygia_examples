@@ -18,6 +18,12 @@ color_lut:
 color_dither:
 	glslViewer color_dither.frag --u_noise assets/noise_blue.png -l
 
+color_iridescence_map:
+	glslViewer color_iridescence_map.frag -l
+
+color_wavelenght:
+	glslViewer color_wavelenght.frag -l 
+
 draw_digits:
 	glslViewer draw_digits.frag -l
 
@@ -69,18 +75,14 @@ filter_gaussianBlur1D:
 filter_gaussianBlur2D:
 	glslViewer filter_gaussianBlur2D.frag assets/danny.png -l
 
-
 filter_bilateralBlur2D:
 	glslViewer filter_bilateralBlur2D.frag assets/danny.png -l
-
 
 filter_radialBlur2D:
 	glslViewer filter_radialBlur2D.frag assets/danny.png -l
 
-
 filter_noiseBlur2D:
 	glslViewer filter_noiseBlur2D.frag assets/danny.png -l
-
 
 filter_median2D:
 	glslViewer filter_median2D.frag assets/danny.png -l
@@ -173,7 +175,6 @@ lighting_pbrIridescence:
 lighting_pbrIridescence_cubemap:
 	glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
 
-
 lighting_pbrGlass:
 	glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
 
@@ -243,6 +244,8 @@ screenshots:
 	glslViewer color_mix.frag assets/mixbox_lut.png -w 1080 -h 1080 --headless -E screenshot,images/color_mix.jpg
 	glslViewer color_lut.frag assets/danny.png assets/square_01.png -w 1080 -h 1080 --headless -E screenshot,images/color_lut.jpg
 	glslViewer color_dither.frag -w 1080 -h 1080 --headless -E screenshot,images/color_dither.jpg
+	glslViewer color_iridescence_map.frag -w 1080 -h 1080 --headless -E screenshot,images/color_iridescence_map.jpg
+	glslViewer color_wavelenght.frag -w 1080 -h 1080 --headless -E screenshot,images/color_wavelenght.jpg
 
 	glslViewer draw_digits.frag -w 1080 -h 1080 --headless -E screenshot,images/draw_digits.jpg
 

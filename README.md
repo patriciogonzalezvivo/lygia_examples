@@ -53,6 +53,25 @@ glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
 ![](images/color_mix.jpg)
 
 
+#### Iridescence map
+
+```bask
+	glslViewer color_iridescence_map.frag -l
+```
+
+![](images/color_iridescence_map.jpg)
+
+
+#### Spectral Wavelength to RGB
+
+```bask
+	glslViewer color_wavelenght.frag -l
+```
+
+![](images/color_wavelenght.jpg)
+
+
+
 # DRAW
 
 #### Digits
