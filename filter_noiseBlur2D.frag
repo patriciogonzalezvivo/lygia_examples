@@ -2,11 +2,19 @@
 precision mediump float;
 #endif
 
-uniform vec2        u_resolution;
-uniform float       u_time;
 
 uniform sampler2D   u_tex0;
 uniform vec2        u_tex0Resolution;
+uniform sampler2D   u_noise;
+uniform vec2        u_noiseResolution;
+
+uniform vec2        u_resolution;
+uniform float       u_time;
+
+// #define NOISEBLUR_SECS u_time
+// #define NOISEBLUR_GAUSSIAN_K 2.0
+// #define BLUENOISE_TEXTURE u_noise
+#define BLUENOISE_TEXTURE_RESOLUTION u_noiseResolution
 
 #include "lygia/sample/clamp2edge.glsl"
 #define NOISEBLUR_SAMPLER_FNC(TEX, UV) sampleClamp2edge(TEX, UV)

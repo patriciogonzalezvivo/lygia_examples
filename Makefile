@@ -82,7 +82,7 @@ filter_radialBlur2D:
 	glslViewer filter_radialBlur2D.frag assets/danny.png -l
 
 filter_noiseBlur2D:
-	glslViewer filter_noiseBlur2D.frag assets/danny.png -l
+	glslViewer filter_noiseBlur2D.frag assets/danny.png --u_noise assets/noise_blue.png -l
 
 filter_median2D:
 	glslViewer filter_median2D.frag assets/danny.png -l
