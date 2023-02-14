@@ -61,7 +61,7 @@ varying vec2        v_texcoord;
 // #define SAMPLEDOF_DEBUG
 #define SAMPLEDOF_BLUR_SIZE 12.
 #define SAMPLEDOF_COLOR_SAMPLE_FNC(TEX, UV) sampleClamp2edge(TEX, UV).rgb
-#define SAMPLEDOF_DEPTH_SAMPLE_FNC(TEX, UV) linearizeDepth( sampleClamp2edge(TEX, UV).r, u_cameraNearClip, u_cameraFarClip * 0.002)
+#define SAMPLEDOF_DEPTH_SAMPLE_FNC(TEX, UV) linearizeDepth( sampleClamp2edge(TEX, UV).r, u_cameraNearClip, u_cameraFarClip)
 #include "lygia/space/linearizeDepth.glsl"
 #include "lygia/sample/dof.glsl"
 #include "lygia/lighting/pbr.glsl"
@@ -79,7 +79,7 @@ void main(void) {
     vec2 uv = st;
 
 #if defined(POSTPROCESSING)
-    color.rgb = sampleDoF(u_scene, u_sceneDepth, st, .51, 2.).rgb;
+    color.rgb = sampleDoF(u_scene, u_sceneDepth, st, 1.9, 2.).rgb;
 
 #else
     Material material = materialNew();
