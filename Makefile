@@ -75,8 +75,8 @@ filter_gaussianBlur1D:
 filter_gaussianBlur2D:
 	glslViewer filter_gaussianBlur2D.frag assets/danny.png -l
 
-filter_bilateralBlur2D:
-	glslViewer filter_bilateralBlur2D.frag assets/danny.png -l
+filter_bilateral2D:
+	glslViewer filter_bilateral2D.frag assets/danny.png -l
 
 filter_radialBlur2D:
 	glslViewer filter_radialBlur2D.frag assets/danny.png -l

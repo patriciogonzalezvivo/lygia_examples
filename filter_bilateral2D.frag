@@ -11,7 +11,7 @@ uniform vec2        u_tex0Resolution;
 
 #include "lygia/sample/clamp2edge.glsl"
 #define BILATERALBLUR_SAMPLER_FNC(TEX, UV) sampleClamp2edge(TEX, UV)
-#include "lygia/filter/bilateralBlur.glsl"
+#include "lygia/filter/bilateral.glsl"
 
 #include "lygia/draw/digits.glsl"
 
@@ -23,7 +23,7 @@ void main (void) {
     float ix = floor(st.x * 5.0);
     float kernel_size = max(1.0, ix * 4.0);;
 
-    color += bilateralBlur(u_tex0, st, pixel, int(kernel_size)).rgb;
+    color += bilateral(u_tex0, st, pixel, int(kernel_size)).rgb;
 
     color += digits(st - vec2(ix/5.0 + 0.01, 0.01), kernel_size, 0.0);
     color -= step(.99, fract(st.x * 5.0));
