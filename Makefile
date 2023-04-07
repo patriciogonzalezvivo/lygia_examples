@@ -21,8 +21,8 @@ color_dither:
 color_iridescence_map:
 	glslViewer color_iridescence_map.frag -l
 
-color_wavelenght:
-	glslViewer color_wavelenght.frag -l 
+color_wavelength:
+	glslViewer color_wavelength.frag -l 
 
 draw_digits:
 	glslViewer draw_digits.frag -l
