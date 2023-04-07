@@ -128,6 +128,9 @@ sample_filter_smooth:
 sample_equirect:
 	glslViewer sample_equirect.frag assets/dragon.obj assets/studio.png -e defined,SCENE_CUBEMAP,u_tex0 -e camera_position,-1.43923,0.891203,1.98093 -l
 
+sample_3Dsdf:
+	glslViewer sample_3Dsdf.frag assets/suzanne.png -e camera_position,-29.5393,26.2406,-42.1865 -l
+
 morphological_erosion:
 	glslViewer morphological_erosion.frag assets/flower.png -l
 
