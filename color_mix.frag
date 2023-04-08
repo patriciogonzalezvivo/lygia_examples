@@ -11,11 +11,12 @@ uniform vec2        u_mouse;
 uniform float       u_time;
 
 #define MIXBOX_LUT u_tex0
-#define MIXBOX_LUT_FLIP_Y
+// #define MIXBOX_LUT_FLIP_Y
+
 #include "lygia/color/pigments.glsl"
-#include "lygia/color/mixBox.glsl"
 #include "lygia/color/mixOklab.glsl"
 #include "lygia/color/mixSpectral.glsl"
+#include "lygia/color/mixBox.glsl"
 
 void main(void) {
     vec3 color = vec3(0.0);
@@ -34,13 +35,14 @@ void main(void) {
     // B = CADMIUM_RED;
     // B = COBALT_VIOLET;
 
-    if (st.y > 0.66) 
+    if (st.y > 0.75) 
         color = mix(A, B, st.x);
-    else if (st.y > 0.33)
+    else if (st.y > 0.5)
         color = mixOklab(A, B, st.x);
-    else
+    else if (st.y > 0.25)
         color = mixSpectral(A, B, st.x);
-        // color = mixBox(A, B, st.x);
+    else
+        color = mixBox(A, B, st.x);
 
     gl_FragColor = vec4(color, 1.0);
 }
