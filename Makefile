@@ -18,6 +18,9 @@ color_lut:
 color_dither:
 	glslViewer color_dither.frag --u_noise assets/noise_blue.png -l
 
+color_dither_bayer:
+	glslViewer color_dither_bayer.frag assets/danny.png -l
+
 color_iridescence_map:
 	glslViewer color_iridescence_map.frag -l
 
