@@ -7,7 +7,8 @@ precision mediump float;
 uniform sampler2D   u_buffer0;
 uniform sampler2D   u_buffer1;
 uniform sampler2D   u_doubleBuffer0;
-uniform sampler2D   u_doubleBuffer1; // 2x2
+uniform sampler2D   u_doubleBuffer1;
+uniform sampler2D   u_doubleBuffer2; // 2x2
 
 uniform vec2        u_resolution;
 uniform vec2        u_mouse;
@@ -23,7 +24,7 @@ uniform vec2        v_texcoord;
 
 #define FLUIDSOLVER_VELOCITY_DECAY 5e-6
 #define FLUIDSOLVER_VORTICITY 0.01
-#define FLUIDSOLVER_VISCOSITY .5
+#define FLUIDSOLVER_VISCOSITY 0.5
 #define FLUIDSOLVER_DX 0.5
 #define FLUIDSOLVER_DT 0.15
 #include "lygia/simulate/fluidSolver.glsl"
@@ -35,7 +36,7 @@ void main(void) {
     vec2 st = fragCoord * pixel;
     vec2 uv = v_texcoord;
     vec2 mouse = u_mouse * pixel;
-    vec2 mouse_prev = texture2D(u_doubleBuffer1, pixel * vec2(0.5)).xy;
+    vec2 mouse_prev = texture2D(u_doubleBuffer2, pixel * vec2(0.5)).xy;
     vec2 mouse_delta = mouse - mouse_prev;
     float mouse_delta_length = length(mouse_delta);
     float mouse_area = length(st - mouse);
@@ -47,15 +48,12 @@ void main(void) {
         extForce += step(mouse_area, .05) * dragDir;// * (.5 - st);
     }
 
-#if defined(BUFFER_0)
-    color = fluidSolver(u_buffer1, st, pixel, extForce);
+#if defined(DOUBLE_BUFFER_0)
+    color = fluidSolver(u_doubleBuffer0, st, pixel, extForce);
 
-#elif defined(BUFFER_1)
-    color = fluidSolver(u_buffer0, st, pixel, extForce);
-
-#elif defined(DOUBLE_BUFFER_0)
-    vec2 vel = texture2D(u_buffer1, st).xy * 2.0 - 1.0;
-    color = texture2D(u_doubleBuffer0, st - vel * pixel);
+#elif defined(DOUBLE_BUFFER_1)
+    vec2 vel = texture2D(u_doubleBuffer0, st).xy;
+    color = texture2D(u_doubleBuffer1, st - vel * pixel);
     
     if (mouse_delta_length > 0.005) {
         float hue = fract( (atan(vel.y, vel.x) / TAU + 0.5) + u_time * 0.1 );
@@ -63,13 +61,13 @@ void main(void) {
         color += 0.001/pow(mouse_area, 1.5) * rgb;
     }
     
-    color = clamp(color, 0., 1.) * 0.995;
+    color = saturate(color) * 0.995;
 
-#elif defined(DOUBLE_BUFFER_1)
+#elif defined(DOUBLE_BUFFER_2)
     color.rg = mouse;
 
 #else 
-    color = texture2D(u_doubleBuffer0, st);
+    color = texture2D(u_doubleBuffer1, st);
     color.a = 1.0;
     
 #endif
