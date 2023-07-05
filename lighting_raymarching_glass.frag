@@ -30,7 +30,7 @@ vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/space/ratio.glsl"
 #include "lygia/sdf/sphereSDF.glsl"
-#include "lygia/sdf/opRepite.glsl"
+#include "lygia/sdf/opRepeat.glsl"
 #include "lygia/lighting/ior.glsl"
 #include "lygia/lighting/ior/2f0.glsl"
 #include "lygia/lighting/ior/2eta.glsl"
@@ -47,7 +47,7 @@ vec4 raymarchMap(in vec3 pos ) {
     pos.x += 0.3;
 
     pos += 0.5;
-    pos = opRepite(pos, vec3(-2.0, 0.0, 0.0), vec3(2.0, 0.0, 0.0), 1.0);
+    pos = opRepeat(pos, vec3(-2.0, 0.0, 0.0), vec3(2.0, 0.0, 0.0), 1.0);
     pos -= 0.5;
 
     res = vec4( vec3(roughness, 0.0, 1.0), sphereSDF(pos, 0.3 ) );
