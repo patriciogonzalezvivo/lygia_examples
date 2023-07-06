@@ -24,10 +24,12 @@ varying vec2 v_texcoord;
 /*
     Uncomment Defines below to see more options results
 */
-#define RAYMARCH_GLASS_WAVELENGTH
-// #define RAYMARCH_GLASS_EDGE_SHARPNESS 0.1
-// #define RAYMARCH_GLASS_CHROMATIC_ABBERATION 0.050
-// #define RAYMARCH_GLASS_ENABLE_REFLECTION
+// #define RAYMARCH_GLASS_WAVELENGTH
+// #define RAYMARCH_GLASS_EDGE_SHARPNESS .07
+// #define RAYMARCH_GLASS_CHROMATIC_ABBERATION .052
+// #define RAYMARCH_GLASS_ENABLE_FRESNEL
+// #define RAYMARCH_GLASS_DENSITY .1
+// #define RAYMARCH_GLASS_FRESNEL_STRENGTH 1.5
 // #define RAYMARCH_GLASS_COLOR vec3 (1., 0., 0.)
 #define RAYMARCH_MATERIAL_FNC       raymarchGlassRender
 vec3 raymarchGlassRender(vec3 ray,vec3 pos,vec3 nor,vec3 map);
