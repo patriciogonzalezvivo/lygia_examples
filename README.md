@@ -65,10 +65,10 @@ glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
 #### Spectral Wavelength to RGB
 
 ```bask
-	glslViewer color_wavelenght.frag -l
+	glslViewer color_wavelength.frag -l
 ```
 
-![](images/color_wavelenght.jpg)
+![](images/color_wavelength.jpg)
 
 
 

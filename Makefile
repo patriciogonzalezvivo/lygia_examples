@@ -257,7 +257,7 @@ screenshots:
 	glslViewer color_lut.frag assets/danny.png assets/square_01.png -w 1080 -h 1080 --headless -E screenshot,images/color_lut.jpg
 	glslViewer color_dither.frag -w 1080 -h 1080 --headless -E screenshot,images/color_dither.jpg
 	glslViewer color_iridescence_map.frag -w 1080 -h 1080 --headless -E screenshot,images/color_iridescence_map.jpg
-	glslViewer color_wavelenght.frag -w 1080 -h 1080 --headless -E screenshot,images/color_wavelenght.jpg
+	glslViewer color_wavelength.frag -w 1080 -h 1080 --headless -E screenshot,images/color_wavelength.jpg
 
 	glslViewer draw_digits.frag -w 1080 -h 1080 --headless -E screenshot,images/draw_digits.jpg
 
