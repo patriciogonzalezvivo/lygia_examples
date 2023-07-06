@@ -52,7 +52,7 @@ vec3 raymarchGlassRender(vec3 ray,vec3 pos,vec3 nor,vec3 map);
 */
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/lighting/ior.glsl"
-#include "../lygia-glass-march/lighting/raymarch/glass.glsl"
+#include "lygia/lighting/raymarch/glass.glsl"
 
 void myOwnChromaticAbberation(inout vec3 res,in vec3 rdIn,in vec3 rdOut,in vec3 pEnter,in vec3 pExit,in vec3 nEnter,in vec3 nExit,in float ior,in float roughness){
     rdOut = refract(rdIn, nExit, ior + RAYMARCH_GLASS_CHROMATIC_ABBERATION);
