@@ -65,10 +65,10 @@ glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
 #### Spectral Wavelength to RGB
 
 ```bask
-	glslViewer color_wavelenght.frag -l
+	glslViewer color_wavelength.frag -l
 ```
 
-![](images/color_wavelenght.jpg)
+![](images/color_wavelength.jpg)
 
 
 
@@ -217,7 +217,7 @@ glslViewer generative_worley.frag
 	glslViewer sample_bracketing.frag assets/rock_moss.jpg -l
 ```
 
-![](sample_bracketing.jpg)
+![](images/sample_bracketing.jpg)
 
 
 #### Bicubic filter
@@ -302,7 +302,7 @@ filter_boxBlur2D:
 	glslViewer filter_bilateralBlur2D.frag assets/danny.png -l
 ```
 
-![](images/filter_bilateralBlur2D.jpg)
+![](images/filter_bilateral2D.jpg)
 
 
 #### RadialBlur 2D 
@@ -455,7 +455,7 @@ glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg -e camera
 #### Spherical Harmonics (material)
 
 ```bash
-glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,1.43923,-0.891203,-1.98093 -c assets/uffizi_cross.hdr -l
+glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -c assets/Arches_E_PineTree_3k.hdr --msaa --fxaa -e sky,on -l
 ```
 
 ![](images/lighting_sphericalHarmonics.jpg)
@@ -585,6 +585,23 @@ glslViewer lighting_raymarching_glass.frag -e camera_position,-29.5393,-26.2406,
 ```
 
 ![](images/lighting_raymarching_glass_cubemap.jpg)
+
+#### Raymarching GLASS REFRACTION material
+
+```bash
+glslViewer lighting_raymarching_glass_refraction.frag -e camera_position,29.5393,26.2406,42.1865 -l
+```
+
+![](images/lighting_raymarching_glass_refraction.jpg)
+
+
+#### Raymarching GLASS REFRACTION material with CUBEMAP
+
+```bash
+glslViewer lighting_raymarching_glass_refraction.frag -e camera_position,29.5393,26.2406,42.1865 -c assets/uffizi_cross.hdr -l
+```
+
+![](images/lighting_raymarching_glass_refraction_cubemap.jpg)
 
 
 #### Raymarching default VOLUME
