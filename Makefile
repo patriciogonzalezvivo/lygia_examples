@@ -197,7 +197,7 @@ lighting_sphereMap:
 	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
 
 lighting_sphericalHarmonics:
-	glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -c assets/Arches_E_PineTree_3k.hdr --msaa -l
+	glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -c assets/Arches_E_PineTree_3k.hdr --msaa --fxaa -e sky,on -l
 
 lighting_ssao:
 	glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,-1.43923,0.891203,1.98093 -l
@@ -251,8 +251,6 @@ simulate_fluid:
 screenshots:
 	glslViewer animation_easing.frag -w 512 -h 512 --headless -E record,images/animation_easing.git,0.0,8.0
 
-	glslViewer space_displace.frag assets/iphone_depth.jpeg --headless -E screenshot,images/space_displace.jpg
-
 	glslViewer color_mix.frag assets/mixbox_lut.png -w 1080 -h 1080 --headless -E screenshot,images/color_mix.jpg
 	glslViewer color_lut.frag assets/danny.png assets/square_01.png -w 1080 -h 1080 --headless -E screenshot,images/color_lut.jpg
 	glslViewer color_dither.frag -w 1080 -h 1080 --headless -E screenshot,images/color_dither.jpg
@@ -277,7 +275,7 @@ screenshots:
 	glslViewer filter_boxBlur2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_boxBlur2D.jpg
 	glslViewer filter_gaussianBlur1D.frag assets/danny.png -e buffers,on -w 1080 -h 1080 --headless -E screenshot,images/filter_gaussianBlur1D.jpg
 	glslViewer filter_gaussianBlur2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_gaussianBlur2D.jpg
-	glslViewer filter_bilateralBlur2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_bilateralBlur2D.jpg
+	glslViewer filter_bilateral2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_bilateral2D.jpg
 	glslViewer filter_radialBlur2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_radialBlur2D.jpg
 	glslViewer filter_noiseBlur2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_noiseBlur2D.jpg
 	glslViewer filter_median2D.frag assets/danny.png -w 1080 -h 1080 --headless -E screenshot,images/filter_median2D.jpg
@@ -313,7 +311,7 @@ screenshots:
 	glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -w 1080 -h 1080 --headless --fxaa -E screenshot,images/lighting_pbrGlass_cubemap.jpg 
 
 	glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_shadow.jpg
-	glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -c assets/Arches_E_PineTree_3k.hdr -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_sphericalHarmonics.jpg
+	glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -c assets/Arches_E_PineTree_3k.hdr -w 1080 -h 1080 --headless --msaa --fxaa -e sky,on -E screenshot,images/lighting_sphericalHarmonics.jpg
 	glslViewer assets/dragon.obj lighting_position.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_position.jpg
 	glslViewer assets/dragon.obj lighting_normal.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_normal.jpg
 	glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,-1.43923,0.891203,1.98093 -w 1080 -h 1080 --headless --msaa --fxaa -E screenshot,images/lighting_ssao.jpg
@@ -328,7 +326,7 @@ screenshots:
 	glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_raymarching_pbr.jpg
 	glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -C assets/Arches_E_PineTree_3k.hdr -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_raymarching_pbr_cubemap.jpg
 	glslViewer lighting_raymarching_glass.frag -e camera_position,29.5393,26.2406,42.1865 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_raymarching_glass.jpg
-	glslViewer lighting_raymarching_glass.frag -e camera_position,29.5393,26.2406,42.1865 -c assets/Arches_E_PineTree_3k.hdr -w 1080 -h 1080 --headless --msaa -e cubemap,on -E screenshot,images/lighting_raymarching_glass_cubemap.jpg
+	glslViewer lighting_raymarching_glass.frag -e camera_position,29.5393,26.2406,42.1865 -e cubemap,on -c assets/Arches_E_PineTree_3k.hdr -w 1080 -h 1080 --headless -E screenshot,images/lighting_raymarching_glass_cubemap.jpg
 
 	glslViewer lighting_raymarching_glass_refraction.frag -e camera_position,29.5393,26.2406,42.1865 -w 1080 -h 1080 --headless --msaa -E screenshot,images/lighting_raymarching_glass_refraction.jpg
 	glslViewer lighting_raymarching_glass_refraction.frag -e camera_position,29.5393,26.2406,42.1865 -c assets/Arches_E_PineTree_3k.hdr -w 1080 -h 1080 --headless --msaa -e cubemap,on -E screenshot,images/lighting_raymarching_glass_refraction_cubemap.jpg
