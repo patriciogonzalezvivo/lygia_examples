@@ -16,6 +16,9 @@ uniform vec2        u_resolution;
 varying vec2        v_texcoord;
 
 
+// #define SCENE_CUBEMAP           u_cubeMap
+// #define SCENE_SH_ARRAY          u_SH
+
 #define LIGHT_DIRECTION         u_light
 #define RESOLUTION              u_resolution
 #define RAYMARCH_SAMPLES        100

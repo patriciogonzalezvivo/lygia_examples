@@ -30,6 +30,9 @@ color_wavelength:
 draw_digits:
 	glslViewer draw_digits.frag -l
 
+draw_supershape:
+	glslViewer draw_supershape.frag -l
+
 generative_random:
 	glslViewer generative_random.frag --fps 24 -l
 

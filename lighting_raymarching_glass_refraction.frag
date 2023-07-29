@@ -13,6 +13,8 @@ uniform float u_time;
 
 varying vec2 v_texcoord;
 
+// #define SCENE_CUBEMAP           u_cubeMap
+
 // Defines
 #define LIGHT_DIRECTION             u_light
 #define RESOLUTION                  u_resolution
