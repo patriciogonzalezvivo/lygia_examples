@@ -62,8 +62,8 @@ void main(void) {
     vec2 uv = v_texcoord;
     vec2 mouse = u_mouse * pixel;
 
-    if (mouse.x <= 0.0 && mouse.y <= 0.0)
-        mouse = vec2(fract(0.5+u_time*0.5), 0.6);
+    if (mouse.x <= 0.1 && mouse.y <= 0.1)
+        mouse = vec2(fract(0.5+u_time*0.25), sin(u_time*0.25) * 0.25 + 0.75);
         
 #if PROJECTION_MODE == 0
     vec3 eye_dir = equirect2xyz(uv);

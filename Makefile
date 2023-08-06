@@ -33,6 +33,18 @@ draw_digits:
 draw_supershape:
 	glslViewer draw_supershape.frag -l
 
+draw_gear:
+	glslViewer draw_gear.frag -l
+
+draw_koch:
+	glslViewer draw_koch.frag -l
+
+draw_julia:
+	glslViewer draw_julia.frag -l
+
+draw_mandelbulb:
+	glslViewer draw_mandelbulb.frag -l
+
 generative_random:
 	glslViewer generative_random.frag --fps 24 -l
 
