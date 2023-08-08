@@ -30,6 +30,9 @@ color_wavelength:
 draw_digits:
 	glslViewer draw_digits.frag -l
 
+draw_aa:
+	glslViewer draw_aa.frag -l 
+
 draw_supershape:
 	glslViewer draw_supershape.frag -l
 
