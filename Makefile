@@ -33,6 +33,9 @@ draw_digits:
 draw_aa:
 	glslViewer draw_aa.frag -l 
 
+draw_shapes:
+	glslViewer draw_shapes.frag -l
+
 draw_supershape:
 	glslViewer draw_supershape.frag -l
 
