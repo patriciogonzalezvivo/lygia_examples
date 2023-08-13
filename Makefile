@@ -155,6 +155,9 @@ sample_equirect:
 sample_3Dsdf:
 	glslViewer sample_3Dsdf.frag assets/suzanne.png -e camera_position,-29.5393,26.2406,-42.1865 -l
 
+sample_marchinSquares:
+	glslViewer sample_marchinSquares.frag assets/flower.png -l 
+
 morphological_erosion:
 	glslViewer morphological_erosion.frag assets/flower.png -l
 

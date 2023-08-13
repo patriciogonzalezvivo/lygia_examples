@@ -3,7 +3,7 @@
 precision mediump float;
 #endif
 
-uniform sampler2D   u_tex0;
+uniform sampler2D   u_tex0; // /imgs/danny.png
 uniform vec2        u_resolution;
 uniform vec2        u_mouse;
 uniform float       u_time;
@@ -11,10 +11,7 @@ uniform float       u_time;
 #include "lygia/space/ratio.glsl"
 #include "lygia/generative/pnoise.glsl"
 
-// float sampleNoise(in vec2 uv) {
-//     return pnoise(uv * 5.0, vec2(0.0));
-// }
-// #define SAMPLEMARCHINGSQUARES_SAMPLE_FNC(TEX, UV) sampleNoise(UV)
+#define SAMPLEMARCHINGSQUARES_SAMPLE_FNC(TEX, UV) pnoise(UV * 5.0, vec2(0.0));
 
 #include "lygia/sample/marchingSquares.glsl";
 
