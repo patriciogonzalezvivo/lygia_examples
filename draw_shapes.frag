@@ -2,9 +2,9 @@
 precision mediump float;
 #endif
 
-uniform vec2    u_resolution;
-uniform vec2    u_mouse;
-uniform float   u_time;
+uniform vec2        u_resolution;
+uniform vec2        u_mouse;
+uniform float       u_time;
 
 // By default all 2D shapes and space functions asume
 // the center is at vec2(0.5, 0.5), this can be overloaded
