@@ -11,7 +11,7 @@ uniform float       u_time;
 #include "lygia/space/ratio.glsl"
 #include "lygia/generative/pnoise.glsl"
 
-#define SAMPLEMARCHINGSQUARES_SAMPLE_FNC(TEX, UV) pnoise(UV * 5.0, vec2(0.0));
+// #define SAMPLEMARCHINGSQUARES_SAMPLE_FNC(TEX, UV) pnoise(UV * 5.0, vec2(0.0));
 
 #include "lygia/sample/marchingSquares.glsl";
 
