@@ -18,17 +18,19 @@ uniform float   u_time;
 #include "lygia/space/rotate.glsl"
 
 #include "lygia/sdf/circleSDF.glsl"
-#include "lygia/sdf/vesicaSDF.glsl"
-#include "lygia/sdf/triSDF.glsl"
-#include "lygia/sdf/rectSDF.glsl"
-#include "lygia/sdf/polySDF.glsl"
-#include "lygia/sdf/hexSDF.glsl"
-#include "lygia/sdf/starSDF.glsl"
-#include "lygia/sdf/flowerSDF.glsl"
 #include "lygia/sdf/crossSDF.glsl"
+#include "lygia/sdf/flowerSDF.glsl"
+#include "lygia/sdf/gearSDF.glsl"
+#include "lygia/sdf/heartSDF.glsl"
+#include "lygia/sdf/hexSDF.glsl"
+#include "lygia/sdf/polySDF.glsl"
+#include "lygia/sdf/rectSDF.glsl"
 #include "lygia/sdf/raysSDF.glsl"
 #include "lygia/sdf/spiralSDF.glsl"
-#include "lygia/sdf/gearSDF.glsl"
+#include "lygia/sdf/starSDF.glsl"
+#include "lygia/sdf/triSDF.glsl"
+#include "lygia/sdf/vesicaSDF.glsl"
+#include "lygia/sdf/rhombSDF.glsl"
 
 
 void main(void) {
@@ -37,7 +39,6 @@ void main(void) {
     vec2 st = gl_FragCoord.xy * pixel;
 
     st = ratio(st, u_resolution.xy);
-    st.y += 0.1;
 
     float cols = 4.0; 
     st *= cols;
@@ -54,24 +55,28 @@ void main(void) {
     else if (index == 1.0)
         sdf = vesicaSDF( st_f, 0.25 );
     else if (index == 2.0)
-        sdf = triSDF( st_f );
+        sdf = rhombSDF(st_f);
     else if (index == 3.0)
-        sdf = rectSDF( st_f, vec2(1.0) );
+        sdf = triSDF( st_f );
     else if (index == 4.0)
-        sdf = polySDF( st_f, 5);
+        sdf = rectSDF( st_f, vec2(1.0) );
     else if (index == 5.0)
-        sdf = hexSDF( st_f );
+        sdf = polySDF( st_f, 5);
     else if (index == 6.0)
-        sdf = starSDF(st_f, 5);
+        sdf = hexSDF( st_f );
     else if (index == 7.0)
-        sdf = flowerSDF(st_f, 5);
+        sdf = starSDF(st_f, 5);
     else if (index == 8.0)
-        sdf = crossSDF(st_f, 1.0);
+        sdf = flowerSDF(st_f, 5);
     else if (index == 9.0)
-        sdf = gearSDF(st_f, 10.0, 10);
+        sdf = crossSDF(st_f, 1.0);
     else if (index == 10.0)
-        sdf = raysSDF(st_f, 14);
+        sdf = gearSDF(st_f, 10.0, 10);
     else if (index == 11.0)
+        sdf = heartSDF(st_f);
+    else if (index == 12.0)
+        sdf = raysSDF(st_f, 14);
+    else if (index == 13.0)
         sdf = spiralSDF(st_f, 0.1);
     else
         sdf = 1.0;
