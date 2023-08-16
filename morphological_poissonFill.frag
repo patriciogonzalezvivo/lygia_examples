@@ -36,6 +36,9 @@ const vec2  g       = vec2(0.7753, 0.0312);
 #define absi(x)     ( (x < 0)? x * -1 : x )
 #define modi(a,b)   ( a - (b * int(a/b)))
 
+#include "lygia/morphological/poissonFill/upscale.glsl"
+#include "lygia/morphological/poissonFill/downscale.glsl"
+
 void main (void) {
     vec4 color = vec4(0.0);
     vec2 st = gl_FragCoord.xy/u_resolution;
@@ -47,37 +50,20 @@ void main (void) {
     color.rgb *= step(0.001, color.a);
 
 #elif defined(CONVOLUTION_PYRAMID_ALGORITHM)
-    if (!u_pyramidUpscaling) {
-        for (int dy = -2; dy <= 2; dy++) {
-            for (int dx = -2; dx <= 2; dx++) {
-                vec2 uv = st + vec2(float(dx), float(dy)) * pixel * 0.5;
-                if (uv.x <= 0.0 || uv.x >= 1.0 || uv.y <= 0.0 || uv.y >= 1.0)
-                    continue;
-                vec4 prev = texture2D(u_pyramidTex0, saturate(uv)) * h1[ absi(dx) ] * h1[ absi(dy) ];
 
-                color.rgb += prev.rgb;
-                color.a += prev.a;
-            }
-        }
-    }
-    else if (modi(int(u_time),u_pyramidTotalDepth) == u_pyramidDepth) {
+    // Downscale the image to the pyramid
+    if (!u_pyramidUpscaling)
+        color = poissonFillDownscale(u_pyramidTex0, st, pixel);
+    
+    // Visualize the pyramid by stepping through the levels
+    //  Comment this next to lines to see the actual result
+    else if (modi(int(u_time),u_pyramidTotalDepth) == u_pyramidDepth)
         color = texture2D(u_pyramidTex0, st);
-    }
-    else {
-        for (int dy = -1; dy <= 1; dy++) {
-            for (int dx = -1; dx <= 1; dx++) {
-                vec2 uv = st + vec2(float(dx), float(dy)) * pixel;
-                color += texture2D(u_pyramidTex0, saturate(uv)) * g[ absi(dx) ] * g[ absi(dy) ];
-            }
-        }
-
-        for (int dy = -2; dy <= 2; dy++) {
-            for (int dx = -2; dx <= 2; dx++) {
-                vec2 uv = st + vec2(float(dx), float(dy)) * pixel;
-                color += texture2D(u_pyramidTex1, saturate(uv)) * h2 * h1[ absi(dx) ] * h1[ absi(dy) ];
-            }
-        }
-    }
+    
+    // Upscale the image from the pyramid
+    else
+        color = poissonFillUpscale(u_pyramidTex0, u_pyramidTex1, st, pixel);
+    
     color = (color.a == 0.0)? color : vec4(color.rgb/color.a, 1.0);
 
 #else
