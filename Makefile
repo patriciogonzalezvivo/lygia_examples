@@ -167,6 +167,9 @@ morphological_dilation:
 morphological_alphaFill:
 	glslViewer morphological_alphaFill.frag assets/flower.png -l
 
+morphological_poissonFill:
+	glslViewer morphological_poissonFill.frag assets/flower.png -l
+
 # LIGHTING
 
 lighting_position:
