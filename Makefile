@@ -220,6 +220,9 @@ lighting_pbrGlass_cubemap:
 lighting_shadow:
 	glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
 
+lighting_sss:
+	glslViewer assets/dragon.obj lighting_sss.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
+
 lighting_sphereMap:
 	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
 
