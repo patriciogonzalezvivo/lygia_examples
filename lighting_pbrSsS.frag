@@ -48,27 +48,19 @@ varying mat3        v_tangentToWorld;
 #define CAMERA_POSITION     u_camera
 #define IBL_LUMINANCE       u_iblLuminance
 
-#define LIGHT_POSITION      u_light
+#define LIGHT_DIRECTION     u_light
+// #define LIGHT_POSITION      u_light
 #define LIGHT_COLOR         u_lightColor
 #define LIGHT_FALLOFF       u_lightFalloff
 #define LIGHT_INTENSITY     u_lightIntensity
 #define LIGHT_COORD         v_lightCoord
 
 #include "lygia/math/saturate.glsl"
+
+#define SHADING_MODEL_SUBSURFACE
 #include "lygia/lighting/pbr.glsl"
 #include "lygia/lighting/material/new.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
-
-vec3 sss(vec3 skin, in vec3 p, in vec3 n, in vec3 ro, in vec3 rd) {
-    vec3 ldir1 = normalize(ro - p);
-    float latt1 = pow( length(ro - p) * 0.055, 50.0);
-    vec3 diff1 = u_lightColor * (max(dot(n,ldir1),0.) ) / latt1;
-
-    vec3 col = diff1;
-    float trans1 =  pow( clamp( dot(-rd, -ldir1 + n), 0., 1.), 1.) + 1.;
-    col = skin * (trans1/latt1) * 10.0;
-    return col;
-}
 
 void main(void) {
     vec4 color = vec4(vec3(0.0), 1.0);
@@ -76,20 +68,10 @@ void main(void) {
     vec2 st = gl_FragCoord.xy * pixel;
 
     Material material = materialNew();
-    material.albedo = vec4(0.1, 0.03, 0.02, 1.0);
+    material.albedo = vec4(0.0, 0.1, 0.05, 1.0);
+    material.subsurfaceColor = vec3(2.0, 3.0, 1.5);
     material.roughness = 0.2;
     color = pbr(material);
-
-
-    // // Shadow
-    vec3 shadowCoord = v_lightCoord.xyz / v_lightCoord.w;
-
-    // Calcualte the ray from the camera
-    vec3 light_ro = u_light;
-    float light_rdist = texture2D(u_lightShadowMap, shadowCoord.xy).r;
-    vec3 light_rd = (u_lightMatrix * vec4(0.0, 0.0, light_rdist, 0.0)).xyz;
-    vec3 light_rc = light_ro + light_rd;
-    color.rgb += sss(vec3(0.2, 0.03, 0.02) * 2., v_position.xyz, v_normal, light_rc, light_rd);
 
     color.rgb = linear2gamma(color.rgb);
     gl_FragColor = color;

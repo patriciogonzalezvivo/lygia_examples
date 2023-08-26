@@ -214,14 +214,18 @@ lighting_pbrGlass:
 lighting_pbrGlass_cubemap:
 	glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
 
+lighting_pbrSsS:
+	glslViewer assets/dragon.obj lighting_pbrSsS.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
+
+lighting_pbrSsS_cubemap:
+	glslViewer assets/dragon.obj lighting_pbrSsS.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
+
+
 # lighting_pbr_deferred:
 # 	glslViewer assets/dragon.obj lighting_pbr_deferred.frag -e camera_position,-1.43923,0.891203,1.98093 -l
 
 lighting_shadow:
 	glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
-
-lighting_sss:
-	glslViewer assets/dragon.obj lighting_sss.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
 
 lighting_sphereMap:
 	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
