@@ -107,7 +107,7 @@ void main(void) {
     material.ambientOcclusion = ao;
     material.metallic = pbr_props.r;
     material.roughness = pbr_props.g;
-    material.shadow = shadows;
+    // material.shadow = shadows;
 
     color.rgb = pbrLittle(material).rgb;
     color.rgb = linear2gamma(color.rgb);

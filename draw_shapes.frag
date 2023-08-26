@@ -32,7 +32,6 @@ uniform float       u_time;
 #include "lygia/sdf/vesicaSDF.glsl"
 #include "lygia/sdf/rhombSDF.glsl"
 
-
 void main(void) {
     vec4 color = vec4(vec3(0.0), 1.0);
     vec2 pixel = 1.0/u_resolution.xy;

@@ -13,7 +13,7 @@ uniform float       u_time;
 
 // #define SAMPLEMARCHINGSQUARES_SAMPLE_FNC(TEX, UV) pnoise(UV * 5.0, vec2(0.0));
 
-#include "lygia/sample/marchingSquares.glsl";
+#include "lygia/morphological/marchingSquares.glsl";
 
 void main(void) {
     vec4 color = vec4(vec3(0.0), 1.0);
@@ -22,6 +22,10 @@ void main(void) {
     st = ratio(st, u_resolution);
 
     vec2 mouse = u_mouse.xy * pixel;
+
+    if (mouse.x <= 0.0 || mouse.y <= 0.0) {
+        mouse = vec2(0.25);
+    }
 
     vec2 ms = sampleMarchinSquares(u_tex0, st, u_resolution, mouse.x * 60.0, mouse.y);
     color.rgb += ms.r;

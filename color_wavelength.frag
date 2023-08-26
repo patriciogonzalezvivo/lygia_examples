@@ -1,4 +1,3 @@
-
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -8,7 +7,7 @@ uniform vec2    u_mouse;
 uniform float   u_time;
 
 #define W2RGB_FNC spectral_zucconi6
-// #define W2RGB_ITERATIONS 20.
+#define W2RGB_ITERATIONS 20.
 
 #include "lygia/math/map.glsl"
 #include "lygia/color/space.glsl"

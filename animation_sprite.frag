@@ -1,17 +1,13 @@
-
 #ifdef GL_ES
 precision mediump float;
 #endif
 
-uniform sampler2D   u_tex0;
+uniform sampler2D   u_tex0; // /imgs/sprite.png
 uniform vec2        u_tex0Resolution;
-
 uniform vec2        u_resolution;
 uniform float       u_time;
 
-varying vec2        v_texcoord;
-
-#include "lygia/math/decimation.glsl"
+#include "lygia/math/decimate.glsl"
 #include "lygia/space/scale.glsl"
 #include "lygia/sample/sprite.glsl"
 #include "lygia/animation/spriteLoop.glsl"
@@ -20,13 +16,10 @@ void main (void) {
     vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
     vec2 pixel = 1.0/u_resolution.xy;
     vec2 st = gl_FragCoord.xy * pixel;
-    vec2 uv = v_texcoord;
 
     vec2 grid = vec2(10., 7.0);
 
     color = texture2D(u_tex0, st);
-    st = decimation(st, u_tex0Resolution * 0.15);
-    st = scale(st, 0.8);
 
     // color = sampleSprite(u_tex0, st, grid, 41.);
 

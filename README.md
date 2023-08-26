@@ -24,15 +24,24 @@ glslViewer animation_easing.frag -l
 ![](images/animation_easing.gif)
 
 
-# COLOR 
-
-#### LookUp table
+#### Sprite
 
 ```bash
-glslViewer color_lut.frag assets/danny.png assets/square_01.png -l
+glslViewer animation_sprite.frag -l
 ```
 
-![](images/color_lut.jpg)
+![](images/animation_sprite.gif)
+
+
+# COLOR 
+
+#### Dither Bayer
+
+```bash
+glslViewer color_dither_backer.frag -l
+```
+
+![](images/color_dither_backer.jpg)
 
 
 #### Dither
@@ -42,6 +51,15 @@ glslViewer color_dither.frag -l
 ```
 
 ![](images/color_dither.jpg)
+
+
+#### LookUp table
+
+```bash
+glslViewer color_lut.frag assets/danny.png assets/square_01.png -l
+```
+
+![](images/color_lut.jpg)
 
 
 #### Mix vs mixOklab vs MixBox color mixing
@@ -71,8 +89,16 @@ glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
 ![](images/color_wavelength.jpg)
 
 
-
 # DRAW
+
+#### AA functions
+
+```bash
+glslViewer draw_aa.frag -l
+```
+
+![](images/draw_aa.jpg)
+
 
 #### Digits
 
@@ -83,8 +109,43 @@ glslViewer draw_digits.frag -l
 ![](images/draw_digits.jpg)
 
 
-# GENERATIVE
+#### Julia
 
+```bash
+glslViewer draw_julia.frag -l
+```
+
+![](images/draw_julia.jpg)
+
+
+#### Mandelbulb
+
+```bash
+glslViewer draw_mandelbulb.frag -l
+```
+
+![](images/draw_mandelbulb.jpg)
+
+
+## Shapes
+
+```bash
+glslViewer draw_shapes.frag -l
+```
+
+![](images/draw_shapes.jpg)
+
+
+## Super Shape
+
+```bash
+glslViewer draw_supershape.frag -l
+```
+
+![](images/draw_supershape.jpg)
+
+
+# GENERATIVE
 
 #### Random
 
@@ -93,6 +154,7 @@ glslViewer generative_random.frag
 ```
 
 ![](images/generative_random.jpg)
+
 
 #### Clasic Noise
 
@@ -143,7 +205,6 @@ glslViewer generative_noised.frag
 glslViewer generative_curl.frag 
 ```
 ![](images/generative_curl.jpg)
-
 
 
 #### Fractal Brownian Motion
@@ -247,6 +308,24 @@ glslViewer generative_worley.frag
 ![](images/sample_filter_smooth.jpg)
 
 
+#### Sample EquiRectangular texture
+
+```bashlslViewer sample_equi2cube.frag assets/Arches_E_PineTree_3k.hdr -l
+	glslViewer sample_equirect.frag assets/dragon.obj assets/studio.png -e defined,SCENE_CUBEMAP,u_tex0 -e camera_position,-1.43923,0.891203,1.98093 -l
+```
+
+![](images/sample_equirect.jpg)
+
+
+#### Sample 3D Sdf texture
+
+```bash
+	glslViewer sample_3Dsdf.frag assets/suzanne.png -e camera_position,-29.5393,26.2406,-42.1865 -l
+```
+
+![](images/sample_3Dsdf.jpg)
+
+
 #### Sample DoF 
 
 ```bash
@@ -255,7 +334,6 @@ glslViewer generative_worley.frag
 
 ![](images/sample_dof.jpg)
 	
-
 
 # FILTER
 
@@ -294,6 +372,15 @@ filter_boxBlur2D:
 ```
 
 ![](images/filter_gaussianBlur2D.jpg)
+
+
+#### FibonaccciBokeh
+
+```bash
+	glslViewer filter_fibonacciBokeh.frag assets/danny.png -l
+```
+
+![](images/filter_fibonacciBokeh.jpg)
 
 
 #### BilateralBlur 2D 
@@ -397,6 +484,23 @@ filter_boxBlur2D:
 ![](images/morphological_alphaFill.jpg)
 
 
+#### Poisson Fill
+
+```bash
+	glslViewer morphological_poissonFill.frag assets/flower.png -l
+```
+
+![](images/morphological_poissonFill.gif)
+
+
+#### Marching Squares
+
+```bash
+	glslViewer morphological_marchingSquares.frag assets/flower.png -l
+```
+
+![](images/morphological_marchingSquares.jpg)
+
 
 # LIGHTING
 
@@ -464,15 +568,6 @@ glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position
 #### PBR (material)
 
 ```bash
-glslViewer assets/dragon.obj lighting_pvr.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
-```
-
-![](images/lighting_pbr.jpg)
-
-
-#### PBR with cubemap (material)
-
-```bash
 glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
 ```
 
@@ -482,37 +577,37 @@ glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,1.43923,-0.891
 #### PBR ClearCoat (material)
 
 ```bash
-glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
-```
-
-![](images/lighting_pbrClearCoat.jpg)
-
-
-#### PBR ClearCoat with cubemap (material)
-
-```bash
 glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
 ```
 
 ![](images/lighting_pbrClearCoat_cubemap.jpg)
 
 
-#### PBR Glass (material)
+#### PBR Subsurface Scattering (material)
 
 ```bash
-glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+glslViewer assets/dragon.obj lighting_pbrSsS.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
 ```
 
-![](images/lighting_pbrGlass.jpg)
+![](images/lighting_pbrSsS_cubemap.jpg)
 
 
-#### PBR Glass with cubemap (material)
+#### PBR Glass (material)
 
 ```bash
 glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
 ```
 
 ![](images/lighting_pbrGlass_cubemap.jpg)
+
+
+#### PBR Iridescence (material)
+
+```bash
+glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
+```
+
+![](images/lighting_pbrIridescence_cubemap.jpg)
 
 
 #### ScreenSpace Reflections (postprocessing/raymarching)
@@ -522,15 +617,6 @@ glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,1.43923,-0.891
 ```
 
 ![](images/lighting_ssr.jpg)
-
-
-#### Volumetric Light Scattering (postprocessing/raymarching)
-
-```bash
-glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -l 
-```
-
-![](images/lighting_volumetric.jpg)
 
 
 #### Volumetric Light Scattering with Cubemap(postprocessing/raymarching)
@@ -551,15 +637,6 @@ glslViewer lighting_raymarching.frag -e camera_position,-29.5393,-26.2406,-42.18
 ![](images/lighting_raymarching.jpg)
 
 
-#### Raymarching custom PBR
-
-```bash
-glslViewer lighting_raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
-```
-
-![](images/lighting_raymarching_pbr.jpg)
-
-
 #### Raymarching custom PBR with CUBEMAP
 
 ```bash
@@ -569,15 +646,6 @@ glslViewer lighting_raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-4
 ![](images/lighting_raymarching_pbr_cubemap.jpg)
 
 
-#### Raymarching custom GLASS material
-
-```bash
-glslViewer lighting_raymarching_glass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
-```
-
-![](images/lighting_raymarching_glass.jpg)
-
-
 #### Raymarching custom GLASS material with CUBEMAP
 
 ```bash
@@ -585,14 +653,6 @@ glslViewer lighting_raymarching_glass.frag -e camera_position,-29.5393,-26.2406,
 ```
 
 ![](images/lighting_raymarching_glass_cubemap.jpg)
-
-#### Raymarching GLASS REFRACTION material
-
-```bash
-glslViewer lighting_raymarching_glass_refraction.frag -e camera_position,29.5393,26.2406,42.1865 -l
-```
-
-![](images/lighting_raymarching_glass_refraction.jpg)
 
 
 #### Raymarching GLASS REFRACTION material with CUBEMAP

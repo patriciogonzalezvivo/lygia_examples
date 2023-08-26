@@ -21,7 +21,7 @@ varying vec2        v_texcoord;
 #include "lygia/sdf/planeSDF.glsl"
 #include "lygia/sdf/sphereSDF.glsl"
 #include "lygia/sdf/opUnion.glsl"
-#include "lygia/sdf/opRepite.glsl"
+#include "lygia/sdf/opRepeat.glsl"
 
 #define RESOLUTION              u_resolution
 #define LIGHT_COLOR             vec3(1.0)
@@ -60,7 +60,7 @@ vec4 raymarchMap(in vec3 pos ) {
     float metallic = 0.0 + (floor(pos.z + 0.5) * 0.25) + 0.4;
 
     pos += 0.5;
-    pos = opRepite(pos, vec3(-2.0, 0.0, -2.0), vec3(2.0, 0.0, 2.0), 1.0);
+    pos = opRepeat(pos, vec3(-2.0, 0.0, -2.0), vec3(2.0, 0.0, 2.0), 1.0);
     pos -= 0.5;
 
     res = opUnion( res, vec4( vec3(roughness, metallic, 1.0), sphereSDF(pos, 0.3 ) ) );

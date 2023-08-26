@@ -64,7 +64,9 @@ void main(void) {
     #endif
 
     color = gooch(material);
-    color = linear2gamma(color);
+    // color = linear2gamma(color);
     
+    // color += 1.0;
+
     gl_FragColor = color;
 }
