@@ -35,15 +35,6 @@ glslViewer animation_sprite.frag -l
 
 # COLOR 
 
-#### Dither Bayer
-
-```bash
-glslViewer color_dither_bayer.frag -l
-```
-
-![](images/color_dither_bayer.jpg)
-
-
 #### Dither
 
 ```bash
@@ -51,6 +42,15 @@ glslViewer color_dither.frag -l
 ```
 
 ![](images/color_dither.jpg)
+
+
+#### Dither Bayer
+
+```bash
+glslViewer color_dither_bayer.frag -l
+```
+
+![](images/color_dither_bayer.jpg)
 
 
 #### LookUp table
