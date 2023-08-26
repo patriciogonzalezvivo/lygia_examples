@@ -38,10 +38,10 @@ glslViewer animation_sprite.frag -l
 #### Dither Bayer
 
 ```bash
-glslViewer color_dither_backer.frag -l
+glslViewer color_dither_bayer.frag -l
 ```
 
-![](images/color_dither_backer.jpg)
+![](images/color_dither_bayer.jpg)
 
 
 #### Dither
