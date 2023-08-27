@@ -49,28 +49,44 @@ varying mat3        v_tangentToWorld;
 #define IBL_LUMINANCE       u_iblLuminance
 
 #define LIGHT_DIRECTION     u_light
-// #define LIGHT_POSITION      u_light
 #define LIGHT_COLOR         u_lightColor
 #define LIGHT_FALLOFF       u_lightFalloff
 #define LIGHT_INTENSITY     u_lightIntensity
 #define LIGHT_COORD         v_lightCoord
-
-#include "lygia/math/saturate.glsl"
+#define LIGHT_MATRIX        u_lightMatrix
 
 #define SHADING_MODEL_SUBSURFACE
+#include "lygia/math/mirror.glsl"
+#include "lygia/color/space/linear2gamma.glsl"
+#include "lygia/generative/fbm.glsl"
+#include "lygia/draw/stroke.glsl"
 #include "lygia/lighting/pbr.glsl"
 #include "lygia/lighting/material/new.glsl"
-#include "lygia/color/space/linear2gamma.glsl"
+
+float checkBoard(vec2 uv, vec2 _scale) {
+    uv = floor(fract(uv * _scale) * 2.0);
+    return min(1.0, uv.x + uv.y) - (uv.x * uv.y);
+}
 
 void main(void) {
     vec4 color = vec4(vec3(0.0), 1.0);
     vec2 pixel = 1.0/u_resolution;
     vec2 st = gl_FragCoord.xy * pixel;
+    vec2 uv = st;
+    #if defined(MODEL_VERTEX_TEXCOORD)
+    uv = v_texcoord;
+    #endif
+
+    float n = fbm(v_position.xyz * vec3(1.0, 3.0, 10.0));
+    n = stroke(mirror(n * 5.0), 0.5,  0.1, 0.75);
 
     Material material = materialNew();
+
     material.albedo = vec4(0.0, 0.1, 0.05, 1.0);
-    material.subsurfaceColor = vec3(2.0, 3.0, 1.5);
     material.roughness = 0.2;
+    material.thickness += n;
+    material.subsurfaceColor = vec3(2.0, 3.5, 0.0);
+
     color = pbr(material);
 
     color.rgb = linear2gamma(color.rgb);
