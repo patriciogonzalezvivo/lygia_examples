@@ -14,7 +14,10 @@ uniform float       u_time;
 // #define CENTER_2D vec2(0.0)
 
 #include "lygia/draw/fill.glsl"
+#include "lygia/space/aspect.glsl"
 #include "lygia/space/ratio.glsl"
+#include "lygia/space/center.glsl"
+#include "lygia/space/uncenter.glsl"
 #include "lygia/space/rotate.glsl"
 
 #include "lygia/sdf/circleSDF.glsl"
@@ -37,12 +40,19 @@ void main(void) {
     vec2 pixel = 1.0/u_resolution.xy;
     vec2 st = gl_FragCoord.xy * pixel;
 
+    // Option 1
     st = ratio(st, u_resolution.xy);
+
+    // // Option 2 
+    // st = center(st);
+    // st = aspect(st, u_resolution.xy);
+    // st = uncenter(st);
 
     float cols = 4.0; 
     st *= cols;
     vec2 st_i = floor(st);
     vec2 st_f = fract(st);
+    // st_f = center(st_f);
 
     st_f = rotate(st_f, u_time * 0.4);
 

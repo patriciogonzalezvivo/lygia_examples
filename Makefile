@@ -42,6 +42,9 @@ draw_supershape:
 draw_gear:
 	glslViewer draw_gear.frag -l
 
+draw_tiles:
+	glslViewer draw_tiles.frag -l  
+
 draw_koch:
 	glslViewer draw_koch.frag -l
 
