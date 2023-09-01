@@ -17,8 +17,8 @@ uniform float       u_time;
 
 #define modi(a,b)   (a - (b * int(a/b)))
 
-#include "lygia/morphological/poissonFill/upscale.glsl"
-#include "lygia/morphological/poissonFill/downscale.glsl"
+#include "lygia/morphological/pyramid/upscale.glsl"
+#include "lygia/morphological/pyramid/downscale.glsl"
 
 void main (void) {
     vec4 color = vec4(0.0);
@@ -33,16 +33,16 @@ void main (void) {
 
     // Downscale the image to the pyramid
     if (!u_pyramidUpscaling)
-        color = poissonFillDownscale(u_pyramidTex0, st, pixel);
+        color = pyramidDownscale(u_pyramidTex0, st, pixel);
     
-    // Visualize the pyramid by stepping through the levels
-    //  Comment this next to lines to see the actual result
-    else if (modi(int(u_time),u_pyramidTotalDepth) == u_pyramidDepth)
-        color = texture2D(u_pyramidTex0, st);
+    // // Visualize the pyramid by stepping through the levels
+    // //  Comment this next to lines to see the actual result
+    // else if (modi(int(u_time),u_pyramidTotalDepth) == u_pyramidDepth)
+    //     color = texture2D(u_pyramidTex0, st);
     
     // Upscale the image from the pyramid
     else
-        color = poissonFillUpscale(u_pyramidTex0, u_pyramidTex1, st, pixel);
+        color = pyramidUpscale(u_pyramidTex0, u_pyramidTex1, st, pixel);
     
     color = (color.a == 0.0)? color : vec4(color.rgb/color.a, 1.0);
 
