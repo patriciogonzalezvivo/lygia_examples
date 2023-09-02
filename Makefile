@@ -3,6 +3,12 @@
 math_functions:
 	glslViewer math_functions.frag -l
 
+math_gaussian:
+	glslViewer math_gaussian.frag -l
+
+math_quat:
+	glslViewer math_quat.frag math_quat.vert assets/suzanne.obj -l   
+
 animation_easing:
 	glslViewer animation_easing.frag -l	
 
@@ -288,6 +294,10 @@ simulate_fluid:
 	glslViewer simulate_fluid.frag -l  
 
 screenshots:
+	glslViewer math_functions.frag -w 512 -h 512 --headless -E screenshot,images/math_functions.jpg
+	glslViewer math_gaussian.frag -w 512 -h 512 --headless -E screenshot,images/math_gaussian.jpg
+	# glslViewer math_quat.frag math_quat.vert assets/suzanne.obj -w 512 -h 512 --headless -E record,images/math_quat.gif,0.0,8.0
+
 	glslViewer animation_easing.frag -w 512 -h 512 --headless -E record,images/animation_easing.gif,0.0,8.0
 	# glslViewer animation_sprite.frag assets/sprite_megaman.png -w 512 -h 512 --headless -E record,images/animation_sprite.gif,0.0,8.0
 

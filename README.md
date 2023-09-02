@@ -12,6 +12,35 @@ Clone this repository recursivelly
 git clone --recursive https://github.com/patriciogonzalezvivo/lygia_examples.git
 ```
 
+# MATH
+
+#### Functions
+
+```bash
+glslViewer math_functions.frag -l
+```
+
+![](images/math_functions.jpg)
+
+
+#### Gaussian
+
+```bash
+glslViewer math_gaussian.frag -l
+```
+
+![](images/math_gaussian.jpg)
+
+
+#### Quaternion
+
+```bash
+glslViewer math_quaternion.frag -l
+```
+
+![](images/math_quat.gif)
+
+
 
 # ANIMATION 
 
