@@ -34,6 +34,7 @@ varying vec2    v_texcoord;
 #include "lygia/math/quat/2mat3.glsl"
 #include "lygia/math/quat/2mat4.glsl"
 #include "lygia/math/quat/conj.glsl"
+
 #include "lygia/math/quat/lerp.glsl"
 
 void main(void) {
