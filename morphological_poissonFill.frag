@@ -35,10 +35,10 @@ void main (void) {
     if (!u_pyramidUpscaling)
         color = pyramidDownscale(u_pyramidTex0, st, pixel);
     
-    // // Visualize the pyramid by stepping through the levels
-    // //  Comment this next to lines to see the actual result
-    // else if (modi(int(u_time),u_pyramidTotalDepth) == u_pyramidDepth)
-    //     color = texture2D(u_pyramidTex0, st);
+    // Visualize the pyramid by stepping through the levels
+    //  Comment this next to lines to see the actual result
+    else if (modi(int(u_time),u_pyramidTotalDepth) == u_pyramidDepth)
+        color = texture2D(u_pyramidTex0, st);
     
     // Upscale the image from the pyramid
     else

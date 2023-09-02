@@ -304,6 +304,7 @@ screenshots:
 	glslViewer draw_mandelbulb.frag -w 512 -h 512 --headless -E screenshot,images/draw_mandelbulb.jpg
 	glslViewer draw_shapes.frag -w 512 -h 512 --headless -E screenshot,images/draw_shapes.jpg
 	glslViewer draw_supershape.frag -w 512 -h 512 --headless -E screenshot,images/draw_supershape.jpg
+	glslViewer draw_tiles.frag -w 512 -h 512 --headless -E screenshot,images/draw_tiles.jpg
 
 	glslViewer filter_bilateral2D.frag assets/danny.png -w 512 -h 512 --headless -E screenshot,images/filter_bilateral2D.jpg
 	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on -w 512 -h 512 --headless -E screenshot,images/filter_boxBlur1D.jpg
