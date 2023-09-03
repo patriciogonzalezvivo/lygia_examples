@@ -31,6 +31,7 @@ vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 // #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(LIGHT_POSITION))
 
 #include "lygia/color/space/linear2gamma.glsl"
+#include "lygia/color/tonemap/reinhard.glsl"
 #include "lygia/space/ratio.glsl"
 #include "lygia/sdf/sphereSDF.glsl"
 #include "lygia/sdf/opRepeat.glsl"
@@ -93,9 +94,9 @@ vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     refractColor.r = envMap(refractR, roughness).r;
     refractColor.b = envMap(refractB, roughness).b;
     #endif
-    refractColor = tonemap( refractColor );
+    refractColor = tonemapReinhard( refractColor );
 
-    color += tonemap( fresnelReflection(Re, f0, NoV) ) * (map.x*0.5) * dom;
+    color += tonemapReinhard( fresnelReflection(Re, f0, NoV) ) * (map.x*0.5) * dom;
     color += refractColor;// * dom;
 
     return color;

@@ -48,6 +48,7 @@ vec3 raymarchGlassRender(vec3 ray,vec3 pos,vec3 nor,vec3 map);
 #include "lygia/space/ratio.glsl"
 #include "lygia/sdf.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
+#include "lygia/color/tonemap/reinhard.glsl"
 
 /*
     RAYMARCH IMPORTS

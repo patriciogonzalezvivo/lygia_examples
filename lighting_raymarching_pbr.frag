@@ -17,6 +17,7 @@ varying vec2        v_texcoord;
 
 #include "lygia/space/ratio.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
+#include "lygia/color/tonemap.glsl"
 
 #include "lygia/sdf/planeSDF.glsl"
 #include "lygia/sdf/sphereSDF.glsl"
