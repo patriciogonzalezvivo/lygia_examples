@@ -25,12 +25,12 @@ uniform vec2        u_resolution;
 #define RAYMARCH_BACKGROUND ( vec3(0.7, 0.9, 1.0) + ray.y * 0.8 )
 #define RAYMARCH_AMBIENT    vec3(0.7, 0.9, 1.0)
 
-#define SAMPLE_2DCUBE_FLIP_Y
-// #define SAMPLE_2DCUBE_CELL_SIZE 64.0
-// #define SAMPLE_2DCUBE_CELLS_PER_SIDE 8.0
-#define SAMPLE_2DCUBE_FNC(TEX, UV) sampleBicubic(TEX, UV, vec2(512.0))
-// #define SAMPLE_2DCUBE_FNC(TEX, UV) sampleSmooth(TEX, UV, vec2(512.0))
-// #define SAMPLE_2DCUBE_FNC(TEX, UV) sampleNearest(TEX, UV, vec2(512.0))
+#define SAMPLE2DCUBE_FLIP_Y
+// #define SAMPLE2DCUBE_CELL_SIZE 64.0
+// #define SAMPLE2DCUBE_CELLS_PER_SIDE 8.0
+#define SAMPLE2DCUBE_FNC(TEX, UV) sampleBicubic(TEX, UV, vec2(512.0))
+// #define SAMPLE2DCUBE_FNC(TEX, UV) sampleSmooth(TEX, UV, vec2(512.0))
+// #define SAMPLE2DCUBE_FNC(TEX, UV) sampleNearest(TEX, UV, vec2(512.0))
 
 #include "lygia/math/cubic.glsl"
 #include "lygia/math/quartic.glsl"

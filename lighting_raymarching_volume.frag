@@ -18,6 +18,7 @@ varying vec2        v_texcoord;
 #include "lygia/math/saturate.glsl"
 #include "lygia/space/ratio.glsl"
 #include "lygia/generative/fbm.glsl"
+#include "lygia/color/space/linear2gamma.glsl"
 
 #include "lygia/sdf/boxFrameSDF.glsl"
 
@@ -45,6 +46,7 @@ void main(void) {
     vec2 st = v_texcoord;
     vec2 uv = ratio(st, u_resolution);
     color.rgb += raymarch(u_camera, uv).rgb;
+    color = linear2gamma(color);
 
     gl_FragColor = vec4(color, 1.0);
 }

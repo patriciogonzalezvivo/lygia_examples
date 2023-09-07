@@ -90,7 +90,7 @@ void main(void) {
     else
         sdf = 1.0;
 
-    color.rgb += aastep(sdf, 0.5);
+    color.rgb += fill(sdf, 0.5);
     
     gl_FragColor = color;
 }

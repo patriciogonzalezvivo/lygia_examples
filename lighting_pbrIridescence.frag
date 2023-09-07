@@ -65,8 +65,6 @@ varying mat3        v_tangentToWorld;
 #include "lygia/color/space/gamma2linear.glsl"
 
 #include "lygia/color/palette/hue.glsl"
-#include "lygia/color/palette/chroma.glsl"
-#include "lygia/color/palette/spectrum.glsl"
 
 #include "lygia/lighting/pbrClearCoat.glsl"
 #include "lygia/lighting/pbr.glsl"

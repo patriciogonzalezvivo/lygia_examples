@@ -14,7 +14,6 @@ uniform float       u_time;
 varying vec2        v_texcoord;
 
 #include "lygia/math/const.glsl"
-#include "lygia/math/decimation.glsl"
 #include "lygia/generative/noised.glsl"
 
 #define ARROWS_STYLE_LINE

@@ -13,7 +13,6 @@ uniform vec2        u_tex0Resolution;
 #define RADIALBLUR_SAMPLER_FNC(TEX, UV) sampleClamp2edge(TEX, UV)
 #include "lygia/filter/radialBlur.glsl"
 
-#include "lygia/math/decimation.glsl"
 #include "lygia/draw/digits.glsl"
 
 void main (void) {
