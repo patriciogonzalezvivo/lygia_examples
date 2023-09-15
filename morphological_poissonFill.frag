@@ -25,11 +25,11 @@ void main (void) {
     vec2 st = gl_FragCoord.xy/u_resolution;
     vec2 pixel = 1.0/u_resolution;
 
-#if defined(CONVOLUTION_PYRAMID_0)
+#if defined(PYRAMID_0)
     color = texture2D(u_tex0, st);
     color.rgb *= step(0.001, color.a);
 
-#elif defined(CONVOLUTION_PYRAMID_ALGORITHM)
+#elif defined(PYRAMID_ALGORITHM)
 
     // Downscale the image to the pyramid
     if (!u_pyramidUpscaling)
