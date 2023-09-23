@@ -132,6 +132,9 @@ filter_laplacian2D:
 filter_edge2D:
 	glslViewer filter_edge2D.frag assets/danny.png -l
 
+filter_bartlett2D:
+	glslViewer filter_bartlett2D.frag assets/danny.png -l
+
 #  SAMPLE
 
 sample_dof:
@@ -338,6 +341,7 @@ screenshots:
 	prime-run glslViewer filter_noiseBlur2D.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/filter_noiseBlur2D.jpg
 	prime-run glslViewer filter_radialBlur2D.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/filter_radialBlur2D.jpg
 	prime-run glslViewer filter_sharpen2D.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/filter_sharpen2D.jpg
+	prime-run glslViewer filter_bartlett2D.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/filter_bartlett2D.jpg
 
 	prime-run glslViewer generative_cnoise.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/generative_cnoise.jpg
 	prime-run glslViewer generative_curl.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/generative_curl.jpg

@@ -385,6 +385,14 @@ filter_boxBlur2D:
 ![](images/filter_boxBlur2D.jpg)
 
 
+#### Bartlett 2D
+
+```bash
+	glslViewer filter_bartlett2D.frag assets/danny.png -l
+```
+
+![](images/filter_bartlett2D.jpg)
+
 #### GaussianBlur 1D
 
 ```bash
