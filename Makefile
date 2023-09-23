@@ -143,11 +143,20 @@ sample_bracketing:
 sample_wrap:
 	glslViewer sample_wrap.frag assets/rocks.png -l
 
+sample_wrap_repeat:
+	glslViewer sample_wrap_repeat.frag assets/rocks.png -l
+
+sample_wrap_clamp:
+	glslViewer sample_wrap_clamp.frag assets/rocks.png -l
+
 sample_wrap_mirror:
 	glslViewer sample_wrap_mirror.frag assets/rocks.png -l
 
 sample_wrap_untile:
 	glslViewer sample_wrap_untile.frag assets/rocks.png -l
+
+sample_wrap_zero:
+	glslViewer sample_wrap_zero.frag assets/rocks.png -l
 
 sample_filter_bicubic:
 	glslViewer sample_filter_bicubic.frag assets/noise_blue.png -l
