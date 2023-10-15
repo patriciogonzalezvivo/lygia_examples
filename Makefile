@@ -323,7 +323,7 @@ screenshots:
 	prime-run glslViewer color_lut.frag assets/danny.png assets/square_01.png -w 512 -h 512 --noncurses --headless -E screenshot,images/color_lut.jpg
 	prime-run glslViewer color_wavelength.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_wavelength.jpg
 
-	prime-run glslViewer distort_pincushion.frag assets/danny.png -l -w 512 -h 512 --noncurses --headless -E record,images/distort_pincushion.gif,0.0,5.0
+	prime-run glslViewer distort_pincushion.frag assets/danny.png -l -w 512 -h 512 --noncurses --headless -E record,images/distort_pincushion.gif,0.0,3.0
 
 	prime-run glslViewer draw_aa.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/draw_aa.jpg 
 	prime-run glslViewer draw_digits.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/draw_digits.jpg
