@@ -33,6 +33,9 @@ color_iridescence_map:
 color_wavelength:
 	glslViewer color_wavelength.frag -l 
 
+distort_pincushion:
+	glslViewer distort_pincushion.frag assets/danny.png -l
+
 draw_digits:
 	glslViewer draw_digits.frag -l
 
@@ -132,8 +135,8 @@ filter_laplacian2D:
 filter_edge2D:
 	glslViewer filter_edge2D.frag assets/danny.png -l
 
-filter_bartlett2D:
-	glslViewer filter_bartlett2D.frag assets/danny.png -l
+filter_bilinear2D:
+	glslViewer filter_bilinear2D.frag assets/danny.png -l
 
 #  SAMPLE
 
@@ -320,6 +323,8 @@ screenshots:
 	prime-run glslViewer color_lut.frag assets/danny.png assets/square_01.png -w 512 -h 512 --noncurses --headless -E screenshot,images/color_lut.jpg
 	prime-run glslViewer color_wavelength.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_wavelength.jpg
 
+	prime-run glslViewer distort_pincushion.frag assets/danny.png -l -w 512 -h 512 --noncurses --headless -E record,images/distort_pincushion.gif,0.0,5.0
+
 	prime-run glslViewer draw_aa.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/draw_aa.jpg 
 	prime-run glslViewer draw_digits.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/draw_digits.jpg
 	prime-run glslViewer draw_julia.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/draw_julia.jpg
@@ -341,7 +346,7 @@ screenshots:
 	prime-run glslViewer filter_noiseBlur2D.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/filter_noiseBlur2D.jpg
 	prime-run glslViewer filter_radialBlur2D.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/filter_radialBlur2D.jpg
 	prime-run glslViewer filter_sharpen2D.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/filter_sharpen2D.jpg
-	prime-run glslViewer filter_bartlett2D.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/filter_bartlett2D.jpg
+	prime-run glslViewer filter_bilinear2D.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/filter_bilinear2D.jpg
 
 	prime-run glslViewer generative_cnoise.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/generative_cnoise.jpg
 	prime-run glslViewer generative_curl.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/generative_curl.jpg

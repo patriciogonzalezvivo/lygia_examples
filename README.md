@@ -385,13 +385,14 @@ filter_boxBlur2D:
 ![](images/filter_boxBlur2D.jpg)
 
 
-#### Bartlett 2D
+#### Bilinear 2D
 
 ```bash
-	glslViewer filter_bartlett2D.frag assets/danny.png -l
+	glslViewer filter_bilinear2D.frag assets/danny.png -l
 ```
 
-![](images/filter_bartlett2D.jpg)
+![](images/filter_bilinear2D.jpg)
+
 
 #### GaussianBlur 1D
 
