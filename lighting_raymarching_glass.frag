@@ -27,9 +27,6 @@ varying vec2        v_texcoord;
 #define RAYMARCH_MATERIAL_FNC   raymarchGlassRender
 vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 
-// #include "lygia/lighting/atmosphere.glsl"
-// #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(LIGHT_POSITION))
-
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/color/tonemap/reinhard.glsl"
 #include "lygia/space/ratio.glsl"
