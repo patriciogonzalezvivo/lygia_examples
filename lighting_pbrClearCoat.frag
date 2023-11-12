@@ -55,10 +55,6 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_INTENSITY     u_lightIntensity
 #define LIGHT_COORD         v_lightCoord
 
-// #include "lygia/lighting/atmosphere.glsl"
-// #ifndef SCENE_CUBEMAP
-// #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
-// #endif
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/lighting/pbrClearCoat.glsl"
 #include "lygia/lighting/material/new.glsl"

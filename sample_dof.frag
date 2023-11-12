@@ -52,11 +52,6 @@ varying vec2        v_texcoord;
 #define LIGHT_COLOR         u_lightColor
 #define LIGHT_COORD         v_lightCoord
 
-// #include "lygia/lighting/atmosphere.glsl"
-// #ifndef SCENE_CUBEMAP
-// #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
-// #endif
-
 #include "lygia/sample/clamp2edge.glsl"
 // #define SAMPLEDOF_DEBUG
 #define SAMPLEDOF_BLUR_SIZE 12.

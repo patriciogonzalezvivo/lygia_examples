@@ -710,17 +710,4 @@ glslViewer lighting_raymarching_volume.frag -e camera_position,-29.5393,-26.2406
 
 ![](images/lighting_raymarching_volume.jpg)
 
-#### Atmosphere Scatering
 
-```bash
-glslViewer lighting_atmosphere.frag -l -w 1024 -h 512 -e define,PROJECTION_MODE,0
-```
-
-![](images/lighting_atmosphere_equirectangular.jpg)
-
-
-```bash
-glslViewer lighting_atmosphere.frag -l -e define,PROJECTION_MODE,1
-```
-
-![](images/lighting_atmosphere_fisheye.jpg)

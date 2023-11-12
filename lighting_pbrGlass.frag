@@ -26,10 +26,6 @@ varying vec2        v_texcoord;
 #define LIGHT_DIRECTION     u_light
 #define LIGHT_COLOR         u_lightColor
 
-// #include "lygia/lighting/atmosphere.glsl"
-// #ifndef SCENE_CUBEMAP
-// #define ENVMAP_FNC(NORM, ROUGHNESS, METALLIC) atmosphere(NORM, normalize(u_light))
-// #endif
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/lighting/pbrGlass.glsl"
 #include "lygia/lighting/material/new.glsl"
