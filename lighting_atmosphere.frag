@@ -18,10 +18,18 @@ varying vec2    v_texcoord;
 #ifndef PROJECTION_MODE
 #define PROJECTION_MODE 0
 #endif
+
+#include "lygia/space/ratio.glsl"
 #include "lygia/space/fisheye2xyz.glsl"
 #include "lygia/space/equirect2xyz.glsl"
 
-// #define ATMOSPHERE_FAST
+// #define ATMOSPHERE_GROUND vec3(0.5)
+#define ATMOSPHERE_SUN_POWER 20.0
+#define ATMOSPHERE_LIGHT_SAMPLES 8
+#define ATMOSPHERE_SAMPLES 26
+#define ATMOSPHERE_STARS_LAYERS 3
+#define ATMOSPHERE_STARS_ELEVATION u_time * 0.01
+#define ATMOSPHERE_STARS_AZIMUTH u_time * 0.003
 #include "lygia/lighting/atmosphere.glsl"
 
 #ifndef TONEMAP_FNC
@@ -62,13 +70,15 @@ void main(void) {
     vec2 uv = v_texcoord;
     vec2 mouse = u_mouse * pixel;
 
-    if (mouse.x <= 0.1 && mouse.y <= 0.1)
-        mouse = vec2(fract(0.5+u_time*0.25), sin(u_time*0.25) * 0.25 + 0.75);
+    if (mouse.x <= 0.25 && mouse.y <= 0.25)
+        mouse = vec2(fract(0.5+u_time*0.25), sin(u_time*0.1) * 0.25 + 0.5);
         
 #if PROJECTION_MODE == 0
     vec3 eye_dir = equirect2xyz(uv);
     vec3 sun_dir = equirect2xyz(mouse);
 #elif PROJECTION_MODE == 1
+    uv = ratio(uv, u_resolution);
+    mouse = ratio(mouse, u_resolution);
     vec3 eye_dir = fisheye2xyz(uv);
     vec3 sun_dir = fisheye2xyz(mouse);
 #else
