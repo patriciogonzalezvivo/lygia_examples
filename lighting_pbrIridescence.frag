@@ -86,23 +86,26 @@ void main(void) {
     #endif
 
     Material mat = materialNew();
-    mat.albedo.rgb = vec3(0.5);
+    // mat.albedo.rgb = vec3(0.5);
+    mat.metallic = 0.0;
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
+    mat.roughness = 0.5;
+    mat.metallic = 0.7;
     mat.albedo.rgb = vec3(0.25) + checkBoard(uv, vec2(8.0)) * 0.25;
     #endif
 
-    float n = fbm(v_position.xyz * 0.5) * 0.5 + 0.5;
+    float n = fbm(v_position.xyz * 0.25) * 0.5 + 0.5;
     mat.ior = vec3(IOR_GLASS);
     mat.thickness = mix(300.0, 3000.0, n);
 
-
 #if defined(MODEL_NAME_SUZANNE1)
     mat.clearCoat = 2.0;
+    mat.roughness = 0.3;
     color = pbrClearCoat(mat);
 #elif defined(MODEL_NAME_SUZANNE3)
-    mat.roughness = 0.1;
     color = pbrGlass(mat);
 #else
+    mat.roughness = 0.3;
     color = pbr(mat);
 #endif
 

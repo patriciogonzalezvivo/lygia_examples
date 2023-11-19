@@ -47,7 +47,7 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_FALLOFF       u_lightFalloff
 #define LIGHT_INTENSITY     u_lightIntensity
 #define LIGHT_COORD         v_lightCoord
-#define SHADING_MODEL_IRIDESCENCE
+// #define SHADING_MODEL_IRIDESCENCE
 
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/generative/fbm.glsl"
