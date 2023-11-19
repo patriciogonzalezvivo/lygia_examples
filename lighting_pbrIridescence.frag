@@ -55,19 +55,21 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_FALLOFF       u_lightFalloff
 #define LIGHT_INTENSITY     u_lightIntensity
 #define LIGHT_COORD         v_lightCoord
+#define SHADING_MODEL_IRIDESCENCE
 
 #include "lygia/math/bump.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/color/space/gamma2linear.glsl"
 
 #include "lygia/color/palette/hue.glsl"
+#include "lygia/generative/fbm.glsl"
+
+#include "lygia/lighting/material/new.glsl"
 
 #include "lygia/lighting/pbrClearCoat.glsl"
 #include "lygia/lighting/pbr.glsl"
 #include "lygia/lighting/pbrGlass.glsl"
-#include "lygia/lighting/wavelength.glsl"
-#include "lygia/lighting/iridescence.glsl"
-#include "lygia/lighting/material/new.glsl"
+
 
 float checkBoard(vec2 uv, vec2 _scale) {
     uv = floor(fract(uv * _scale) * 2.0);
@@ -84,26 +86,25 @@ void main(void) {
     #endif
 
     Material mat = materialNew();
-    mat.albedo.rgb = vec3(0.35);
+    mat.albedo.rgb = vec3(0.5);
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     mat.albedo.rgb = vec3(0.25) + checkBoard(uv, vec2(8.0)) * 0.25;
     #endif
+
+    float n = fbm(v_position.xyz * 0.5) * 0.5 + 0.5;
+    mat.ior = vec3(IOR_GLASS);
+    mat.thickness = mix(300.0, 3000.0, n);
+
 
 #if defined(MODEL_NAME_SUZANNE1)
     mat.clearCoat = 2.0;
     color = pbrClearCoat(mat);
 #elif defined(MODEL_NAME_SUZANNE3)
-    // mat.roughness = 0.1;
+    mat.roughness = 0.1;
     color = pbrGlass(mat);
 #else
     color = pbr(mat);
 #endif
-
-    vec3 L = normalize(LIGHT_DIRECTION);
-    vec3 V = normalize(CAMERA_POSITION - (SURFACE_POSITION).xyz);
-    vec3 N = normalize(mat.normal);
-    // color.rgb += iridescence( 1.0-abs(dot(N, V)), 1.0);
-    color.rgb += iridescence(V, N, L, 320.0);
 
     color = linear2gamma(color);
 

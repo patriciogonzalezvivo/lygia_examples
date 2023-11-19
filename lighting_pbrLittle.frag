@@ -47,8 +47,10 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_FALLOFF       u_lightFalloff
 #define LIGHT_INTENSITY     u_lightIntensity
 #define LIGHT_COORD         v_lightCoord
+#define SHADING_MODEL_IRIDESCENCE
 
 #include "lygia/color/space/linear2gamma.glsl"
+#include "lygia/generative/fbm.glsl"
 #include "lygia/lighting/pbrLittle.glsl"
 
 #include "lygia/lighting/material/new.glsl"
@@ -68,13 +70,16 @@ void main(void) {
     #endif
 
     Material material = materialNew();
+    material.albedo = vec4(1.0);
     // material.metallic = 0.0;
     // material.roughness = 0.05;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
-    material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
+    material.albedo.rgb = material.albedo.rgb * 0.5 + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
+    material.metallic = 0.75;
+    material.thickness =  mix(300.0, 3000.0, fbm(v_position.xyz * 0.5) * 0.5 + 0.5);;
     #else
-    material.roughness = 0.05;
+    material.roughness = 0.005;
     material.metallic = 0.0;
     #endif
 
