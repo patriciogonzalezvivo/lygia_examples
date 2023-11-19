@@ -234,15 +234,15 @@ lighting_pbrIridescence:
 
 lighting_pbrIridescence_cubemap:
 	# glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
-	glslViewer assets/IridescenceSuzanne.glb lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
-	# glslViewer lighting_pbrIridescence.frag -e sphere,50 -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
-
+	glslViewer assets/IridescenceSuzanne.glb lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l
 
 lighting_pbrGlass:
 	glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
+	# glslViewer lighting_pbrGlass.frag -e sphere,50 -e camera_position,-1.43923,0.891203,1.98093 --msaa -l 
 
 lighting_pbrGlass_cubemap:
 	glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
+	# glslViewer lighting_pbrGlass.frag -e sphere,50 -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
 
 lighting_pbrSsS:
 	glslViewer assets/dragon.obj lighting_pbrSsS.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
