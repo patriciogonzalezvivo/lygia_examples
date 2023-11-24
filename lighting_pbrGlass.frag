@@ -26,7 +26,9 @@ varying vec2        v_texcoord;
 #define LIGHT_DIRECTION     u_light
 #define LIGHT_COLOR         u_lightColor
 
-#define GLASS_DISPERSION_PASSES 4
+// #define TRANSPARENT_DISPERSION 0.1
+// #define TRANSPARENT_DISPERSION_PASSES 4
+// #define TRANSPARENT_DISPERSION_FAST
 
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/lighting/pbrGlass.glsl"
