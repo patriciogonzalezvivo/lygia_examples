@@ -93,6 +93,9 @@ generative_voronoi:
 generative_voronoise:
 	glslViewer generative_voronoise.frag --fps 24 -l
 
+generative_wavelet:
+	glslViewer generative_wavelet.frag -w 512 -h 512 -l
+
 generative_worley:
 	glslViewer generative_worley.frag --fps 24 -l
 
@@ -362,6 +365,7 @@ screenshots:
 	prime-run glslViewer generative_snoise.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/generative_snoise.jpg
 	prime-run glslViewer generative_voronoi.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/generative_voronoi.jpg
 	prime-run glslViewer generative_voronoise.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/generative_voronoise.jpg
+	prime-run glslViewer generative_wavelet.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/generative_wavelet.jpg
 	prime-run glslViewer generative_worley.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/generative_worley.jpg
 
 	prime-run glslViewer lighting_atmosphere.frag -l -w 1080 -h 540 -e define,PROJECTION_MODE,0 --noncurses --headless --msaa -E screenshot,images/lighting_atmosphere_equirectangular.jpg

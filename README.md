@@ -263,6 +263,14 @@ glslViewer generative_voronoise.frag
 ![](images/generative_voronoise.jpg)
 
 
+#### Wavelet Noise
+
+```bash
+glslViewer generative_wavelet.frag 
+```
+
+![](images/generative_wavelet.jpg)
+
 #### Worley Noise
 
 ```bash
