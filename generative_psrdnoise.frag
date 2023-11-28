@@ -37,12 +37,12 @@ void main(void) {
     // pattern.rb = 1.0-pattern.rb; // spruce it up
      
     // Perturb normal (Yes, this is all we need to do)
-    vec3 N_ = g - dot(g, v_normal) * v_normal; // N_ orthogonal to N
-    vec3 normal = v_normal - N_ * 0.15;
-    normal = normalize( (u_viewMatrix * vec4(normal, 0.0)).xyz );
+    vec3 N = g - dot(g, v_normal) * v_normal; // N orthogonal to N
+    vec3 normal = v_normal - N * 0.15;
+    // normal = (u_viewMatrix * vec4(normal, .0)).xyz;
 
     // Use PBR Little
-    color = pbrLittle(vec4(pattern, 1.0), normal, 0.05, 0.0);
+    color = pbrLittle(vec4(pattern, 1.0), normalize(normal), 0.05, 0.0);
 
     gl_FragColor = color;
 }
