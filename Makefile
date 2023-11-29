@@ -260,8 +260,26 @@ lighting_pbrSsS_cubemap:
 lighting_shadow:
 	glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
 
-lighting_sphereMap:
-	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
+lighting_sphereMap_glass:
+	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/sem-glass-0003.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
+
+lighting_sphereMap_crystal:
+	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/sem-glass-0004.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
+
+lighting_sphereMap_gold:
+	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/sem-gold-0003.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
+
+lighting_sphereMap_metal:
+	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/sem-metal-0003.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
+
+lighting_sphereMap_dark_metal:
+	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/sem-metal-0019.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
+
+
+lighting_sphereMap_iridescent:
+	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/sem-0033.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
+
+
 
 lighting_sphericalHarmonics:
 	glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -c assets/Arches_E_PineTree_3k.hdr --msaa --fxaa -e sky,on -l
@@ -396,7 +414,7 @@ screenshots:
 	prime-run glslViewer lighting_raymarching_volume.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless  -E screenshot,images/lighting_raymarching_volume.jpg
 	prime-run glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless --msaa -E screenshot,images/lighting_raymarching.jpg
 	prime-run glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_shadow.jpg
-	prime-run glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_sphereMap.jpg
+	prime-run glslViewer assets/dragon.obj lighting_sphereMap.frag assets/sem-glass-0003.jpg -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_sphereMap.jpg
 	prime-run glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -c assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless --msaa --fxaa -e sky,on -E screenshot,images/lighting_sphericalHarmonics.jpg
 	prime-run glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_ssao.jpg
 	prime-run glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless --msaa -E screenshot,images/lighting_ssr.jpg
