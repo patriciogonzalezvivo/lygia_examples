@@ -7,20 +7,19 @@ uniform vec2        u_resolution;
 uniform vec2        u_time;
 
 // #define PLATFORM_WEBGL
-
-#define DITHER_PRECISION 4
-// #define SAMPLEDITHER_FNC ditherBayer
-// #define SAMPLEDITHER_FNC ditherBlueNoise
-// #define SAMPLEDITHER_FNC ditherTriangleNoise
-
-// #define SAMPLEDITHER_FNC ditherShift
-// #define SAMPLEDITHER_FNC ditherVlachos
-// #define SAMPLEDITHER_FNC ditherInterleavedGradientNoise
 // #define DITHER_TIME u_time
 // #define DITHER_CHROMA
 
-#include "lygia/math/decimate.glsl"
+#define DITHER_PRECISION 4
+#define SAMPLEDITHER_FNC ditherBayer
+// #define SAMPLEDITHER_FNC ditherBlueNoise
+// #define SAMPLEDITHER_FNC ditherTriangleNoise
+// #define SAMPLEDITHER_FNC ditherInterleavedGradientNoise
+// #define SAMPLEDITHER_FNC ditherVlachos
+// #define SAMPLEDITHER_FNC ditherShift
 
+#include "lygia/math/decimate.glsl"
+#include "lygia/color/luma.glsl"
 #include "lygia/sample/dither.glsl"
 
 void main() {
@@ -28,11 +27,8 @@ void main() {
     vec2 pixel = 1.0/u_resolution.xy;
     vec2 st = gl_FragCoord.xy * pixel;
     
-    float s = 1.0/2.0;
-
     color = texture2D(u_tex0, st);
-    color = sampleDither(u_tex0, st, u_resolution * s);
-
+    // color = sampleDither(u_tex0, st, u_resolution * 0.5);
     // color.rgb = vec3(luma(color.rgb));
 
     gl_FragColor = color;
