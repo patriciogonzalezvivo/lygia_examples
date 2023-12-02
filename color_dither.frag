@@ -10,16 +10,16 @@ uniform vec2        u_resolution;
 uniform vec2        u_mouse;
 uniform float       u_time;
 
+#define DITHER_PRECISION 256
 // #define DITHER_FNC ditherShift
 // #define DITHER_FNC ditherVlachos
 // #define DITHER_FNC ditherBlueNoise
+#define DITHER_FNC ditherTriangleNoise
 // #define DITHER_FNC ditherInterleavedGradientNoise
-// #define DITHER_FNC ditherTriangleNoise
 // #define DITHER_FNC ditherBayer
 // #define DITHER_TIME u_time
 // #define DITHER_CHROMA
 
-// #define DITHER_BAKER_LINEAR_PATTERN
 // #define PLATFORM_WEBGL
 
 #define RESOLUTION 			u_resolution

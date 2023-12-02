@@ -76,10 +76,10 @@ glslViewer color_dither.frag -l
 #### Dither Bayer
 
 ```bash
-glslViewer color_dither_bayer.frag -l
+glslViewer sample_dither.frag -l
 ```
 
-![](images/color_dither_bayer.jpg)
+![](images/sample_dither.jpg)
 
 
 #### LookUp table
