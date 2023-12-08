@@ -63,6 +63,9 @@ draw_julia:
 draw_mandelbulb:
 	glslViewer draw_mandelbulb.frag -l
 
+draw_colorChecker:
+	glslViewer draw_colorChecker.frag -l
+
 generative_random:
 	glslViewer generative_random.frag --fps 24 -l
 
@@ -357,6 +360,7 @@ screenshots:
 	prime-run glslViewer draw_shapes.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/draw_shapes.jpg
 	prime-run glslViewer draw_supershape.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/draw_supershape.jpg
 	prime-run glslViewer draw_tiles.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/draw_tiles.jpg
+	prime-run glslViewer draw_colorChecker.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/draw_colorChecker.jpg
 
 	prime-run glslViewer filter_bilateral2D.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/filter_bilateral2D.jpg
 	prime-run glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on -w 512 -h 512 --noncurses --headless -E screenshot,images/filter_boxBlur1D.jpg
