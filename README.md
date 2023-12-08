@@ -171,7 +171,13 @@ glslViewer draw_shapes.frag -l
 glslViewer draw_supershape.frag -l
 ```
 
-![](images/draw_supershape.jpg)
+## Color Checker (Macbeth/Spyder)
+
+```bash
+glslViewer draw_colorChecker.frag -l
+```
+
+![](images/draw_colorChecker.jpg)
 
 
 # GENERATIVE
