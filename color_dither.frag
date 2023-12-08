@@ -10,20 +10,18 @@ uniform vec2        u_resolution;
 uniform vec2        u_mouse;
 uniform float       u_time;
 
+// #define PLATFORM_WEBGL
+// #define BLUENOISE_TEXTURE   u_noise
+// #define DITHER_PRECISION 4
+// #define DITHER_CHROMA
+// #define DITHER_TIME u_time
+
 // #define DITHER_FNC ditherShift
 // #define DITHER_FNC ditherVlachos
 // #define DITHER_FNC ditherBlueNoise
-// #define DITHER_FNC ditherInterleavedGradientNoise
 // #define DITHER_FNC ditherTriangleNoise
+// #define DITHER_FNC ditherInterleavedGradientNoise
 // #define DITHER_FNC ditherBayer
-// #define DITHER_TIME u_time
-// #define DITHER_CHROMA
-
-// #define DITHER_BAKER_LINEAR_PATTERN
-// #define PLATFORM_WEBGL
-
-#define RESOLUTION 			u_resolution
-#define BLUENOISE_TEXTURE   u_noise
 
 #include "lygia/color/dither.glsl"
 #include "lygia/math/mirror.glsl"
@@ -32,14 +30,15 @@ void main(void) {
     vec4 color = vec4(vec3(0.0), 1.0);
     vec2 pixel = 1.0/u_resolution.xy;
     vec2 st = gl_FragCoord.xy * pixel;
+    float time = u_time;  
     
     // compress
     const float c0 = 32.0;    
     vec2 its = mix( vec2(0.0), vec2(1.0) / c0, st );
 
-    color.rgb = mix(vec3(its.x), vec3(its.xy, 0.0),  mirror(u_time * 0.025));
+    color.rgb = mix(vec3(its.x), vec3(its.xy, 0.0),  mirror(time * 0.025));
     
-    color.rgb = mix(color.rgb, dither(color.rgb), vec3(step(mirror(u_time * 0.13), (st.y + st.x) * 0.5)) );
+    color.rgb = mix(color.rgb, dither(color.rgb), vec3(step(mirror(time * 0.13), (st.y + st.x) * 0.5)) );
 
     // compress
     color.rgb = floor( color.rgb * 255.0 ) / 255.0;

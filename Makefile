@@ -24,8 +24,8 @@ color_lut:
 color_dither:
 	glslViewer color_dither.frag --u_noise assets/noise_blue.png -l
 
-color_dither_bayer:
-	glslViewer color_dither_bayer.frag assets/danny.png -l
+sample_dither:
+	glslViewer sample_dither.frag assets/danny.png -l
 
 color_iridescence_map:
 	glslViewer color_iridescence_map.frag -l
@@ -344,7 +344,7 @@ screenshots:
 	# prime-run glslViewer animation_easing.frag -w 512 -h 512 --noncurses --headless -E record,images/animation_easing.gif,0.0,8.0
 	# prime-run glslViewer animation_sprite.frag assets/sprite_megaman.png -w 512 -h 512 --noncurses --headless -E record,images/animation_sprite.gif,0.0,8.0
 
-	prime-run glslViewer color_dither_bayer.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/color_dither_bayer.jpg
+	prime-run glslViewer sample_dither.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/sample_dither.jpg
 	prime-run glslViewer color_dither.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_dither.jpg
 	prime-run glslViewer color_iridescence_map.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_iridescence_map.jpg
 	prime-run glslViewer color_mix.frag assets/mixbox_lut.png -w 512 -h 512 --noncurses --headless -E screenshot,images/color_mix.jpg
