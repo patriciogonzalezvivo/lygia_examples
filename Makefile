@@ -204,6 +204,9 @@ morphological_marchinSquares:
 
 # LIGHTING
 
+lighting_devlook:
+	glslViewer assets/dragon.obj lighting_devlook.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
+
 lighting_position:
 	glslViewer assets/dragon.obj lighting_position.frag -e camera_position,-1.43923,0.891203,1.98093 -l
 
@@ -231,11 +234,8 @@ lighting_pbr_cubemap:
 lighting_pbr_lights:
 	glslViewer assets/dragon.obj lighting_pbr_lights.frag -e camera_position,-1.43923,0.891203,1.98093 -e dynamic_shadows,on --msaa -l
 
-# lighting_pbr_devlook:
-# 	glslViewer assets/dragon.obj lighting_devlook.vert lighting_devlook.frag -e sphere -e plane -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
-
-# lighting_pbr_dynamic:
-# 	glslViewer assets/dragon.obj lighting_pbr_dynamic.vert lighting_pbr_dynamic.frag -e camera_position,-1.43923,0.891203,1.98093 -e dynamic_shadows,on --msaa -l
+lighting_pbr_dynamic:
+	glslViewer assets/dragon.obj lighting_pbr_dynamic.vert lighting_pbr_dynamic.frag -e camera_position,-1.43923,0.891203,1.98093 -e dynamic_shadows,on --msaa -l
 
 lighting_pbrClearCoat:
 	glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
