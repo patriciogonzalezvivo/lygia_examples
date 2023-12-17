@@ -228,6 +228,15 @@ lighting_pbr:
 lighting_pbr_cubemap:
 	glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
 
+lighting_pbr_lights:
+	glslViewer assets/dragon.obj lighting_pbr_lights.frag -e camera_position,-1.43923,0.891203,1.98093 -e dynamic_shadows,on --msaa -l
+
+# lighting_pbr_devlook:
+# 	glslViewer assets/dragon.obj lighting_devlook.vert lighting_devlook.frag -e sphere -e plane -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
+
+# lighting_pbr_dynamic:
+# 	glslViewer assets/dragon.obj lighting_pbr_dynamic.vert lighting_pbr_dynamic.frag -e camera_position,-1.43923,0.891203,1.98093 -e dynamic_shadows,on --msaa -l
+
 lighting_pbrClearCoat:
 	glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
 
@@ -278,11 +287,8 @@ lighting_sphereMap_metal:
 lighting_sphereMap_dark_metal:
 	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/sem-metal-0019.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
 
-
 lighting_sphereMap_iridescent:
 	glslViewer assets/dragon.obj lighting_sphereMap.frag assets/sem-0033.jpg --msaa -e camera_position,-1.43923,0.891203,1.98093 -l
-
-
 
 lighting_sphericalHarmonics:
 	glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -c assets/Arches_E_PineTree_3k.hdr --msaa --fxaa -e sky,on -l

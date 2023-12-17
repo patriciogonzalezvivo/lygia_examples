@@ -6,7 +6,7 @@ uniform sampler2D   u_tex0;
 uniform vec2        u_resolution;
 uniform vec2        u_time;
 
-// #define PLATFORM_WEBGL
+#define PLATFORM_WEBGL
 // #define DITHER_TIME u_time
 // #define DITHER_CHROMA
 
@@ -28,7 +28,7 @@ void main() {
     vec2 st = gl_FragCoord.xy * pixel;
     
     color = texture2D(u_tex0, st);
-    // color = sampleDither(u_tex0, st, u_resolution * 0.5);
+    color = sampleDither(u_tex0, st, u_resolution * 0.5);
     // color.rgb = vec3(luma(color.rgb));
 
     gl_FragColor = color;
