@@ -203,10 +203,6 @@ morphological_marchinSquares:
 	glslViewer morphological_marchinSquares.frag assets/flower.png -l 
 
 # LIGHTING
-
-lighting_devlook:
-	glslViewer assets/dragon.obj lighting_devlook.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
-
 lighting_position:
 	glslViewer assets/dragon.obj lighting_position.frag -e camera_position,-1.43923,0.891203,1.98093 -l
 
