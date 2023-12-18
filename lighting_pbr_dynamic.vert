@@ -37,15 +37,11 @@ varying vec4    v_tangent;
 varying mat3    v_tangentToWorld;
 #endif
 
-#ifdef LIGHT_SHADOWMAP
-uniform mat4    u_lightMatrix;
-#endif
-
 varying mat4    v_lightMatrix;
 varying vec3    v_light;
 varying vec4    v_lightCoord;
 
-#define LIGHT_ELEVATION     (sin(u_time * 0.5) * 0.4 + 0.5)
+#define LIGHT_ELEVATION     (sin(u_time * 0.1) * 0.5 + 0.5)
 
 #include "lygia/math/toMat4.glsl"
 #include "lygia/math/inverse.glsl"
@@ -54,24 +50,20 @@ varying vec4    v_lightCoord;
 
 void main(void) {
     v_position = a_position;
-    #if defined(FLOOR)
-    v_position.y += 0.05;
-    #endif
 
-    v_light = u_light;
-    v_light = vec3(cos(u_time * 0.25), LIGHT_ELEVATION, 1.0);
-    mat4 V = toMat4(lookAt(vec3(0.0, 0.0, 0.0), -normalize(v_light), vec3(0.0, 1.0, 0.0)));
-    float area = 2.2;
-    mat4 P = orthographic(  area, -area, 
-                            area, -area, 
-                            area * 1000., -area);
+    float area = u_area * 1.;
+    mat4 P = orthographic(  -area, area, 
+                            -area, area, 
+                            -area * 10.0, area * 4.0);
+    v_light = vec3(cos(u_time * 0.05), LIGHT_ELEVATION, 1.0);
+    mat4 V = toMat4(lookAt(-v_light, vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0)));
 
     mat4 biasMatrix = mat4( vec4(0.5, 0.0, 0.0, 0.0),
                             vec4(0.0, 0.5, 0.0, 0.0),
                             vec4(0.0, 0.0, 0.5, 0.0),
                             vec4(0.5, 0.5, 0.5, 1.0));
     
-    v_lightMatrix = P * V * u_modelMatrix;
+    v_lightMatrix = P * V;
 
 
 #ifdef MODEL_VERTEX_COLOR
@@ -96,11 +88,11 @@ void main(void) {
     v_lightCoord = (biasMatrix * v_lightMatrix) * v_position;
     
     #if defined(SCENE_BUFFER_0)
-    #if defined(FLOOR)
-    gl_Position = mat4(1.0) * v_position;
-    #else
+    // #if defined(FLOOR)
+    // gl_Position = mat4(1.0) * v_position;
+    // #else
     gl_Position = v_lightMatrix * v_position;
-    #endif
+    // #endif
     #else
     gl_Position = u_projectionMatrix * u_viewMatrix * v_position;
     #endif
