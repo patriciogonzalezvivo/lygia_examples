@@ -10,7 +10,7 @@ uniform vec2        u_resolution;
 uniform vec2        u_mouse;
 uniform float       u_time;
 
-#define MIXBOX_LUT u_tex0
+// #define MIXBOX_LUT u_tex0
 // #define MIXBOX_LUT_FLIP_Y
 
 #include "lygia/color/pigments.glsl"
