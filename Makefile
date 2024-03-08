@@ -16,7 +16,7 @@ animation_sprite:
 	glslViewer animation_sprite.frag assets/sprite_megaman.png -l
 
 color_mix:
-	glslViewer color_mix.frag assets/mixbox_lut.png -l
+	glslViewer color_mix.frag -l
 
 color_lut:
 	glslViewer color_lut.frag assets/danny.png assets/square_01.png -l
@@ -349,7 +349,7 @@ screenshots:
 	prime-run glslViewer sample_dither.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/sample_dither.jpg
 	prime-run glslViewer color_dither.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_dither.jpg
 	prime-run glslViewer color_iridescence_map.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_iridescence_map.jpg
-	prime-run glslViewer color_mix.frag assets/mixbox_lut.png -w 512 -h 512 --noncurses --headless -E screenshot,images/color_mix.jpg
+	prime-run glslViewer color_mix.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_mix.jpg
 	prime-run glslViewer color_lut.frag assets/danny.png assets/square_01.png -w 512 -h 512 --noncurses --headless -E screenshot,images/color_lut.jpg
 	prime-run glslViewer color_wavelength.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_wavelength.jpg
 
