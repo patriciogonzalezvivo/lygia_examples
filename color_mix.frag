@@ -8,6 +8,8 @@ uniform vec2        u_resolution;
 uniform vec2        u_mouse;
 uniform float       u_time;
 
+// #define MIXOKLAB_SRGB
+// #define MIXSPECTRAL_SRGB
 #include "lygia/color/pigments.glsl"
 #include "lygia/color/mixOklab.glsl"
 #include "lygia/color/mixSpectral.glsl"
@@ -29,12 +31,17 @@ void main(void) {
     // B = CADMIUM_RED;
     // B = COBALT_VIOLET;
 
+    // A = srgb2rgb(A);
+    // B = srgb2rgb(B);
+
     if (st.y > 0.66) 
         color = mix(A, B, st.x);
     else if (st.y > 0.33)
         color = mixOklab(A, B, st.x);
     else
         color = mixSpectral(A, B, st.x);
+
+    // color = rgb2srgb(color);
 
     gl_FragColor = vec4(color, 1.0);
 }
