@@ -185,6 +185,9 @@ sample_equirect:
 sample_3Dsdf:
 	glslViewer sample_3Dsdf.frag assets/suzanne.png -e camera_position,-29.5393,26.2406,-42.1865 -l
 
+sample_triplanar:
+	glslViewer sample_triplanar.frag assets/suzanne.obj assets/rock_moss.jpg -l
+
 
 
 morphological_erosion:
