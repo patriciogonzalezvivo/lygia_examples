@@ -22,7 +22,7 @@ void main(void) {
     float x1i = mod(floor(x1), float(SANZO_TOTAL));
     vec3 color1 = sanzo(int(x1i));
 
-    float x2 = st.y * 3.0 - u_time * 0.5;
+    float x2 = abs(st.y * 3.0 - u_time * 0.5);
     float x2f = fract(x2);
     float x2i = mod(floor(x2), float(SANZO_TOTAL));
     vec3 color2 = sanzo(int(x2i));
