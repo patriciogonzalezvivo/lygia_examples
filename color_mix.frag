@@ -10,7 +10,7 @@ uniform float       u_time;
 
 // #define MIXOKLAB_SRGB
 // #define MIXSPECTRAL_SRGB
-#include "lygia/color/pigments.glsl"
+#include "lygia/color/palette/pigments.glsl"
 #include "lygia/color/mixOklab.glsl"
 #include "lygia/color/mixSpectral.glsl"
 

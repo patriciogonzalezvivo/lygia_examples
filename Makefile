@@ -21,6 +21,9 @@ color_mix:
 color_lut:
 	glslViewer color_lut.frag assets/danny.png assets/square_01.png -l
 
+color_sanzo:
+	glslViewer color_sanzo.frag -l
+
 color_dither:
 	glslViewer color_dither.frag --u_noise assets/noise_blue.png -l
 
