@@ -21,7 +21,12 @@ uniform float   u_time;
 #include "lygia/draw/stroke.glsl"
 
 vec3 get_color(vec3 palette[8], int index) {
+    #if defined(PLATFORM_WEBGL)
+    for (int i = 0; i < 8; i++)
+        if (i == index) return palette[i];
+    #else
     return palette[index];
+    #endif
 }
 
 vec3 none_color(vec2 st) {
@@ -132,7 +137,7 @@ void main(void) {
         color.rgb = get_color(rembrandt_oil, index);
     else if (brand == 3)
         color.rgb = get_color(gamblin_oil, index);
-        
+
     else if (brand == 4)
         color.rgb = get_color(windsor_acrylic, index);
     else if (brand == 5)
