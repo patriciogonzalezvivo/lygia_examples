@@ -3,20 +3,19 @@
 precision mediump float;
 #endif
 
+
 uniform vec2    u_resolution;
 uniform vec2    u_mouse;
 uniform float   u_time;
 
 #include "lygia/color/palette/pigments.glsl"
-#include "lygia/color/palette/ridgway.glsl"
-#include "lygia/color/palette/wada.glsl"
-#include "lygia/color/palette/winsor_oil.glsl"
-#include "lygia/color/palette/winsor_acrylic.glsl"
-#include "lygia/color/palette/winsor_gouache.glsl"
-#include "lygia/color/palette/rembrandt_oil.glsl"
-#include "lygia/color/palette/liquitex_acrylic.glsl"
-#include "lygia/color/palette/golden_acrylic.glsl"
-#include "lygia/color/palette/gamblin_oil.glsl"
+#include "lygia/color/palette/pigments/winsor_oil.glsl"
+#include "lygia/color/palette/pigments/winsor_acrylic.glsl"
+#include "lygia/color/palette/pigments/winsor_gouache.glsl"
+#include "lygia/color/palette/pigments/rembrandt_oil.glsl"
+#include "lygia/color/palette/pigments/liquitex_acrylic.glsl"
+#include "lygia/color/palette/pigments/golden_acrylic.glsl"
+#include "lygia/color/palette/pigments/gamblin_oil.glsl"
 
 #include "lygia/draw/stroke.glsl"
 
