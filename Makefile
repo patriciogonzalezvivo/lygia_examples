@@ -21,9 +21,6 @@ color_mix:
 color_lut:
 	glslViewer color_lut.frag assets/danny.png assets/square_01.png -l
 
-color_sanzo:
-	glslViewer color_sanzo.frag -l
-
 color_dither:
 	glslViewer color_dither.frag --u_noise assets/noise_blue.png -l
 
@@ -35,6 +32,12 @@ color_iridescence_map:
 
 color_wavelength:
 	glslViewer color_wavelength.frag -l 
+
+color_wada:
+	glslViewer color_wada.frag -l
+
+color_pigments:
+	glslViewer color_pigments.frag -l
 
 distort_pincushion:
 	glslViewer distort_pincushion.frag assets/danny.png -l
@@ -358,6 +361,8 @@ screenshots:
 	prime-run glslViewer color_mix.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_mix.jpg
 	prime-run glslViewer color_lut.frag assets/danny.png assets/square_01.png -w 512 -h 512 --noncurses --headless -E screenshot,images/color_lut.jpg
 	prime-run glslViewer color_wavelength.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_wavelength.jpg
+	prime-run glslViewer color_pigments.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_pigments.jpg
+	prime-run glslViewer color_wada.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_wada.jpg
 
 	prime-run glslViewer distort_pincushion.frag assets/danny.png -l -w 512 -h 512 --noncurses --headless -E record,images/distort_pincushion.gif,0.0,3.0
 
