@@ -10,9 +10,9 @@ uniform float   u_time;
 #include "lygia/color/palette/pigments.glsl"
 #include "lygia/color/palette/ridgway.glsl"
 #include "lygia/color/palette/wada.glsl"
-#include "lygia/color/palette/windsor_oil.glsl"
-#include "lygia/color/palette/windsor_acrylic.glsl"
-#include "lygia/color/palette/windsor_gouache.glsl"
+#include "lygia/color/palette/winsor_oil.glsl"
+#include "lygia/color/palette/winsor_acrylic.glsl"
+#include "lygia/color/palette/winsor_gouache.glsl"
 #include "lygia/color/palette/rembrandt_oil.glsl"
 #include "lygia/color/palette/liquitex_acrylic.glsl"
 #include "lygia/color/palette/golden_acrylic.glsl"
@@ -123,14 +123,14 @@ void main(void) {
     golden_acrylic[6] = GOLDEN_ACRYLIC_BURNT_SIENNA;
     golden_acrylic[7] = none_color(st_f);
 
-    
-
     int brand = int(st_i.x);
     int index = int(st_i.y);
 
+    // Default
     if (brand == 0)
         color.rgb = get_color(pigments, index);
 
+    // Oils
     else if (brand == 1)
         color.rgb = get_color(windsor_oil, index);
     else if (brand == 2)
@@ -138,12 +138,15 @@ void main(void) {
     else if (brand == 3)
         color.rgb = get_color(gamblin_oil, index);
 
+    // Acrylics
     else if (brand == 4)
         color.rgb = get_color(windsor_acrylic, index);
     else if (brand == 5)
         color.rgb = get_color(golden_acrylic, index);
     else if (brand == 6)
         color.rgb = get_color(liquitex_acrylic, index);
+
+    // Gouache
     else if (brand == 7)
         color.rgb = get_color(windsor_gouache, index);
     
