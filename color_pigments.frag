@@ -18,6 +18,8 @@ uniform float   u_time;
 #include "lygia/color/palette/pigments/gamblin_oil.glsl"
 
 #include "lygia/draw/stroke.glsl"
+#include "lygia/color/space/rgb2srgb.glsl"
+#include "lygia/color/space/srgb2rgb.glsl"
 
 vec3 get_color(vec3 palette[8], int index) {
     #if defined(PLATFORM_WEBGL)
