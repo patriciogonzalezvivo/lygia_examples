@@ -11,6 +11,9 @@ uniform float       u_time;
 #include "lygia/math/decimate.glsl"
 #include "lygia/draw/circle.glsl"
 
+// #define HSV2RYB_SMOOTH
+#define RYB_SMOOTH
+
 #include "lygia/color/space/hsv2ryb.glsl"
 
 #include "lygia/color/hueShift.glsl"
@@ -24,8 +27,9 @@ void main(void) {
     // Color Wheel
     vec2 p = st * 2.0 - 1.0;
     p *= 1.1;
-    float a = decimate( atan(p.y, -p.x), 3.);
-    float l = length(p);
+    float a = atan(p.y, -p.x);
+    // a = decimate(a, 3.0);
+    float l = saturate(length(p));
     vec3 w = hsv2ryb(vec3(a/TAU + 0.5, 1.0, decimate( l, 6.0) ));
     color.rgb = mix(color.rgb, w, aastep(l, 1.0));
 
