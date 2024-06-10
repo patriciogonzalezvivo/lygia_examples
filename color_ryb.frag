@@ -28,7 +28,7 @@ void main(void) {
     vec2 p = st * 2.0 - 1.0;
     p *= 1.1;
     float a = atan(p.y, -p.x);
-    // a = decimate(a, 3.0);
+    a = decimate(a, 3.0);
     float l = saturate(length(p));
     vec3 w = hsv2ryb(vec3(a/TAU + 0.5, 1.0, decimate( l, 6.0) ));
     color.rgb = mix(color.rgb, w, aastep(l, 1.0));
