@@ -1,4 +1,4 @@
-uniform sampler2D   u_tex0;
+uniform sampler2D   u_tex0; // /imgs/danny.png
 
 uniform vec2        u_resolution;
 uniform vec2        u_mouse;
@@ -7,7 +7,6 @@ uniform float       u_time;
 // #define PINCUSHION_OCT_1 
 #include "lygia/distort/pincushion.glsl"
 
-//Inspired by http://stackoverflow.com/questions/6030814/add-fisheye-effect-to-images-at-runtime-using-opengl-es
 void main(void) {
     vec4 color = vec4(vec3(0.0), 1.0);
     vec2 pixel = 1.0 / u_resolution;
