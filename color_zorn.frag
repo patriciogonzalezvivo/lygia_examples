@@ -8,7 +8,7 @@ uniform float       u_time;
 
 #include "lygia/math/saturate.glsl"
 
-// #define RYB_SMOOTH
+// #define RYB_FAST
 #include "lygia/color/mixRYB.glsl"
 
 #include "lygia/color/palette/pigments/winsor_oil.glsl"

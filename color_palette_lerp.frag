@@ -9,13 +9,16 @@ uniform vec2    u_mouse;
 uniform float   u_time;
 
 #define PALETTE_LERP_SIZE 8
-#define PALETTE_LERP_SRGB
+// #define PALETTE_LERP_SRGB
 
-#define PALETTE_LERP_MIX_FNC(A, B, T) mixSpectral(A, B, T)
-#include "lygia/color/mixSpectral.glsl"
+// #define PALETTE_LERP_MIX_FNC(A, B, T) mixSpectral(A, B, T)
+// #include "lygia/color/mixSpectral.glsl"
 
 // #define PALETTE_LERP_MIX_FNC(A, B, T) mixOklab(A, B, T)
 // #include "lygia/color/mixOklab.glsl"
+
+// #define PALETTE_LERP_MIX_FNC(A, B, T) mixRYB(A, B, T)
+// #include "lygia/color/mixRYB.glsl"
 
 #include "lygia/color/palette/pigments.glsl"
 #include "lygia/color/palette/pigments/winsor_oil.glsl"

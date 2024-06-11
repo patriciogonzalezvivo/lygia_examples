@@ -11,9 +11,8 @@ uniform float       u_time;
 #include "lygia/math/decimate.glsl"
 #include "lygia/draw/circle.glsl"
 
-// #define HSV2RYB_SMOOTH
-#define RYB_SMOOTH
-
+// #define HSV2RYB_FAST
+// #define RYB_FAST
 #include "lygia/color/space/hsv2ryb.glsl"
 
 #include "lygia/color/hueShift.glsl"

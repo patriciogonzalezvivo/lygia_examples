@@ -16,7 +16,7 @@ uniform float       u_time;
 // #define MIXSPECTRAL_SRGB
 #include "lygia/color/mixSpectral.glsl"
 
-// #define RYB_SMOOTH
+// #define RYB_FAST
 #include "lygia/color/mixRYB.glsl"
 
 void main(void) {
