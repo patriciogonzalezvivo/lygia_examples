@@ -14,8 +14,6 @@ uniform float       u_time;
 // #define HSV2RYB_FAST
 // #define RYB_FAST
 #include "lygia/color/space/hsv2ryb.glsl"
-
-#include "lygia/color/hueShift.glsl"
 #include "lygia/color/hueShiftRYB.glsl"
 
 void main(void) {
