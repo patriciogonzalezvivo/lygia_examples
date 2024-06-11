@@ -9,12 +9,15 @@ uniform float       u_time;
 
 #include "lygia/math/const.glsl"
 #include "lygia/math/decimate.glsl"
+#include "lygia/math/cubicMix.glsl"
 #include "lygia/draw/circle.glsl"
 
-// #define HSV2RYB_FAST
 // #define RYB_FAST
-#include "lygia/color/space/hsv2ryb.glsl"
+#define RYB_LERP(A, B, T) cubicMix(A, B, T)
 #include "lygia/color/hueShiftRYB.glsl"
+// #define HSV2RYB_FAST
+#include "lygia/color/space/hsv2ryb.glsl"
+
 
 void main(void) {
     vec4 color = vec4(1.);

@@ -9,6 +9,7 @@ uniform float       u_time;
 #include "lygia/math/saturate.glsl"
 
 // #define RYB_FAST
+// #define RYB_LERP(A, B, t) mix(A, B, t)
 #include "lygia/color/palette/pigments/winsor_oil.glsl"
 #include "lygia/color/palette/pigments.glsl"
 #include "lygia/color/mixRYB.glsl"

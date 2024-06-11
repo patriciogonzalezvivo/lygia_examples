@@ -17,8 +17,9 @@ uniform float   u_time;
 // #define PALETTE_LERP_MIX_FNC(A, B, T) mixOklab(A, B, T)
 // #include "lygia/color/mixOklab.glsl"
 
-// #define PALETTE_LERP_MIX_FNC(A, B, T) mixRYB(A, B, T)
-// #include "lygia/color/mixRYB.glsl"
+// #define RYB_LERP(A, B, t) mix(A, B, t)
+#define PALETTE_LERP_MIX_FNC(A, B, T) mixRYB(A, B, T)
+#include "lygia/color/mixRYB.glsl"
 
 #include "lygia/color/palette/pigments.glsl"
 #include "lygia/color/palette/pigments/winsor_oil.glsl"
