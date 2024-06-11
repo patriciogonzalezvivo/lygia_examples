@@ -10,8 +10,8 @@ uniform float       u_time;
 
 // #define RYB_FAST
 #include "lygia/color/mixRYB.glsl"
-
-#include "lygia/color/palette/pigments/winsor_oil.glsl"
+#include "lygia/color/palette/pigments.glsl"
+// #include "lygia/color/palette/pigments/winsor_oil.glsl"
 // #include "lygia/color/palette/pigments/winsor_acrylic.glsl"
 // #include "lygia/color/palette/pigments/winsor_gouache.glsl"
 // #include "lygia/color/palette/pigments/rembrandt_oil.glsl"

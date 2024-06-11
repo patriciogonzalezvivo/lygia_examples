@@ -48,6 +48,11 @@ color_ryb:
 color_zorn:
 	glslViewer color_zorn.frag -l
 
+
+color_mix_ryb:
+	glslViewer color_mix_ryb.frag -l
+
+
 distort_pincushion:
 	glslViewer distort_pincushion.frag assets/danny.png -l
 
@@ -375,6 +380,7 @@ screenshots:
 	prime-run glslViewer color_palette_lerp.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_palette_lerp.jpg
 	prime-run glslViewer color_ryb.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_ryb.jpg
 	prime-run glslViewer color_zorn.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_zorn.jpg
+	prime-run glslViewer color_mix_ryb.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_mix_ryb.jpg
 
 	prime-run glslViewer distort_pincushion.frag assets/danny.png -l -w 512 -h 512 --noncurses --headless -E record,images/distort_pincushion.gif,0.0,3.0
 
