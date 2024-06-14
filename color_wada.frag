@@ -1,4 +1,3 @@
-
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -7,7 +6,7 @@ uniform vec2    u_resolution;
 uniform float   u_time;
 
 #include "lygia/color/luma.glsl"
-#include "lygia/color/palette/wada.glsl"
+#include "lygia/color/palette/wada/value.glsl"
 #include "lygia/draw/digits.glsl"
 
 void main(void) {

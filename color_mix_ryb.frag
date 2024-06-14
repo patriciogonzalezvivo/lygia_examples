@@ -44,7 +44,7 @@ void main(void) {
     t.x = saturate(1.0 - length(st - vec2(0.5, 1.0)));
     t.y = saturate(1.0 - length(st - vec2(0.0, 0.0)));
     t.z = saturate(1.0 - length(st - vec2(1.0, 0.0)));
-    // t = normalize(t);
+    t = normalize(t);
     color = mixRYB(A, B, C, t);
 
     gl_FragColor = vec4(color, 1.0);
