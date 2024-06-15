@@ -7,7 +7,7 @@ uniform vec2        u_mouse;
 uniform float       u_time;
 
 #include "lygia/color/luma.glsl"
-#include "lygia/color/palette/wada/duad.glsl"
+#include "lygia/color/palette/wada/dyad.glsl"
 #include "lygia/color/palette/wada/value.glsl"
 #include "lygia/draw/digits.glsl"
 
@@ -18,16 +18,16 @@ void main(void) {
     float x = fract(st.x * 2.0);
     float y = st.y;
 
-    // Iterate through all the duads
-    int i = int( mod(u_time, float(WADA_DUAD_TOTAL)) );
-    ivec2 duad = wadaDuad( i );
+    // Iterate through all the dyad.
+    int i = int( mod(u_time, float(WADA_DYAD_TOTAL)) );
+    ivec2 dyad = wadaDyad( i );
 
     // Each X band is a different component of the duad
     int id = 0;
     if (X == 0.0) {
-        id = duad.x;
+        id = dyad.x;
     } else if (X == 1.0) {
-        id = duad.y;
+        id = dyad.y;
     }
 
     // Pick the color

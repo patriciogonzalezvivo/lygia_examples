@@ -36,6 +36,15 @@ color_wavelength:
 color_wada:
 	glslViewer color_wada.frag -l
 
+color_wada_dyads:
+	glslViewer color_wada_dyads.frag -l
+
+color_wada_triads:
+	glslViewer color_wada_triads.frag -l
+
+color_wada_tetrads:
+	glslViewer color_wada_tetrads.frag -l
+
 color_pigments:
 	glslViewer color_pigments.frag -l
 
