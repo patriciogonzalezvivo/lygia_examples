@@ -15,6 +15,9 @@ animation_easing:
 animation_sprite:
 	glslViewer animation_sprite.frag assets/sprite_megaman.png -l
 
+color_brightnessContrast:
+	glslViewer color_brignessContrast.frag assets/danny.png -l
+
 color_mix:
 	glslViewer color_mix.frag -l
 
@@ -379,6 +382,8 @@ screenshots:
 	# prime-run glslViewer animation_sprite.frag assets/sprite_megaman.png -w 512 -h 512 --noncurses --headless -E record,images/animation_sprite.gif,0.0,8.0
 
 	prime-run glslViewer sample_dither.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/sample_dither.jpg
+	
+	prime-run glslViewer color_brightnessContrast.frag assets/danny.png -w 512 -h 512 --noncurses --headless -E screenshot,images/color_brightnessContrast.jpg
 	prime-run glslViewer color_dither.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_dither.jpg
 	prime-run glslViewer color_iridescence_map.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_iridescence_map.jpg
 	prime-run glslViewer color_mix.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_mix.jpg
