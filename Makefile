@@ -278,12 +278,12 @@ lighting_pbrClearCoat_cubemap:
 	glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
 
 lighting_pbrIridescence:
-	# glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
-	glslViewer assets/IridescenceSuzanne.glb lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -e dynamic_shadows,on -l 
+	# glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-5.34446,3.96689,5.76653 --msaa -l
+	glslViewer assets/IridescenceSuzanne.glb lighting_pbrIridescence.frag -e camera_position,-5.34446,3.96689,5.76653 --msaa -e dynamic_shadows,on -l 
 
 lighting_pbrIridescence_cubemap:
-	# glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
-	glslViewer assets/IridescenceSuzanne.glb lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l
+	# glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-5.34446,3.96689,5.76653 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
+	glslViewer assets/IridescenceSuzanne.glb lighting_pbrIridescence.frag -e camera_position,-5.34446,3.96689,5.76653 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l
 
 lighting_pbrGlass:
 	glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -l
@@ -400,7 +400,7 @@ screenshots:
 	prime-run glslViewer color_zorn.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_zorn.jpg
 	prime-run glslViewer color_mix_ryb.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/color_mix_ryb.jpg
 
-	prime-run glslViewer distort_pincushion.frag assets/danny.png -l -w 512 -h 512 --noncurses --headless -E record,images/distort_pincushion.gif,0.0,3.0
+	# prime-run glslViewer distort_pincushion.frag assets/danny.png -l -w 512 -h 512 --noncurses --headless -E record,images/distort_pincushion.gif,0.0,3.0
 
 	prime-run glslViewer draw_aa.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/draw_aa.jpg 
 	prime-run glslViewer draw_digits.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/draw_digits.jpg
@@ -439,40 +439,40 @@ screenshots:
 	prime-run glslViewer generative_wavelet.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/generative_wavelet.jpg
 	prime-run glslViewer generative_worley.frag -w 512 -h 512 --noncurses --headless -E screenshot,images/generative_worley.jpg
 
-	prime-run glslViewer lighting_atmosphere.frag -l -w 1080 -h 540 -e define,PROJECTION_MODE,0 --noncurses --headless --msaa -E screenshot,images/lighting_atmosphere_equirectangular.jpg
-	prime-run glslViewer lighting_atmosphere.frag -l -w 512 -h 512 -e define,PROJECTION_MODE,1  --noncurses --headless --msaa -E screenshot,images/lighting_atmosphere_fisheye.jpg
-	prime-run glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_gooch.jpg
-	prime-run glslViewer assets/dragon.obj lighting_normal.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa -E screenshot,images/lighting_normal.jpg
-	# prime-run glslViewer assets/dragon.obj lighting_pbrLittle_deferred.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa -E screenshot,images/lighting_pbrLittle_deferred.jpg
-	prime-run glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_pbr.jpg
-	prime-run glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_pbr_cubemap.jpg 
-	prime-run glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa --fxaa -w 512 -h 512 --noncurses --headless -E screenshot,images/lighting_pbrClearCoat.jpg 
-	prime-run glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on --fxaa -w 512 -h 512 --noncurses --headless -E screenshot,images/lighting_pbrClearCoat_cubemap.jpg 
-	prime-run glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_pbrGlass.jpg 
-	prime-run glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -w 512 -h 512 --noncurses --headless --fxaa -E screenshot,images/lighting_pbrGlass_cubemap.jpg 
-	prime-run glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -w 512 -h 512 --noncurses --headless --fxaa -E screenshot,images/lighting_pbrIridescence.jpg 
-	prime-run glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -w 512 -h 512 --noncurses --headless --fxaa -E screenshot,images/lighting_pbrIridescence_cubemap.jpg 
-	prime-run glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_pbrLittle.jpg
-	prime-run glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_pbrLittle_cubemap.jpg
-	# prime-run glslViewer assets/dragon.obj lighting_pbrLittle_deferred.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa -E screenshot,images/lighting_pbrLittle_deferred.jpg
-	prime-run glslViewer assets/dragon.obj lighting_pbrSsS.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -w 512 -h 512 --noncurses --headless --fxaa -E screenshot,images/lighting_pbrSsS.jpg
-	prime-run glslViewer assets/dragon.obj lighting_pbrSsS.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on --msaa --fxaa -w 512 -h 512 --noncurses --headless -E screenshot,images/lighting_pbrSsS_cubemap.jpg
-	prime-run glslViewer assets/dragon.obj lighting_position.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_position.jpg
-	prime-run glslViewer lighting_raymarching_glass_refraction.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless -E screenshot,images/lighting_raymarching_glass_refraction.jpg
-	prime-run glslViewer lighting_raymarching_glass_refraction.frag -e camera_position,29.5393,26.2406,42.1865 -c assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless -e cubemap,on -E screenshot,images/lighting_raymarching_glass_refraction_cubemap.jpg
-	prime-run glslViewer lighting_raymarching_glass.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless -E screenshot,images/lighting_raymarching_glass.jpg
-	prime-run glslViewer lighting_raymarching_glass.frag -e camera_position,29.5393,26.2406,42.1865 -e cubemap,on -C assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless -E screenshot,images/lighting_raymarching_glass_cubemap.jpg
-	prime-run glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless --msaa -E screenshot,images/lighting_raymarching_pbr.jpg
-	prime-run glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -C assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless --msaa -E screenshot,images/lighting_raymarching_pbr_cubemap.jpg
-	prime-run glslViewer lighting_raymarching_volume.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless  -E screenshot,images/lighting_raymarching_volume.jpg
-	prime-run glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless --msaa -E screenshot,images/lighting_raymarching.jpg
-	prime-run glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_shadow.jpg
-	prime-run glslViewer assets/dragon.obj lighting_sphereMap.frag assets/sem-glass-0003.jpg -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_sphereMap.jpg
-	prime-run glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -c assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless --msaa --fxaa -e sky,on -E screenshot,images/lighting_sphericalHarmonics.jpg
-	prime-run glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -E screenshot,images/lighting_ssao.jpg
-	prime-run glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless --msaa -E screenshot,images/lighting_ssr.jpg
-	prime-run glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -w 512 -h 512 --noncurses --headless --msaa -E screenshot,images/lighting_volumetric.jpg
-	prime-run glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -C assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless --msaa -E screenshot,images/lighting_volumetric_cubemap.jpg
+	prime-run glslViewer lighting_atmosphere.frag -l -w 1080 -h 540 -e define,PROJECTION_MODE,0 --noncurses --headless --msaa -e dynamic_shadows,on -E screenshot,images/lighting_atmosphere_equirectangular.jpg
+	prime-run glslViewer lighting_atmosphere.frag -l -w 512 -h 512 -e define,PROJECTION_MODE,1  --noncurses --headless --msaa -e dynamic_shadows,on -E screenshot,images/lighting_atmosphere_fisheye.jpg
+	prime-run glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_gooch.jpg
+	prime-run glslViewer assets/dragon.obj lighting_normal.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa -e dynamic_shadows,on -E screenshot,images/lighting_normal.jpg
+	# prime-run glslViewer assets/dragon.obj lighting_pbrLittle_deferred.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa -e dynamic_shadows,on -E screenshot,images/lighting_pbrLittle_deferred.jpg
+	prime-run glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_pbr.jpg
+	prime-run glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -w 512 -h 512 --noncurses --headless --msaa --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_pbr_cubemap.jpg 
+	prime-run glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa --fxaa -w 512 -h 512 --noncurses --headless -e dynamic_shadows,on -E screenshot,images/lighting_pbrClearCoat.jpg 
+	prime-run glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on --fxaa -w 512 -h 512 --noncurses --headless -e dynamic_shadows,on -E screenshot,images/lighting_pbrClearCoat_cubemap.jpg 
+	prime-run glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_pbrGlass.jpg 
+	prime-run glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -w 512 -h 512 --noncurses --headless --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_pbrGlass_cubemap.jpg 
+	prime-run glslViewer assets/IridescenceSuzanne.glb lighting_pbrIridescence.frag -e camera_position,-5.34446,3.96689,5.76653 --msaa -w 512 -h 512 --noncurses --headless --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_pbrIridescence.jpg 
+	prime-run glslViewer assets/IridescenceSuzanne.glb lighting_pbrIridescence.frag -e camera_position,-5.34446,3.96689,5.76653 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -w 512 -h 512 --noncurses --headless --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_pbrIridescence_cubemap.jpg 
+	prime-run glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_pbrLittle.jpg
+	prime-run glslViewer assets/dragon.obj lighting_pbrLittle.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -w 512 -h 512 --noncurses --headless --msaa --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_pbrLittle_cubemap.jpg
+	# prime-run glslViewer assets/dragon.obj lighting_pbrLittle_deferred.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa -e dynamic_shadows,on -E screenshot,images/lighting_pbrLittle_deferred.jpg
+	prime-run glslViewer assets/dragon.obj lighting_pbrSsS.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -w 512 -h 512 --noncurses --headless --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_pbrSsS.jpg
+	prime-run glslViewer assets/dragon.obj lighting_pbrSsS.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on --msaa --fxaa -w 512 -h 512 --noncurses --headless -e dynamic_shadows,on -E screenshot,images/lighting_pbrSsS_cubemap.jpg
+	prime-run glslViewer assets/dragon.obj lighting_position.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_position.jpg
+	prime-run glslViewer lighting_raymarching_glass_refraction.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless -e dynamic_shadows,on -E screenshot,images/lighting_raymarching_glass_refraction.jpg
+	prime-run glslViewer lighting_raymarching_glass_refraction.frag -e camera_position,29.5393,26.2406,42.1865 -c assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless -e cubemap,on -e dynamic_shadows,on -E screenshot,images/lighting_raymarching_glass_refraction_cubemap.jpg
+	prime-run glslViewer lighting_raymarching_glass.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless -e dynamic_shadows,on -E screenshot,images/lighting_raymarching_glass.jpg
+	prime-run glslViewer lighting_raymarching_glass.frag -e camera_position,29.5393,26.2406,42.1865 -e cubemap,on -C assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless -e dynamic_shadows,on -E screenshot,images/lighting_raymarching_glass_cubemap.jpg
+	prime-run glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless --msaa -e dynamic_shadows,on -E screenshot,images/lighting_raymarching_pbr.jpg
+	prime-run glslViewer lighting_raymarching_pbr.frag -e camera_position,29.5393,26.2406,42.1865 -C assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless --msaa -e dynamic_shadows,on -E screenshot,images/lighting_raymarching_pbr_cubemap.jpg
+	prime-run glslViewer lighting_raymarching_volume.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless  -e dynamic_shadows,on -E screenshot,images/lighting_raymarching_volume.jpg
+	prime-run glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -w 512 -h 512 --noncurses --headless --msaa -e dynamic_shadows,on -E screenshot,images/lighting_raymarching.jpg
+	prime-run glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_shadow.jpg
+	prime-run glslViewer assets/dragon.obj lighting_sphereMap.frag assets/sem-glass-0003.jpg -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_sphereMap.jpg
+	prime-run glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -c assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless --msaa --fxaa -e sky,on -e dynamic_shadows,on -E screenshot,images/lighting_sphericalHarmonics.jpg
+	prime-run glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless --msaa --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_ssao.jpg
+	prime-run glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,-1.43923,0.891203,1.98093 -C assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless --msaa --fxaa -e dynamic_shadows,on -E screenshot,images/lighting_ssr.jpg
+	prime-run glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -w 512 -h 512 --noncurses --headless --msaa -e dynamic_shadows,on -E screenshot,images/lighting_volumetric.jpg
+	prime-run glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -C assets/Arches_E_PineTree_3k.hdr -w 512 -h 512 --noncurses --headless --msaa -e dynamic_shadows,on -E screenshot,images/lighting_volumetric_cubemap.jpg
 
 	prime-run glslViewer morphological_alphaFill.frag assets/flower.png -w 512 -h 512 --noncurses --headless -E screenshot,images/morphological_alphaFill.jpg
 	prime-run glslViewer morphological_dilation.frag assets/flower.png -w 512 -h 512 --noncurses --headless -E screenshot,images/morphological_dilation.jpg
@@ -482,7 +482,7 @@ screenshots:
 	
 	prime-run glslViewer sample_3Dsdf.frag assets/suzanne.png -e camera_position,-29.5393,26.2406,-42.1865 -w 512 -h 512 --noncurses --headless -E screenshot,images/sample_3Dsdf.jpg
 	prime-run glslViewer sample_bracketing.frag assets/rock_moss.jpg -w 512 -h 512 --noncurses --headless -E screenshot,images/sample_bracketing.jpg
-	prime-run glslViewer sample_dof.frag assets/dragon.obj -C assets/Arches_E_PineTree_3k.hdr -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless -E screenshot,images/sample_dof.jpg
+	prime-run glslViewer sample_dof.frag assets/dragon.obj -C assets/Arches_E_PineTree_3k.hdr -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless -e dynamic_shadows,on -E screenshot,images/sample_dof.jpg
 	prime-run glslViewer sample_equirect.frag assets/dragon.obj assets/studio.png -e defined,SCENE_CUBEMAP,u_tex0 -e camera_position,-1.43923,0.891203,1.98093 -w 512 -h 512 --noncurses --headless -E screenshot,images/sample_equirect.jpg
 	prime-run glslViewer sample_filter_bicubic.frag assets/noise_blue.png -w 512 -h 512 --noncurses --headless -E screenshot,images/sample_filter_bicubic.jpg
 	prime-run glslViewer sample_filter_nearest.frag assets/noise_blue.png -w 512 -h 512 --noncurses --headless -E screenshot,images/sample_filter_nearest.jpg
