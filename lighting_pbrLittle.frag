@@ -77,7 +77,7 @@ void main(void) {
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = material.albedo.rgb * 0.5 + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
     material.metallic = 0.75;
-    material.thickness =  mix(300.0, 3000.0, fbm(v_position.xyz * 0.5) * 0.5 + 0.5);;
+    // material.thickness =  mix(300.0, 3000.0, fbm(v_position.xyz * 0.5) * 0.5 + 0.5);;
     #else
     material.roughness = 0.005;
     material.metallic = 0.0;

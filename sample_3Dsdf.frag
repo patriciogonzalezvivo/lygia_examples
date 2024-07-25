@@ -6,8 +6,6 @@ precision mediump float;
 
 uniform sampler2D   u_tex0;
 
-uniform sampler2D   u_doubleBuffer0;
-
 uniform vec3        u_camera;
 uniform vec3        u_light;
 uniform vec3        u_lightColor;

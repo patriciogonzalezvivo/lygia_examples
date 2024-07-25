@@ -54,6 +54,7 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_INTENSITY     u_lightIntensity
 #define LIGHT_COORD         v_lightCoord
 #define LIGHT_MATRIX        u_lightMatrix
+
 // #define SHADING_MODEL_IRIDESCENCE
 #define SHADING_MODEL_SUBSURFACE
 
@@ -79,16 +80,15 @@ void main(void) {
     uv = v_texcoord;
     #endif
 
-
     Material material = materialNew();
 
     material.albedo = vec4(0.0, 0.1, 0.05, 1.0);
     material.roughness = 0.2;
-    material.thickness = mix(300.0, 2000.0, fbm(v_position.xyz * 0.8));
 
     #ifdef SHADING_MODEL_SUBSURFACE
     material.subsurfaceColor = vec3(2.0, 3.5, 0.0);
     material.subsurfaceThickness += stroke(mirror(fbm(v_position.xyz * vec3(1.0, 3.0, 10.0)) * 5.0), 0.5,  0.1, 0.75);
+    material.subsurfacePower = 12.234;
     #endif
 
     color = pbr(material);

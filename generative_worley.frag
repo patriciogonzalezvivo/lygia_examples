@@ -22,7 +22,7 @@ void main(void) {
     vec2 d2 = worley2(vec2(st*10.0 + u_time));
     vec2 d3 = worley2(vec3(st*10.0, u_time));
     
-    color += mix(d2.x, d3.x, step(0.5, st.x));
+    color += 1.0-mix(d2.x, d3.x, step(0.5, st.x));
 
     gl_FragColor = color;
 }
