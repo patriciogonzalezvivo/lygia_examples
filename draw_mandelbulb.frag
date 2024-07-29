@@ -28,7 +28,7 @@ void main() {
 	float time = 32.0 + u_time * 1.5;
 
     // camera	
-    vec3 ro = vec3( 4.5*cos(0.1*time + 7.0*mo.x), 2.2, 4.5*sin(0.1*time + 7.0*mo.x) ) * 5.0;
+    vec3 ro = vec3(cos(0.1*time + 7.0*mo.x), 0.6, sin(0.1*time + 7.0*mo.x)) * 1.5;
 
     color.rgb = raymarch(ro, uv * 2.0 + 0.5).rgb;
     color = linear2gamma(color);

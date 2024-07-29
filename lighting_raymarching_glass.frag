@@ -106,7 +106,9 @@ void main(void) {
   
     vec2 st = v_texcoord;
     vec2 uv = ratio(st, u_resolution);
-    color.rgb += raymarch(u_camera, uv).rgb;
+    vec3 cam = u_camera * 0.11;
+    cam.x = 1.0 - cam.x;
+    color.rgb += raymarch(cam, uv).rgb;
     color = linear2gamma(color);
 
     gl_FragColor = color;

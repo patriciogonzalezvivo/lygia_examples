@@ -78,7 +78,7 @@ void main(void) {
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = vec3(0.5) + checkBoard(uv, vec2(8.0)) * 0.5;
     #else
-    // material.roughness = 0.05;
+    // material.roughness = 0.5;
     // material.metallic = 0.99;
     #endif
 

@@ -127,7 +127,9 @@ void main(void) {
 
     uv = ratio(uv, u_resolution);
 
-    vec4 marchRay = raymarch(u_camera, uv);
+    vec3 cam = u_camera * 0.11;
+    cam.x = 1.0 - cam.x;
+    vec4 marchRay = raymarch(cam, uv);
 
     color.rgb += marchRay.rgb;
 
