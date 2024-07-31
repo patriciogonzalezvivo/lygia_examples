@@ -33,7 +33,7 @@ varying vec2        v_texcoord;
 #define RAYMARCH_SAMPLES        120
 #define RAYMARCH_MULTISAMPLE    4
 
-vec3 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map);
+vec4 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/lighting/diffuse.glsl"
 #include "lygia/lighting/specular.glsl"
@@ -66,9 +66,9 @@ vec4 raymarchMap(in vec3 pos ) {
     return res;  
 }
 
-vec3 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
+vec4 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     if ( sum(map) <= 0.0 ) 
-        return tonemap( envMap(ray, 0.).rgb );
+        return vec4( tonemap( envMap(ray, 0.).rgb ), 1.0);
 
     vec3 color = vec3(map.z);
 
@@ -114,7 +114,7 @@ vec3 raymarchPbrMaterial(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
                     (ambientSpecular + LIGHT_COLOR * 2.0 * specular) * 
                     (notMetal * smooth + color.rgb * metallic);
 
-    return color;
+    return vec4(color, 1.0);
 }
 
 

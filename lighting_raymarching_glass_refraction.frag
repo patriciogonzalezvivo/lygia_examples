@@ -34,7 +34,7 @@ varying vec2 v_texcoord;
 // #define RAYMARCH_GLASS_REFLECTION_EFFECT 0.
 // #define RAYMARCH_GLASS_COLOR vec3 (1., 0., 0.)
 #define RAYMARCH_MATERIAL_FNC       raymarchGlassRender
-vec3 raymarchGlassRender(vec3 ray,vec3 pos,vec3 nor,vec3 map);
+vec4 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 
 /*
     Uncomment Defines & functions below to see custom chromatic abberation
@@ -104,19 +104,10 @@ vec4 raymarchMap(in vec3 pos) {
     return res;
 }
 
-vec3 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
+vec4 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
     if ( map.r + map.g + map.b <= 0.0 ) 
-        return tonemapReinhard( envMap(ray, 0.).rgb );
-
-    float roughness = 0.;
-
-    vec3 color = vec3(0.0);
-
-    vec3 glass = raymarchGlass(ray, pos, IOR_GLASS, roughness);
-
-    color += glass;
-
-    return color;
+        return vec4( tonemapReinhard( envMap(ray, 0.).rgb ) );
+    return vec4(raymarchGlass(ray, pos, IOR_GLASS, 0.0), 1.0);
 }
 
 void main(void) {

@@ -23,8 +23,9 @@ varying vec2        v_texcoord;
 #include "lygia/sdf/boxFrameSDF.glsl"
 
 #define LIGHT_COLOR vec3(0.5, 0.8, 0.9)
-#define RAYMARCH_RENDER_FNC(RO, RD) raymarchVolume(RO, RD)
-vec4 raymarchVolume( in vec3 ro, in vec3 rd );
+#define RAYMARCH_RENDER_FNC raymarchVolume
+vec4 raymarchVolume( in vec3 rayOrigin, in vec3 rayDirection, vec3 cameraForward,
+                    out float eyeDepth, out vec3 worldPos, out vec3 worldNormal);
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/lighting/raymarch/volume.glsl"
 
