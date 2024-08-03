@@ -12,20 +12,12 @@ uniform vec3        u_lightColor;
 
 uniform vec2        u_resolution;
 
-#define RESOLUTION          u_resolution
 #define LIGHT_DIRECTION     u_light
 #define LIGHT_COLOR         vec3(0.95, 0.65, 0.5)
 
-#define RAYMARCH_SAMPLES        250
-#define RAYMARCH_MULTISAMPLE    4
-#define RAYMARCHSOFTSHADOW_ITERATIONS 24
-
-#define RAYMARCH_BACKGROUND ( vec3(0.7, 0.9, 1.0) + ray.y * 0.8 )
-#define RAYMARCH_AMBIENT    vec3(0.7, 0.9, 1.0)
+#define RAYMARCH_BACKGROUND vec3(0.7, 0.9, 1.0)
 
 #define SAMPLE2DCUBE_FLIP_Y
-// #define SAMPLE2DCUBE_CELL_SIZE 64.0
-// #define SAMPLE2DCUBE_CELLS_PER_SIDE 8.0
 #define SAMPLE2DCUBE_FNC(TEX, UV) sampleBicubic(TEX, UV, vec2(512.0))
 // #define SAMPLE2DCUBE_FNC(TEX, UV) sampleSmooth(TEX, UV, vec2(512.0))
 // #define SAMPLE2DCUBE_FNC(TEX, UV) sampleNearest(TEX, UV, vec2(512.0))
@@ -49,14 +41,10 @@ float checkBoard(vec2 uv, vec2 _scale) {
     return min(1.0, uv.x + uv.y) - (uv.x * uv.y);
 }
 
-vec4 raymarchMap( in vec3 pos ) {
-    vec4 res = vec4(1.);
-
-    res = opUnion(res, vec4( 1.0, 1.0, 1.0, sample3DSdf(u_tex0, pos) ));
-
-    float check = checkBoard(pos.xz, vec2(1.0));
-    res = opUnion( res, vec4( vec3( 0.5 + check * 0.5), planeSDF(pos + 1.0) ) );
-        
+Material raymarchMap( in vec3 pos ) {
+    float check = 0.5 + checkBoard(pos.xz, vec2(1.0, 1.0)) * 0.5;
+    Material res = materialNew(vec3(check), 0.0, 0.5, planeSDF(pos + 1.0));
+    res = opUnion(res, materialNew(vec3(1.0), 0.0, 1.0, sample3DSdf(u_tex0, pos)));
     return res;
 }
 

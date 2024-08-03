@@ -55,7 +55,9 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_FALLOFF       u_lightFalloff
 #define LIGHT_INTENSITY     u_lightIntensity
 #define LIGHT_COORD         v_lightCoord
+
 #define SHADING_MODEL_IRIDESCENCE
+// #define SHADING_MODEL_CLEAR_COAT
 
 #include "lygia/math/bump.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
@@ -64,11 +66,10 @@ varying mat3        v_tangentToWorld;
 #include "lygia/color/palette/hue.glsl"
 #include "lygia/generative/fbm.glsl"
 
-#include "lygia/lighting/material/new.glsl"
-
 #include "lygia/lighting/pbrClearCoat.glsl"
 #include "lygia/lighting/pbr.glsl"
 #include "lygia/lighting/pbrGlass.glsl"
+#include "lygia/lighting/material/new.glsl"
 
 
 float checkBoard(vec2 uv, vec2 _scale) {

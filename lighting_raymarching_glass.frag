@@ -24,8 +24,8 @@ varying vec2        v_texcoord;
 #define RAYMARCH_SAMPLES        100
 #define RAYMARCH_MULTISAMPLE    4
 #define RAYMARCH_BACKGROUND     vec3(1.0)
-#define RAYMARCH_MATERIAL_FNC   raymarchGlassRender
-vec4 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
+// #define RAYMARCH_MATERIAL_FNC   raymarchGlassRender
+// vec4 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/color/tonemap/reinhard.glsl"
@@ -41,9 +41,9 @@ vec4 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
 #include "lygia/lighting/fresnelReflection.glsl"
 #include "lygia/lighting/reflection.glsl"
 
-vec4 raymarchMap(in vec3 pos ) {
-    vec4 res = vec4(1.);
-
+Material raymarchMap(in vec3 pos ) {
+    Material res = materialNew();
+    
     float roughness = 0.001 + (floor(pos.x + 0.5) * 0.25) + 0.5;
     pos.x += 0.3;
 
@@ -51,7 +51,7 @@ vec4 raymarchMap(in vec3 pos ) {
     pos = opRepeat(pos, vec3(-2.0, 0.0, 0.0), vec3(2.0, 0.0, 0.0), 1.0);
     pos -= 0.5;
 
-    res = vec4( vec3(roughness, 0.0, 1.0), sphereSDF(pos, 0.3 ) );
+    res = materialNew( vec3(1.0, 1.0, 1.0), 0.0, roughness, sphereSDF(pos, 0.3 ) );
 
     return res;  
 }

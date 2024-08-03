@@ -38,7 +38,7 @@ varying vec4        v_tangent;
 #define GOOCH_SPECULAR      u_lightColor
 #define LIGHT_COORD         v_lightCoord
 
-#include "lygia/color/space/linear2gamma.glsl"
+// #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/lighting/gooch.glsl"
 #include "lygia/lighting/material/new.glsl"
 

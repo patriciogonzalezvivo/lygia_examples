@@ -2,11 +2,15 @@
 precision highp float;
 #endif
 
+uniform vec3 u_camera;
+
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 
-//#define PLATFORM_WEBGL
+#define RAYMARCH_BACKGROUND vec3(0.0)
+
+// #define PLATFORM_WEBGL
 
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/sdf/opUnion.glsl"
@@ -14,10 +18,8 @@ uniform float u_time;
 #include "lygia/space/ratio.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
 
-vec4 raymarchMap( in vec3 pos ) {
-    vec4 res = vec4(1.0);
-    res = opUnion( res, vec4(0.2, 0.2, 0.8, mandelbulbSDF(pos).x));
-    return res;
+Material raymarchMap( in vec3 pos ) {
+    return materialNew(vec3(0.2, 0.2, 0.8), mandelbulbSDF(pos).x);
 }
 
 void main() {
@@ -32,5 +34,6 @@ void main() {
 
     color.rgb = raymarch(ro, uv * 2.0 + 0.5).rgb;
     color = linear2gamma(color);
+
     gl_FragColor = color;
 }
