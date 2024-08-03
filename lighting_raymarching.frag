@@ -20,8 +20,13 @@ varying vec2        v_texcoord;
 // #define RAYMARCH_SAMPLES 100
 #define RAYMARCH_MULTISAMPLE 4
 #define RAYMARCH_AMBIENT    vec3(0.7, 0.9, 1.0)
-#define RAYMARCH_BACKGROUND RAYMARCH_AMBIENT
+#define RAYMARCH_BACKGROUND (RAYMARCH_AMBIENT + rayDirection.y * 0.8)
 // #define RAYMARCH_SHADING_FNC pbr
+
+// #include "lygia/lighting/atmosphere.glsl"
+// #define RAYMARCH_BACKGROUND atmosphere(rayDirection, normalize(u_light))
+// #define RAYMARCH_AMBIENT atmosphere(worldNormal, normalize(u_light))
+
 
 #include "lygia/space/ratio.glsl"
 #include "lygia/sdf.glsl"
