@@ -24,11 +24,12 @@ varying vec2        v_texcoord;
 #define RAYMARCH_MULTISAMPLE    4
 
 // #define SCENE_CUBEMAP           u_cubeMap
-// #include "lygia/lighting/atmosphere.glsl"
-// #define ENVMAP_FNC(N, R, M) atmosphere(normalize(N), normalize(u_light))
+#include "lygia/lighting/atmosphere.glsl"
+#define ENVMAP_FNC(N, R, M) atmosphere(normalize(N), normalize(u_light))
 #define RAYMARCH_BACKGROUND envMap(rayDirection, 0.0, 0.0).rgb
 #define RAYMARCH_AMBIENT envMap(worldNormal, 0.0, 0.0).rgb
 #define RAYMARCH_SHADING_FNC pbr
+#define SHADING_MODEL_IRIDESCENCE
 
 #include "lygia/space/ratio.glsl"
 #include "lygia/sdf.glsl"
@@ -37,6 +38,7 @@ varying vec2        v_texcoord;
 #include "lygia/lighting/raymarch/softShadow.glsl"
 #include "lygia/lighting/pbr.glsl"
 #include "lygia/lighting/raymarch.glsl"
+#include "lygia/generative/fbm.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
 
 float checkBoard(vec2 uv, vec2 _scale) {
@@ -51,7 +53,13 @@ Material raymarchMap( in vec3 pos ) {
     float roughness = 0.0001 + (floor(pos.x + 0.5) * 0.25) + 0.5;
     float metallic = 0.0 + (floor(pos.z + 0.5) * 0.25) + 0.4;
     pos = opRepeat(pos + vec3(0.5, 0.2, 0.5), vec3(-2.0, 0.0, -2.0), vec3(2.0, 0.0, 2.0), 1.0) - 0.5;
-    res = opUnion( res, materialNew( vec3(0.5), roughness, metallic, sphereSDF(pos, 0.3 ) ) );
+    
+    Material pearl = materialNew( vec3(0.5), roughness, metallic, sphereSDF(pos, 0.3 ) );
+    float n = fbm(pos * 0.25) * 0.5 + 0.5;
+    pearl.ior = vec3(IOR_GLASS);
+    pearl.thickness = mix(300.0, 1000.0, n);
+
+    res = opUnion( res, pearl );
     return res;  
 }
 

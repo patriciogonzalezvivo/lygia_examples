@@ -689,6 +689,24 @@ glslViewer lighting_raymarching.frag -e camera_position,-29.5393,-26.2406,-42.18
 ![](images/lighting_raymarching.jpg)
 
 
+#### Raymarching custom Gooch shading
+
+```bash
+glslViewer lighting_raymarching_gooch.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+```
+
+![](images/lighting_raymarching_gooch.jpg)
+
+
+#### Raymarching custom PBR
+
+```bash
+glslViewer lighting_raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+```
+
+![](images/lighting_raymarching_pbr.jpg)
+
+
 #### Raymarching custom PBR with CUBEMAP
 
 ```bash
@@ -698,22 +716,58 @@ glslViewer lighting_raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-4
 ![](images/lighting_raymarching_pbr_cubemap.jpg)
 
 
-#### Raymarching custom GLASS material with CUBEMAP
+#### Raymarching custom PBRLittle
 
 ```bash
-glslViewer lighting_raymarching_glass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+glslViewer lighting_raymarching_pbrLittle.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
 ```
 
-![](images/lighting_raymarching_glass_cubemap.jpg)
+![](images/lighting_raymarching_pbrLittle.jpg)
 
 
-#### Raymarching GLASS REFRACTION material with CUBEMAP
+#### Raymarching custom PBRLittle with CUBEMAP
 
 ```bash
-glslViewer lighting_raymarching_glass_refraction.frag -e camera_position,29.5393,26.2406,42.1865 -c assets/uffizi_cross.hdr -l
+glslViewer lighting_raymarching_pbrLittle.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
 ```
 
-![](images/lighting_raymarching_glass_refraction_cubemap.jpg)
+![](images/lighting_raymarching_pbrLittle_cubemap.jpg)
+
+
+#### Raymarching custom PBRClearCoat
+
+```bash
+glslViewer lighting_raymarching_pbrClearCoat.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+```
+
+![](images/lighting_raymarching_pbrClearCoat.jpg)
+
+
+#### Raymarching custom PBRClarCoat with CUBEMAP
+
+```bash
+glslViewer lighting_raymarching_pbrClearCoat.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+```
+
+![](images/lighting_raymarching_pbrClearCoat_cubemap.jpg)
+
+
+#### Raymarching custom PBRGlass
+
+```bash
+glslViewer lighting_raymarching_pbrGlass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+```
+
+![](images/lighting_raymarching_pbrGlass.jpg)
+
+
+#### Raymarching custom PBRGlass with CUBEMAP
+
+```bash
+glslViewer lighting_raymarching_pbrGlass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+```
+
+![](images/lighting_raymarching_pbrGlass_cubemap.jpg)
 
 
 #### Raymarching default VOLUME
