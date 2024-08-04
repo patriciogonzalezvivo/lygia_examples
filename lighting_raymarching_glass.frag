@@ -21,29 +21,40 @@ varying vec2        v_texcoord;
 
 #define LIGHT_DIRECTION         u_light
 #define RESOLUTION              u_resolution
-#define RAYMARCH_SAMPLES        100
+#define CAMERA_POSITION         u_camera
 #define RAYMARCH_MULTISAMPLE    4
-#define RAYMARCH_BACKGROUND     vec3(1.0)
-// #define RAYMARCH_MATERIAL_FNC   raymarchGlassRender
-// vec4 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map);
+#define RAYMARCH_BACKGROUND     vec3(0.0)
 
-#include "lygia/color/space/linear2gamma.glsl"
-#include "lygia/color/tonemap/reinhard.glsl"
+// #define SCENE_CUBEMAP           u_cubeMap
+
+// #include "lygia/lighting/atmosphere.glsl"
+// #define ENVMAP_FNC(N, R, M) atmosphere(normalize(N), normalize(u_light))
+// #define RAYMARCH_BACKGROUND envMap(rayDirection, 0.0, 0.0).rgb
+// #define RAYMARCH_AMBIENT envMap(worldNormal, 0.0, 0.0).rgb
+#define RAYMARCH_SHADING_FNC pbrGlass
+
+#define RAYMARCH_RENDER_FNC    raymarchCustomRender_glass
+vec4 raymarchCustomRender_glass(
+    in vec3 rayOrigin, in vec3 rayDirection, vec3 cameraForward,
+    out float eyeDepth, out vec3 worldPos, out vec3 worldNormal );
+
 #include "lygia/space/ratio.glsl"
+#include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/sdf/sphereSDF.glsl"
 #include "lygia/sdf/opRepeat.glsl"
-#include "lygia/lighting/ior.glsl"
-#include "lygia/lighting/ior/2f0.glsl"
-#include "lygia/lighting/ior/2eta.glsl"
+
+// #include "lygia/color/tonemap/reinhard.glsl"
+// #include "lygia/lighting/ior.glsl"
+// #include "lygia/lighting/ior/2f0.glsl"
+// #include "lygia/lighting/ior/2eta.glsl"
+// #include "lygia/lighting/envMap.glsl"
+// #include "lygia/lighting/specular.glsl"
+// #include "lygia/lighting/fresnelReflection.glsl"
+// #include "lygia/lighting/reflection.glsl"
+#include "lygia/lighting/pbrGlass.glsl"
 #include "lygia/lighting/raymarch.glsl"
-#include "lygia/lighting/envMap.glsl"
-#include "lygia/lighting/specular.glsl"
-#include "lygia/lighting/fresnelReflection.glsl"
-#include "lygia/lighting/reflection.glsl"
 
 Material raymarchMap(in vec3 pos ) {
-    Material res = materialNew();
-    
     float roughness = 0.001 + (floor(pos.x + 0.5) * 0.25) + 0.5;
     pos.x += 0.3;
 
@@ -51,52 +62,67 @@ Material raymarchMap(in vec3 pos ) {
     pos = opRepeat(pos, vec3(-2.0, 0.0, 0.0), vec3(2.0, 0.0, 0.0), 1.0);
     pos -= 0.5;
 
-    res = materialNew( vec3(1.0, 1.0, 1.0), 0.0, roughness, sphereSDF(pos, 0.3 ) );
-
-    return res;  
+    return materialNew( vec3(1.0, 1.0, 1.0), 0.0, roughness, sphereSDF(pos, 0.3 ) );
 }
 
-vec4 raymarchGlassRender(vec3 ray, vec3 pos, vec3 nor, vec3 map) {
-    if ( map.r + map.g + map.b <= 0.0 ) 
-        return vec4( tonemapReinhard( envMap(ray, 0.).rgb ), 1.0);
 
-    float roughness = 0.05 + map.x * 0.3;
+vec4 raymarchCustomRender_glass(
+    in vec3 rayOrigin, in vec3 rayDirection, vec3 cameraForward,
+    out float eyeDepth, out vec3 worldPos, out vec3 worldNormal ) {
 
-    vec3  vie = normalize( ray );
-    float occ = raymarchAO( pos, nor );
+    Material res = raymarchCast(rayOrigin, rayDirection);
+    float t = res.sdf;
 
-    vec3  ior = IOR_GLASS_RGB;
-    vec3  eta = ior2eta(ior);
-    vec3   f0 = ior2f0(ior);
-    float NoV = dot(nor, vie);
-    vec3   Re = reflection(-vie, nor, roughness);
-    float dom = raymarchSoftShadow( pos, Re, 1., 1. ) * occ;
+    worldPos = rayOrigin + t * rayDirection;
+    worldNormal = raymarchNormal( worldPos );
 
-    vec3 color = vec3(0.0);
-    #if defined(LIGHT_DIRECTION)
-    color += specular(normalize(LIGHT_DIRECTION), nor, -vie, roughness);
-    #elif defined(LIGHT_POSITION)
-    color += specular(normalize(LIGHT_POSITION - pos), nor, -vie, roughness);
-    #endif
+    vec4 color = vec4(RAYMARCH_BACKGROUND, 0.0);
+    if (res.valid) {
+        res.position = worldPos;
+        res.normal = worldNormal;
+        res.V = -rayDirection;
+        color = RAYMARCH_SHADING_FNC(res);
+    }
 
-    vec3 refractG = refract(-vie, nor, eta.g);
-    #if !defined(TARGET_MOBILE) && !defined(PLATFORM_RPI)
-    vec3 refractR = refract(-vie, nor, eta.r);
-    vec3 refractB = refract(-vie, nor, eta.b);
-    #endif
+    // vec3  vie = res.V;
+    // float occ = raymarchAO( res.position, res.normal );
 
-    vec3 refractColor = vec3(0.0);
-    refractColor.rgb = envMap(refractG, roughness).rgb;
-    #if !defined(TARGET_MOBILE) && !defined(PLATFORM_RPI)
-    refractColor.r = envMap(refractR, roughness).r;
-    refractColor.b = envMap(refractB, roughness).b;
-    #endif
-    refractColor = tonemapReinhard( refractColor );
+    // vec3  ior = IOR_GLASS_RGB;
+    // vec3  eta = ior2eta(ior);
+    // vec3   f0 = ior2f0(ior);
+    // float NoV = dot(res.normal, res.V);
+    // vec3   Re = reflection(-res.V, res.normal, res.roughness);
+    // float dom = raymarchSoftShadow( pos, Re, 1., 1. ) * occ;
 
-    color += tonemapReinhard( fresnelReflection(Re, f0, NoV) ) * (map.x*0.5) * dom;
-    color += refractColor;// * dom;
+    // #if defined(LIGHT_DIRECTION)
+    // color += specular(normalize(LIGHT_DIRECTION), nor, -vie, roughness);
+    // #elif defined(LIGHT_POSITION)
+    // color += specular(normalize(LIGHT_POSITION - pos), nor, -vie, roughness);
+    // #endif
 
-    return vec4(color, 1.0);
+    // vec3 refractG = refract(-vie, nor, eta.g);
+    // #if !defined(TARGET_MOBILE) && !defined(PLATFORM_RPI)
+    // vec3 refractR = refract(-vie, nor, eta.r);
+    // vec3 refractB = refract(-vie, nor, eta.b);
+    // #endif
+
+    // vec3 refractColor = vec3(0.0);
+    // refractColor.rgb = envMap(refractG, roughness).rgb;
+    // #if !defined(TARGET_MOBILE) && !defined(PLATFORM_RPI)
+    // refractColor.r = envMap(refractR, roughness).r;
+    // refractColor.b = envMap(refractB, roughness).b;
+    // #endif
+    // refractColor = tonemapReinhard( refractColor );
+
+    // color += tonemapReinhard( fresnelReflection(Re, f0, NoV) ) * (map.x*0.5) * dom;
+    // color += refractColor;// * dom;
+    
+    color.rgb = raymarchFog(color.rgb, t, rayOrigin, rayDirection);
+
+    // Eye-space depth. See https://www.shadertoy.com/view/4tByz3
+    eyeDepth = t * dot(rayDirection, cameraForward);
+
+    return color;
 }
 
 

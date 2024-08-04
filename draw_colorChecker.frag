@@ -28,11 +28,11 @@ void main(void) {
     vec4 spyderA = colorCheckerSpyderA(uv * 2.0);
     vec4 spyderB = colorCheckerSpyderB(uv * 2.0 + vec2(0.0, -1.0));
 
-    vec4 macbeth = colorCheckerMacbeth(rotate(uv * 1.5, HALF_PI) + vec2(-0.25, 0.68) );
-    macbeth = xyz2srgb( colorCheckerMacbethXYZ(rotate(uv * 1.5, HALF_PI) + vec2(-0.25, 0.68) ) );
-    macbeth = lab2srgb( colorCheckerMacbethLAB(rotate(uv * 1.5, HALF_PI) + vec2(-0.25, 0.68) ) );
-    macbeth = lch2srgb( colorCheckerMacbethLCH(rotate(uv * 1.5, HALF_PI) + vec2(-0.25, 0.68) ) );
-    // macbeth = xyY2srgb( colorCheckerMacbethXYY(rotate(uv * 1.5, HALF_PI) + vec2(-0.25, 0.68) ) );
+    vec4 macbeth = colorCheckerMacbeth(rotate(uv * 1.5, -HALF_PI) + vec2(-0.25, 0.68) );
+    // macbeth = xyz2srgb( colorCheckerMacbethXYZ(rotate(uv * 1.5, -HALF_PI) + vec2(-0.25, 0.68) ) );
+    // macbeth = lab2srgb( colorCheckerMacbethLAB(rotate(uv * 1.5, -HALF_PI) + vec2(-0.25, 0.68) ) );
+    // macbeth = lch2srgb( colorCheckerMacbethLCH(rotate(uv * 1.5, -HALF_PI) + vec2(-0.25, 0.68) ) );
+    // macbeth = xyY2srgb( colorCheckerMacbethXYY(rotate(uv * 1.5, -HALF_PI) + vec2(-0.25, 0.68) ) );
     
     color.rgb = mix(color.rgb, spyderA.rgb, spyderA.a);
     color.rgb = mix(color.rgb, spyderB.rgb, spyderB.a);
