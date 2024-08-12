@@ -29,7 +29,6 @@ varying vec2        v_texcoord;
 #include "lygia/space/ratio.glsl"
 #include "lygia/sdf.glsl"
 #include "lygia/lighting/envMap.glsl"
-#include "lygia/lighting/raymarch/ao.glsl"
 #include "lygia/lighting/raymarch/softShadow.glsl"
 #include "lygia/lighting/gooch.glsl"
 #include "lygia/lighting/raymarch.glsl"

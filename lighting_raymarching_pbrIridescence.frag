@@ -24,8 +24,8 @@ varying vec2        v_texcoord;
 #define RAYMARCH_MULTISAMPLE    4
 
 // #define SCENE_CUBEMAP           u_cubeMap
-#include "lygia/lighting/atmosphere.glsl"
-#define ENVMAP_FNC(N, R, M) atmosphere(normalize(N), normalize(u_light))
+// #include "lygia/lighting/atmosphere.glsl"
+// #define ENVMAP_FNC(N, R, M) atmosphere(normalize(N), normalize(u_light))
 #define RAYMARCH_BACKGROUND envMap(rayDirection, 0.0, 0.0).rgb
 #define RAYMARCH_AMBIENT envMap(worldNormal, 0.0, 0.0).rgb
 #define RAYMARCH_SHADING_FNC pbr
@@ -34,7 +34,6 @@ varying vec2        v_texcoord;
 #include "lygia/space/ratio.glsl"
 #include "lygia/sdf.glsl"
 #include "lygia/lighting/envMap.glsl"
-#include "lygia/lighting/raymarch/ao.glsl"
 #include "lygia/lighting/raymarch/softShadow.glsl"
 #include "lygia/lighting/pbr.glsl"
 #include "lygia/lighting/raymarch.glsl"
