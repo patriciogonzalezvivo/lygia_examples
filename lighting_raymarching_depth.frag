@@ -60,11 +60,18 @@ void main() {
     float depth = 0.0;
     vec3 worldPos = vec3(0.0);
     vec3 worldNormal = vec3(0.0);
+    Material mat;
 
-    color = raymarch(cam, vec3(0.0), uv, depth, worldPos, worldNormal);
-    color.rgb = vec3( map(depth, length(cam) * 0.5, length(cam) * 3., 1.0, 0.0) );
-    color.rgb = worldNormal * 0.5 + 0.5;
-    color.rgb = worldPos;
+    color = raymarch(cam, vec3(0.0), uv, mat, depth);
+    color = linear2gamma(color);
+    // color.rgb = vec3( map(depth, length(cam) * 0.5, length(cam) * 3., 1.0, 0.0) );
+    // color.rgb = mat.normal * 0.5 + 0.5;
+    // color.rgb = mat.position;
+    // color.rgb = mat.albedo.rgb;
+    // color.rgb = vec3(mat.roughness);
+    // color.rgb = vec3(mat.metallic);
+    // color.rgb = mat.emissive;
+    // color.rgb = vec3(mat.ambientOcclusion);
 
     gl_FragColor = color;
 }
