@@ -32,7 +32,7 @@ void main() {
     // camera	
     vec3 ro = vec3(cos(0.1*time + 7.0*mo.x), 0.6, sin(0.1*time + 7.0*mo.x)) * 1.5;
 
-    color.rgb = raymarch(ro, uv * 2.0 + 0.5).rgb;
+    color.rgb = raymarch(ro, vec3(0.0, 0.0, 0.0), uv * 2.0 + 0.5).rgb;
     color = linear2gamma(color);
 
     gl_FragColor = color;

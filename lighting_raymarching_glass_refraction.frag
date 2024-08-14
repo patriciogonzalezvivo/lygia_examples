@@ -120,7 +120,7 @@ void main(void) {
 
     vec3 cam = u_camera * 0.11;
     cam.x = 1.0 - cam.x;
-    vec4 marchRay = raymarch(cam, uv);
+    vec4 marchRay = raymarch(cam, vec3(0.0), uv);
 
     color.rgb += marchRay.rgb;
 

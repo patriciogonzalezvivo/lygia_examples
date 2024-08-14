@@ -23,6 +23,7 @@ varying vec2        v_texcoord;
 // #define SAMPLEEQUIRET_ITERATIONS 24
 // #define SCENE_CUBEMAP u_tex0
 #define SAMPLE_CUBE_FNC(CUBEMAP, NORM, LOD) sampleEquirect(CUBEMAP, NORM, LOD)
+#define LOOK_AT_RIGHT_HANDED
 
 #include "lygia/math/const.glsl"
 #include "lygia/math/mirror.glsl"
@@ -30,7 +31,7 @@ varying vec2        v_texcoord;
 #include "lygia/generative/srandom.glsl"
 
 #include "lygia/sample/equirect.glsl"
-#include "lygia/lighting/raymarch/camera.glsl"
+#include "lygia/space/lookAt.glsl"
 
 #include "lygia/lighting/envMap.glsl"
 #include "lygia/lighting/reflection.glsl"
@@ -38,13 +39,14 @@ varying vec2        v_texcoord;
 #include "lygia/lighting/ior/2f0.glsl"
 #include "lygia/color/tonemap.glsl"
 
+
 void main (void) {
     vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
     vec2 pixel = 1.0/u_resolution.xy;
     vec2 st = gl_FragCoord.xy * pixel;
     vec2 uv = v_texcoord;
 
-    mat3 ca = raymarchCamera(u_camera);
+    mat3 ca = lookAt(-u_camera);
     vec3 dir = ca * normalize(vec3(st*2.0-1.0, 1.0));
 
 #if defined(DOUBLE_BUFFER_0)

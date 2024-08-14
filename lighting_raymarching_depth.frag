@@ -19,6 +19,7 @@ varying vec2        v_texcoord;
 
 // #define RAYMARCH_SAMPLES 100
 #define RAYMARCH_MULTISAMPLE 4
+#define RAYMARCH_RETURN 2
 #define RAYMARCH_BACKGROUND (RAYMARCH_AMBIENT)
 
 #include "lygia/space/ratio.glsl"
@@ -62,7 +63,15 @@ void main() {
     vec3 worldNormal = vec3(0.0);
     Material mat;
 
-    color = raymarch(cam, vec3(0.0), uv, mat, depth);
+    #if RAYMARCH_RETURN == 0
+    color = raymarch(cam, vec3(0.0), uv);
+    #elif RAYMARCH_RETURN == 1
+    color = raymarch(cam, vec3(0.0), uv, depth);
+    #elif RAYMARCH_RETURN == 2
+    color = raymarch(cam, vec3(0.0), uv, depth, mat);
+    #elif RAYMARCH_RETURN == 3
+    color = raymarch(cam, vec3(0.0), uv, depth, worldPos, worldNormal);
+    #endif
     color = linear2gamma(color);
     // color.rgb = vec3( map(depth, length(cam) * 0.5, length(cam) * 3., 1.0, 0.0) );
     // color.rgb = mat.normal * 0.5 + 0.5;

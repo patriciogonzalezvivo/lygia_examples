@@ -49,7 +49,7 @@ void main(void) {
     vec3 cam = u_camera * 0.11;
     cam.x = 1.0 - cam.x;
 
-    color.rgb += raymarch(cam, uv).rgb;
+    color.rgb += raymarch(cam, vec3(0.0), uv).rgb;
     color = linear2gamma(color);
 
     gl_FragColor = vec4(color, 1.0);
