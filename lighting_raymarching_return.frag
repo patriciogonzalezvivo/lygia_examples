@@ -10,21 +10,21 @@ uniform vec3        u_lightColor;
 
 uniform vec2        u_resolution;
 
-varying vec2        v_texcoord;
-
 // SPACE
 #define LIGHT_DIRECTION     u_light
 #define RESOLUTION          u_resolution
 #define LIGHT_COLOR         vec3(0.95, 0.65, 0.5)
 
+#define RAYMARCH_RETURN 1
 // #define RAYMARCH_SAMPLES 100
 #define RAYMARCH_MULTISAMPLE 4
-#define RAYMARCH_RETURN 2
-#define RAYMARCH_BACKGROUND (RAYMARCH_AMBIENT)
+#define RAYMARCH_AMBIENT    vec3(0.7, 0.9, 1.0)
+#define RAYMARCH_BACKGROUND (RAYMARCH_AMBIENT + rayDirection.y * 0.8)
 
-#include "lygia/space/ratio.glsl"
-#include "lygia/sdf.glsl"
 #include "lygia/math/map.glsl"
+#include "lygia/space/ratio.glsl"
+#include "lygia/color/palette/heatmap.glsl"
+#include "lygia/sdf.glsl"
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
 
@@ -52,35 +52,40 @@ Material raymarchMap( in vec3 pos ) {
 
 void main() {
     vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
-    vec2 st = v_texcoord;
+    vec2 pixel = 1.0/u_resolution;
+    vec2 st = gl_FragCoord.xy * pixel;
     vec2 uv = ratio(st, u_resolution);
 
     vec3 cam = u_camera * 0.11;
     cam.x = 1.0 - cam.x;
 
-    float depth = 0.0;
-    vec3 worldPos = vec3(0.0);
-    vec3 worldNormal = vec3(0.0);
-    Material mat;
 
     #if RAYMARCH_RETURN == 0
-    color = raymarch(cam, vec3(0.0), uv);
+    // Don't return anything
+    color.rgb = linear2gamma( raymarch(cam, vec3(0.0), uv).rgb );
+
     #elif RAYMARCH_RETURN == 1
-    color = raymarch(cam, vec3(0.0), uv, depth);
+    // Return depth
+    float depth = 0.0;
+    color.rgb = linear2gamma( raymarch(cam, vec3(0.0), uv, depth).rgb );
+    vec3 depth_heat = heatmap( map(depth, RAYMARCH_MIN_DIST, RAYMARCH_MAX_DIST, 0.0, 1.0) );
+    color.rgb = mix(color.rgb, depth_heat, step(0.5, st.x) );
+
     #elif RAYMARCH_RETURN == 2
-    color = raymarch(cam, vec3(0.0), uv, depth, mat);
-    #elif RAYMARCH_RETURN == 3
-    color = raymarch(cam, vec3(0.0), uv, depth, worldPos, worldNormal);
-    #endif
-    color = linear2gamma(color);
-    // color.rgb = vec3( map(depth, length(cam) * 0.5, length(cam) * 3., 1.0, 0.0) );
-    // color.rgb = mat.normal * 0.5 + 0.5;
-    // color.rgb = mat.position;
-    // color.rgb = mat.albedo.rgb;
+    Material mat;
+    float depth = 0.0;
+    color.rgb = linear2gamma( raymarch(cam, vec3(0.0), uv, depth, mat).rgb );
+    vec3 depth_heat = heatmap( map(depth, RAYMARCH_MIN_DIST, RAYMARCH_MAX_DIST, 0.0, 1.0) );
+    vec3 normal = mat.normal * 0.5 + 0.5;
+    color.rgb = mix(mix(color.rgb, depth_heat, step(0.5, st.y)),
+                    mix(mat.albedo.rgb, normal, step(0.5, st.y)),
+                    step(0.5, st.x) );
+
     // color.rgb = vec3(mat.roughness);
     // color.rgb = vec3(mat.metallic);
     // color.rgb = mat.emissive;
     // color.rgb = vec3(mat.ambientOcclusion);
+    #endif
 
     gl_FragColor = color;
 }

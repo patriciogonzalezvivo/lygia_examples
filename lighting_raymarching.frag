@@ -10,8 +10,6 @@ uniform vec3        u_lightColor;
 
 uniform vec2        u_resolution;
 
-varying vec2        v_texcoord;
-
 // SPACE
 #define LIGHT_DIRECTION     u_light
 #define RESOLUTION          u_resolution
@@ -51,7 +49,8 @@ Material raymarchMap( in vec3 pos ) {
 
 void main() {
     vec3 color = vec3(0.0);
-    vec2 st = v_texcoord;
+    vec2 pixel = 1.0/u_resolution;
+    vec2 st = gl_FragCoord.xy * pixel;
     vec2 uv = ratio(st, u_resolution);
 
     vec3 cam = u_camera * 0.11;

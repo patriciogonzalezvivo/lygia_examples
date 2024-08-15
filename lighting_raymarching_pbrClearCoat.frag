@@ -15,9 +15,10 @@ uniform float       u_time;
 
 varying vec2        v_texcoord;
 
-
+#define PLATFORM_WEBGL
 #define RESOLUTION              u_resolution
 #define CAMERA_POSITION         u_camera
+// #define CAMERA_POSITION         vec3(0.0, 0.0, -10.0)
 #define LIGHT_COLOR             vec3(1.0)
 #define LIGHT_DIRECTION         u_light
 

@@ -342,8 +342,8 @@ lighting_raymarching:
 lighting_raymarching_cubemap:
 	glslViewer lighting_raymarching.frag -e camera_position,29.5393,26.2406,42.1865 -C assets/Arches_E_PineTree_3k.hdr -l
 
-lighting_raymarching_depth:
-	glslViewer lighting_raymarching_depth.frag -e camera_position,29.5393,26.2406,42.1865 -l
+lighting_raymarching_return:
+	glslViewer lighting_raymarching_return.frag -e camera_position,29.5393,26.2406,42.1865 -l
 
 lighting_raymarching_gooch:
 	glslViewer lighting_raymarching_gooch.frag -e camera_position,29.5393,26.2406,42.1865 -l
