@@ -109,7 +109,7 @@ class Tracker:
 
             # if no tracks abort
             if len(self.tracks) == 0:
-                return
+                return False
             
             self.processDeltas()
 

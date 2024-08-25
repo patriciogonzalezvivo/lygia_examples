@@ -82,7 +82,11 @@ def benchmark(name, shader_config, cwd = "./"):
     subprocess.call(cmd, shell=True)
 
     tracks = Tracker(name)
-    tracks.load(cwd + "/" + name + ".csv")
+    success = tracks.load(cwd + "/" + name + ".csv")
+    if not success:
+        print("Error loading tracking data")
+        return
+    
     tracks.plotTracks(cwd + "/" + name + "_tracks.jpg")
     return tracks.getFramerateLog()
 
