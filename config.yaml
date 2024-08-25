@@ -1,0 +1,728 @@
+properties: &defaults
+    width: 512
+    height: 512
+    # fxaa: on
+    # msaa: on
+    dynamic_shadows: true
+
+examples:
+    math_functions:
+        <<: *defaults
+        frag: math_functions.frag
+
+    math_gaussian:
+        <<: *defaults
+        frag: math_gaussian.frag
+
+    math_quat:
+        <<: *defaults
+        frag: math_quat.frag 
+        vert: math_quat.vert 
+        geom: assets/suzanne.obj
+
+    animation_easing:
+        <<: *defaults
+        frag: animation_easing.frag
+
+    animation_sprite:
+        <<: *defaults
+        frag: animation_sprite.frag 
+        textures: [assets/sprite_megaman.png]
+
+    color_brightnessContrast:
+        <<: *defaults
+        frag: color_brightnessContrast.frag 
+        textures: [assets/danny.png]
+
+    color_brightnessContrastMatrix:
+        <<: *defaults
+        frag: color_brightnessContrastMatrix.frag 
+        textures: [assets/danny.png]
+
+    color_mix:
+        <<: *defaults
+        frag: color_mix.frag
+
+    color_lut:
+        <<: *defaults
+        frag: color_lut.frag 
+        textures: [assets/danny.png, assets/square_01.png]
+
+    color_dither:
+        <<: *defaults
+        frag: color_dither.frag 
+        textures:
+            u_noise: assets/noise_blue.png
+
+    sample_dither:
+        <<: *defaults
+        frag: sample_dither.frag 
+        textures: [assets/danny.png]
+
+    color_iridescence_map:
+        <<: *defaults
+        frag: color_iridescence_map.frag
+
+    color_wavelength:
+        <<: *defaults
+        frag: color_wavelength.frag 
+
+    color_wada:
+        <<: *defaults
+        frag: color_wada.frag
+
+    color_wada_dyads:
+        <<: *defaults
+        frag: color_wada_dyads.frag
+
+    color_wada_triads:
+        <<: *defaults
+        frag: color_wada_triads.frag
+
+    color_wada_tetrads:
+        <<: *defaults
+        frag: color_wada_tetrads.frag
+
+    color_pigments:
+        <<: *defaults
+        frag: color_pigments.frag
+
+    color_palette_lerp:
+        <<: *defaults
+        frag: color_palette_lerp.frag
+
+    color_ryb:
+        <<: *defaults
+        frag: color_ryb.frag
+
+    color_zorn:
+        <<: *defaults
+        frag: color_zorn.frag
+
+
+    color_mix_ryb:
+        <<: *defaults
+        frag: color_mix_ryb.frag
+
+    distort_pincushion:
+        <<: *defaults
+        frag: distort_pincushion.frag 
+        textures: [assets/danny.png]
+
+    draw_digits:
+        <<: *defaults
+        frag: draw_digits.frag
+
+    draw_aa:
+        <<: *defaults
+        frag: draw_aa.frag 
+
+    draw_shapes:
+        <<: *defaults
+        frag: draw_shapes.frag
+
+    draw_supershape:
+        <<: *defaults
+        frag: draw_supershape.frag
+
+    draw_gear:
+        <<: *defaults
+        frag: draw_gear.frag
+
+    draw_tiles:
+        <<: *defaults
+        frag: draw_tiles.frag  
+
+    draw_koch:
+        <<: *defaults
+        frag: draw_koch.frag
+
+    draw_julia:
+        <<: *defaults
+        frag: draw_julia.frag
+
+    draw_mandelbulb:
+        <<: *defaults
+        frag: draw_mandelbulb.frag
+
+    draw_colorChecker:
+        <<: *defaults
+        frag: draw_colorChecker.frag
+
+    generative_random:
+        <<: *defaults
+        frag: generative_random.frag
+
+    generative_cnoise:
+        <<: *defaults
+        frag: generative_cnoise.frag
+
+    generative_pnoise:
+        <<: *defaults
+        frag: generative_pnoise.frag
+
+    generative_snoise:
+        <<: *defaults
+        frag: generative_snoise.frag
+
+    generative_psrdnoise:
+        <<: *defaults
+        frag: generative_psrdnoise.frag 
+        geom: assets/sphere.ply
+
+    generative_noised:
+        <<: *defaults
+        frag: generative_noised.frag
+
+    generative_curl:
+        <<: *defaults
+        frag: generative_curl.frag
+
+    generative_fbm:
+        <<: *defaults
+        frag: generative_fbm.frag
+
+    generative_voronoi:
+        <<: *defaults
+        frag: generative_voronoi.frag
+
+    generative_voronoise:
+        <<: *defaults
+        frag: generative_voronoise.frag
+
+    generative_wavelet:
+        <<: *defaults
+        frag: generative_wavelet.frag
+
+    generative_worley:
+        <<: *defaults
+        frag: generative_worley.frag
+
+    filter_boxBlur1D:
+        <<: *defaults
+        frag: filter_boxBlur1D.frag 
+        textures: [assets/danny.png]
+
+    filter_boxBlur2D:
+        <<: *defaults
+        frag: filter_boxBlur2D.frag 
+        textures: [assets/danny.png]
+
+    filter_fibonacciBokeh:
+        <<: *defaults
+        frag: filter_fibonacciBokeh.frag 
+        textures: [assets/danny.png]
+
+    filter_gaussianBlur1D:
+        <<: *defaults
+        frag: filter_gaussianBlur1D.frag 
+        textures: [assets/danny.png]
+
+    filter_gaussianBlur2D:
+        <<: *defaults
+        frag: filter_gaussianBlur2D.frag 
+        textures: [assets/danny.png]
+
+    filter_bilateral2D:
+        <<: *defaults
+        frag: filter_bilateral2D.frag 
+        textures: [assets/danny.png]
+
+    filter_radialBlur2D:
+        <<: *defaults
+        frag: filter_radialBlur2D.frag 
+        textures: [assets/danny.png]
+
+    filter_noiseBlur2D:
+        <<: *defaults
+        frag: filter_noiseBlur2D.frag 
+        textures: 
+            u_tex0: assets/danny.png
+            u_noise: assets/noise_blue.png
+
+    filter_median2D:
+        <<: *defaults
+        frag: filter_median2D.frag 
+        textures: [assets/danny.png]
+
+    filter_kuwahara2D:
+        <<: *defaults
+        frag: filter_kuwahara2D.frag 
+        textures: [assets/danny.png]
+
+    filter_sharpen2D:
+        <<: *defaults
+        frag: filter_sharpen2D.frag 
+        textures: [assets/danny.png]
+
+    filter_laplacian2D:
+        <<: *defaults
+        frag: filter_laplacian2D.frag 
+        textures: [assets/danny.png]
+
+    filter_edge2D:
+        <<: *defaults
+        frag: filter_edge2D.frag 
+        textures: [assets/danny.png]
+
+    filter_bilinear2D:
+        <<: *defaults
+        frag: filter_bilinear2D.frag 
+        textures: [assets/danny.png]
+
+    sample_dof:
+        <<: *defaults
+        frag: sample_dof.frag 
+        geom: assets/dragon.obj 
+        cube: assets/Arches_E_PineTree_3k.hdr   
+        exe: 
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    sample_bracketing:
+        <<: *defaults
+        frag: sample_bracketing.frag 
+        textures: [assets/rock_moss.jpg]
+
+    sample_wrap:
+        <<: *defaults
+        frag: sample_wrap.frag 
+        textures: [assets/rocks.png]
+
+    sample_wrap_repeat:
+        <<: *defaults
+        frag: sample_wrap_repeat.frag 
+        textures: [assets/rocks.png]
+
+    sample_wrap_clamp:
+        <<: *defaults
+        frag: sample_wrap_clamp.frag 
+        textures: [assets/rocks.png]
+
+    sample_wrap_mirror:
+        <<: *defaults
+        frag: sample_wrap_mirror.frag 
+        textures: [assets/rocks.png]
+
+    sample_wrap_untile:
+        <<: *defaults
+        frag: sample_wrap_untile.frag 
+        textures: [assets/rocks.png]
+
+    sample_wrap_zero:
+        <<: *defaults
+        frag: sample_wrap_zero.frag 
+        textures: [assets/rocks.png]
+
+    sample_filter_bicubic:
+        <<: *defaults
+        frag: sample_filter_bicubic.frag 
+        textures: [assets/noise_blue.png]
+
+    sample_filter_nearest:
+        <<: *defaults
+        frag: sample_filter_nearest.frag 
+        textures: [assets/noise_blue.png]
+
+    sample_filter_smooth:
+        <<: *defaults
+        frag: sample_filter_smooth.frag 
+        textures: [assets/noise_blue.png]
+
+    sample_equirect:
+        <<: *defaults
+        frag: sample_equirect.frag 
+        geom: assets/dragon.obj 
+        textures: [assets/studio.png]
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+            - "define,SCENE_CUBEMAP,u_tex0"
+
+    sample_3Dsdf:
+        <<: *defaults
+        frag: sample_3Dsdf.frag 
+        textures: assets/suzanne.png
+        exe: 
+            - "camera_position,-29.5393,26.2406,-42.1865"
+
+    sample_triplanar:
+        <<: *defaults
+        frag: sample_triplanar.frag assets/suzanne.obj 
+        textures: [assets/rock_moss.jpg]
+
+    morphological_erosion:
+        <<: *defaults
+        frag: morphological_erosion.frag
+        textures: [assets/flower.png]
+
+    morphological_dilation:
+        <<: *defaults
+        frag: morphological_dilation.frag
+        textures: [assets/flower.png]
+
+    morphological_alphaFill:
+        <<: *defaults
+        frag: morphological_alphaFill.frag
+        textures: [assets/flower.png]
+
+    morphological_poissonFill:
+        <<: *defaults
+        frag: morphological_poissonFill.frag
+        textures: [assets/flower.png]
+
+    morphological_marchinSquares:
+        <<: *defaults
+        frag: morphological_marchinSquares.frag
+        textures: [assets/flower.png] 
+
+    # LIGHTING
+    lighting_position:
+        <<: *defaults
+        frag: lighting_position.frag 
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_normal:
+        <<: *defaults
+        frag: lighting_normal.frag 
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_gooch:
+        <<: *defaults
+        frag: lighting_gooch.frag 
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbrLittle:
+        <<: *defaults
+        frag: lighting_pbrLittle.frag
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbrLittle_cubemap:
+        <<: *defaults
+        frag: lighting_pbrLittle.frag
+        geom: assets/dragon.obj 
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbrLittle_deferred:
+        <<: *defaults
+        frag: lighting_pbrLittle_deferred.frag
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbr:
+        <<: *defaults
+        frag: lighting_pbr.frag
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbr_cubemap:
+        <<: *defaults
+        frag: lighting_pbr.frag
+        geom: assets/dragon.obj 
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbr_lights:
+        <<: *defaults
+        frag: lighting_pbr_lights.frag
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbr_dynamic:
+        <<: *defaults
+        frag: lighting_pbr_dynamic.vert lighting_pbr_dynamic.frag
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbrClearCoat:
+        <<: *defaults
+        frag: lighting_pbrClearCoat.frag
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbrClearCoat_cubemap:
+        <<: *defaults
+        frag: lighting_pbrClearCoat.frag
+        geom: assets/dragon.obj 
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbrIridescence:
+        <<: *defaults
+        frag: lighting_pbrIridescence.frag
+        geom: assets/IridescenceSuzanne.glb 
+        exe:
+            - "camera_position,-5.34446,3.96689,5.76653"
+
+    lighting_pbrIridescence_cubemap:
+        <<: *defaults
+        frag: lighting_pbrIridescence.frag
+        geom: assets/IridescenceSuzanne.glb
+        cube: assets/Arches_E_PineTree_3k.hdr 
+        exe:
+            - "camera_position,-5.34446,3.96689,5.76653"
+
+    lighting_pbrGlass:
+        <<: *defaults
+        frag: lighting_pbrGlass.frag
+        geom: assets/dragon.obj    
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbrGlass_cubemap:     
+        <<: *defaults
+        frag: lighting_pbrGlass.frag
+        geom: assets/dragon.obj
+        cube: assets/Arches_E_PineTree_3k.hdr     
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbrSsS:        
+        <<: *defaults
+        frag: lighting_pbrSsS.frag
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_pbrSsS_cubemap:
+        <<: *defaults
+        frag: lighting_pbrSsS.frag
+        geom: assets/dragon.obj 
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    # lighting_pbr_deferred:
+    #     frag: lighting_pbr_deferred.frag 
+    #     geom: assets/dragon.obj 
+    #     exe:
+    #         - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_shadow:
+        <<: *defaults
+        frag: lighting_shadow.frag
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_sphereMap_glass:
+        <<: *defaults
+        frag: lighting_sphereMap.frag assets/sem-glass-0003.jpg  
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_sphereMap_crystal:
+        <<: *defaults
+        frag: lighting_sphereMap.frag assets/sem-glass-0004.jpg  
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_sphereMap_gold:
+        <<: *defaults
+        frag: lighting_sphereMap.frag assets/sem-gold-0003.jpg  
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_sphereMap_metal:
+        <<: *defaults
+        frag: lighting_sphereMap.frag assets/sem-metal-0003.jpg  
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_sphereMap_dark_metal:
+        <<: *defaults
+        frag: lighting_sphereMap.frag assets/sem-metal-0019.jpg  
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_sphereMap_iridescent:
+        <<: *defaults
+        frag: lighting_sphereMap.frag assets/sem-0033.jpg  
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_sphericalHarmonics:
+        <<: *defaults
+        frag: lighting_sphericalHarmonics.frag
+        geom: assets/dragon.obj 
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+            - "sky,on"
+
+    lighting_ssao:
+        <<: *defaults
+        frag: lighting_ssao.frag 
+        geom: assets/dragon.obj 
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_ssr:
+        <<: *defaults
+        frag: lighting_ssr.frag 
+        geom: assets/dragon.obj 
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,-1.43923,0.891203,1.98093"
+
+    lighting_volumetric:
+        <<: *defaults
+        frag: lighting_volumetric.frag 
+        geom: assets/dragon.obj 
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,-1.67433,0.0682091,-1.99539"
+
+    lighting_raymarching:
+        <<: *defaults
+        frag: lighting_raymarching.frag
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865"
+
+    lighting_raymarching_cubemap:
+        <<: *defaults
+        frag: lighting_raymarching.frag
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865"
+
+    lighting_raymarching_return:
+        <<: *defaults
+        frag: lighting_raymarching_return.frag
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865"
+
+    lighting_raymarching_gooch:
+        <<: *defaults
+        frag: lighting_raymarching_gooch.frag
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865"
+
+    lighting_raymarching_pbr:
+        <<: *defaults
+        frag: lighting_raymarching_pbr.frag
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865"
+
+    lighting_raymarching_pbr_cubemap:
+        <<: *defaults
+        frag: lighting_raymarching_pbr.frag
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865" 
+
+    lighting_raymarching_pbrLittle:
+        <<: *defaults
+        frag: lighting_raymarching_pbrLittle.frag
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865"
+
+    lighting_raymarching_pbrLittle_cubemap:
+        <<: *defaults
+        frag: lighting_raymarching_pbrLittle.frag
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865" 
+
+    lighting_raymarching_pbrClearCoat:
+        <<: *defaults
+        frag: lighting_raymarching_pbrClearCoat.frag
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865"
+
+    lighting_raymarching_pbrClearCoat_cubemap:
+        <<: *defaults
+        frag: lighting_raymarching_pbrClearCoat.frag
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865" 
+
+    lighting_raymarching_pbrGlass:
+        <<: *defaults
+        frag: lighting_raymarching_pbrGlass.frag
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865"
+
+    lighting_raymarching_pbrGlass_cubemap:
+        <<: *defaults
+        frag: lighting_raymarching_pbrGlass.frag
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865" 
+
+    lighting_raymarching_pbrIridescence:
+        <<: *defaults
+        frag: lighting_raymarching_pbrIridescence.frag
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865"
+
+    lighting_raymarching_pbrIridescence_cubemap:
+        <<: *defaults
+        frag: lighting_raymarching_pbrIridescence.frag
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865" 
+
+    lighting_raymarching_volume:
+        <<: *defaults
+        frag: lighting_raymarching_volume.frag
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865"
+
+    lighting_raymarching_pbr_volume:
+        <<: *defaults
+        frag: lighting_raymarching_pbr_volume.frag
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865"
+
+    lighting_raymarching_pbr_volume_cubemap:
+        <<: *defaults
+        frag: lighting_raymarching_pbr_volume.frag
+        cube: assets/Arches_E_PineTree_3k.hdr
+        exe:
+            - "camera_position,29.5393,26.2406,42.1865" 
+
+    lighting_atmosphere_equirectangular:
+        <<: *defaults
+        frag: lighting_atmosphere.frag 
+        width: 1024 
+        height: 512 
+        exe:
+            - "define,PROJECTION_MODE,0"
+
+    lighting_atmosphere_fisheye:
+        <<: *defaults
+        frag: lighting_atmosphere.frag 
+        exe:
+            - "define,PROJECTION_MODE,1"
+
+    # # MANTAINANCE
+    # simulate_ripples:
+    #     frag: simulate_ripples.frag  
+
+    # simulate_grayscott:
+    #     frag: simulate_grayscott.frag  
+
+    # simulate_fluid:
+    #     frag: simulate_fluid.frag  
