@@ -1,8 +1,7 @@
 properties: &defaults
     width: 512
     height: 512
-    # fxaa: on
-    # msaa: on
+    msaa: on
     dynamic_shadows: true
 
 examples:
@@ -28,6 +27,7 @@ examples:
         <<: *defaults
         frag: animation_sprite.frag 
         textures: [assets/sprite_megaman.png]
+        animation: 6
 
     color_brightnessContrast:
         <<: *defaults
@@ -99,7 +99,6 @@ examples:
         <<: *defaults
         frag: color_zorn.frag
 
-
     color_mix_ryb:
         <<: *defaults
         frag: color_mix_ryb.frag
@@ -112,6 +111,7 @@ examples:
     draw_digits:
         <<: *defaults
         frag: draw_digits.frag
+        animation: 5
 
     draw_aa:
         <<: *defaults
@@ -124,10 +124,6 @@ examples:
     draw_supershape:
         <<: *defaults
         frag: draw_supershape.frag
-
-    draw_gear:
-        <<: *defaults
-        frag: draw_gear.frag
 
     draw_tiles:
         <<: *defaults
@@ -442,7 +438,8 @@ examples:
 
     lighting_pbr_dynamic:
         <<: *defaults
-        frag: lighting_pbr_dynamic.vert lighting_pbr_dynamic.frag
+        frag: lighting_pbr_dynamic.frag
+        vert: lighting_pbr_dynamic.vert
         geom: assets/dragon.obj 
         exe:
             - "camera_position,-1.43923,0.891203,1.98093"

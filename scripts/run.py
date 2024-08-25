@@ -18,22 +18,80 @@ CONFIG_FILE = "config.yaml"
 SCREENSHOT_FOLDER = "images"
 BENCHMARK_FOLDER = "benchmarks"
 
-def run(name, shader_config):
+def run(name, shader_config, run=True):
     shader = GlslViewer( name, shader_config )
-    print(shader.getCommand())
-    os.system(shader.getCommand() + " -l")
+    cmd = shader.getCommand() + " -l"
+    print(cmd)
+    if run:
+        os.system(cmd)
+    return cmd
 
 
-def screenshot(name, shader_config):
+def run_screenshot(name, shader_config, run=True):
     shader_config["headless"] = True
     shader_config["noncurses"] = True
+    shader_config["wait"] = 3
     shader = GlslViewer( name, shader_config)
     output = SCREENSHOT_FOLDER + "/" + name + ".jpg"
     cmd = shader.getCommand() + " -E screenshot," + output
     # cmd = "prime-run " + cmd
     print(cmd)
-    os.system(cmd)
+    if run:
+        os.system(cmd)
+    return cmd
 
+
+def run_benchmark(name, shader_config, folder):
+    shader_config["width"] = 1920
+    shader_config["height"] = 1920
+    data = benchmark(name, shader_config, folder)
+    with open(folder + "/" + name + ".json", 'w') as f:
+        json.dump(data, f, indent=4)
+
+
+def make_makefile(config):
+    with open("Makefile", "w") as f:
+        for example in config["examples"]:
+            f.write(example + ":\n")
+            f.write("\t" + run(example, config["examples"][example], False) + "\n\n")
+
+        f.write("screenshots:\n")
+        for example in config["examples"]:
+            f.write("\tprime-run " + run_screenshot(example, config["examples"][example], False) + "\n")
+
+        f.write("\nclean:\n")
+        f.write("\trm images/*.jpg\n")
+        
+
+def make_readme(config):
+    with open("README.md", "w") as f:
+        f.write("""
+# GLSL Viewer Examples
+                
+This are GLSL examples of how to use [LYGIA Shader Library](https://github.com/patriciogonzalezvivo/lygia). You can try them using:
+
+* [glslViewer](https://github.com/patriciogonzalezvivo/glslViewer/wiki/Compiling)
+* [glsl-canvas VS Code pluging](https://marketplace.visualstudio.com/items?itemName=circledev.glsl-canvas)
+
+
+## How to start?
+
+Clone this repository recursivelly
+
+```bash
+git clone --recursive https://github.com/patriciogonzalezvivo/lygia_examples.git
+```
+
+""")
+
+        for example in config["examples"]:
+            f.write("## " + example + "\n")
+            f.write("```bash\n")
+            f.write(run(example, config["examples"][example], False) + "\n")
+            f.write("```\n\n")
+            f.write("![screenshot](images/" + example + ".jpg)\n\n")
+            if example + "_tracks.jpg" in os.listdir("benchmarks"):
+                f.write("![benchmark](benchmarks/" + example + "_tracks.jpg)\n\n")
 
 
 if __name__ == '__main__':
@@ -42,19 +100,27 @@ if __name__ == '__main__':
 
     parser.add_argument('--screenshot', '-s', help="Make a screenshot`", action='store_true')
     parser.add_argument('--benchmark', '-b', help="Run benchmark`", action='store_true')
+    parser.add_argument('--makefile', '-m', help="Generate a Makefile`", action='store_true')
+    parser.add_argument('--readme', '-r', help="Generate a README.md`", action='store_true')
     args = parser.parse_args()
 
     with open( CONFIG_FILE ) as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
 
-        if args.input == "all":
+        if args.makefile:
+            make_makefile(config)
+
+        elif args.readme:
+            make_readme(config)
+
+        elif args.input == "all":
             for example in config["examples"]:
 
                 if args.screenshot:
-                    screenshot( example, config["examples"][example] )
-                
+                    run_screenshot( example, config["examples"][example] )
+
                 if args.benchmark:
-                    benchmark( example, config["examples"][example], BENCHMARK_FOLDER)
+                    run_benchmark( example, config["examples"][example], BENCHMARK_FOLDER)
                 
                 if not args.screenshot and not args.benchmark:
                 #     run(config["examples"][example])
@@ -67,10 +133,10 @@ if __name__ == '__main__':
 
             if example in config["examples"]:
                 if args.screenshot:
-                    screenshot( example, config["examples"][example] )
+                    run_screenshot(example, config["examples"][example] )
 
                 if args.benchmark:
-                    benchmark( example, config["examples"][example], BENCHMARK_FOLDER)
+                    run_benchmark(example, config["examples"][example], BENCHMARK_FOLDER)
 
                 if not args.screenshot and not args.benchmark:
                     run(example, config["examples"][example])

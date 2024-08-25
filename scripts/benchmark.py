@@ -59,16 +59,22 @@ def process_results(name, results):
 def benchmark(name, shader_config, cwd = "./"):
     shader_config["headless"] = True
     shader_config["noncurses"] = True
-    shader_config["fullFps"] = True
+    # shader_config["fullFps"] = True
 
     gv = GlslViewer(name, shader_config)
+    # Do the tracking
+    gv.cmd.append("-e wait,5")
     gv.cmd.append("-e track,on")
     gv.cmd.append("-e wait,10")
     gv.cmd.append("-e track,off")
-    gv.cmd.append("-e track,average")
+
+    # # Store an image to check the tracking was correct
+    # gv.cmd.append("-e screenshot," + cwd + "/" + name + ".jpg")
+
+    # Store the tracking data
+    # gv.cmd.append("-e track,average")
     gv.cmd.append("-e track,samples," + cwd + "/" + name + ".csv")
-    # gv.cmd.append("-E exit")
-    gv.cmd.append("-E screenshot," + cwd + "/" + name + ".jpg")
+    gv.cmd.append("-E exit")
 
     cmd = gv.getCommand()
     print(cmd)
@@ -77,7 +83,7 @@ def benchmark(name, shader_config, cwd = "./"):
 
     tracks = Tracker(name)
     tracks.load(cwd + "/" + name + ".csv")
-    tracks.plotTracks(cwd + "/" + name + "_tracks.png")
+    tracks.plotTracks(cwd + "/" + name + "_tracks.jpg")
     return tracks.getFramerateLog()
 
     # gv.start()

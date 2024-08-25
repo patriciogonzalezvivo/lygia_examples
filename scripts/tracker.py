@@ -64,6 +64,9 @@ class Track:
 
             deltas.append(self.samples[i].delta)
 
+        if len(deltas) == 0:
+            return
+        
         deltas[0] = deltas[1]
 
         self.deltas_processed = True
@@ -103,6 +106,10 @@ class Tracker:
 
             for row in reader:
                 self.addSample(row['track'], Sample( float(row['timeStampMs']), float(row['durationMs'])) )
+
+            # if no tracks abort
+            if len(self.tracks) == 0:
+                return
             
             self.processDeltas()
 

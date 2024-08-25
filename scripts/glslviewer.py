@@ -50,6 +50,8 @@ class GlslViewer:
             if type(textures) is list:
                 for tex in textures:
                     self.cmd.append(tex)
+            elif type(textures) is str:
+                self.cmd.append(textures)
             else:
                 for tex_name in textures.keys():
                     self.cmd.append('-' + tex_name)
@@ -84,6 +86,10 @@ class GlslViewer:
         if 'fxaa' in options:
             if options['fxaa']:
                 self.cmd.append('--fxaa')
+
+        if 'msaa' in options:
+            if options['msaa']:
+                self.cmd.append('--msaa')
 
         if 'fullFps' in options:
             if options['fullFps']:
