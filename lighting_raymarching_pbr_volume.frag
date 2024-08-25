@@ -21,21 +21,26 @@ varying vec2        v_texcoord;
 #define LIGHT_COLOR             vec3(1.0)
 #define LIGHT_DIRECTION         u_light
 #define LOOK_AT_RIGHT_HANDED
+#define FBM_OCTAVES 3
 
-#define RAYMARCH_MULTISAMPLE    4
+#define RAYMARCH_VOLUME
+#define RAYMARCH_VOLUME_SAMPLES 64
+#define RAYMARCH_VOLUME_SAMPLES_LIGHT 32
+// #define RAYMARCH_MULTISAMPLE 4
 
-#define SCENE_CUBEMAP           u_cubeMap
+// #define SCENE_CUBEMAP           u_cubeMap
 // #include "lygia/lighting/atmosphere.glsl"
 // #define ENVMAP_FNC(N, R, M) atmosphere(normalize(N), normalize(u_light))
 #define RAYMARCH_BACKGROUND envMap(rayDirection, 0.0, 0.0).rgb
 #define RAYMARCH_AMBIENT envMap(worldNormal, 0.0, 0.0).rgb
-#define RAYMARCH_SHADING_FNC pbrLittle
+#define RAYMARCH_SHADING_FNC pbr
 
 #include "lygia/space/ratio.glsl"
 #include "lygia/sdf.glsl"
+#include "lygia/generative/fbm.glsl"
 #include "lygia/lighting/envMap.glsl"
 #include "lygia/lighting/raymarch/softShadow.glsl"
-#include "lygia/lighting/pbrLittle.glsl"
+#include "lygia/lighting/pbr.glsl"
 #include "lygia/lighting/raymarch.glsl"
 #include "lygia/color/space/linear2gamma.glsl"
 
@@ -53,6 +58,13 @@ Material raymarchMap( in vec3 pos ) {
     pos = opRepeat(pos + vec3(0.5, 0.2, 0.5), vec3(-2.0, 0.0, -2.0), vec3(2.0, 0.0, 2.0), 1.0) - 0.5;
     res = opUnion( res, materialNew( vec3(0.5), roughness, metallic, sphereSDF(pos, 0.3 ) ) );
     return res;  
+}
+
+Medium raymarchVolumeMap( in vec3 pos ) {
+    vec3 scattering = vec3(0.25);
+    vec3 absorption = vec3(1.);
+    return mediumNew(scattering, absorption, fbm(pos * 0.25));
+    // return mediumNew(scattering, absorption, sphereSDF(pos-vec3( 0.0, 0.50, 0.0), 10.0 ));
 }
 
 void main(void) {

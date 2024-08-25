@@ -20,6 +20,7 @@ varying vec2        v_texcoord;
 #define CAMERA_POSITION         u_camera
 #define LIGHT_COLOR             vec3(1.0)
 #define LIGHT_DIRECTION         u_light
+#define LOOK_AT_RIGHT_HANDED
 
 #define RAYMARCH_MULTISAMPLE    4
 
@@ -61,7 +62,6 @@ void main(void) {
     vec2 st = v_texcoord;
     vec2 uv = ratio(st, u_resolution);
     vec3 cam = u_camera * 0.11;
-    cam.x = 1.0 - cam.x;
     color.rgb += raymarch(cam, vec3(0.0), uv).rgb;
     color = linear2gamma(color);
 

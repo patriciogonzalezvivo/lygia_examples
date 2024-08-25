@@ -14,8 +14,9 @@ uniform vec2        u_resolution;
 #define LIGHT_DIRECTION     u_light
 #define RESOLUTION          u_resolution
 #define LIGHT_COLOR         vec3(0.95, 0.65, 0.5)
+#define LOOK_AT_RIGHT_HANDED
 
-#define RAYMARCH_RETURN 1
+#define RAYMARCH_RETURN 2
 // #define RAYMARCH_SAMPLES 100
 #define RAYMARCH_MULTISAMPLE 4
 #define RAYMARCH_AMBIENT    vec3(0.7, 0.9, 1.0)
@@ -57,8 +58,6 @@ void main() {
     vec2 uv = ratio(st, u_resolution);
 
     vec3 cam = u_camera * 0.11;
-    cam.x = 1.0 - cam.x;
-
 
     #if RAYMARCH_RETURN == 0
     // Don't return anything

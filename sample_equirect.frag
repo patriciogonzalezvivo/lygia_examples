@@ -20,10 +20,10 @@ varying vec4        v_color;
 varying vec3        v_normal;
 varying vec2        v_texcoord;
 
+#define LOOK_AT_RIGHT_HANDED
 // #define SAMPLEEQUIRET_ITERATIONS 24
 // #define SCENE_CUBEMAP u_tex0
 #define SAMPLE_CUBE_FNC(CUBEMAP, NORM, LOD) sampleEquirect(CUBEMAP, NORM, LOD)
-#define LOOK_AT_RIGHT_HANDED
 
 #include "lygia/math/const.glsl"
 #include "lygia/math/mirror.glsl"

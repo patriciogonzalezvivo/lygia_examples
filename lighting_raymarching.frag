@@ -11,6 +11,7 @@ uniform vec3        u_lightColor;
 uniform vec2        u_resolution;
 
 // SPACE
+#define LOOK_AT_RIGHT_HANDED
 #define LIGHT_DIRECTION     u_light
 #define RESOLUTION          u_resolution
 #define LIGHT_COLOR         vec3(0.95, 0.65, 0.5)
@@ -54,8 +55,6 @@ void main() {
     vec2 uv = ratio(st, u_resolution);
 
     vec3 cam = u_camera * 0.11;
-    cam.x = 1.0 - cam.x;
-
     color = raymarch(cam, vec3(0.0), uv).rgb;
     color = linear2gamma(color);
 
