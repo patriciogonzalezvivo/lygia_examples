@@ -22,6 +22,7 @@ varying vec2        v_texcoord;
 
 // Example from https://stegu.github.io/psrdnoise/3d-tutorial/3d-psrdnoise-tutorial-06.html
 #include "lygia/generative/psrdnoise.glsl"
+#include "lygia/lighting/material/new.glsl"
 #include "lygia/lighting/pbrLittle.glsl"
 
 void main(void) {
@@ -36,7 +37,7 @@ void main(void) {
     Material material = materialNew();
     material.albedo = vec4(vec3(0.5+0.5*bump), 1.0);
     material.metallic = 0.0;
-    material.roughness = 0.2;
+    material.roughness = 0.01;
     vec3 N = g - dot(g, v_normal) * v_normal; // N orthogonal to N
     material.normal = v_normal - N * 0.15;
     color = pbrLittle(material);
