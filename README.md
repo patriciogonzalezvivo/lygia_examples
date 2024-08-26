@@ -1,3 +1,6 @@
+
+# GLSL Viewer Examples
+                
 This are GLSL examples of how to use [LYGIA Shader Library](https://github.com/patriciogonzalezvivo/lygia). You can try them using:
 
 * [glslViewer](https://github.com/patriciogonzalezvivo/glslViewer/wiki/Compiling)
@@ -12,770 +15,1128 @@ Clone this repository recursivelly
 git clone --recursive https://github.com/patriciogonzalezvivo/lygia_examples.git
 ```
 
-# MATH
+## math_functions
+```bash
+glslViewer math_functions.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/math_functions.jpg)
 
-#### Functions
+![benchmark](benchmarks/math_functions_tracks.jpg)
 
+## math_gaussian
 ```bash
-glslViewer math_functions.frag -l
+glslViewer math_gaussian.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/math_functions.jpg)
+![screenshot](images/math_gaussian.jpg)
 
+![benchmark](benchmarks/math_gaussian_tracks.jpg)
 
-#### Gaussian
-
+## math_quat
 ```bash
-glslViewer math_gaussian.frag -l
+glslViewer math_quat.frag assets/suzanne.obj math_quat.vert --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/math_gaussian.jpg)
+![screenshot](images/math_quat.jpg)
 
+![benchmark](benchmarks/math_quat_tracks.jpg)
 
-#### Quaternion
-
+## animation_easing
 ```bash
-glslViewer math_quaternion.frag -l
+glslViewer animation_easing.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/math_quat.gif)
+![screenshot](images/animation_easing.jpg)
 
+![benchmark](benchmarks/animation_easing_tracks.jpg)
 
+## animation_sprite
+```bash
+glslViewer animation_sprite.frag assets/sprite_megaman.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
-# ANIMATION 
+![screenshot](images/animation_sprite.jpg)
 
-#### Easing
+![benchmark](benchmarks/animation_sprite_tracks.jpg)
 
+## color_brightnessContrast
 ```bash
-glslViewer animation_easing.frag -l
+glslViewer color_brightnessContrast.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/animation_easing.gif)
+![screenshot](images/color_brightnessContrast.jpg)
 
+![benchmark](benchmarks/color_brightnessContrast_tracks.jpg)
 
-#### Sprite
-
+## color_brightnessContrastMatrix
 ```bash
-glslViewer animation_sprite.frag -l
+glslViewer color_brightnessContrastMatrix.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/color_brightnessContrastMatrix.jpg)
 
-![](images/animation_sprite.gif)
+![benchmark](benchmarks/color_brightnessContrastMatrix_tracks.jpg)
 
+## color_mix
+```bash
+glslViewer color_mix.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
-# COLOR 
+![screenshot](images/color_mix.jpg)
 
-#### Dither
+![benchmark](benchmarks/color_mix_tracks.jpg)
 
+## color_lut
 ```bash
-glslViewer color_dither.frag -l
+glslViewer color_lut.frag assets/danny.png assets/square_01.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-
-![](images/color_dither.jpg)
 
+![screenshot](images/color_lut.jpg)
 
-#### Dither Bayer
+![benchmark](benchmarks/color_lut_tracks.jpg)
 
+## color_dither
 ```bash
-glslViewer sample_dither.frag -l
+glslViewer color_dither.frag -u_noise assets/noise_blue.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/sample_dither.jpg)
+![screenshot](images/color_dither.jpg)
 
+![benchmark](benchmarks/color_dither_tracks.jpg)
 
-#### LookUp table
-
+## sample_dither
 ```bash
-glslViewer color_lut.frag assets/danny.png assets/square_01.png -l
+glslViewer sample_dither.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/color_lut.jpg)
+![screenshot](images/sample_dither.jpg)
 
+![benchmark](benchmarks/sample_dither_tracks.jpg)
 
-#### Mix vs mixOklab vs MixBox color mixing
-
+## color_iridescence_map
 ```bash
-glslViewer color_mix.frag lygia/assets/mixbox_lut.png -l
+glslViewer color_iridescence_map.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-
-![](images/color_mix.jpg)
 
+![screenshot](images/color_iridescence_map.jpg)
 
-#### Iridescence map
+![benchmark](benchmarks/color_iridescence_map_tracks.jpg)
 
-```bask
-	glslViewer color_iridescence_map.frag -l
+## color_wavelength
+```bash
+glslViewer color_wavelength.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/color_iridescence_map.jpg)
+![screenshot](images/color_wavelength.jpg)
 
+![benchmark](benchmarks/color_wavelength_tracks.jpg)
 
-#### Spectral Wavelength to RGB
-
-```bask
-	glslViewer color_wavelength.frag -l
+## color_wada
+```bash
+glslViewer color_wada.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/color_wavelength.jpg)
+![screenshot](images/color_wada.jpg)
 
+![benchmark](benchmarks/color_wada_tracks.jpg)
 
-# DRAW
+## color_wada_dyads
+```bash
+glslViewer color_wada_dyads.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/color_wada_dyads.jpg)
 
-#### AA functions
+![benchmark](benchmarks/color_wada_dyads_tracks.jpg)
 
+## color_wada_triads
 ```bash
-glslViewer draw_aa.frag -l
+glslViewer color_wada_triads.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/draw_aa.jpg)
+![screenshot](images/color_wada_triads.jpg)
 
+![benchmark](benchmarks/color_wada_triads_tracks.jpg)
 
-#### Digits
-
+## color_wada_tetrads
 ```bash
-glslViewer draw_digits.frag -l
+glslViewer color_wada_tetrads.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/draw_digits.jpg)
+![screenshot](images/color_wada_tetrads.jpg)
 
+![benchmark](benchmarks/color_wada_tetrads_tracks.jpg)
 
-#### Julia
-
+## color_pigments
 ```bash
-glslViewer draw_julia.frag -l
+glslViewer color_pigments.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-
-![](images/draw_julia.jpg)
 
+![screenshot](images/color_pigments.jpg)
 
-#### Mandelbulb
+![benchmark](benchmarks/color_pigments_tracks.jpg)
 
+## color_palette_lerp
 ```bash
-glslViewer draw_mandelbulb.frag -l
+glslViewer color_palette_lerp.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/draw_mandelbulb.jpg)
+![screenshot](images/color_palette_lerp.jpg)
 
+![benchmark](benchmarks/color_palette_lerp_tracks.jpg)
 
-## Shapes
-
+## color_ryb
 ```bash
-glslViewer draw_shapes.frag -l
+glslViewer color_ryb.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/draw_shapes.jpg)
+![screenshot](images/color_ryb.jpg)
 
+![benchmark](benchmarks/color_ryb_tracks.jpg)
 
-## Super Shape
-
+## color_zorn
 ```bash
-glslViewer draw_supershape.frag -l
+glslViewer color_zorn.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/color_zorn.jpg)
 
-## Color Checker (Macbeth/Spyder)
+![benchmark](benchmarks/color_zorn_tracks.jpg)
 
+## color_mix_ryb
 ```bash
-glslViewer draw_colorChecker.frag -l
+glslViewer color_mix_ryb.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/draw_colorChecker.jpg)
+![screenshot](images/color_mix_ryb.jpg)
 
+![benchmark](benchmarks/color_mix_ryb_tracks.jpg)
+
+## distort_pincushion
+```bash
+glslViewer distort_pincushion.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
-# GENERATIVE
+![screenshot](images/distort_pincushion.jpg)
 
-#### Random
+![benchmark](benchmarks/distort_pincushion_tracks.jpg)
 
+## draw_digits
 ```bash
-glslViewer generative_random.frag 
+glslViewer draw_digits.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/generative_random.jpg)
+![screenshot](images/draw_digits.jpg)
 
+![benchmark](benchmarks/draw_digits_tracks.jpg)
 
-#### Clasic Noise
-
+## draw_aa
 ```bash
-glslViewer generative_cnoise.frag 
+glslViewer draw_aa.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/generative_cnoise.jpg)
+![screenshot](images/draw_aa.jpg)
 
+![benchmark](benchmarks/draw_aa_tracks.jpg)
 
-#### Perlin Noise
-
+## draw_shapes
 ```bash
-glslViewer generative_pnoise.frag 
+glslViewer draw_shapes.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-
-![](images/generative_pnoise.jpg)
 
+![screenshot](images/draw_shapes.jpg)
 
-#### Simplex Noise
+![benchmark](benchmarks/draw_shapes_tracks.jpg)
 
+## draw_supershape
 ```bash
-glslViewer generative_snoise.frag 
+glslViewer draw_supershape.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/generative_snoise.jpg)
+![screenshot](images/draw_supershape.jpg)
 
-#### Tiling Simplex Flow Noise
+![benchmark](benchmarks/draw_supershape_tracks.jpg)
 
+## draw_tiles
 ```bash
-glslViewer generative_psrdnoise.frag assets/sphere.ply -l
+glslViewer draw_tiles.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/generative_psrdnoise.jpg)
+![screenshot](images/draw_tiles.jpg)
 
-#### Simplex Noise Derivatives
+![benchmark](benchmarks/draw_tiles_tracks.jpg)
 
+## draw_koch
 ```bash
-glslViewer generative_noised.frag 
+glslViewer draw_koch.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/generative_noised.jpg)
+![screenshot](images/draw_koch.jpg)
 
+![benchmark](benchmarks/draw_koch_tracks.jpg)
 
-#### Curl Noise
-
+## draw_julia
 ```bash
-glslViewer generative_curl.frag 
+glslViewer draw_julia.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-![](images/generative_curl.jpg)
 
+![screenshot](images/draw_julia.jpg)
 
-#### Fractal Brownian Motion
+![benchmark](benchmarks/draw_julia_tracks.jpg)
 
+## draw_mandelbulb
 ```bash
-glslViewer generative_fbm.frag 
+glslViewer draw_mandelbulb.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/generative_fbm.jpg)
+![screenshot](images/draw_mandelbulb.jpg)
 
+![benchmark](benchmarks/draw_mandelbulb_tracks.jpg)
 
-#### Voronoi
-
+## draw_colorChecker
 ```bash
-glslViewer generative_voronoi.frag 
+glslViewer draw_colorChecker.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-
-![](images/generative_voronoi.jpg)
 
+![screenshot](images/draw_colorChecker.jpg)
 
-#### Voronoise
+![benchmark](benchmarks/draw_colorChecker_tracks.jpg)
 
+## generative_random
 ```bash
-glslViewer generative_voronoise.frag 
+glslViewer generative_random.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/generative_voronoise.jpg)
+![screenshot](images/generative_random.jpg)
 
+![benchmark](benchmarks/generative_random_tracks.jpg)
 
-#### Wavelet Noise
-
+## generative_cnoise
 ```bash
-glslViewer generative_wavelet.frag 
+glslViewer generative_cnoise.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/generative_wavelet.jpg)
+![screenshot](images/generative_cnoise.jpg)
 
-#### Worley Noise
+![benchmark](benchmarks/generative_cnoise_tracks.jpg)
 
+## generative_pnoise
 ```bash
-glslViewer generative_worley.frag 
+glslViewer generative_pnoise.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/generative_worley.jpg)
+![screenshot](images/generative_pnoise.jpg)
 
+![benchmark](benchmarks/generative_pnoise_tracks.jpg)
+
+## generative_snoise
+```bash
+glslViewer generative_snoise.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
-# SAMPLE
+![screenshot](images/generative_snoise.jpg)
 
-#### Wrap clamp2edge vs repeat
+![benchmark](benchmarks/generative_snoise_tracks.jpg)
 
-```bash	
-	glslViewer sample_wrap.frag assets/rocks.png -l
+## generative_psrdnoise
+```bash
+glslViewer generative_psrdnoise.frag assets/sphere.ply --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-
-![](images/sample_wrap.jpg)
 
+![screenshot](images/generative_psrdnoise.jpg)
 
-#### Wrap repeat vs mirror
+![benchmark](benchmarks/generative_psrdnoise_tracks.jpg)
 
-```bash	
-	glslViewer sample_wrap_mirror.frag assets/rocks.png -l
+## generative_noised
+```bash
+glslViewer generative_noised.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/sample_wrap_mirror.jpg)
+![screenshot](images/generative_noised.jpg)
 
+![benchmark](benchmarks/generative_noised_tracks.jpg)
 
-#### Wrap repeat vs untile
-
-```bash	
-	glslViewer sample_wrap_untile.frag assets/rocks.png -l
+## generative_curl
+```bash
+glslViewer generative_curl.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/sample_wrap_untile.jpg)
+![screenshot](images/generative_curl.jpg)
 
+![benchmark](benchmarks/generative_curl_tracks.jpg)
 
-#### Bracketing
-
+## generative_fbm
 ```bash
-	glslViewer sample_bracketing.frag assets/rock_moss.jpg -l
+glslViewer generative_fbm.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-
-![](images/sample_bracketing.jpg)
 
+![screenshot](images/generative_fbm.jpg)
 
-#### Bicubic filter
+![benchmark](benchmarks/generative_fbm_tracks.jpg)
 
+## generative_voronoi
 ```bash
-	glslViewer sample_filter_bicubic.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,
+glslViewer generative_voronoi.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/sample_filter_bicubic.jpg)
+![screenshot](images/generative_voronoi.jpg)
 
+![benchmark](benchmarks/generative_voronoi_tracks.jpg)
 
-#### Nearest filter
-
+## generative_voronoise
 ```bash
-	glslViewer sample_filter_nearest.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,
+glslViewer generative_voronoise.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-
-![](images/sample_filter_nearest.jpg)
 
+![screenshot](images/generative_voronoise.jpg)
 
-#### Smooth filter
+![benchmark](benchmarks/generative_voronoise_tracks.jpg)
 
+## generative_wavelet
 ```bash
-	glslViewer sample_filter_smooth.frag assets/noise_blue.png -w 1080 -h 1080 --headless -E screenshot,
+glslViewer generative_wavelet.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/sample_filter_smooth.jpg)
+![screenshot](images/generative_wavelet.jpg)
 
+![benchmark](benchmarks/generative_wavelet_tracks.jpg)
 
-#### Sample EquiRectangular texture
-
-```bashlslViewer sample_equi2cube.frag assets/Arches_E_PineTree_3k.hdr -l
-	glslViewer sample_equirect.frag assets/dragon.obj assets/studio.png -e defined,SCENE_CUBEMAP,u_tex0 -e camera_position,-1.43923,0.891203,1.98093 -l
+## generative_worley
+```bash
+glslViewer generative_worley.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-
-![](images/sample_equirect.jpg)
 
+![screenshot](images/generative_worley.jpg)
 
-#### Sample 3D Sdf texture
+![benchmark](benchmarks/generative_worley_tracks.jpg)
 
+## filter_boxBlur1D
 ```bash
-	glslViewer sample_3Dsdf.frag assets/suzanne.png -e camera_position,-29.5393,26.2406,-42.1865 -l
+glslViewer filter_boxBlur1D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/sample_3Dsdf.jpg)
+![screenshot](images/filter_boxBlur1D.jpg)
 
+![benchmark](benchmarks/filter_boxBlur1D_tracks.jpg)
 
-#### Sample DoF 
-
+## filter_boxBlur2D
 ```bash
-	glslViewer sample_dof.frag assets/dragon.obj -C assets/Arches_E_PineTree_3k.hdr -e camera_position,-1.43923,0.891203,1.98093 -l 
-```	
-
-![](images/sample_dof.jpg)
-	
+glslViewer filter_boxBlur2D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
-# FILTER
+![screenshot](images/filter_boxBlur2D.jpg)
 
-#### boxBlur 1D
+![benchmark](benchmarks/filter_boxBlur2D_tracks.jpg)
 
+## filter_fibonacciBokeh
 ```bash
-	glslViewer filter_boxBlur1D.frag assets/danny.png -e buffers,on -l
+glslViewer filter_fibonacciBokeh.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/filter_boxBlur1D.jpg)
+![screenshot](images/filter_fibonacciBokeh.jpg)
 
+![benchmark](benchmarks/filter_fibonacciBokeh_tracks.jpg)
 
-#### boxBlur 2D
-
+## filter_gaussianBlur1D
 ```bash
-filter_boxBlur2D:
-	glslViewer filter_boxBlur2D.frag assets/danny.png -l
+glslViewer filter_gaussianBlur1D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/filter_boxBlur2D.jpg)
+![screenshot](images/filter_gaussianBlur1D.jpg)
 
+![benchmark](benchmarks/filter_gaussianBlur1D_tracks.jpg)
 
-#### Bilinear 2D
-
+## filter_gaussianBlur2D
 ```bash
-	glslViewer filter_bilinear2D.frag assets/danny.png -l
+glslViewer filter_gaussianBlur2D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-
-![](images/filter_bilinear2D.jpg)
 
+![screenshot](images/filter_gaussianBlur2D.jpg)
 
-#### GaussianBlur 1D
+![benchmark](benchmarks/filter_gaussianBlur2D_tracks.jpg)
 
+## filter_bilateral2D
 ```bash
-	glslViewer filter_gaussianBlur1D.frag assets/danny.png -e buffers,on -l
+glslViewer filter_bilateral2D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/filter_gaussianBlur1D.jpg)
+![screenshot](images/filter_bilateral2D.jpg)
 
+![benchmark](benchmarks/filter_bilateral2D_tracks.jpg)
 
-#### GaussianBlur 2D
-
+## filter_radialBlur2D
 ```bash
-	glslViewer filter_gaussianBlur2D.frag assets/danny.png -l
+glslViewer filter_radialBlur2D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/filter_gaussianBlur2D.jpg)
+![screenshot](images/filter_radialBlur2D.jpg)
 
+![benchmark](benchmarks/filter_radialBlur2D_tracks.jpg)
 
-#### FibonaccciBokeh
-
+## filter_noiseBlur2D
 ```bash
-	glslViewer filter_fibonacciBokeh.frag assets/danny.png -l
+glslViewer filter_noiseBlur2D.frag -u_tex0 assets/danny.png -u_noise assets/noise_blue.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
-
-![](images/filter_fibonacciBokeh.jpg)
 
+![screenshot](images/filter_noiseBlur2D.jpg)
 
-#### BilateralBlur 2D 
+![benchmark](benchmarks/filter_noiseBlur2D_tracks.jpg)
 
+## filter_median2D
 ```bash
-	glslViewer filter_bilateralBlur2D.frag assets/danny.png -l
+glslViewer filter_median2D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/filter_bilateral2D.jpg)
+![screenshot](images/filter_median2D.jpg)
 
+![benchmark](benchmarks/filter_median2D_tracks.jpg)
 
-#### RadialBlur 2D 
+## filter_kuwahara2D
+```bash
+glslViewer filter_kuwahara2D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/filter_kuwahara2D.jpg)
 
+![benchmark](benchmarks/filter_kuwahara2D_tracks.jpg)
+
+## filter_sharpen2D
 ```bash
-	glslViewer filter_radialBlur2D.frag assets/danny.png -l
+glslViewer filter_sharpen2D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/filter_sharpen2D.jpg)
+
+![benchmark](benchmarks/filter_sharpen2D_tracks.jpg)
 
-![](images/filter_radialBlur2D.jpg)
+## filter_laplacian2D
+```bash
+glslViewer filter_laplacian2D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/filter_laplacian2D.jpg)
 
-#### NoiseBlur 2D 
+![benchmark](benchmarks/filter_laplacian2D_tracks.jpg)
 
+## filter_edge2D
 ```bash
-	glslViewer filter_noiseBlur2D.frag assets/danny.png -l
+glslViewer filter_edge2D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/filter_edge2D.jpg)
 
-![](images/filter_noiseBlur2D.jpg)
+![benchmark](benchmarks/filter_edge2D_tracks.jpg)
 
+## filter_bilinear2D
+```bash
+glslViewer filter_bilinear2D.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
-#### Median 2D 
+![screenshot](images/filter_bilinear2D.jpg)
 
+![benchmark](benchmarks/filter_bilinear2D_tracks.jpg)
+
+## sample_dof
 ```bash
-	glslViewer filter_median2D.frag assets/danny.png -l
+glslViewer sample_dof.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
 ```
+
+![screenshot](images/sample_dof.jpg)
 
-![](images/filter_median2D.jpg)
+![benchmark](benchmarks/sample_dof_tracks.jpg)
 
+## sample_bracketing
+```bash
+glslViewer sample_bracketing.frag assets/rock_moss.jpg --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/sample_bracketing.jpg)
 
-#### Kuwahara 2D 
+![benchmark](benchmarks/sample_bracketing_tracks.jpg)
 
+## sample_wrap
 ```bash
-	glslViewer filter_kuwahara2D.frag assets/danny.png -l
+glslViewer sample_wrap.frag assets/rocks.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/filter_kuwahara2D.jpg)
+![screenshot](images/sample_wrap.jpg)
+
+![benchmark](benchmarks/sample_wrap_tracks.jpg)
+
+## sample_wrap_repeat
+```bash
+glslViewer sample_wrap_repeat.frag assets/rocks.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/sample_wrap_repeat.jpg)
 
-#### Sharpen 2D 
+![benchmark](benchmarks/sample_wrap_repeat_tracks.jpg)
 
+## sample_wrap_clamp
 ```bash
-	glslViewer filter_sharpen2D.frag assets/danny.png -l
+glslViewer sample_wrap_clamp.frag assets/rocks.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/sample_wrap_clamp.jpg)
+
+![benchmark](benchmarks/sample_wrap_clamp_tracks.jpg)
 
-![](images/filter_sharpen2D.jpg)
+## sample_wrap_mirror
+```bash
+glslViewer sample_wrap_mirror.frag assets/rocks.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/sample_wrap_mirror.jpg)
 
-#### Laplacian 2D 
+![benchmark](benchmarks/sample_wrap_mirror_tracks.jpg)
 
+## sample_wrap_untile
 ```bash
-	glslViewer filter_laplacian2D.frag assets/danny.png -l
+glslViewer sample_wrap_untile.frag assets/rocks.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/sample_wrap_untile.jpg)
 
-![](images/filter_laplacian2D.jpg)
+![benchmark](benchmarks/sample_wrap_untile_tracks.jpg)
 
+## sample_wrap_zero
+```bash
+glslViewer sample_wrap_zero.frag assets/rocks.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/sample_wrap_zero.jpg)
 
-#### Edge 2D 
+![benchmark](benchmarks/sample_wrap_zero_tracks.jpg)
 
+## sample_filter_bicubic
 ```bash
-	glslViewer filter_edge2D.frag assets/danny.png -l
+glslViewer sample_filter_bicubic.frag assets/noise_blue.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/filter_edge2D.jpg)
+![screenshot](images/sample_filter_bicubic.jpg)
 
+![benchmark](benchmarks/sample_filter_bicubic_tracks.jpg)
+
+## sample_filter_nearest
+```bash
+glslViewer sample_filter_nearest.frag assets/noise_blue.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
-# MORPHOLOGICAL
+![screenshot](images/sample_filter_nearest.jpg)
 
-#### EROSION
+![benchmark](benchmarks/sample_filter_nearest_tracks.jpg)
 
+## sample_filter_smooth
 ```bash
-	glslViewer morphological_erosion.frag assets/flower.png -l
+glslViewer sample_filter_smooth.frag assets/noise_blue.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/morphological_erosion.jpg)
+![screenshot](images/sample_filter_smooth.jpg)
 
+![benchmark](benchmarks/sample_filter_smooth_tracks.jpg)
 
-#### DILATION
+## sample_equirect
+```bash
+glslViewer sample_equirect.frag assets/dragon.obj assets/studio.png  -e camera_position,-1.43923,0.891203,1.98093  -e define,SCENE_CUBEMAP,u_tex0 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/sample_equirect.jpg)
 
+![benchmark](benchmarks/sample_equirect_tracks.jpg)
+
+## sample_3Dsdf
 ```bash
-	glslViewer morphological_dilation.frag assets/flower.png -l
+glslViewer sample_3Dsdf.frag assets/suzanne.png  -e camera_position,-29.5393,26.2406,-42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/sample_3Dsdf.jpg)
 
-![](images/morphological_dilation.jpg)
+![benchmark](benchmarks/sample_3Dsdf_tracks.jpg)
+
+## sample_triplanar
+```bash
+glslViewer sample_triplanar.frag assets/suzanne.obj assets/rock_moss.jpg --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/sample_triplanar.jpg)
 
-#### ALPHA FILL
+![benchmark](benchmarks/sample_triplanar_tracks.jpg)
 
+## morphological_erosion
 ```bash
-	glslViewer morphological_alphaFill.frag assets/flower.png -l
+glslViewer morphological_erosion.frag assets/flower.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/morphological_erosion.jpg)
+
+![benchmark](benchmarks/morphological_erosion_tracks.jpg)
 
-![](images/morphological_alphaFill.jpg)
+## morphological_dilation
+```bash
+glslViewer morphological_dilation.frag assets/flower.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/morphological_dilation.jpg)
 
-#### Poisson Fill
+![benchmark](benchmarks/morphological_dilation_tracks.jpg)
 
+## morphological_alphaFill
 ```bash
-	glslViewer morphological_poissonFill.frag assets/flower.png -l
+glslViewer morphological_alphaFill.frag assets/flower.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/morphological_alphaFill.jpg)
 
-![](images/morphological_poissonFill.gif)
+![benchmark](benchmarks/morphological_alphaFill_tracks.jpg)
 
+## morphological_poissonFill
+```bash
+glslViewer morphological_poissonFill.frag assets/flower.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/morphological_poissonFill.jpg)
 
-#### Marching Squares
+![benchmark](benchmarks/morphological_poissonFill_tracks.jpg)
 
+## morphological_marchinSquares
 ```bash
-	glslViewer morphological_marchingSquares.frag assets/flower.png -l
+glslViewer morphological_marchinSquares.frag assets/flower.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/morphological_marchingSquares.jpg)
+![screenshot](images/morphological_marchinSquares.jpg)
 
+![benchmark](benchmarks/morphological_marchinSquares_tracks.jpg)
+
+## lighting_position
+```bash
+glslViewer lighting_position.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
-# LIGHTING
+![screenshot](images/lighting_position.jpg)
 
-#### View Position (pass)
+![benchmark](benchmarks/lighting_position_tracks.jpg)
 
+## lighting_normal
 ```bash
-glslViewer assets/dragon.obj lighting_position.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+glslViewer lighting_normal.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/lighting_position.jpg)
+![screenshot](images/lighting_normal.jpg)
 
-#### View Normal (pass)
+![benchmark](benchmarks/lighting_normal_tracks.jpg)
 
+## lighting_gooch
 ```bash
-glslViewer assets/dragon.obj lighting_normal.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+glslViewer lighting_gooch.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/lighting_normal.jpg)
+![screenshot](images/lighting_gooch.jpg)
 
-#### Shadow (material)
+![benchmark](benchmarks/lighting_gooch_tracks.jpg)
 
+## lighting_pbrLittle
 ```bash
-glslViewer assets/dragon.obj lighting_shadow.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+glslViewer lighting_pbrLittle.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/lighting_shadow.jpg)
+![screenshot](images/lighting_pbrLittle.jpg)
 
+![benchmark](benchmarks/lighting_pbrLittle_tracks.jpg)
 
-#### ScreenSpace Ambient Occlusion (postprocessing)
+## lighting_pbrLittle_cubemap
+```bash
+glslViewer lighting_pbrLittle.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
+```
+
+![screenshot](images/lighting_pbrLittle_cubemap.jpg)
 
+![benchmark](benchmarks/lighting_pbrLittle_cubemap_tracks.jpg)
+
+## lighting_pbrLittle_deferred
 ```bash
-glslViewer assets/dragon.obj lighting_ssao.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+glslViewer lighting_pbrLittle_deferred.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/lighting_pbrLittle_deferred.jpg)
+
+![benchmark](benchmarks/lighting_pbrLittle_deferred_tracks.jpg)
 
-![](images/lighting_ssao.jpg)
+## lighting_pbr
+```bash
+glslViewer lighting_pbr.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/lighting_pbr.jpg)
 
-#### Gooch (material)
+![benchmark](benchmarks/lighting_pbr_tracks.jpg)
 
+## lighting_pbr_cubemap
 ```bash
-glslViewer assets/dragon.obj lighting_gooch.frag -e camera_position,1.43923,-0.891203,-1.98093 -l
+glslViewer lighting_pbr.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
 ```
+
+![screenshot](images/lighting_pbr_cubemap.jpg)
 
-![](images/lighting_gooch.jpg)
+![benchmark](benchmarks/lighting_pbr_cubemap_tracks.jpg)
 
+## lighting_pbr_lights
+```bash
+glslViewer lighting_pbr_lights.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
-#### SphereMap (material)
+![screenshot](images/lighting_pbr_lights.jpg)
 
+![benchmark](benchmarks/lighting_pbr_lights_tracks.jpg)
+
+## lighting_pbr_dynamic
 ```bash
-glslViewer assets/dragon.obj lighting_sphereMap.frag assets/matcap.jpg -e camera_position,-1.43923,0.891203,1.98093
+glslViewer lighting_pbr_dynamic.frag assets/dragon.obj lighting_pbr_dynamic.vert  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/lighting_pbr_dynamic.jpg)
 
-![](images/lighting_sphereMap.jpg)
+![benchmark](benchmarks/lighting_pbr_dynamic_tracks.jpg)
 
+## lighting_pbrClearCoat
+```bash
+glslViewer lighting_pbrClearCoat.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/lighting_pbrClearCoat.jpg)
 
-#### Spherical Harmonics (material)
+![benchmark](benchmarks/lighting_pbrClearCoat_tracks.jpg)
 
+## lighting_pbrClearCoat_cubemap
 ```bash
-glslViewer assets/dragon.obj lighting_sphericalHarmonics.frag -e camera_position,-1.43923,0.891203,1.98093 -c assets/Arches_E_PineTree_3k.hdr --msaa --fxaa -e sky,on -l
+glslViewer lighting_pbrClearCoat.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
 ```
 
-![](images/lighting_sphericalHarmonics.jpg)
+![screenshot](images/lighting_pbrClearCoat_cubemap.jpg)
+
+![benchmark](benchmarks/lighting_pbrClearCoat_cubemap_tracks.jpg)
+
+## lighting_pbrIridescence
+```bash
+glslViewer lighting_pbrIridescence.frag assets/IridescenceSuzanne.glb  -e camera_position,-5.34446,3.96689,5.76653 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/lighting_pbrIridescence.jpg)
 
-#### PBR (material)
+![benchmark](benchmarks/lighting_pbrIridescence_tracks.jpg)
 
+## lighting_pbrIridescence_cubemap
 ```bash
-glslViewer assets/dragon.obj lighting_pbr.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
+glslViewer lighting_pbrIridescence.frag assets/IridescenceSuzanne.glb  -e camera_position,-5.34446,3.96689,5.76653 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
 ```
+
+![screenshot](images/lighting_pbrIridescence_cubemap.jpg)
+
+![benchmark](benchmarks/lighting_pbrIridescence_cubemap_tracks.jpg)
 
-![](images/lighting_pbr_cubemap.jpg)
+## lighting_pbrGlass
+```bash
+glslViewer lighting_pbrGlass.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/lighting_pbrGlass.jpg)
 
-#### PBR ClearCoat (material)
+![benchmark](benchmarks/lighting_pbrGlass_tracks.jpg)
 
+## lighting_pbrGlass_cubemap
 ```bash
-glslViewer assets/dragon.obj lighting_pbrClearCoat.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
+glslViewer lighting_pbrGlass.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
 ```
+
+![screenshot](images/lighting_pbrGlass_cubemap.jpg)
 
-![](images/lighting_pbrClearCoat_cubemap.jpg)
+![benchmark](benchmarks/lighting_pbrGlass_cubemap_tracks.jpg)
 
+## lighting_pbrSsS
+```bash
+glslViewer lighting_pbrSsS.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/lighting_pbrSsS.jpg)
 
-#### PBR Subsurface Scattering (material)
+![benchmark](benchmarks/lighting_pbrSsS_tracks.jpg)
 
+## lighting_pbrSsS_cubemap
 ```bash
-glslViewer assets/dragon.obj lighting_pbrSsS.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
+glslViewer lighting_pbrSsS.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
 ```
 
-![](images/lighting_pbrSsS_cubemap.jpg)
+![screenshot](images/lighting_pbrSsS_cubemap.jpg)
+
+![benchmark](benchmarks/lighting_pbrSsS_cubemap_tracks.jpg)
+
+## lighting_shadow
+```bash
+glslViewer lighting_shadow.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/lighting_shadow.jpg)
 
-#### PBR Glass (material)
+![benchmark](benchmarks/lighting_shadow_tracks.jpg)
 
+## lighting_sphereMap_glass
 ```bash
-glslViewer assets/dragon.obj lighting_pbrGlass.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -e dynamic_shadows,on -l 
+glslViewer lighting_sphereMap.frag assets/sem-glass-0003.jpg assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/lighting_sphereMap_glass.jpg)
+
+![benchmark](benchmarks/lighting_sphereMap_glass_tracks.jpg)
 
-![](images/lighting_pbrGlass_cubemap.jpg)
+## lighting_sphereMap_crystal
+```bash
+glslViewer lighting_sphereMap.frag assets/sem-glass-0004.jpg assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/lighting_sphereMap_crystal.jpg)
 
-#### PBR Iridescence (material)
+![benchmark](benchmarks/lighting_sphereMap_crystal_tracks.jpg)
 
+## lighting_sphereMap_gold
 ```bash
-glslViewer assets/dragon.obj lighting_pbrIridescence.frag -e camera_position,-1.43923,0.891203,1.98093 --msaa -C assets/Arches_E_PineTree_3k.hdr -e dynamic_shadows,on -l 
+glslViewer lighting_sphereMap.frag assets/sem-gold-0003.jpg assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/lighting_sphereMap_gold.jpg)
+
+![benchmark](benchmarks/lighting_sphereMap_gold_tracks.jpg)
 
-![](images/lighting_pbrIridescence_cubemap.jpg)
+## lighting_sphereMap_metal
+```bash
+glslViewer lighting_sphereMap.frag assets/sem-metal-0003.jpg assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/lighting_sphereMap_metal.jpg)
 
-#### ScreenSpace Reflections (postprocessing/raymarching)
+![benchmark](benchmarks/lighting_sphereMap_metal_tracks.jpg)
 
+## lighting_sphereMap_dark_metal
 ```bash
-glslViewer assets/dragon.obj lighting_ssr.frag -e camera_position,1.43923,-0.891203,-1.98093 -C assets/uffizi_cross.hdr -l 
+glslViewer lighting_sphereMap.frag assets/sem-metal-0019.jpg assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/lighting_sphereMap_dark_metal.jpg)
 
-![](images/lighting_ssr.jpg)
+![benchmark](benchmarks/lighting_sphereMap_dark_metal_tracks.jpg)
+
+## lighting_sphereMap_iridescent
+```bash
+glslViewer lighting_sphereMap.frag assets/sem-0033.jpg assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/lighting_sphereMap_iridescent.jpg)
 
-#### Volumetric Light Scattering with Cubemap(postprocessing/raymarching)
+![benchmark](benchmarks/lighting_sphereMap_iridescent_tracks.jpg)
 
+## lighting_sphericalHarmonics
 ```bash
-glslViewer assets/dragon.obj lighting_volumetric.frag -e camera_position,-1.67433,0.0682091,-1.99539 -C assets/Arches_E_PineTree_3k.hdr -l 
+glslViewer lighting_sphericalHarmonics.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093  -e sky,on --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
 ```
 
-![](images/lighting_volumetric_cubemap.jpg)
+![screenshot](images/lighting_sphericalHarmonics.jpg)
 
+![benchmark](benchmarks/lighting_sphericalHarmonics_tracks.jpg)
 
-#### Raymarching 
+## lighting_ssao
+```bash
+glslViewer lighting_ssao.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/lighting_ssao.jpg)
 
+![benchmark](benchmarks/lighting_ssao_tracks.jpg)
+
+## lighting_ssr
 ```bash
-glslViewer lighting_raymarching.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+glslViewer lighting_ssr.frag assets/dragon.obj  -e camera_position,-1.43923,0.891203,1.98093 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
 ```
+
+![screenshot](images/lighting_ssr.jpg)
+
+![benchmark](benchmarks/lighting_ssr_tracks.jpg)
 
-![](images/lighting_raymarching.jpg)
+## lighting_volumetric
+```bash
+glslViewer lighting_volumetric.frag assets/dragon.obj  -e camera_position,-1.67433,0.0682091,-1.99539 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
+```
 
+![screenshot](images/lighting_volumetric.jpg)
 
-#### Raymarching custom Gooch shading
+![benchmark](benchmarks/lighting_volumetric_tracks.jpg)
 
+## lighting_raymarching
 ```bash
-glslViewer lighting_raymarching_gooch.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+glslViewer lighting_raymarching.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/lighting_raymarching.jpg)
 
-![](images/lighting_raymarching_gooch.jpg)
+![benchmark](benchmarks/lighting_raymarching_tracks.jpg)
+
+## lighting_raymarching_cubemap
+```bash
+glslViewer lighting_raymarching.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
+```
 
+![screenshot](images/lighting_raymarching_cubemap.jpg)
 
-#### Raymarching custom PBR
+![benchmark](benchmarks/lighting_raymarching_cubemap_tracks.jpg)
 
+## lighting_raymarching_return
 ```bash
-glslViewer lighting_raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+glslViewer lighting_raymarching_return.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/lighting_raymarching_pbr.jpg)
+![screenshot](images/lighting_raymarching_return.jpg)
 
+![benchmark](benchmarks/lighting_raymarching_return_tracks.jpg)
 
-#### Raymarching custom PBR with CUBEMAP
+## lighting_raymarching_gooch
+```bash
+glslViewer lighting_raymarching_gooch.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/lighting_raymarching_gooch.jpg)
 
+![benchmark](benchmarks/lighting_raymarching_gooch_tracks.jpg)
+
+## lighting_raymarching_pbr
 ```bash
-glslViewer lighting_raymarching_pbr.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+glslViewer lighting_raymarching_pbr.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/lighting_raymarching_pbr.jpg)
 
-![](images/lighting_raymarching_pbr_cubemap.jpg)
+![benchmark](benchmarks/lighting_raymarching_pbr_tracks.jpg)
+
+## lighting_raymarching_pbr_cubemap
+```bash
+glslViewer lighting_raymarching_pbr.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
+```
 
+![screenshot](images/lighting_raymarching_pbr_cubemap.jpg)
 
-#### Raymarching custom PBRLittle
+![benchmark](benchmarks/lighting_raymarching_pbr_cubemap_tracks.jpg)
 
+## lighting_raymarching_pbrLittle
 ```bash
-glslViewer lighting_raymarching_pbrLittle.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+glslViewer lighting_raymarching_pbrLittle.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/lighting_raymarching_pbrLittle.jpg)
+
+![benchmark](benchmarks/lighting_raymarching_pbrLittle_tracks.jpg)
 
-![](images/lighting_raymarching_pbrLittle.jpg)
+## lighting_raymarching_pbrLittle_cubemap
+```bash
+glslViewer lighting_raymarching_pbrLittle.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
+```
 
+![screenshot](images/lighting_raymarching_pbrLittle_cubemap.jpg)
 
-#### Raymarching custom PBRLittle with CUBEMAP
+![benchmark](benchmarks/lighting_raymarching_pbrLittle_cubemap_tracks.jpg)
 
+## lighting_raymarching_pbrClearCoat
 ```bash
-glslViewer lighting_raymarching_pbrLittle.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+glslViewer lighting_raymarching_pbrClearCoat.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/lighting_raymarching_pbrClearCoat.jpg)
 
-![](images/lighting_raymarching_pbrLittle_cubemap.jpg)
+![benchmark](benchmarks/lighting_raymarching_pbrClearCoat_tracks.jpg)
 
+## lighting_raymarching_pbrClearCoat_cubemap
+```bash
+glslViewer lighting_raymarching_pbrClearCoat.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
+```
+
+![screenshot](images/lighting_raymarching_pbrClearCoat_cubemap.jpg)
 
-#### Raymarching custom PBRClearCoat
+![benchmark](benchmarks/lighting_raymarching_pbrClearCoat_cubemap_tracks.jpg)
 
+## lighting_raymarching_pbrGlass
 ```bash
-glslViewer lighting_raymarching_pbrClearCoat.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+glslViewer lighting_raymarching_pbrGlass.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/lighting_raymarching_pbrClearCoat.jpg)
+![screenshot](images/lighting_raymarching_pbrGlass.jpg)
+
+![benchmark](benchmarks/lighting_raymarching_pbrGlass_tracks.jpg)
+
+## lighting_raymarching_pbrGlass_cubemap
+```bash
+glslViewer lighting_raymarching_pbrGlass.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
+```
 
+![screenshot](images/lighting_raymarching_pbrGlass_cubemap.jpg)
 
-#### Raymarching custom PBRClarCoat with CUBEMAP
+![benchmark](benchmarks/lighting_raymarching_pbrGlass_cubemap_tracks.jpg)
 
+## lighting_raymarching_pbrIridescence
 ```bash
-glslViewer lighting_raymarching_pbrClearCoat.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+glslViewer lighting_raymarching_pbrIridescence.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/lighting_raymarching_pbrIridescence.jpg)
+
+![benchmark](benchmarks/lighting_raymarching_pbrIridescence_tracks.jpg)
 
-![](images/lighting_raymarching_pbrClearCoat_cubemap.jpg)
+## lighting_raymarching_pbrIridescence_cubemap
+```bash
+glslViewer lighting_raymarching_pbrIridescence.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
+```
 
+![screenshot](images/lighting_raymarching_pbrIridescence_cubemap.jpg)
 
-#### Raymarching custom PBRGlass
+![benchmark](benchmarks/lighting_raymarching_pbrIridescence_cubemap_tracks.jpg)
 
+## lighting_raymarching_volume
 ```bash
-glslViewer lighting_raymarching_pbrGlass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+glslViewer lighting_raymarching_volume.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
+
+![screenshot](images/lighting_raymarching_volume.jpg)
 
-![](images/lighting_raymarching_pbrGlass.jpg)
+![benchmark](benchmarks/lighting_raymarching_volume_tracks.jpg)
 
+## lighting_raymarching_pbr_volume
+```bash
+glslViewer lighting_raymarching_pbr_volume.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
+```
+
+![screenshot](images/lighting_raymarching_pbr_volume.jpg)
 
-#### Raymarching custom PBRGlass with CUBEMAP
+![benchmark](benchmarks/lighting_raymarching_pbr_volume_tracks.jpg)
 
+## lighting_raymarching_pbr_volume_cubemap
 ```bash
-glslViewer lighting_raymarching_pbrGlass.frag -e camera_position,-29.5393,-26.2406,-42.1865 -C assets/uffizi_cross.hdr -l
+glslViewer lighting_raymarching_pbr_volume.frag  -e camera_position,29.5393,26.2406,42.1865 --msaa --width 512 --height 512 -e dynamic_shadows,on -C assets/Arches_E_PineTree_3k.hdr -l
 ```
 
-![](images/lighting_raymarching_pbrGlass_cubemap.jpg)
+![screenshot](images/lighting_raymarching_pbr_volume_cubemap.jpg)
+
+![benchmark](benchmarks/lighting_raymarching_pbr_volume_cubemap_tracks.jpg)
+
+## lighting_atmosphere_equirectangular
+```bash
+glslViewer lighting_atmosphere.frag  -e define,PROJECTION_MODE,0 --msaa --width 1024 --height 512 -e dynamic_shadows,on -l
+```
 
+![screenshot](images/lighting_atmosphere_equirectangular.jpg)
 
-#### Raymarching default VOLUME
+![benchmark](benchmarks/lighting_atmosphere_equirectangular_tracks.jpg)
 
+## lighting_atmosphere_fisheye
 ```bash
-glslViewer lighting_raymarching_volume.frag -e camera_position,-29.5393,-26.2406,-42.1865 -l
+glslViewer lighting_atmosphere.frag  -e define,PROJECTION_MODE,1 --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 ```
 
-![](images/lighting_raymarching_volume.jpg)
+![screenshot](images/lighting_atmosphere_fisheye.jpg)
 
+![benchmark](benchmarks/lighting_atmosphere_fisheye_tracks.jpg)
 

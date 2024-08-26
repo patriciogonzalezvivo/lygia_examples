@@ -1,0 +1,16 @@
+track,timeStampMs,durationMs
+render,0.233154,0.674072
+render:scene:shadowmap:floor,0.343018,0.114014
+render:scene:shadowmap:dragon,0.467041,0.056152
+render:sceneNormal:floor,0.537109,0.059082
+render:sceneNormal:dragon,0.606201,0.041992
+render:scenePosition:floor,0.657227,0.039795
+render:scenePosition:dragon,0.706055,0.031982
+render:3D_scene,0.745117,0.120117
+render:scene:floor,0.753174,0.053955
+render:scene:dragon,0.813232,0.041992
+render:scene:devlook,0.862061,0.000977
+render:postprocessing,0.870117,0.033936
+renderUI,0.912109,0.000977
+update:post_render,0.920166,0.001953
+render:swap,0.930176,0.463867

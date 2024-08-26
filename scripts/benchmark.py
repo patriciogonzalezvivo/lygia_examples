@@ -59,7 +59,7 @@ def process_results(name, results):
 def benchmark(name, shader_config, cwd = "./"):
     shader_config["headless"] = True
     shader_config["noncurses"] = True
-    # shader_config["fullFps"] = True
+    shader_config["fullFps"] = True
 
     gv = GlslViewer(name, shader_config)
     # Do the tracking

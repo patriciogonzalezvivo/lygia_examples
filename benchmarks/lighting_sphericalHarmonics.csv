@@ -1,0 +1,12 @@
+track,timeStampMs,durationMs
+render,12.071045,0.395020
+render:scene:shadowmap:floor,12.162109,0.091064
+render:scene:shadowmap:dragon,12.260986,0.047119
+render:3D_scene,12.321045,0.143066
+render:scene:cubemap,12.324219,0.031006
+render:scene:floor,12.362061,0.052979
+render:scene:dragon,12.422119,0.031982
+render:scene:devlook,12.461182,0.000977
+renderUI,12.471191,0.001953
+update:post_render,12.477051,0.001953
+render:swap,12.484131,0.832031

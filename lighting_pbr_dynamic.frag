@@ -37,6 +37,7 @@ varying mat3        v_tangentToWorld;
 varying vec3        v_light;
 varying vec4        v_lightCoord;
 
+#define LOOK_AT_RIGHT_HANDED
 #define LIGHT_ELEVATION     (sin(u_time * 0.1) * 0.5 + 0.5)
 #define LIGHT_DIRECTION     v_light
 #define LIGHT_COLOR         saturate(enviroment(-v_light))
@@ -77,6 +78,7 @@ vec3 enviroment(vec3 normal) {
 #include "lygia/lighting/material/new.glsl"
 #include "lygia/lighting/raymarch/camera.glsl"
 #include "lygia/sample/zero.glsl"
+#include "lygia/space/lookAt.glsl"
 
 void main(void) {
     vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
@@ -88,7 +90,7 @@ void main(void) {
     uv = v_texcoord;
     #endif
     vec3 cam = (vec4(u_camera, 0.0)).xyz;
-    mat3 ca = raymarchCamera( cam );
+    mat3 ca = lookAt( -cam );
     vec3 ray = ca * normalize(vec3(st*2.0-1.0, 1.65));
 
 #if defined(SCENE_BUFFER_0)

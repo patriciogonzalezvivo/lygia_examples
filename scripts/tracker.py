@@ -112,6 +112,8 @@ class Tracker:
                 return False
             
             self.processDeltas()
+        
+            return True
 
 
     def getTracks(self):

@@ -1,0 +1,9 @@
+track,timeStampMs,durationMs
+render,6.450928,0.257080
+render:3D_scene,6.468018,0.237793
+render:scene:floor,6.475830,0.156982
+render:scene:dragon,6.642822,0.052002
+render:scene:devlook,6.702881,0.000000
+renderUI,6.712891,0.001953
+update:post_render,6.721924,0.001953
+render:swap,6.729004,0.652832

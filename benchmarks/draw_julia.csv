@@ -1,0 +1,6 @@
+track,timeStampMs,durationMs
+render,5.149902,0.140137
+render:2D_scene,5.164062,0.121826
+renderUI,5.295898,0.001953
+update:post_render,5.302979,0.002930
+render:swap,5.311035,0.845947
