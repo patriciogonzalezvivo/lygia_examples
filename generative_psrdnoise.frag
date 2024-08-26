@@ -32,17 +32,15 @@ void main(void) {
     vec3 g = vec3(0.0);
 
     float bump = psrdnoise(v, p, u_time, g);
- 
-    vec3 pattern = vec3(0.5+0.5*bump);
-    // pattern.rb = 1.0-pattern.rb; // spruce it up
-     
-    // Perturb normal (Yes, this is all we need to do)
-    vec3 N = g - dot(g, v_normal) * v_normal; // N orthogonal to N
-    vec3 normal = v_normal - N * 0.15;
-    // normal = (u_viewMatrix * vec4(normal, .0)).xyz;
 
-    // Use PBR Little
-    color = pbrLittle(vec4(pattern, 1.0), normalize(normal), 0.05, 0.0);
+    Material material = materialNew();
+    material.albedo = vec4(vec3(0.5+0.5*bump), 1.0);
+    material.metallic = 0.0;
+    material.roughness = 0.2;
+    vec3 N = g - dot(g, v_normal) * v_normal; // N orthogonal to N
+    material.normal = v_normal - N * 0.15;
+    color = pbrLittle(material);
+    color = linear2gamma(color);
 
     gl_FragColor = color;
 }

@@ -49,11 +49,12 @@ varying mat3        v_tangentToWorld;
 #define CAMERA_POSITION     u_camera
 #define IBL_LUMINANCE       0.0
 
-// #define LIGHT_DIRECTION     u_light
-// #define LIGHT_COLOR         u_lightColor
-// #define LIGHT_FALLOFF       u_lightFalloff
-// #define LIGHT_INTENSITY     u_lightIntensity
-// #define LIGHT_COORD         v_lightCoord
+#define LIGHT_DIRECTION     u_light
+// #define LIGHT_POSITION      u_light
+#define LIGHT_COLOR         u_lightColor
+#define LIGHT_FALLOFF       u_lightFalloff
+#define LIGHT_INTENSITY     u_lightIntensity
+#define LIGHT_COORD         v_lightCoord
 
 #include "lygia/lighting/material/new.glsl"
 #include "lygia/lighting/light/point.glsl"
