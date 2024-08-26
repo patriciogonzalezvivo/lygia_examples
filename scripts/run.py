@@ -42,8 +42,8 @@ def run_screenshot(name, shader_config, run=True):
 
 
 def run_benchmark(name, shader_config, folder):
-    shader_config["width"] = 1920
-    shader_config["height"] = 1920
+    shader_config["width"] = 512
+    shader_config["height"] = 512
     data = benchmark(name, shader_config, folder)
     with open(folder + "/" + name + ".json", 'w') as f:
         json.dump(data, f, indent=4)
