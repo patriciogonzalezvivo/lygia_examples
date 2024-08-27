@@ -16,7 +16,7 @@ uniform vec2        u_resolution;
 #define LIGHT_COLOR         vec3(0.95, 0.65, 0.5)
 #define LOOK_AT_RIGHT_HANDED
 
-#define RAYMARCH_RETURN 2
+#define RAYMARCH_AOV 2
 // #define RAYMARCH_SAMPLES 100
 #define RAYMARCH_MULTISAMPLE 4
 #define RAYMARCH_AMBIENT    vec3(0.7, 0.9, 1.0)
@@ -59,18 +59,18 @@ void main() {
 
     vec3 cam = u_camera * 0.11;
 
-    #if RAYMARCH_RETURN == 0
+    #if RAYMARCH_AOV == 0
     // Don't return anything
     color.rgb = linear2gamma( raymarch(cam, vec3(0.0), uv).rgb );
 
-    #elif RAYMARCH_RETURN == 1
+    #elif RAYMARCH_AOV == 1
     // Return depth
     float depth = 0.0;
     color.rgb = linear2gamma( raymarch(cam, vec3(0.0), uv, depth).rgb );
     vec3 depth_heat = heatmap( map(depth, RAYMARCH_MIN_DIST, RAYMARCH_MAX_DIST, 0.0, 1.0) );
     color.rgb = mix(color.rgb, depth_heat, step(0.5, st.x) );
 
-    #elif RAYMARCH_RETURN == 2
+    #elif RAYMARCH_AOV == 2
     Material mat;
     float depth = 0.0;
     color.rgb = linear2gamma( raymarch(cam, vec3(0.0), uv, depth, mat).rgb );

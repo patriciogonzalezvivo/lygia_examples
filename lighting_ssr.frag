@@ -102,8 +102,8 @@ void main(void) {
     #endif
 
     Material material = materialNew();
-    // material.metallic = 0.0;
-    // material.roughness = 0.05;
+    material.metallic = 0.;
+    material.roughness = 0.05;
 
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = vec3(0.5) + checkBoard(v_texcoord, vec2(8.0)) * 0.5;
@@ -116,9 +116,11 @@ void main(void) {
     vec3 L = normalize(LIGHT_POSITION - (SURFACE_POSITION).xyz);
     vec3 N = normalize(material.normal);
     vec3 V = normalize(CAMERA_POSITION - (SURFACE_POSITION).xyz);
-    color += saturate(specular(L, N, V, material.roughness));
+    float NoV = saturate(dot(N, V));
+    float NoL = saturate(dot(N, L));
+    color += saturate(specularCookTorrance(L, N, V, NoV, NoL, material.roughness, 0.0));
     float spec =  saturate(.95 - material.roughness * 0.5);
-    color.rgb *= 1.0-saturate( (powFast(spec, 4.) * 0.8 + 1.6 * (1.0-material.metallic)) );
+    color.rgb *= 1.0-saturate( (powFast(spec, 16.) * 0.8 + 1.6 * (1.0-material.metallic)) );
 
     #else
     // REGULAR PASS
