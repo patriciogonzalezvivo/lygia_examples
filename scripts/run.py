@@ -118,6 +118,7 @@ git clone --recursive https://github.com/patriciogonzalezvivo/lygia_examples.git
                         median = data["median"]
                         plot = data["example"] + "-" + gpu + ".jpg"
                         f.write("| " + gpu + " | " + str(mean) + " | " + str(median) + " | ![plot](benchmarks/" + plot + ") |\n")
+            f.write("\n\n")
 
 
 if __name__ == '__main__':
