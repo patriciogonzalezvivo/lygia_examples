@@ -45,7 +45,7 @@ def run_screenshot(name, shader_config, run=True):
 def run_benchmark(name, shader_config, folder):
     GPU = get_gpu()
 
-    if GPU == "v3D":
+    if GPU == "V3D":
         # Raspberry Pi have very little GPU memory
         shader_config["width"] = 512
         shader_config["height"] = 512
