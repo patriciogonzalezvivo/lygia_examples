@@ -1,0 +1,21 @@
+{
+    "name": "morphological_dilation:frame",
+    "data": [
+        {
+            "sec": 3.486174072,
+            "val": 2854.2351069999995
+        },
+        {
+            "sec": 6.278038086,
+            "val": 2791.8640139999998
+        },
+        {
+            "sec": 9.086202148,
+            "val": 2808.1640620000007
+        }
+    ],
+    "mean": 2113.56579575,
+    "median": 2800.0140380000003,
+    "gpu": "V3D",
+    "example": "morphological_dilation"
+}

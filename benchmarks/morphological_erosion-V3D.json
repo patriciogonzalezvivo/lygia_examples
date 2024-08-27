@@ -1,0 +1,21 @@
+{
+    "name": "morphological_erosion:frame",
+    "data": [
+        {
+            "sec": 3.437171875,
+            "val": 2826.177979
+        },
+        {
+            "sec": 6.2531918950000005,
+            "val": 2816.02002
+        },
+        {
+            "sec": 9.073171875,
+            "val": 2819.97998
+        }
+    ],
+    "mean": 2115.54449475,
+    "median": 2818.0,
+    "gpu": "V3D",
+    "example": "morphological_erosion"
+}
