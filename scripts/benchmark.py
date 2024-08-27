@@ -7,6 +7,7 @@ from __future__ import unicode_literals
 
 import numpy as np
 import subprocess
+import json
 
 from tracker import Tracker, Sample, get_median_filtered
 from glslviewer import GlslViewer
@@ -56,24 +57,29 @@ def process_results(name, results):
     return log
 
 
-def benchmark(name, shader_config, cwd = "./"):
+def benchmark(name, shader_config, cwd = "./", gpu = "unknown"):
+    # Set up the shader for benchmarking
     shader_config["headless"] = True
     shader_config["noncurses"] = True
     shader_config["fullFps"] = True
 
+    # Set up the file names
+    cvs_file = cwd + "/" + name + ".csv"
+    jpg_file = cwd + "/" + name + "-" + gpu + ".jpg"
+    json_file = cwd + "/" + name + "-" + gpu + ".json"
+    
+    # Set up the GlslViewer
     gv = GlslViewer(name, shader_config)
+
     # Do the tracking
     gv.cmd.append("-e wait,5")
     gv.cmd.append("-e track,on")
     gv.cmd.append("-e wait,10")
     gv.cmd.append("-e track,off")
 
-    # # Store an image to check the tracking was correct
-    # gv.cmd.append("-e screenshot," + cwd + "/" + name + ".jpg")
-
     # Store the tracking data
     # gv.cmd.append("-e track,average")
-    gv.cmd.append("-e track,samples," + cwd + "/" + name + ".csv")
+    gv.cmd.append("-e track,samples," + cvs_file)
     gv.cmd.append("-E exit")
 
     cmd = gv.getCommand()
@@ -82,20 +88,19 @@ def benchmark(name, shader_config, cwd = "./"):
     subprocess.call(cmd, shell=True)
 
     tracks = Tracker(name)
-    success = tracks.load(cwd + "/" + name + ".csv")
+    success = tracks.load(cvs_file)
     if not success:
         print("Error loading tracking data")
         return
     
-    tracks.plotTracks(cwd + "/" + name + "_tracks.jpg")
-    return tracks.getFramerateLog()
+    # remove CSV file
+    subprocess.call("rm " + cvs_file, shell=True)
 
-    # gv.start()
-    # duration = 6
-    # record_from = 2
-    # data = []
-    # data = gv.test(duration, record_from)
-    # gv.stop()
-    # return process_results(name, data)
+    tracks.plotTracks(jpg_file)
 
+    with open(json_file, 'w') as f:
+        data = tracks.getFramerateLog()
+        data["gpu"] = gpu
+        data["example"] = name
+        json.dump(data, f, indent=4)
 

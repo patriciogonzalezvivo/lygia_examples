@@ -13,6 +13,7 @@ import argparse
 
 from glslviewer import GlslViewer
 from benchmark import benchmark
+from tools import get_gpu, have_nvidia
 
 CONFIG_FILE = "config.yaml"
 SCREENSHOT_FOLDER = "images"
@@ -42,12 +43,19 @@ def run_screenshot(name, shader_config, run=True):
 
 
 def run_benchmark(name, shader_config, folder):
-    shader_config["width"] = 512
-    shader_config["height"] = 512
-    data = benchmark(name, shader_config, folder)
-    with open(folder + "/" + name + ".json", 'w') as f:
-        json.dump(data, f, indent=4)
+    GPU = get_gpu()
 
+    if GPU == "v3D":
+        # Raspberry Pi have very little GPU memory
+        shader_config["width"] = 512
+        shader_config["height"] = 512
+    else:
+        # Push the GPU just enough to get a good benchmark
+        shader_config["width"] = 1920
+        shader_config["height"] = 1920
+
+    benchmark(name, shader_config, folder, GPU)
+    
 
 def make_makefile(config):
     with open("Makefile", "w") as f:
@@ -55,9 +63,14 @@ def make_makefile(config):
             f.write(example + ":\n")
             f.write("\t" + run(example, config["examples"][example], False) + "\n\n")
 
+        # check if there is an nvidia GPU by checking the output of "lspci | grep -i nvidia"
+        cmd = ""
+        if have_nvidia():
+            cmd = "prime-run "
+
         f.write("screenshots:\n")
         for example in config["examples"]:
-            f.write("\tprime-run " + run_screenshot(example, config["examples"][example], False) + "\n")
+            f.write("\t" + cmd + run_screenshot(example, config["examples"][example], False) + "\n")
 
         f.write("\nclean:\n")
         f.write("\trm images/*.jpg\n")
@@ -82,16 +95,29 @@ Clone this repository recursivelly
 git clone --recursive https://github.com/patriciogonzalezvivo/lygia_examples.git
 ```
 
+## Examples
+                
 """)
 
         for example in config["examples"]:
-            f.write("## " + example + "\n")
+            f.write("### " + example + "\n")
             f.write("```bash\n")
             f.write(run(example, config["examples"][example], False) + "\n")
             f.write("```\n\n")
             f.write("![screenshot](images/" + example + ".jpg)\n\n")
-            if example + "_tracks.jpg" in os.listdir("benchmarks"):
-                f.write("![benchmark](benchmarks/" + example + "_tracks.jpg)\n\n")
+
+            # for every file that matches the pattern name-*.json
+            f.write("| GPU | Mean | Median | plot \n")
+            f.write("| --- | --- | --- | --- |\n")
+            for file in os.listdir(BENCHMARK_FOLDER):
+                if file.startswith(example + "-") and file.endswith(".json"):
+                    with open(BENCHMARK_FOLDER + "/" + file) as j:
+                        data = json.load(j)
+                        gpu = data["gpu"]
+                        mean = data["mean"]
+                        median = data["median"]
+                        plot = data["example"] + "-" + gpu + ".jpg"
+                        f.write("| " + gpu + " | " + str(mean) + " | " + str(median) + " | ![plot](benchmarks/" + plot + ") |\n")
 
 
 if __name__ == '__main__':
