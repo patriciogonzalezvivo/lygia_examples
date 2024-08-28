@@ -26,7 +26,7 @@ glslViewer math_functions.frag --msaa --width 512 --height 512 -e dynamic_shadow
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 16.783909242424244 | 16.773925999999847 | ![plot](benchmarks/math_functions-V3D.jpg) |
+| V3D | 16.79704228114478 | 16.799073000000135 | ![plot](benchmarks/math_functions-V3D.jpg) |
 
 
 ### math_gaussian
@@ -38,7 +38,7 @@ glslViewer math_gaussian.frag --msaa --width 512 --height 512 -e dynamic_shadows
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.511047384966632 | 3.4379879999996774 | ![plot](benchmarks/math_gaussian-V3D.jpg) |
+| V3D | 3.4595536702422147 | 3.4460449999996854 | ![plot](benchmarks/math_gaussian-V3D.jpg) |
 
 
 ### math_quat
@@ -50,7 +50,7 @@ glslViewer math_quat.frag assets/suzanne.obj math_quat.vert --msaa --width 512 -
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 4.124212485561056 | 4.071532499999876 | ![plot](benchmarks/math_quat-V3D.jpg) |
+| V3D | 3.9759021356404145 | 3.935058999999683 | ![plot](benchmarks/math_quat-V3D.jpg) |
 
 
 ### animation_easing
@@ -62,7 +62,7 @@ glslViewer animation_easing.frag --msaa --width 512 --height 512 -e dynamic_shad
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 5.422414016820402 | 5.398924999999963 | ![plot](benchmarks/animation_easing-V3D.jpg) |
+| V3D | 5.434387771071235 | 5.4189449999994395 | ![plot](benchmarks/animation_easing-V3D.jpg) |
 
 
 ### animation_sprite
@@ -74,7 +74,7 @@ glslViewer animation_sprite.frag assets/sprite_megaman.png --msaa --width 512 --
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.9646592645775485 | 4.023926000000756 | ![plot](benchmarks/animation_sprite-V3D.jpg) |
+| V3D | 3.949399734202212 | 3.9859620000001996 | ![plot](benchmarks/animation_sprite-V3D.jpg) |
 
 
 ### color_brightnessContrast
@@ -86,7 +86,7 @@ glslViewer color_brightnessContrast.frag assets/danny.png --msaa --width 512 --h
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.2684607995421846 | 3.235106999999971 | ![plot](benchmarks/color_brightnessContrast-V3D.jpg) |
+| V3D | 3.2519600344827584 | 3.2270500000004176 | ![plot](benchmarks/color_brightnessContrast-V3D.jpg) |
 
 
 ### color_brightnessContrastMatrix
@@ -98,7 +98,7 @@ glslViewer color_brightnessContrastMatrix.frag assets/danny.png --msaa --width 5
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.2700958004579657 | 3.236084000000119 | ![plot](benchmarks/color_brightnessContrastMatrix-V3D.jpg) |
+| V3D | 3.2534775732421877 | 3.230956999999762 | ![plot](benchmarks/color_brightnessContrastMatrix-V3D.jpg) |
 
 
 ### color_mix
@@ -110,7 +110,7 @@ glslViewer color_mix.frag --msaa --width 512 --height 512 -e dynamic_shadows,on 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 19.89188217928287 | 19.892943999999943 | ![plot](benchmarks/color_mix-V3D.jpg) |
+| V3D | 19.90580606387226 | 19.930908000000272 | ![plot](benchmarks/color_mix-V3D.jpg) |
 
 
 ### color_lut
@@ -122,7 +122,7 @@ glslViewer color_lut.frag assets/danny.png assets/square_01.png --msaa --width 5
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.93947265983445 | 3.911132000000009 | ![plot](benchmarks/color_lut-V3D.jpg) |
+| V3D | 3.944661876085241 | 3.9250489999994898 | ![plot](benchmarks/color_lut-V3D.jpg) |
 
 
 ### color_dither
@@ -134,7 +134,7 @@ glslViewer color_dither.frag -u_noise assets/noise_blue.png --msaa --width 512 -
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.4483735636426354 | 3.427001999999902 | ![plot](benchmarks/color_dither-V3D.jpg) |
+| V3D | 3.447685546896552 | 3.428955500000029 | ![plot](benchmarks/color_dither-V3D.jpg) |
 
 
 ### sample_dither
@@ -146,7 +146,7 @@ glslViewer sample_dither.frag assets/danny.png --msaa --width 512 --height 512 -
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 5.67916245909091 | 5.654051999999922 | ![plot](benchmarks/sample_dither-V3D.jpg) |
+| V3D | 5.687585733636882 | 5.664794000000256 | ![plot](benchmarks/sample_dither-V3D.jpg) |
 
 
 ### color_iridescence_map
@@ -158,7 +158,7 @@ glslViewer color_iridescence_map.frag --msaa --width 512 --height 512 -e dynamic
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 4.046378514979756 | 4.022949000000153 | ![plot](benchmarks/color_iridescence_map-V3D.jpg) |
+| V3D | 4.054175953365775 | 4.038086000000476 | ![plot](benchmarks/color_iridescence_map-V3D.jpg) |
 
 
 ### color_wavelength
@@ -170,7 +170,7 @@ glslViewer color_wavelength.frag --msaa --width 512 --height 512 -e dynamic_shad
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 9.779359523996082 | 9.762939000000188 | ![plot](benchmarks/color_wavelength-V3D.jpg) |
+| V3D | 9.79221191372549 | 9.78198250000014 | ![plot](benchmarks/color_wavelength-V3D.jpg) |
 
 
 ### color_wada
@@ -182,7 +182,7 @@ glslViewer color_wada.frag --msaa --width 512 --height 512 -e dynamic_shadows,on
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 6.838548569083448 | 6.858885999999984 | ![plot](benchmarks/color_wada-V3D.jpg) |
+| V3D | 6.834324201094391 | 6.85253849999981 | ![plot](benchmarks/color_wada-V3D.jpg) |
 
 
 ### color_wada_dyads
@@ -194,7 +194,7 @@ glslViewer color_wada_dyads.frag --msaa --width 512 --height 512 -e dynamic_shad
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 6.356348557251909 | 6.473876999999902 | ![plot](benchmarks/color_wada_dyads-V3D.jpg) |
+| V3D | 6.351476204704386 | 6.474121000001105 | ![plot](benchmarks/color_wada_dyads-V3D.jpg) |
 
 
 ### color_wada_triads
@@ -206,7 +206,7 @@ glslViewer color_wada_triads.frag --msaa --width 512 --height 512 -e dynamic_sha
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 6.372831072066326 | 6.518066000000545 | ![plot](benchmarks/color_wada_triads-V3D.jpg) |
+| V3D | 6.371119113448056 | 6.51709000000028 | ![plot](benchmarks/color_wada_triads-V3D.jpg) |
 
 
 ### color_wada_tetrads
@@ -218,7 +218,7 @@ glslViewer color_wada_tetrads.frag --msaa --width 512 --height 512 -e dynamic_sh
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 6.375011521683674 | 6.451904000000468 | ![plot](benchmarks/color_wada_tetrads-V3D.jpg) |
+| V3D | 6.391255800511508 | 6.472533999999996 | ![plot](benchmarks/color_wada_tetrads-V3D.jpg) |
 
 
 ### color_pigments
@@ -230,7 +230,7 @@ glslViewer color_pigments.frag --msaa --width 512 --height 512 -e dynamic_shadow
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 6.223853527725856 | 6.187989000000016 | ![plot](benchmarks/color_pigments-V3D.jpg) |
+| V3D | 6.240441178526841 | 6.231933000000026 | ![plot](benchmarks/color_pigments-V3D.jpg) |
 
 
 ### color_palette_lerp
@@ -242,7 +242,7 @@ glslViewer color_palette_lerp.frag --msaa --width 512 --height 512 -e dynamic_sh
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 5.196802481539262 | 5.176026000000093 | ![plot](benchmarks/color_palette_lerp-V3D.jpg) |
+| V3D | 5.197977606344254 | 5.18115299999954 | ![plot](benchmarks/color_palette_lerp-V3D.jpg) |
 
 
 ### color_ryb
@@ -254,7 +254,7 @@ glslViewer color_ryb.frag --msaa --width 512 --height 512 -e dynamic_shadows,on 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 12.157060832116787 | 12.147094999999808 | ![plot](benchmarks/color_ryb-V3D.jpg) |
+| V3D | 12.171998559756096 | 12.161499000000276 | ![plot](benchmarks/color_ryb-V3D.jpg) |
 
 
 ### color_zorn
@@ -266,7 +266,7 @@ glslViewer color_zorn.frag --msaa --width 512 --height 512 -e dynamic_shadows,on
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.9379483609141057 | 3.9169929999993656 | ![plot](benchmarks/color_zorn-V3D.jpg) |
+| V3D | 3.9505140165942314 | 3.9360349999997197 | ![plot](benchmarks/color_zorn-V3D.jpg) |
 
 
 ### color_mix_ryb
@@ -278,7 +278,7 @@ glslViewer color_mix_ryb.frag --msaa --width 512 --height 512 -e dynamic_shadows
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.7578883124060147 | 3.7380370000000767 | ![plot](benchmarks/color_mix_ryb-V3D.jpg) |
+| V3D | 3.760338593303236 | 3.7487790000002406 | ![plot](benchmarks/color_mix_ryb-V3D.jpg) |
 
 
 ### distort_pincushion
@@ -290,7 +290,7 @@ glslViewer distort_pincushion.frag assets/danny.png --msaa --width 512 --height 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 4.4516628735529835 | 4.490966999999841 | ![plot](benchmarks/distort_pincushion-V3D.jpg) |
+| V3D | 4.452840386809268 | 4.494018499999811 | ![plot](benchmarks/distort_pincushion-V3D.jpg) |
 
 
 ### draw_digits
@@ -302,7 +302,7 @@ glslViewer draw_digits.frag --msaa --width 512 --height 512 -e dynamic_shadows,o
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 6.005568430889422 | 5.984130999999934 | ![plot](benchmarks/draw_digits-V3D.jpg) |
+| V3D | 6.007387785929043 | 5.993896000000063 | ![plot](benchmarks/draw_digits-V3D.jpg) |
 
 
 ### draw_aa
@@ -314,7 +314,7 @@ glslViewer draw_aa.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 4.373160615048119 | 4.351807000000008 | ![plot](benchmarks/draw_aa-V3D.jpg) |
+| V3D | 4.372933134733159 | 4.357176999999865 | ![plot](benchmarks/draw_aa-V3D.jpg) |
 
 
 ### draw_shapes
@@ -326,7 +326,7 @@ glslViewer draw_shapes.frag --msaa --width 512 --height 512 -e dynamic_shadows,o
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 5.942745539833531 | 5.920165999999881 | ![plot](benchmarks/draw_shapes-V3D.jpg) |
+| V3D | 5.953717684931506 | 5.940918000000238 | ![plot](benchmarks/draw_shapes-V3D.jpg) |
 
 
 ### draw_supershape
@@ -338,7 +338,7 @@ glslViewer draw_supershape.frag --msaa --width 512 --height 512 -e dynamic_shado
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 4.575002705128205 | 4.553955000000315 | ![plot](benchmarks/draw_supershape-V3D.jpg) |
+| V3D | 4.576342460164835 | 4.555907999999363 | ![plot](benchmarks/draw_supershape-V3D.jpg) |
 
 
 ### draw_tiles
@@ -350,7 +350,7 @@ glslViewer draw_tiles.frag --msaa --width 512 --height 512 -e dynamic_shadows,on
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.7156973345724906 | 3.6940919999997277 | ![plot](benchmarks/draw_tiles-V3D.jpg) |
+| V3D | 3.7145983392790787 | 3.701904000000468 | ![plot](benchmarks/draw_tiles-V3D.jpg) |
 
 
 ### draw_koch
@@ -362,7 +362,7 @@ glslViewer draw_koch.frag --msaa --width 512 --height 512 -e dynamic_shadows,on 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 4.1646507770833345 | 4.146972000000005 | ![plot](benchmarks/draw_koch-V3D.jpg) |
+| V3D | 4.168214824854045 | 4.151977499999703 | ![plot](benchmarks/draw_koch-V3D.jpg) |
 
 
 ### draw_julia
@@ -374,7 +374,7 @@ glslViewer draw_julia.frag --msaa --width 512 --height 512 -e dynamic_shadows,on
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 63.787871532051284 | 64.14941399999992 | ![plot](benchmarks/draw_julia-V3D.jpg) |
+| V3D | 63.78748653846154 | 64.16149949999976 | ![plot](benchmarks/draw_julia-V3D.jpg) |
 
 
 ### draw_mandelbulb
@@ -386,7 +386,7 @@ glslViewer draw_mandelbulb.frag --msaa --width 512 --height 512 -e dynamic_shado
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 1314.9866536666668 | 1566.3020020000004 | ![plot](benchmarks/draw_mandelbulb-V3D.jpg) |
+| V3D | 1343.299735 | 1552.562989 | ![plot](benchmarks/draw_mandelbulb-V3D.jpg) |
 
 
 ### draw_colorChecker
@@ -398,7 +398,7 @@ glslViewer draw_colorChecker.frag --msaa --width 512 --height 512 -e dynamic_sha
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 13.52185504600812 | 13.523926000000074 | ![plot](benchmarks/draw_colorChecker-V3D.jpg) |
+| V3D | 13.516399047361299 | 13.52392599999996 | ![plot](benchmarks/draw_colorChecker-V3D.jpg) |
 
 
 ### generative_random
@@ -410,7 +410,7 @@ glslViewer generative_random.frag --msaa --width 512 --height 512 -e dynamic_sha
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.1789634620031793 | 3.1049800000000687 | ![plot](benchmarks/generative_random-V3D.jpg) |
+| V3D | 3.129797458841941 | 3.118163999999524 | ![plot](benchmarks/generative_random-V3D.jpg) |
 
 
 ### generative_cnoise
@@ -422,7 +422,7 @@ glslViewer generative_cnoise.frag --msaa --width 512 --height 512 -e dynamic_sha
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 11.98763880552221 | 11.979003999999804 | ![plot](benchmarks/generative_cnoise-V3D.jpg) |
+| V3D | 12.29825746182266 | 12.020996000000196 | ![plot](benchmarks/generative_cnoise-V3D.jpg) |
 
 
 ### generative_pnoise
@@ -434,7 +434,7 @@ glslViewer generative_pnoise.frag --msaa --width 512 --height 512 -e dynamic_sha
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 13.06147971503268 | 13.060059000000365 | ![plot](benchmarks/generative_pnoise-V3D.jpg) |
+| V3D | 13.066469841623038 | 13.067016499999255 | ![plot](benchmarks/generative_pnoise-V3D.jpg) |
 
 
 ### generative_snoise
@@ -446,7 +446,7 @@ glslViewer generative_snoise.frag --msaa --width 512 --height 512 -e dynamic_sha
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 8.948128211469534 | 8.934081999999762 | ![plot](benchmarks/generative_snoise-V3D.jpg) |
+| V3D | 8.963940757847535 | 8.957030999999915 | ![plot](benchmarks/generative_snoise-V3D.jpg) |
 
 
 ### generative_psrdnoise
@@ -458,7 +458,7 @@ glslViewer generative_psrdnoise.frag assets/sphere.ply --msaa --width 512 --heig
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 10.83108354989154 | 10.807129000000032 | ![plot](benchmarks/generative_psrdnoise-V3D.jpg) |
+| V3D | 10.020297954864594 | 10.0 | ![plot](benchmarks/generative_psrdnoise-V3D.jpg) |
 
 
 ### generative_noised
@@ -470,7 +470,7 @@ glslViewer generative_noised.frag --msaa --width 512 --height 512 -e dynamic_sha
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 13.974844979020977 | 13.975097999999889 | ![plot](benchmarks/generative_noised-V3D.jpg) |
+| V3D | 13.975195995804196 | 13.976807000000008 | ![plot](benchmarks/generative_noised-V3D.jpg) |
 
 
 ### generative_curl
@@ -482,7 +482,7 @@ glslViewer generative_curl.frag --msaa --width 512 --height 512 -e dynamic_shado
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 90.68111874311926 | 91.4941400000007 | ![plot](benchmarks/generative_curl-V3D.jpg) |
+| V3D | 90.7124314587156 | 91.51293899999973 | ![plot](benchmarks/generative_curl-V3D.jpg) |
 
 
 ### generative_fbm
@@ -494,7 +494,7 @@ glslViewer generative_fbm.frag --msaa --width 512 --height 512 -e dynamic_shadow
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 27.49757747790055 | 27.552002000000357 | ![plot](benchmarks/generative_fbm-V3D.jpg) |
+| V3D | 27.52265180110497 | 27.580077999999503 | ![plot](benchmarks/generative_fbm-V3D.jpg) |
 
 
 ### generative_voronoi
@@ -506,7 +506,7 @@ glslViewer generative_voronoi.frag --msaa --width 512 --height 512 -e dynamic_sh
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 28.418783943019942 | 28.472899999999754 | ![plot](benchmarks/generative_voronoi-V3D.jpg) |
+| V3D | 28.43146554 | 28.48095700000016 | ![plot](benchmarks/generative_voronoi-V3D.jpg) |
 
 
 ### generative_voronoise
@@ -518,7 +518,7 @@ glslViewer generative_voronoise.frag --msaa --width 512 --height 512 -e dynamic_
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 101.56076610204083 | 102.54504399999973 | ![plot](benchmarks/generative_voronoise-V3D.jpg) |
+| V3D | 101.51568229591837 | 102.53417949999994 | ![plot](benchmarks/generative_voronoise-V3D.jpg) |
 
 
 ### generative_wavelet
@@ -530,7 +530,7 @@ glslViewer generative_wavelet.frag --msaa --width 512 --height 512 -e dynamic_sh
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 9.633942091610416 | 9.6281740000004 | ![plot](benchmarks/generative_wavelet-V3D.jpg) |
+| V3D | 9.64233586969112 | 9.636963000000605 | ![plot](benchmarks/generative_wavelet-V3D.jpg) |
 
 
 ### generative_worley
@@ -542,7 +542,7 @@ glslViewer generative_worley.frag --msaa --width 512 --height 512 -e dynamic_sha
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 23.94787714903846 | 23.980469000000312 | ![plot](benchmarks/generative_worley-V3D.jpg) |
+| V3D | 23.958690467625903 | 23.999022999999852 | ![plot](benchmarks/generative_worley-V3D.jpg) |
 
 
 ### filter_boxBlur1D
@@ -554,7 +554,7 @@ glslViewer filter_boxBlur1D.frag assets/danny.png --msaa --width 512 --height 51
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 14.695885278350515 | 14.692871000000196 | ![plot](benchmarks/filter_boxBlur1D-V3D.jpg) |
+| V3D | 14.743010437223043 | 14.751952999999958 | ![plot](benchmarks/filter_boxBlur1D-V3D.jpg) |
 
 
 ### filter_boxBlur2D
@@ -566,7 +566,7 @@ glslViewer filter_boxBlur2D.frag assets/danny.png --msaa --width 512 --height 51
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 68.6612989652778 | 69.13500999999997 | ![plot](benchmarks/filter_boxBlur2D-V3D.jpg) |
+| V3D | 68.79187350694444 | 69.27343750000084 | ![plot](benchmarks/filter_boxBlur2D-V3D.jpg) |
 
 
 ### filter_fibonacciBokeh
@@ -578,7 +578,7 @@ glslViewer filter_fibonacciBokeh.frag assets/danny.png --msaa --width 512 --heig
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 64.60022765584415 | 65.00854449999997 | ![plot](benchmarks/filter_fibonacciBokeh-V3D.jpg) |
+| V3D | 64.75005707142857 | 65.1629640000001 | ![plot](benchmarks/filter_fibonacciBokeh-V3D.jpg) |
 
 
 ### filter_gaussianBlur1D
@@ -590,7 +590,7 @@ glslViewer filter_gaussianBlur1D.frag assets/danny.png --msaa --width 512 --heig
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 16.22086205357143 | 16.21704099999988 | ![plot](benchmarks/filter_gaussianBlur1D-V3D.jpg) |
+| V3D | 16.21907790243902 | 16.22485299999971 | ![plot](benchmarks/filter_gaussianBlur1D-V3D.jpg) |
 
 
 ### filter_gaussianBlur2D
@@ -602,7 +602,7 @@ glslViewer filter_gaussianBlur2D.frag assets/danny.png --msaa --width 512 --heig
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 77.65952300781251 | 78.2545170000003 | ![plot](benchmarks/filter_gaussianBlur2D-V3D.jpg) |
+| V3D | 77.7572650859375 | 78.37487800000008 | ![plot](benchmarks/filter_gaussianBlur2D-V3D.jpg) |
 
 
 ### filter_bilateral2D
@@ -614,7 +614,7 @@ glslViewer filter_bilateral2D.frag assets/danny.png --msaa --width 512 --height 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 96.04395241747574 | 97.00610300000153 | ![plot](benchmarks/filter_bilateral2D-V3D.jpg) |
+| V3D | 96.33372600970876 | 97.29199200000016 | ![plot](benchmarks/filter_bilateral2D-V3D.jpg) |
 
 
 ### filter_radialBlur2D
@@ -626,7 +626,7 @@ glslViewer filter_radialBlur2D.frag assets/danny.png --msaa --width 512 --height
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 25.24421479493671 | 25.269043000000238 | ![plot](benchmarks/filter_radialBlur2D-V3D.jpg) |
+| V3D | 25.257237688607596 | 25.275878999999804 | ![plot](benchmarks/filter_radialBlur2D-V3D.jpg) |
 
 
 ### filter_noiseBlur2D
@@ -638,7 +638,7 @@ glslViewer filter_noiseBlur2D.frag -u_tex0 assets/danny.png -u_noise assets/nois
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 7.690558806004618 | 7.680908000000272 | ![plot](benchmarks/filter_noiseBlur2D-V3D.jpg) |
+| V3D | 7.706720611111112 | 7.696044999999685 | ![plot](benchmarks/filter_noiseBlur2D-V3D.jpg) |
 
 
 ### filter_median2D
@@ -650,7 +650,7 @@ glslViewer filter_median2D.frag assets/danny.png --msaa --width 512 --height 512
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 37.379973676691726 | 37.48706099999981 | ![plot](benchmarks/filter_median2D-V3D.jpg) |
+| V3D | 37.41167616541353 | 37.536010499999975 | ![plot](benchmarks/filter_median2D-V3D.jpg) |
 
 
 ### filter_kuwahara2D
@@ -662,7 +662,7 @@ glslViewer filter_kuwahara2D.frag assets/danny.png --msaa --width 512 --height 5
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 193.53437990000003 | 197.45288100000016 | ![plot](benchmarks/filter_kuwahara2D-V3D.jpg) |
+| V3D | 193.60647950000003 | 197.53918449999992 | ![plot](benchmarks/filter_kuwahara2D-V3D.jpg) |
 
 
 ### filter_sharpen2D
@@ -674,7 +674,7 @@ glslViewer filter_sharpen2D.frag assets/danny.png --msaa --width 512 --height 51
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 18.388167406998157 | 18.390136999999413 | ![plot](benchmarks/filter_sharpen2D-V3D.jpg) |
+| V3D | 18.42207364575646 | 18.437499999999886 | ![plot](benchmarks/filter_sharpen2D-V3D.jpg) |
 
 
 ### filter_laplacian2D
@@ -686,7 +686,7 @@ glslViewer filter_laplacian2D.frag assets/danny.png --msaa --width 512 --height 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 5.179741893782383 | 5.152099500000077 | ![plot](benchmarks/filter_laplacian2D-V3D.jpg) |
+| V3D | 5.188423703530632 | 5.169189000000188 | ![plot](benchmarks/filter_laplacian2D-V3D.jpg) |
 
 
 ### filter_edge2D
@@ -698,7 +698,7 @@ glslViewer filter_edge2D.frag assets/danny.png --msaa --width 512 --height 512 -
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 6.7799267713704205 | 6.765991499999927 | ![plot](benchmarks/filter_edge2D-V3D.jpg) |
+| V3D | 6.7873193491847825 | 6.7680660000002035 | ![plot](benchmarks/filter_edge2D-V3D.jpg) |
 
 
 ### filter_bilinear2D
@@ -710,7 +710,7 @@ glslViewer filter_bilinear2D.frag assets/danny.png --msaa --width 512 --height 5
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 313.3211945483871 | 323.812011 | ![plot](benchmarks/filter_bilinear2D-V3D.jpg) |
+| V3D | 313.0257371290322 | 323.34082000000035 | ![plot](benchmarks/filter_bilinear2D-V3D.jpg) |
 
 
 ### sample_dof
@@ -722,7 +722,7 @@ glslViewer sample_dof.frag assets/dragon.obj  -e camera_position,-1.43923,0.8912
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 206.28929137500003 | 210.46704100000034 | ![plot](benchmarks/sample_dof-V3D.jpg) |
+| V3D | 206.09574889583334 | 210.448486 | ![plot](benchmarks/sample_dof-V3D.jpg) |
 
 
 ### sample_bracketing
@@ -734,7 +734,7 @@ glslViewer sample_bracketing.frag assets/rock_moss.jpg --msaa --width 512 --heig
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 20.141433223790322 | 20.155028999999786 | ![plot](benchmarks/sample_bracketing-V3D.jpg) |
+| V3D | 20.129850818548384 | 20.131957999999713 | ![plot](benchmarks/sample_bracketing-V3D.jpg) |
 
 
 ### sample_wrap
@@ -746,7 +746,7 @@ glslViewer sample_wrap.frag assets/rocks.png --msaa --width 512 --height 512 -e 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 4.017077970659163 | 4.013550000000123 | ![plot](benchmarks/sample_wrap-V3D.jpg) |
+| V3D | 4.000417354541818 | 3.979981000000407 | ![plot](benchmarks/sample_wrap-V3D.jpg) |
 
 
 ### sample_wrap_repeat
@@ -758,7 +758,7 @@ glslViewer sample_wrap_repeat.frag assets/rocks.png --msaa --width 512 --height 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 4.086793988143908 | 4.091796500000328 | ![plot](benchmarks/sample_wrap_repeat-V3D.jpg) |
+| V3D | 4.068273921041921 | 4.072022000000288 | ![plot](benchmarks/sample_wrap_repeat-V3D.jpg) |
 
 
 ### sample_wrap_clamp
@@ -770,7 +770,7 @@ glslViewer sample_wrap_clamp.frag assets/rocks.png --msaa --width 512 --height 5
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.970107996028594 | 3.9885260000000926 | ![plot](benchmarks/sample_wrap_clamp-V3D.jpg) |
+| V3D | 3.9470201342812006 | 3.9554439999997157 | ![plot](benchmarks/sample_wrap_clamp-V3D.jpg) |
 
 
 ### sample_wrap_mirror
@@ -782,7 +782,7 @@ glslViewer sample_wrap_mirror.frag assets/rocks.png --msaa --width 512 --height 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 4.496538430499324 | 4.364012999999886 | ![plot](benchmarks/sample_wrap_mirror-V3D.jpg) |
+| V3D | 4.472395505592842 | 4.273925999999847 | ![plot](benchmarks/sample_wrap_mirror-V3D.jpg) |
 
 
 ### sample_wrap_untile
@@ -794,7 +794,7 @@ glslViewer sample_wrap_untile.frag assets/rocks.png --msaa --width 512 --height 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 14.21294313960114 | 11.746094000000028 | ![plot](benchmarks/sample_wrap_untile-V3D.jpg) |
+| V3D | 14.108280850282485 | 11.628905999999688 | ![plot](benchmarks/sample_wrap_untile-V3D.jpg) |
 
 
 ### sample_wrap_zero
@@ -806,7 +806,7 @@ glslViewer sample_wrap_zero.frag assets/rocks.png --msaa --width 512 --height 51
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.0914985898546243 | 3.072997999999643 | ![plot](benchmarks/sample_wrap_zero-V3D.jpg) |
+| V3D | 3.0851175944444447 | 3.070068999999876 | ![plot](benchmarks/sample_wrap_zero-V3D.jpg) |
 
 
 ### sample_filter_bicubic
@@ -818,7 +818,7 @@ glslViewer sample_filter_bicubic.frag assets/noise_blue.png --msaa --width 512 -
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 4.343824451346655 | 4.289062000000513 | ![plot](benchmarks/sample_filter_bicubic-V3D.jpg) |
+| V3D | 4.3113917825711825 | 4.285889000000452 | ![plot](benchmarks/sample_filter_bicubic-V3D.jpg) |
 
 
 ### sample_filter_nearest
@@ -830,7 +830,7 @@ glslViewer sample_filter_nearest.frag assets/noise_blue.png --msaa --width 512 -
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.207598326596086 | 3.1889650000002803 | ![plot](benchmarks/sample_filter_nearest-V3D.jpg) |
+| V3D | 3.216609999034749 | 3.203856999999516 | ![plot](benchmarks/sample_filter_nearest-V3D.jpg) |
 
 
 ### sample_filter_smooth
@@ -842,7 +842,7 @@ glslViewer sample_filter_smooth.frag assets/noise_blue.png --msaa --width 512 --
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 3.1999442948143404 | 3.1860350000006292 | ![plot](benchmarks/sample_filter_smooth-V3D.jpg) |
+| V3D | 3.2133680765027326 | 3.201171999999133 | ![plot](benchmarks/sample_filter_smooth-V3D.jpg) |
 
 
 ### sample_equirect
@@ -854,7 +854,7 @@ glslViewer sample_equirect.frag assets/dragon.obj assets/studio.png  -e camera_p
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 32.66280017377049 | 32.44409199999973 | ![plot](benchmarks/sample_equirect-V3D.jpg) |
+| V3D | 33.56122832996633 | 33.325928000000204 | ![plot](benchmarks/sample_equirect-V3D.jpg) |
 
 
 ### sample_3Dsdf
@@ -866,7 +866,7 @@ glslViewer sample_3Dsdf.frag assets/suzanne.png  -e camera_position,-29.5393,26.
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 575.9005126875 | 613.4965814999998 | ![plot](benchmarks/sample_3Dsdf-V3D.jpg) |
+| V3D | 733.5901693333334 | 799.0465084999996 | ![plot](benchmarks/sample_3Dsdf-V3D.jpg) |
 
 
 ### sample_triplanar
@@ -878,7 +878,7 @@ glslViewer sample_triplanar.frag assets/suzanne.obj assets/rock_moss.jpg --msaa 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 13.720145425824175 | 13.608154500000182 | ![plot](benchmarks/sample_triplanar-V3D.jpg) |
+| V3D | 14.067722546478874 | 13.982056000000199 | ![plot](benchmarks/sample_triplanar-V3D.jpg) |
 
 
 ### morphological_erosion
@@ -890,7 +890,7 @@ glslViewer morphological_erosion.frag assets/flower.png --msaa --width 512 --hei
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 2115.54449475 | 2818.0 | ![plot](benchmarks/morphological_erosion-V3D.jpg) |
+| V3D | 2083.9530027499995 | 2777.901489 | ![plot](benchmarks/morphological_erosion-V3D.jpg) |
 
 
 ### morphological_dilation
@@ -902,7 +902,7 @@ glslViewer morphological_dilation.frag assets/flower.png --msaa --width 512 --he
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 2113.56579575 | 2800.0140380000003 | ![plot](benchmarks/morphological_dilation-V3D.jpg) |
+| V3D | 2097.9590452499997 | 2784.176025 | ![plot](benchmarks/morphological_dilation-V3D.jpg) |
 
 
 ### morphological_alphaFill
@@ -914,7 +914,7 @@ glslViewer morphological_alphaFill.frag assets/flower.png --msaa --width 512 --h
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 21.43885406021505 | 21.471923999999944 | ![plot](benchmarks/morphological_alphaFill-V3D.jpg) |
+| V3D | 21.480616603448276 | 21.517089499999656 | ![plot](benchmarks/morphological_alphaFill-V3D.jpg) |
 
 
 ### morphological_poissonFill
@@ -926,7 +926,7 @@ glslViewer morphological_poissonFill.frag assets/flower.png --msaa --width 512 -
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 34.65882921254356 | 39.56884699999955 | ![plot](benchmarks/morphological_poissonFill-V3D.jpg) |
+| V3D | 35.85379061371841 | 40.064941999999064 | ![plot](benchmarks/morphological_poissonFill-V3D.jpg) |
 
 
 ### morphological_marchinSquares
@@ -938,7 +938,7 @@ glslViewer morphological_marchinSquares.frag assets/flower.png --msaa --width 51
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 5.067554564622403 | 5.051025999999979 | ![plot](benchmarks/morphological_marchinSquares-V3D.jpg) |
+| V3D | 5.08648193994911 | 5.073975000000246 | ![plot](benchmarks/morphological_marchinSquares-V3D.jpg) |
 
 
 ### lighting_position
@@ -950,7 +950,7 @@ glslViewer lighting_position.frag assets/dragon.obj  -e camera_position,-1.43923
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 27.51197570441989 | 27.444580000000315 | ![plot](benchmarks/lighting_position-V3D.jpg) |
+| V3D | 28.226708430594897 | 28.19091800000001 | ![plot](benchmarks/lighting_position-V3D.jpg) |
 
 
 ### lighting_normal
@@ -962,7 +962,7 @@ glslViewer lighting_normal.frag assets/dragon.obj  -e camera_position,-1.43923,0
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 10.415446387904067 | 10.166016000000127 | ![plot](benchmarks/lighting_normal-V3D.jpg) |
+| V3D | 10.759956885775862 | 10.43054200000006 | ![plot](benchmarks/lighting_normal-V3D.jpg) |
 
 
 ### lighting_gooch
@@ -974,7 +974,7 @@ glslViewer lighting_gooch.frag assets/dragon.obj  -e camera_position,-1.43923,0.
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 17.32920837326389 | 17.00097649999998 | ![plot](benchmarks/lighting_gooch-V3D.jpg) |
+| V3D | 17.1657425395189 | 17.034057500000017 | ![plot](benchmarks/lighting_gooch-V3D.jpg) |
 
 
 ### lighting_pbrLittle
@@ -986,7 +986,7 @@ glslViewer lighting_pbrLittle.frag assets/dragon.obj  -e camera_position,-1.4392
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 17.533517510526316 | 17.20495600000004 | ![plot](benchmarks/lighting_pbrLittle-V3D.jpg) |
+| V3D | 17.526321706502635 | 17.38208099999997 | ![plot](benchmarks/lighting_pbrLittle-V3D.jpg) |
 
 
 ### lighting_pbrLittle_cubemap
@@ -998,7 +998,7 @@ glslViewer lighting_pbrLittle.frag assets/dragon.obj  -e camera_position,-1.4392
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 41.30007921576764 | 41.25903299999999 | ![plot](benchmarks/lighting_pbrLittle_cubemap-V3D.jpg) |
+| V3D | 42.98803395258621 | 42.95544449999994 | ![plot](benchmarks/lighting_pbrLittle_cubemap-V3D.jpg) |
 
 
 ### lighting_pbrLittle_deferred
@@ -1010,7 +1010,7 @@ glslViewer lighting_pbrLittle_deferred.frag assets/dragon.obj  -e camera_positio
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 54.272173010869565 | 53.39392049999992 | ![plot](benchmarks/lighting_pbrLittle_deferred-V3D.jpg) |
+| V3D | 44.61721049327355 | 44.8269049999999 | ![plot](benchmarks/lighting_pbrLittle_deferred-V3D.jpg) |
 
 
 ### lighting_pbr
@@ -1022,7 +1022,7 @@ glslViewer lighting_pbr.frag assets/dragon.obj  -e camera_position,-1.43923,0.89
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 18.54513198141264 | 18.450439499999902 | ![plot](benchmarks/lighting_pbr-V3D.jpg) |
+| V3D | 18.71042769043152 | 18.58398500000021 | ![plot](benchmarks/lighting_pbr-V3D.jpg) |
 
 
 ### lighting_pbr_cubemap
@@ -1034,7 +1034,7 @@ glslViewer lighting_pbr.frag assets/dragon.obj  -e camera_position,-1.43923,0.89
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 36.90450394074074 | 36.781006000000275 | ![plot](benchmarks/lighting_pbr_cubemap-V3D.jpg) |
+| V3D | 39.33248961660079 | 39.275878999999804 | ![plot](benchmarks/lighting_pbr_cubemap-V3D.jpg) |
 
 
 ### lighting_pbr_lights
@@ -1046,7 +1046,7 @@ glslViewer lighting_pbr_lights.frag assets/dragon.obj  -e camera_position,-1.439
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 25.352725576142134 | 25.36840849999976 | ![plot](benchmarks/lighting_pbr_lights-V3D.jpg) |
+| V3D | 25.044806552763816 | 24.998534500000005 | ![plot](benchmarks/lighting_pbr_lights-V3D.jpg) |
 
 
 ### lighting_pbr_dynamic
@@ -1058,7 +1058,7 @@ glslViewer lighting_pbr_dynamic.frag assets/dragon.obj lighting_pbr_dynamic.vert
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 581.0404124705883 | 617.1000979999999 | ![plot](benchmarks/lighting_pbr_dynamic-V3D.jpg) |
+| V3D | 580.6792422941177 | 616.8869630000002 | ![plot](benchmarks/lighting_pbr_dynamic-V3D.jpg) |
 
 
 ### lighting_pbrClearCoat
@@ -1070,7 +1070,7 @@ glslViewer lighting_pbrClearCoat.frag assets/dragon.obj  -e camera_position,-1.4
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 21.35313503640257 | 21.288817999999992 | ![plot](benchmarks/lighting_pbrClearCoat-V3D.jpg) |
+| V3D | 20.841553244258876 | 20.786133000000518 | ![plot](benchmarks/lighting_pbrClearCoat-V3D.jpg) |
 
 
 ### lighting_pbrClearCoat_cubemap
@@ -1082,7 +1082,7 @@ glslViewer lighting_pbrClearCoat.frag assets/dragon.obj  -e camera_position,-1.4
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 44.48485783035715 | 44.47460999999987 | ![plot](benchmarks/lighting_pbrClearCoat_cubemap-V3D.jpg) |
+| V3D | 45.15734808144797 | 45.250976000001174 | ![plot](benchmarks/lighting_pbrClearCoat_cubemap-V3D.jpg) |
 
 
 ### lighting_pbrIridescence
@@ -1094,7 +1094,7 @@ glslViewer lighting_pbrIridescence.frag assets/IridescenceSuzanne.glb  -e camera
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 8.258077826446282 | 8.237060500000553 | ![plot](benchmarks/lighting_pbrIridescence-V3D.jpg) |
+| V3D | 8.022424071485943 | 8.004150999999979 | ![plot](benchmarks/lighting_pbrIridescence-V3D.jpg) |
 
 
 ### lighting_pbrIridescence_cubemap
@@ -1106,7 +1106,7 @@ glslViewer lighting_pbrIridescence.frag assets/IridescenceSuzanne.glb  -e camera
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 11.939168440860216 | 11.905029000000468 | ![plot](benchmarks/lighting_pbrIridescence_cubemap-V3D.jpg) |
+| V3D | 12.017916866425992 | 11.989013000000341 | ![plot](benchmarks/lighting_pbrIridescence_cubemap-V3D.jpg) |
 
 
 ### lighting_pbrGlass
@@ -1118,7 +1118,7 @@ glslViewer lighting_pbrGlass.frag assets/dragon.obj  -e camera_position,-1.43923
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 11.498899679723502 | 11.364990499999976 | ![plot](benchmarks/lighting_pbrGlass-V3D.jpg) |
+| V3D | 11.64449881118881 | 11.517089499999656 | ![plot](benchmarks/lighting_pbrGlass-V3D.jpg) |
 
 
 ### lighting_pbrGlass_cubemap
@@ -1130,7 +1130,7 @@ glslViewer lighting_pbrGlass.frag assets/dragon.obj  -e camera_position,-1.43923
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 44.79905357207207 | 44.796996999999806 | ![plot](benchmarks/lighting_pbrGlass_cubemap-V3D.jpg) |
+| V3D | 46.35631586046511 | 46.35595699999976 | ![plot](benchmarks/lighting_pbrGlass_cubemap-V3D.jpg) |
 
 
 ### lighting_pbrSsS
@@ -1142,7 +1142,7 @@ glslViewer lighting_pbrSsS.frag assets/dragon.obj  -e camera_position,-1.43923,0
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 64.33532397402597 | 64.52490249999937 | ![plot](benchmarks/lighting_pbrSsS-V3D.jpg) |
+| V3D | 63.56897442307691 | 63.77600100000018 | ![plot](benchmarks/lighting_pbrSsS-V3D.jpg) |
 
 
 ### lighting_pbrSsS_cubemap
@@ -1154,7 +1154,7 @@ glslViewer lighting_pbrSsS.frag assets/dragon.obj  -e camera_position,-1.43923,0
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 66.66574526845638 | 67.08300799999961 | ![plot](benchmarks/lighting_pbrSsS_cubemap-V3D.jpg) |
+| V3D | 66.47013455704698 | 66.84497100000044 | ![plot](benchmarks/lighting_pbrSsS_cubemap-V3D.jpg) |
 
 
 ### lighting_shadow
@@ -1166,7 +1166,7 @@ glslViewer lighting_shadow.frag assets/dragon.obj  -e camera_position,-1.43923,0
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 53.902000632432426 | 54.12988300000052 | ![plot](benchmarks/lighting_shadow-V3D.jpg) |
+| V3D | 54.139901869565215 | 54.398681500000066 | ![plot](benchmarks/lighting_shadow-V3D.jpg) |
 
 
 ### lighting_sphereMap_glass
@@ -1178,7 +1178,7 @@ glslViewer lighting_sphereMap.frag assets/sem-glass-0003.jpg assets/dragon.obj  
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 64.20122542580646 | 64.40698199999997 | ![plot](benchmarks/lighting_sphereMap_glass-V3D.jpg) |
+| V3D | 68.05954188356165 | 65.0941164999997 | ![plot](benchmarks/lighting_sphereMap_glass-V3D.jpg) |
 
 
 ### lighting_sphereMap_crystal
@@ -1190,7 +1190,7 @@ glslViewer lighting_sphereMap.frag assets/sem-glass-0004.jpg assets/dragon.obj  
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 67.80104863945579 | 68.15210000000025 | ![plot](benchmarks/lighting_sphereMap_crystal-V3D.jpg) |
+| V3D | 67.99566567123287 | 68.41088850000006 | ![plot](benchmarks/lighting_sphereMap_crystal-V3D.jpg) |
 
 
 ### lighting_sphereMap_gold
@@ -1202,7 +1202,7 @@ glslViewer lighting_sphereMap.frag assets/sem-gold-0003.jpg assets/dragon.obj  -
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 61.1531840184049 | 61.46215800000027 | ![plot](benchmarks/lighting_sphereMap_gold-V3D.jpg) |
+| V3D | 61.221932870370374 | 61.550048999999944 | ![plot](benchmarks/lighting_sphereMap_gold-V3D.jpg) |
 
 
 ### lighting_sphereMap_metal
@@ -1214,7 +1214,7 @@ glslViewer lighting_sphereMap.frag assets/sem-metal-0003.jpg assets/dragon.obj  
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 61.8325286273292 | 62.096923999999944 | ![plot](benchmarks/lighting_sphereMap_metal-V3D.jpg) |
+| V3D | 62.02730103125 | 62.39099100000021 | ![plot](benchmarks/lighting_sphereMap_metal-V3D.jpg) |
 
 
 ### lighting_sphereMap_dark_metal
@@ -1226,7 +1226,7 @@ glslViewer lighting_sphereMap.frag assets/sem-metal-0019.jpg assets/dragon.obj  
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 61.1156387791411 | 61.36401400000068 | ![plot](benchmarks/lighting_sphereMap_dark_metal-V3D.jpg) |
+| V3D | 61.08347047530864 | 61.40795899999995 | ![plot](benchmarks/lighting_sphereMap_dark_metal-V3D.jpg) |
 
 
 ### lighting_sphereMap_iridescent
@@ -1238,7 +1238,7 @@ glslViewer lighting_sphereMap.frag assets/sem-0033.jpg assets/dragon.obj  -e cam
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 61.05847242944786 | 61.339111 | ![plot](benchmarks/lighting_sphereMap_iridescent-V3D.jpg) |
+| V3D | 61.21328998765432 | 61.52709949999962 | ![plot](benchmarks/lighting_sphereMap_iridescent-V3D.jpg) |
 
 
 ### lighting_sphericalHarmonics
@@ -1250,7 +1250,7 @@ glslViewer lighting_sphericalHarmonics.frag assets/dragon.obj  -e camera_positio
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 55.210693361111105 | 55.47009300000036 | ![plot](benchmarks/lighting_sphericalHarmonics-V3D.jpg) |
+| V3D | 55.223266605555565 | 55.475463500000046 | ![plot](benchmarks/lighting_sphericalHarmonics-V3D.jpg) |
 
 
 ### lighting_ssao
@@ -1262,7 +1262,7 @@ glslViewer lighting_ssao.frag assets/dragon.obj  -e camera_position,-1.43923,0.8
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 76.36516864615386 | 76.86791999999991 | ![plot](benchmarks/lighting_ssao-V3D.jpg) |
+| V3D | 76.76675107751937 | 77.51098599999932 | ![plot](benchmarks/lighting_ssao-V3D.jpg) |
 
 
 ### lighting_ssr
@@ -1274,7 +1274,7 @@ glslViewer lighting_ssr.frag assets/dragon.obj  -e camera_position,-1.43923,0.89
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 620.4948079999999 | 665.0170899999998 | ![plot](benchmarks/lighting_ssr-V3D.jpg) |
+| V3D | 620.4561360666667 | 664.4018559999995 | ![plot](benchmarks/lighting_ssr-V3D.jpg) |
 
 
 ### lighting_volumetric
@@ -1286,7 +1286,7 @@ glslViewer lighting_volumetric.frag assets/dragon.obj  -e camera_position,-1.674
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 86.77642072807018 | 87.38159149999998 | ![plot](benchmarks/lighting_volumetric-V3D.jpg) |
+| V3D | 86.78110650877194 | 87.40100100000029 | ![plot](benchmarks/lighting_volumetric-V3D.jpg) |
 
 
 ### lighting_raymarching
@@ -1298,7 +1298,7 @@ glslViewer lighting_raymarching.frag  -e camera_position,29.5393,26.2406,42.1865
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 1161.42926025 | 1326.8914795 | ![plot](benchmarks/lighting_raymarching-V3D.jpg) |
+| V3D | 1253.1544364285712 | 1461.0419920000004 | ![plot](benchmarks/lighting_raymarching-V3D.jpg) |
 
 
 ### lighting_raymarching_cubemap
@@ -1310,7 +1310,7 @@ glslViewer lighting_raymarching.frag  -e camera_position,29.5393,26.2406,42.1865
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 1161.764129625 | 1327.5004884999998 | ![plot](benchmarks/lighting_raymarching_cubemap-V3D.jpg) |
+| V3D | 1252.9362794285714 | 1461.5168460000002 | ![plot](benchmarks/lighting_raymarching_cubemap-V3D.jpg) |
 
 
 ### lighting_raymarching_return
@@ -1322,7 +1322,7 @@ glslViewer lighting_raymarching_return.frag  -e camera_position,29.5393,26.2406,
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 1188.9358825 | 1358.0830075 | ![plot](benchmarks/lighting_raymarching_return-V3D.jpg) |
+| V3D | 1271.7357004285714 | 1483.603028 | ![plot](benchmarks/lighting_raymarching_return-V3D.jpg) |
 
 
 ### lighting_raymarching_gooch
@@ -1334,7 +1334,7 @@ glslViewer lighting_raymarching_gooch.frag  -e camera_position,29.5393,26.2406,4
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 249.71746043589744 | 256.3178719999996 | ![plot](benchmarks/lighting_raymarching_gooch-V3D.jpg) |
+| V3D | 236.2266816097561 | 242.08618099999967 | ![plot](benchmarks/lighting_raymarching_gooch-V3D.jpg) |
 
 
 ### lighting_raymarching_pbr
@@ -1346,7 +1346,7 @@ glslViewer lighting_raymarching_pbr.frag  -e camera_position,29.5393,26.2406,42.
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 259.93813343243244 | 267.16699200000005 | ![plot](benchmarks/lighting_raymarching_pbr-V3D.jpg) |
+| V3D | 264.1994892972973 | 271.5219729999999 | ![plot](benchmarks/lighting_raymarching_pbr-V3D.jpg) |
 
 
 ### lighting_raymarching_pbr_cubemap
@@ -1358,7 +1358,7 @@ glslViewer lighting_raymarching_pbr.frag  -e camera_position,29.5393,26.2406,42.
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 253.38067949999999 | 260.2359620000001 | ![plot](benchmarks/lighting_raymarching_pbr_cubemap-V3D.jpg) |
+| V3D | 252.31323241025638 | 258.893067 | ![plot](benchmarks/lighting_raymarching_pbr_cubemap-V3D.jpg) |
 
 
 ### lighting_raymarching_pbrLittle
@@ -1370,7 +1370,7 @@ glslViewer lighting_raymarching_pbrLittle.frag  -e camera_position,29.5393,26.24
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 248.23941433333334 | 254.75 | ![plot](benchmarks/lighting_raymarching_pbrLittle-V3D.jpg) |
+| V3D | 240.494998097561 | 246.4951170000004 | ![plot](benchmarks/lighting_raymarching_pbrLittle-V3D.jpg) |
 
 
 ### lighting_raymarching_pbrLittle_cubemap
@@ -1382,7 +1382,7 @@ glslViewer lighting_raymarching_pbrLittle.frag  -e camera_position,29.5393,26.24
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 249.47936071794874 | 255.94116199999996 | ![plot](benchmarks/lighting_raymarching_pbrLittle_cubemap-V3D.jpg) |
+| V3D | 240.802389 | 246.75195299999996 | ![plot](benchmarks/lighting_raymarching_pbrLittle_cubemap-V3D.jpg) |
 
 
 ### lighting_raymarching_pbrClearCoat
@@ -1394,7 +1394,7 @@ glslViewer lighting_raymarching_pbrClearCoat.frag  -e camera_position,29.5393,26
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 259.8986750540541 | 267.07617200000004 | ![plot](benchmarks/lighting_raymarching_pbrClearCoat-V3D.jpg) |
+| V3D | 269.2728881944445 | 276.93005349999976 | ![plot](benchmarks/lighting_raymarching_pbrClearCoat-V3D.jpg) |
 
 
 ### lighting_raymarching_pbrClearCoat_cubemap
@@ -1406,7 +1406,7 @@ glslViewer lighting_raymarching_pbrClearCoat.frag  -e camera_position,29.5393,26
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 253.5797890263158 | 260.38146999999935 | ![plot](benchmarks/lighting_raymarching_pbrClearCoat_cubemap-V3D.jpg) |
+| V3D | 257.08934260526314 | 263.8955075000001 | ![plot](benchmarks/lighting_raymarching_pbrClearCoat_cubemap-V3D.jpg) |
 
 
 ### lighting_raymarching_pbrGlass
@@ -1418,7 +1418,7 @@ glslViewer lighting_raymarching_pbrGlass.frag  -e camera_position,29.5393,26.240
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 195.0845166 | 199.06042500000012 | ![plot](benchmarks/lighting_raymarching_pbrGlass-V3D.jpg) |
+| V3D | 194.95195801999998 | 198.89001450000023 | ![plot](benchmarks/lighting_raymarching_pbrGlass-V3D.jpg) |
 
 
 ### lighting_raymarching_pbrGlass_cubemap
@@ -1430,7 +1430,7 @@ glslViewer lighting_raymarching_pbrGlass.frag  -e camera_position,29.5393,26.240
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 182.73037662264147 | 186.226807 | ![plot](benchmarks/lighting_raymarching_pbrGlass_cubemap-V3D.jpg) |
+| V3D | 180.34153916666668 | 183.75451699999985 | ![plot](benchmarks/lighting_raymarching_pbrGlass_cubemap-V3D.jpg) |
 
 
 ### lighting_raymarching_pbrIridescence
@@ -1442,7 +1442,7 @@ glslViewer lighting_raymarching_pbrIridescence.frag  -e camera_position,29.5393,
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 259.8401076756757 | 266.98095700000067 | ![plot](benchmarks/lighting_raymarching_pbrIridescence-V3D.jpg) |
+| V3D | 264.2075921081081 | 271.5139159999999 | ![plot](benchmarks/lighting_raymarching_pbrIridescence-V3D.jpg) |
 
 
 ### lighting_raymarching_pbrIridescence_cubemap
@@ -1454,7 +1454,7 @@ glslViewer lighting_raymarching_pbrIridescence.frag  -e camera_position,29.5393,
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 253.27028939473684 | 260.1040035000001 | ![plot](benchmarks/lighting_raymarching_pbrIridescence_cubemap-V3D.jpg) |
+| V3D | 252.24812825641027 | 258.973876 | ![plot](benchmarks/lighting_raymarching_pbrIridescence_cubemap-V3D.jpg) |
 
 
 ### lighting_raymarching_volume
@@ -1499,7 +1499,7 @@ glslViewer lighting_atmosphere.frag  -e define,PROJECTION_MODE,0 --msaa --width 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 129.42670963157897 | 131.366943 | ![plot](benchmarks/lighting_atmosphere_equirectangular-V3D.jpg) |
+| V3D | 129.35185737662337 | 131.28100599999925 | ![plot](benchmarks/lighting_atmosphere_equirectangular-V3D.jpg) |
 
 
 ### lighting_atmosphere_fisheye
@@ -1511,6 +1511,6 @@ glslViewer lighting_atmosphere.frag  -e define,PROJECTION_MODE,1 --msaa --width 
 
 | GPU | Mean | Median | plot 
 | --- | --- | --- | --- |
-| V3D | 160.01698578688524 | 168.28198199999997 | ![plot](benchmarks/lighting_atmosphere_fisheye-V3D.jpg) |
+| V3D | 158.78052938709678 | 166.87805149999997 | ![plot](benchmarks/lighting_atmosphere_fisheye-V3D.jpg) |
 
 
