@@ -116,9 +116,11 @@ void main(void) {
     vec3 L = normalize(LIGHT_POSITION - (SURFACE_POSITION).xyz);
     vec3 N = normalize(material.normal);
     vec3 V = normalize(CAMERA_POSITION - (SURFACE_POSITION).xyz);
+    vec3 H = normalize(L + V);
     float NoV = saturate(dot(N, V));
     float NoL = saturate(dot(N, L));
-    color += saturate(specularCookTorrance(L, N, V, NoV, NoL, material.roughness, 0.0));
+    float NoH = saturate(dot(N, H));
+    color.rgb += saturate(specularCookTorrance(L, N, V, NoV, NoL, NoH, material.roughness, vec3(0.0)));
     float spec =  saturate(.95 - material.roughness * 0.5);
     color.rgb *= 1.0-saturate( (powFast(spec, 16.) * 0.8 + 1.6 * (1.0-material.metallic)) );
 

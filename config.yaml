@@ -145,6 +145,10 @@ examples:
         <<: *defaults
         frag: draw_colorChecker.frag
 
+    draw_debug1:
+        <<: *defaults
+        frag: draw_debug1.frag
+
     generative_random:
         <<: *defaults
         frag: generative_random.frag

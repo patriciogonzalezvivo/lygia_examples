@@ -94,6 +94,12 @@ draw_mandelbulb:
 draw_colorChecker:
 	glslViewer draw_colorChecker.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 
+draw_debug1:
+	glslViewer draw_debug1.frag -e camera_position,1.,1.,2. -l
+
+draw_debug2:
+	glslViewer draw_debug2.frag assets/dragon.obj -l
+
 generative_random:
 	glslViewer generative_random.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 

@@ -23,7 +23,7 @@ void main (void) {
     float ix = floor(st.x * 5.0);
     float kernel_size = max(1.0, ix * 3.0);;
 
-    color += kuwahara(u_tex0, st, pixel, int(kernel_size)).rgb;
+    color += kuwahara(u_tex0, st, pixel, kernel_size).rgb;
 
     color += digits(st - vec2(ix/5.0 + 0.01, 0.01), kernel_size, 0.0);
     color -= step(.99, fract(st.x * 5.0));

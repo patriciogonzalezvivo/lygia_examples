@@ -36,10 +36,12 @@ void main(void) {
 
     Material material = materialNew();
     material.albedo = vec4(vec3(0.5+0.5*bump), 1.0);
-    material.metallic = 0.0;
-    material.roughness = 0.01;
+    material.metallic = 0.01;
+    material.roughness = 0.1;
+
     vec3 N = g - dot(g, v_normal) * v_normal; // N orthogonal to N
-    material.normal = v_normal - N * 0.15;
+    material.normal = normalize(v_normal - N * 0.15);
+
     color = pbrLittle(material);
     color = linear2gamma(color);
 

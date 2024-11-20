@@ -1,3 +1,4 @@
+#version 150
 // Copyright Patricio Gonzalez Vivo, 2021 - http://patriciogonzalezvivo.com/
 
 #ifdef GL_ES
@@ -56,6 +57,8 @@ varying mat3        v_tangentToWorld;
 #define LIGHT_INTENSITY     u_lightIntensity
 #define LIGHT_COORD         v_lightCoord
 
+// #undef SCENE_SH_ARRAY
+// #define IBL_IMPORTANCE_SAMPLING
 #include "lygia/color/space/linear2gamma.glsl"
 #include "lygia/lighting/pbr.glsl"
 #include "lygia/lighting/material/new.glsl"
@@ -75,11 +78,14 @@ void main(void) {
     #endif
 
     Material material = materialNew();
+    
+    
     #if defined(FLOOR) && defined(MODEL_VERTEX_TEXCOORD)
     material.albedo.rgb = vec3(0.5) + checkBoard(uv, vec2(8.0)) * 0.5;
     #else
-    // material.roughness = 0.5;
-    // material.metallic = 0.99;
+    // material.albedo = vec4(1.0);
+    // material.metallic = 0.0;
+    // material.roughness = 0.2;
     #endif
 
     color = pbr(material);
