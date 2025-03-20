@@ -64,6 +64,9 @@ color_zorn:
 color_mix_ryb:
 	glslViewer color_mix_ryb.frag --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 
+color_mixSpectral_check:
+	glslViewer color_mixSpectral_check.frag -l
+
 distort_pincushion:
 	glslViewer distort_pincushion.frag assets/danny.png --msaa --width 512 --height 512 -e dynamic_shadows,on -l
 
