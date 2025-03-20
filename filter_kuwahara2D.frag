@@ -9,6 +9,8 @@ uniform float       u_time;
 uniform sampler2D   u_tex0;
 uniform vec2        u_tex0Resolution;
 
+// #define TARGET_MOBILE
+// #define KUWAHARA_RADIUS 5.0
 #include "lygia/sample/clamp2edge.glsl"
 #define KUWAHARA_SAMPLER_FNC(TEX, UV) sampleClamp2edge(TEX, UV)
 #include "lygia/filter/kuwahara.glsl"
